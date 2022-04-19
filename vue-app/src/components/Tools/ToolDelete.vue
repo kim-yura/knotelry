@@ -1,0 +1,165 @@
+<template>
+    <div class="tool-delete-body">
+        <form class="tool-form" @submit.prevent="submit">
+            <h2>Deleting Tool</h2>
+            <h4>{{ this.$store.state.selectedTool?.title }}</h4>
+            <img
+                v-if="this.$store.state.selectedTool?.imageURL"
+                :src="this.$store.state.selectedTool?.imageURL"
+                alt="Tool image"
+                class="tool-image"
+            />
+            <img
+                v-else
+                src="https://knotelry.s3.amazonaws.com/image-placeholder.png"
+                alt="No image found"
+                class="tool-image"
+            />
+            <p>Are you sure you want to delete this tool?</p>
+            <div class="option-buttons">
+                <button id="submit" type="submit">Delete Tool</button>
+                <p id="cancel" @click="cancel">Cancel Delete</p>
+            </div>
+        </form>
+    </div>
+</template>
+
+<script>
+import { mapMutations } from "vuex";
+
+export default {
+    name: "ToolDelete",
+    mounted() {
+        const data = loadTool(this.$route.params.toolId).then((data) => {
+            if (data && data?.userId == this.$store.state.sessionUser?.id) {
+                this.$store.commit("setSelectedTool", data);
+            } else {
+                this.$router.push("/404");
+            }
+        });
+    },
+    methods: {
+        async submit() {
+            const tool = {
+                id: this.$route.params.toolId,
+            };
+            const response = await fetch("/api/tools/", {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(tool),
+            });
+            if (response.ok) {
+                const data = await response.json();
+                this.$router.push(
+                    `/users/${this.$store.state.sessionUser.id}/toolbox`
+                );
+            }
+        },
+        cancel() {
+            this.$router.back();
+        },
+    },
+    mutations: {
+        ...mapMutations,
+    },
+};
+
+const loadTool = async (id) => {
+    const response = await fetch(`/api/tools/${id}`);
+    if (response.ok) {
+        const data = await response.json();
+        return data;
+    } else {
+        const data = false;
+        return false;
+    }
+};
+</script>
+
+<style scoped>
+.tool-delete-body {
+    display: flex;
+    flex-direction: column;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 48px;
+    margin-bottom: 48px;
+}
+
+button {
+    font-family: "Open Sans", sans-serif;
+    letter-spacing: 1px;
+    width: 146px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 4px;
+    border: 1px solid var(--color-shadow);
+    box-shadow: 1px 1px 1px var(--color-shadow);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.selected {
+    background-color: var(--color-primary-contrast);
+    color: white;
+}
+
+button:active {
+    box-shadow: 2px 2px 2px var(--color-shadow);
+}
+
+#submit {
+    width: 100%;
+    font-size: 16px;
+    margin-top: 6px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: white;
+    background-color: var(--color-primary-contrast);
+    margin-bottom: 48px;
+}
+
+.option-buttons {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4px;
+}
+
+#cancel {
+    width: 100%;
+    font-size: 16px;
+    margin-top: 6px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: var(--color-primary-contrast);
+    background-color: white;
+    margin-bottom: 48px;
+    font-family: "Open Sans", sans-serif;
+    letter-spacing: 1px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 4px;
+    border: 1px solid var(--color-shadow);
+    box-shadow: 1px 1px 1px var(--color-shadow);
+}
+
+#cancel:hover {
+    cursor: pointer;
+}
+
+#cancel:active {
+    box-shadow: 2px 2px 2px var(--color-shadow);
+}
+
+.tool-image {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid var(--color-shadow);
+}
+</style>
