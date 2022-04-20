@@ -2,13 +2,13 @@
     <div class="stash-detail">
         <div class="left">
             <span v-if="this.images">
-            <img
-                v-for="image in this.images"
-                :key="image.id"
-                class="detail-image"
-                :src="image.imageURL"
-                alt="User-uploaded image of stash item"
-            />
+                <img
+                    v-for="image in this.images"
+                    :key="image.id"
+                    class="detail-image"
+                    :src="image.imageURL"
+                    alt="User-uploaded image of stash item"
+                />
             </span>
             <img
                 v-else
@@ -247,8 +247,14 @@
                 <div class="text-label">Amount Remaining:</div>
                 <div class="stashed-content" v-if="this.linkedProjects?.length">
                     <p>{{ this.skeinsRemaining.toFixed(2) }} skeins</p>
-                    <p>{{ this.lengthRemaining.toFixed(2) }} {{ this.lengthUnit }}</p>
-                    <p>{{ this.weightRemaining.toFixed(2) }} {{ this.weightUnit }}</p>
+                    <p>
+                        {{ this.lengthRemaining.toFixed(2) }}
+                        {{ this.lengthUnit }}
+                    </p>
+                    <p>
+                        {{ this.weightRemaining.toFixed(2) }}
+                        {{ this.weightUnit }}
+                    </p>
                 </div>
                 <div class="stashed-content" v-else>
                     <p v-if="this.skeinsStashed">
@@ -459,6 +465,10 @@ export default {
                     this.notes = data.notes;
                     this.images = data.stashItemImages;
 
+                    this.skeinsRemaining = this.skeinsStashed;
+                    this.lengthRemaining = this.lengthStashed;
+                    this.weightRemaining = this.weightStashed;
+
                     this.user = data.user;
                 } else {
                     this.$router.push("/404");
@@ -476,131 +486,95 @@ export default {
                     if (materialsData) {
                         this.linkedProjectMaterials =
                             Object.values(materialsData)[0];
-                        this.linkedProjectMaterials.forEach((material) => {
-                            if (
-                                material.lengthUsed &&
-                                this.lengthStashed &&
-                                material.lengthUnit == this.lengthUnit
-                            ) {
-                                this.lengthRemaining =
-                                    Number(this.lengthStashed) -
-                                    Number(material.lengthUsed);
-                            } else if (
-                                material.lengthUsed &&
-                                this.lengthStashed &&
-                                material.lengthUnit == "yd" &&
-                                this.lengthUnit == "m"
-                            ) {
-                                this.lengthRemaining =
-                                    Number(this.lengthStashed) -
-                                    Number(material.lengthUsed) / 1.094;
-                            } else if (
-                                material.lengthUsed &&
-                                this.lengthStashed &&
-                                material.lengthUnit == "m" &&
-                                this.lengthUnit == "yd"
-                            ) {
-                                this.lengthRemaining =
-                                    Number(this.lengthStashed) -
-                                    Number(material.lengthUsed) * 1.094;
+
+                        // Calculates remainders for yarn
+                        if (this.type == "yarn") {
+                            let lengthUsed = 0;
+                            let weightUsed = 0;
+                            let skeinsUsed = 0;
+
+                            this.linkedProjectMaterials.forEach((material) => {
+                                if (
+                                    material.lengthUsed &&
+                                    material.lengthUnit == this.lengthUnit
+                                ) {
+                                    lengthUsed =
+                                        lengthUsed + material.lengthUsed;
+                                } else if (
+                                    material.lengthUsed &&
+                                    material.lengthUnit == "yd" &&
+                                    this.lengthUnit == "m"
+                                ) {
+                                    lengthUsed =
+                                        lengthUsed +
+                                        material.lengthUsed / 1.094;
+                                } else if (
+                                    material.lengthUsed &&
+                                    material.lengthUnit == "m" &&
+                                    this.lengthUnit == "yd"
+                                ) {
+                                    lengthUsed =
+                                        lengthUsed +
+                                        material.lengthUsed * 1.094;
+                                } else if (
+                                    !material.lengthUsed &&
+                                    material.weightUsed &&
+                                    material.weightUnit == this.weightUnit
+                                ) {
+                                    weightUsed =
+                                        weightUsed + material.weightUsed;
+                                } else if (
+                                    !material.lengthUsed &&
+                                    material.weightUsed &&
+                                    material.weightUnit == "g" &&
+                                    this.weightUnit == "oz"
+                                ) {
+                                    weightUsed =
+                                        weightUsed +
+                                        material.weightUsed / 28.35;
+                                } else if (
+                                    !material.lengthUsed &&
+                                    material.weightUsed &&
+                                    material.weightUnit == "oz" &&
+                                    this.weightUnit == "g"
+                                ) {
+                                    weightUsed =
+                                        weightUsed +
+                                        material.weightUsed * 28.35;
+                                } else if (
+                                    !material.lengthUsed &&
+                                    !material.weightUsed &&
+                                    material.skeinsUsed
+                                ) {
+                                    skeinsUsed =
+                                        skeinsUsed + material.skeinsUsed;
+                                }
+                            });
+
+                            let totalLengthUsed = lengthUsed;
+                            if (weightUsed !== 0) {
+                                totalLengthUsed =
+                                    totalLengthUsed +
+                                    (this.lengthPerSkein /
+                                        this.weightPerSkein) *
+                                        weightUsed;
+                            }
+                            if (skeinsUsed !== 0) {
+                                totalLengthUsed =
+                                    totalLengthUsed +
+                                    skeinsUsed * this.lengthPerSkein;
                             }
 
-                            if (
-                                material.weightUsed &&
-                                this.weightStashed &&
-                                material.weightUnit == this.weightUnit
-                            ) {
-                                this.weightRemaining =
-                                    Number(this.weightStashed) -
-                                    Number(material.weightUsed);
-                            } else if (
-                                material.weightUsed &&
-                                this.weightStashed &&
-                                material.weightUnit == "g" &&
-                                this.weightUnit == "oz"
-                            ) {
-                                this.weightRemaining =
-                                    Number(this.weightStashed) -
-                                    Number(material.weightUsed) / 28.35;
-                            } else if (
-                                material.weightUsed &&
-                                this.weightStashed &&
-                                material.weightUnit == "oz" &&
-                                this.weightUnit == "g"
-                            ) {
-                                this.weightRemaining =
-                                    Number(this.weightStashed) -
-                                    Number(material.weightUsed) * 28.35;
-                            }
+                            this.lengthRemaining =
+                                this.lengthStashed - totalLengthUsed;
+                            this.weightRemaining =
+                                (this.lengthRemaining / this.lengthPerSkein) *
+                                this.weightPerSkein;
+                            this.skeinsRemaining =
+                                this.lengthRemaining / this.lengthPerSkein;
+                        };
 
-                            if (material.skeinsUsed && this.skeinsStashed) {
-                                this.skeinsRemaining =
-                                    Number(this.skeinsStashed) -
-                                    Number(material.skeinsUsed);
-                            }
-
-                            if (!this.skeinsRemaining) {
-                                if (
-                                    this.lengthRemaining &&
-                                    this.lengthPerSkein
-                                ) {
-                                    this.skeinsRemaining =
-                                        this.lengthRemaining /
-                                        this.lengthPerSkein;
-                                } else if (
-                                    this.weightRemaining &&
-                                    this.weightPerSkein
-                                ) {
-                                    this.skeinsRemaining =
-                                        this.weightRemaining /
-                                        this.weightPerSkein;
-                                } else {
-                                    this.skeinsRemaining = "—";
-                                }
-                            }
-                            if (!this.lengthRemaining) {
-                                if (
-                                    this.skeinsRemaining &&
-                                    this.lengthPerSkein
-                                ) {
-                                    this.lengthRemaining =
-                                        this.skeinsRemaining *
-                                        this.lengthPerSkein;
-                                } else if (
-                                    this.weightRemaining &&
-                                    this.weightPerSkein &&
-                                    this.lengthPerSkein
-                                ) {
-                                    this.lengthRemaining =
-                                        (this.weightRemaining /
-                                            this.weightPerSkein) *
-                                        this.lengthPerSkein;
-                                } else {
-                                    this.lengthRemaining = "—";
-                                }
-                            }
-                            if (!this.weightRemaining) {
-                                if (
-                                    this.skeinsRemaining &&
-                                    this.weightPerSkein
-                                ) {
-                                    this.weightRemaining =
-                                        this.skeinsRemaining *
-                                        this.weightPerSkein;
-                                } else if (
-                                    this.lengthRemaining &&
-                                    this.lengthPerSkein &&
-                                    this.weightPerSkein
-                                ) {
-                                    this.weightRemaining =
-                                        (this.lengthRemaining /
-                                            this.lengthPerSkein) *
-                                        this.weightPerSkein;
-                                } else {
-                                    this.weightRemaining = "—";
-                                }
-                            }
-                        });
+                        // Calculates remainders for fiber
                     }
                 });
             }
