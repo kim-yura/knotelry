@@ -361,6 +361,90 @@ def seed_stash_items():
         stash_item_id=17,
         image_url="https://knotelry.s3.amazonaws.com/stash_17.jpg",
     )
+    fabric18 = Stash_Item(
+        user_id=1,
+        title="Poppy Fields",
+        type="fabric",
+        status="inStash",
+        attributes="patterned",
+        stored_in="Fabric closet",
+        acquired_price=26,
+        acquired_currency="USD",
+        colors="red orange yellow green black ",
+        dyer_name="Rifle Paper Co.",
+        colorway_name="Poppy Fields Black",
+        fiber_content="100% Cotton",
+        fabric_width=44,
+        fabric_width_unit="in",
+        fabric_weight=4.2,
+        fabric_weight_unit="oz",
+        fabric_weight_area_unit="yd",
+        fabric_pattern_repeat_width=12,
+        fabric_pattern_repeat_height=9.26,
+        fabric_pattern_repeat_unit="in",
+        length_stashed=2,
+        length_unit="yd",
+    )
+    fabric18_image1 = Stash_Item_Image(
+        stash_item_id=18,
+        image_url="https://knotelry.s3.amazonaws.com/stash_18.jpg",
+    )
+    fabric19 = Stash_Item(
+        user_id=1,
+        title="Lemon Grove",
+        type="fabric",
+        status="inStash",
+        attributes="patterned",
+        stored_in="Fabric closet",
+        acquired_price=26,
+        acquired_currency="USD",
+        colors="yellow green purple white cream brown ",
+        dyer_name="Rifle Paper Co.",
+        colorway_name="Lemon Grove Cream Metallic",
+        fiber_content="100% Cotton",
+        fabric_width=44,
+        fabric_width_unit="in",
+        fabric_weight=4.2,
+        fabric_weight_unit="oz",
+        fabric_weight_area_unit="yd",
+        fabric_pattern_repeat_width=8,
+        fabric_pattern_repeat_height=8.75,
+        fabric_pattern_repeat_unit="in",
+        length_stashed=2,
+        length_unit="yd",
+    )
+    fabric19_image1 = Stash_Item_Image(
+        stash_item_id=19,
+        image_url="https://knotelry.s3.amazonaws.com/stash_19.jpg",
+    )
+    fabric20 = Stash_Item(
+        user_id=1,
+        title="Eden",
+        type="fabric",
+        status="inStash",
+        attributes="patterned",
+        stored_in="Fabric closet",
+        acquired_price=26,
+        acquired_currency="USD",
+        colors="orange green cream ",
+        dyer_name="Rifle Paper Co.",
+        colorway_name="Eden Cotton Red",
+        fiber_content="100% Cotton",
+        fabric_width=44,
+        fabric_width_unit="in",
+        fabric_weight=4.2,
+        fabric_weight_unit="oz",
+        fabric_weight_area_unit="yd",
+        fabric_pattern_repeat_width=6,
+        fabric_pattern_repeat_height=6.37,
+        fabric_pattern_repeat_unit="in",
+        length_stashed=2,
+        length_unit="yd",
+    )
+    fabric20_image1 = Stash_Item_Image(
+        stash_item_id=20,
+        image_url="https://knotelry.s3.amazonaws.com/stash_20.jpg",
+    )
     test1 = Stash_Item(
         user_id=2,
         title="Not DemoUser's stash"
@@ -402,6 +486,13 @@ def seed_stash_items():
     db.session.add(fiber16_image1)
     db.session.add(fiber17)
     db.session.add(fiber17_image1)
+
+    db.session.add(fabric18)
+    db.session.add(fabric18_image1)
+    db.session.add(fabric19)
+    db.session.add(fabric19_image1)
+    db.session.add(fabric20)
+    db.session.add(fabric20_image1)
 
     db.session.add(test1)
 
