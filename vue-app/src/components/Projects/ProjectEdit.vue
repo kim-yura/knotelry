@@ -705,7 +705,7 @@
             <div class="form-element">
                 <div />
                 <div class="option-buttons">
-                    <button id="submit" type="submit">Edit</button>
+                    <button type="button" id="submit" @click="submit">Edit</button>
                     <p class="option-button" id="cancel" @click="cancel">
                         Cancel
                     </p>
