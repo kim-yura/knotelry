@@ -92,7 +92,11 @@
             <div class="divider" />
             <!-- FIBER, YARN FABRIC -->
             <div
-                v-if="this.type == 'fiber' || this.type == 'yarn'"
+                v-if="
+                    this.type == 'fiber' ||
+                    this.type == 'yarn' ||
+                    this.type == 'fabric'
+                "
                 class="detail-text"
             >
                 <div class="text-label">Dyer Name:</div>
@@ -102,7 +106,11 @@
                 <div class="text-content" v-else>—</div>
             </div>
             <div
-                v-if="this.type == 'fiber' || this.type == 'yarn'"
+                v-if="
+                    this.type == 'fiber' ||
+                    this.type == 'yarn' ||
+                    this.type == 'fabric'
+                "
                 class="detail-text"
             >
                 <div class="text-label">Colorway Name:</div>
@@ -112,7 +120,11 @@
                 <div class="text-content" v-else>—</div>
             </div>
             <div
-                v-if="this.type == 'fiber' || this.type == 'yarn'"
+                v-if="
+                    this.type == 'fiber' ||
+                    this.type == 'yarn' ||
+                    this.type == 'fabric'
+                "
                 class="detail-text"
             >
                 <div class="text-label">Fiber Content:</div>
@@ -131,153 +143,250 @@
                 <div class="text-content" v-else>—</div>
             </div>
             <!-- YARN DETAILS -->
-            <div v-if="this.type == 'yarn'" class="detail-text">
-                <div class="text-label">Yarn Weight:</div>
-                <div class="text-content" v-if="this.yarnWeight == 'lace'">
-                    Lace Weight
-                </div>
-                <div
-                    class="text-content"
-                    v-else-if="this.yarnWeight == 'lfingering'"
-                >
-                    Light Fingering Weight
-                </div>
-                <div
-                    class="text-content"
-                    v-else-if="this.yarnWeight == 'fingering'"
-                >
-                    Fingering Weight
-                </div>
-                <div
-                    class="text-content"
-                    v-else-if="this.yarnWeight == 'sport'"
-                >
-                    Sport Weight
-                </div>
-                <div class="text-content" v-else-if="this.yarnWeight == 'dk'">
-                    DK Weight
-                </div>
-                <div
-                    class="text-content"
-                    v-else-if="this.yarnWeight == 'worsted'"
-                >
-                    Worsted Weight
-                </div>
-                <div class="text-content" v-else-if="this.yarnWeight == 'aran'">
-                    Aran Weight
-                </div>
-                <div
-                    class="text-content"
-                    v-else-if="this.yarnWeight == 'bulky'"
-                >
-                    Bulky Weight
-                </div>
-                <div
-                    class="text-content"
-                    v-else-if="this.yarnWeight == 'sbulky'"
-                >
-                    Super Bulky Weight
-                </div>
-                <div class="text-content" v-else>—</div>
-            </div>
-            <div v-if="this.type == 'yarn'" class="detail-text">
-                <div class="text-label">Skein Details:</div>
-                <div
-                    class="text-content"
-                    v-if="this.lengthPerSkein && this.weightPerSkein"
-                >
-                    {{ this.lengthPerSkein }} {{ this.lengthUnit }} /
-                    {{ this.weightPerSkein }} {{ this.weightUnit }}
-                </div>
-                <div class="text-content" v-else-if="this.lengthPerSkein">
-                    {{ this.lengthPerSkein }} {{ this.lengthUnit }}
-                </div>
-                <div class="text-content" v-else-if="this.weightPerSkein">
-                    {{ this.weightPerSkein }} {{ this.weightUnit }}
-                </div>
-                <div class="text-content" v-else>—</div>
-            </div>
-            <div v-if="this.type == 'yarn'" class="detail-text">
-                <div class="text-label">Amount Stashed:</div>
-                <div class="stashed-content">
-                    <p v-if="this.skeinsStashed">
-                        {{ this.skeinsStashed.toFixed(2) }} skeins
-                    </p>
-                    <p v-else-if="this.lengthStashed && this.lengthPerSkein">
-                        {{
-                            (this.lengthStashed / this.lengthPerSkein).toFixed(
-                                2
-                            )
-                        }}
-                        skeins
-                    </p>
-                    <p v-else-if="this.weightStashed && this.weightPerSkein">
-                        {{
-                            (this.weightStashed / this.weightPerSkein).toFixed(
-                                2
-                            )
-                        }}
-                        skeins
-                    </p>
-                    <p v-else>— skeins</p>
-                    <p v-if="this.lengthStashed">
-                        {{ this.lengthStashed.toFixed(2) }}
-                        {{ this.lengthUnit }}
-                    </p>
-                    <p v-else-if="this.skeinsStashed && this.lengthPerSkein">
-                        {{
-                            (this.skeinsStashed * this.lengthPerSkein).toFixed(
-                                2
-                            )
-                        }}
-                        {{ this.lengthUnit }}
-                    </p>
-                    <p
-                        v-else-if="
-                            this.weightStashed &&
-                            this.weightPerSkein &&
-                            this.lengthPerSkein
-                        "
+            <span v-if="this.type == 'yarn'">
+                <div class="detail-text">
+                    <div class="text-label">Yarn Weight:</div>
+                    <div class="text-content" v-if="this.yarnWeight == 'lace'">
+                        Lace Weight
+                    </div>
+                    <div
+                        class="text-content"
+                        v-else-if="this.yarnWeight == 'lfingering'"
                     >
-                        {{
-                            (
-                                (this.weightStashed / this.weightPerSkein) *
+                        Light Fingering Weight
+                    </div>
+                    <div
+                        class="text-content"
+                        v-else-if="this.yarnWeight == 'fingering'"
+                    >
+                        Fingering Weight
+                    </div>
+                    <div
+                        class="text-content"
+                        v-else-if="this.yarnWeight == 'sport'"
+                    >
+                        Sport Weight
+                    </div>
+                    <div
+                        class="text-content"
+                        v-else-if="this.yarnWeight == 'dk'"
+                    >
+                        DK Weight
+                    </div>
+                    <div
+                        class="text-content"
+                        v-else-if="this.yarnWeight == 'worsted'"
+                    >
+                        Worsted Weight
+                    </div>
+                    <div
+                        class="text-content"
+                        v-else-if="this.yarnWeight == 'aran'"
+                    >
+                        Aran Weight
+                    </div>
+                    <div
+                        class="text-content"
+                        v-else-if="this.yarnWeight == 'bulky'"
+                    >
+                        Bulky Weight
+                    </div>
+                    <div
+                        class="text-content"
+                        v-else-if="this.yarnWeight == 'sbulky'"
+                    >
+                        Super Bulky Weight
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Skein Details:</div>
+                    <div
+                        class="text-content"
+                        v-if="this.lengthPerSkein && this.weightPerSkein"
+                    >
+                        {{ this.lengthPerSkein }} {{ this.lengthUnit }} /
+                        {{ this.weightPerSkein }} {{ this.weightUnit }}
+                    </div>
+                    <div class="text-content" v-else-if="this.lengthPerSkein">
+                        {{ this.lengthPerSkein }} {{ this.lengthUnit }}
+                    </div>
+                    <div class="text-content" v-else-if="this.weightPerSkein">
+                        {{ this.weightPerSkein }} {{ this.weightUnit }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Amount Stashed:</div>
+                    <div class="stashed-content">
+                        <p v-if="this.skeinsStashed">
+                            {{ this.skeinsStashed.toFixed(2) }} skeins
+                        </p>
+                        <p
+                            v-else-if="
+                                this.lengthStashed && this.lengthPerSkein
+                            "
+                        >
+                            {{
+                                (
+                                    this.lengthStashed / this.lengthPerSkein
+                                ).toFixed(2)
+                            }}
+                            skeins
+                        </p>
+                        <p
+                            v-else-if="
+                                this.weightStashed && this.weightPerSkein
+                            "
+                        >
+                            {{
+                                (
+                                    this.weightStashed / this.weightPerSkein
+                                ).toFixed(2)
+                            }}
+                            skeins
+                        </p>
+                        <p v-else>— skeins</p>
+                        <p v-if="this.lengthStashed">
+                            {{ this.lengthStashed.toFixed(2) }}
+                            {{ this.lengthUnit }}
+                        </p>
+                        <p
+                            v-else-if="
+                                this.skeinsStashed && this.lengthPerSkein
+                            "
+                        >
+                            {{
+                                (
+                                    this.skeinsStashed * this.lengthPerSkein
+                                ).toFixed(2)
+                            }}
+                            {{ this.lengthUnit }}
+                        </p>
+                        <p
+                            v-else-if="
+                                this.weightStashed &&
+                                this.weightPerSkein &&
                                 this.lengthPerSkein
-                            ).toFixed(2)
-                        }}
-                        {{ this.lengthUnit }}
-                    </p>
-                    <p v-else>— {{ this.lengthUnit }}</p>
-                    <p v-if="this.weightStashed">
-                        {{ this.weightStashed.toFixed(2) }}
-                        {{ this.weightUnit }}
-                    </p>
-                    <p v-else-if="this.skeinsStashed && this.weightPerSkein">
-                        {{
-                            (this.weightPerSkein * this.skeinsStashed).toFixed(
-                                2
-                            )
-                        }}
-                        {{ this.weightUnit }}
-                    </p>
-                    <p
-                        v-else-if="
-                            this.lengthStashed &&
-                            this.lengthPerSkein &&
-                            this.weightPerSkein
+                            "
+                        >
+                            {{
+                                (
+                                    (this.weightStashed / this.weightPerSkein) *
+                                    this.lengthPerSkein
+                                ).toFixed(2)
+                            }}
+                            {{ this.lengthUnit }}
+                        </p>
+                        <p v-else>— {{ this.lengthUnit }}</p>
+                        <p v-if="this.weightStashed">
+                            {{ this.weightStashed.toFixed(2) }}
+                            {{ this.weightUnit }}
+                        </p>
+                        <p
+                            v-else-if="
+                                this.skeinsStashed && this.weightPerSkein
+                            "
+                        >
+                            {{
+                                (
+                                    this.weightPerSkein * this.skeinsStashed
+                                ).toFixed(2)
+                            }}
+                            {{ this.weightUnit }}
+                        </p>
+                        <p
+                            v-else-if="
+                                this.lengthStashed &&
+                                this.lengthPerSkein &&
+                                this.weightPerSkein
+                            "
+                        >
+                            {{
+                                (
+                                    (this.lengthStashed / this.lengthPerSkein) *
+                                    this.weightPerSkein
+                                ).toFixed(2)
+                            }}
+                            {{ this.weightUnit }}
+                        </p>
+                        <p v-else>— {{ this.weightUnit }}</p>
+                    </div>
+                </div>
+            </span>
+            <!-- FABRIC DETAILS -->
+            <span v-if="this.type == 'fabric'">
+                <div class="detail-text">
+                    <div class="text-label">Fabric Width:</div>
+                    <div class="text-content" v-if="this.fabricWidth">
+                        {{ this.fabricWidth }} {{ this.fabricWidthUnit }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Fabric Weight:</div>
+                    <div
+                        class="text-content"
+                        v-if="
+                            this.fabricWeight &&
+                            this.fabricWeightAreaUnit == 'yd'
                         "
                     >
-                        {{
-                            (
-                                (this.lengthStashed / this.lengthPerSkein) *
-                                this.weightPerSkein
-                            ).toFixed(2)
-                        }}
-                        {{ this.weightUnit }}
-                    </p>
-                    <p v-else>— {{ this.weightUnit }}</p>
+                        {{ this.fabricWeight }} {{ this.fabricWeightUnit }} per
+                        square yard
+                    </div>
+                    <div
+                        class="text-content"
+                        v-else-if="
+                            this.fabricWeight &&
+                            this.fabricWeightAreaUnit == 'm'
+                        "
+                    >
+                        {{ this.fabricWeight }} {{ this.fabricWeightUnit }} per
+                        square meter
+                    </div>
+                    <div class="text-content" v-else>—</div>
                 </div>
-            </div>
+                <div class="detail-text">
+                    <div class="text-label">Pattern Repeat:</div>
+                    <div
+                        class="text-content"
+                        v-if="
+                            this.fabricPatternRepeatWidth &&
+                            this.fabricPatternRepeatHeight
+                        "
+                    >
+                        {{ this.fabricPatternRepeatWidth }}
+                        {{ this.fabricPatternRepeatUnit }} x
+                        {{ this.fabricPatternRepeatHeight }}
+                        {{ this.fabricPatternRepeatUnit }}
+                    </div>
+                    <div
+                        class="text-content"
+                        v-else-if="this.fabricPatternRepeatWidth"
+                    >
+                        {{ this.fabricPatternRepeatWidth }}
+                        {{ this.fabricPatternRepeatUnit }} x —
+                        {{ this.fabricPatternRepeatUnit }}
+                    </div>
+                    <div
+                        class="text-content"
+                        v-else-if="this.fabricPatternRepeatHeight"
+                    >
+                        — {{ this.fabricPatternRepeatUnit }} x
+                        {{ this.fabricPatternRepeatHeight }}
+                        {{ this.fabricPatternRepeatUnit }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Amount Stashed:</div>
+                    <div class="text-content" v-if="this.lengthStashed">
+                        {{ this.lengthStashed }} {{ this.lengthUnit }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+            </span>
             <div class="detail-text">
                 <div class="text-label">Amount Remaining:</div>
                 <!-- Render for yarn remainder -->
@@ -330,7 +439,11 @@
                 </div>
             </div>
             <div
-                v-if="this.type == 'yarn' || this.type == 'fiber'"
+                v-if="
+                    this.type == 'yarn' ||
+                    this.type == 'fiber' ||
+                    this.type == 'fabric'
+                "
                 class="detail-text"
             >
                 <div class="text-label">Colors:</div>
@@ -428,7 +541,11 @@ export default {
                     this.title = data.title;
                     this.description = data.description;
                     this.type = data.type;
+
                     this.status = data.status;
+                    this.tags = data.tags;
+                    this.attributes = data.attributes;
+                    this.storedIn = data.storedIn;
 
                     this.acquired = data.acquired;
                     this.acquiredFrom = data.acquiredFrom;
@@ -479,6 +596,17 @@ export default {
                     this.lengthStashed = data.lengthStashed;
                     this.weightStashed = data.weightStashed;
                     this.isHandspun = data.isHandspun;
+
+                    this.fabricWidth = data.fabricWidth;
+                    this.fabricWidthUnit = data.fabricWidthUnit;
+                    this.fabricWeight = data.fabricWeight;
+                    this.fabricWeightUnit = data.fabricWeightUnit;
+                    this.fabricWeightAreaUnit = data.fabricWeightAreaUnit;
+                    this.fabricPatternRepeatWidth =
+                        data.fabricPatternRepeatWidth;
+                    this.fabricPatternRepeatHeight =
+                        data.fabricPatternRepeatHeight;
+                    this.fabricPatternRepeatUnit = data.fabricPatternRepeatUnit;
 
                     this.notes = data.notes;
                     this.images = data.stashItemImages;
@@ -647,7 +775,11 @@ export default {
             title: null,
             description: null,
             type: null,
+
             status: null,
+            tags: null,
+            attributes: null,
+            storedIn: null,
 
             acquired: null,
             acquiredFrom: null,
@@ -677,8 +809,8 @@ export default {
 
             dyerName: null,
             colorwayName: null,
-
             fiberContent: null,
+
             fiberQuantity: null,
             fiberQuantityUnit: null,
 
@@ -691,6 +823,15 @@ export default {
             lengthStashed: null,
             weightStashed: null,
             isHandspun: false,
+
+            fabricWidth: null,
+            fabricWidthUnit: null,
+            fabricWeight: null,
+            fabricWeightUnit: null,
+            fabricWeightAreaUnit: null,
+            fabricPatternRepeatWidth: null,
+            fabricPatternRepeatHeight: null,
+            fabricPatternRepeatUnit: null,
 
             skeinsRemaining: null,
             lengthRemaining: null,
