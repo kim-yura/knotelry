@@ -193,17 +193,32 @@
                         {{ this.skeinsStashed.toFixed(2) }} skeins
                     </p>
                     <p v-else-if="this.lengthStashed && this.lengthPerSkein">
-                        {{ (this.lengthStashed / this.lengthPerSkein).toFixed(2) }} skeins
+                        {{
+                            (this.lengthStashed / this.lengthPerSkein).toFixed(
+                                2
+                            )
+                        }}
+                        skeins
                     </p>
                     <p v-else-if="this.weightStashed && this.weightPerSkein">
-                        {{ (this.weightStashed / this.weightPerSkein).toFixed(2) }} skeins
+                        {{
+                            (this.weightStashed / this.weightPerSkein).toFixed(
+                                2
+                            )
+                        }}
+                        skeins
                     </p>
-                    <p v-else>— Skeins</p>
+                    <p v-else>— skeins</p>
                     <p v-if="this.lengthStashed">
-                        {{ this.lengthStashed.toFixed(2) }} {{ this.lengthUnit }}
+                        {{ this.lengthStashed.toFixed(2) }}
+                        {{ this.lengthUnit }}
                     </p>
                     <p v-else-if="this.skeinsStashed && this.lengthPerSkein">
-                        {{ (this.skeinsStashed * this.lengthPerSkein).toFixed(2) }}
+                        {{
+                            (this.skeinsStashed * this.lengthPerSkein).toFixed(
+                                2
+                            )
+                        }}
                         {{ this.lengthUnit }}
                     </p>
                     <p
@@ -214,17 +229,24 @@
                         "
                     >
                         {{
-                            ((this.weightStashed / this.weightPerSkein) *
-                            this.lengthPerSkein).toFixed(2)
+                            (
+                                (this.weightStashed / this.weightPerSkein) *
+                                this.lengthPerSkein
+                            ).toFixed(2)
                         }}
                         {{ this.lengthUnit }}
                     </p>
                     <p v-else>— {{ this.lengthUnit }}</p>
                     <p v-if="this.weightStashed">
-                        {{ (this.weightStashed).toFixed(2) }} {{ this.weightUnit }}
+                        {{ this.weightStashed.toFixed(2) }}
+                        {{ this.weightUnit }}
                     </p>
                     <p v-else-if="this.skeinsStashed && this.weightPerSkein">
-                        {{ (this.weightPerSkein * this.skeinsStashed).toFixed(2) }}
+                        {{
+                            (this.weightPerSkein * this.skeinsStashed).toFixed(
+                                2
+                            )
+                        }}
                         {{ this.weightUnit }}
                     </p>
                     <p
@@ -235,8 +257,10 @@
                         "
                     >
                         {{
-                            ((this.lengthStashed / this.lengthPerSkein) *
-                            this.weightPerSkein).toFixed(2)
+                            (
+                                (this.lengthStashed / this.lengthPerSkein) *
+                                this.weightPerSkein
+                            ).toFixed(2)
                         }}
                         {{ this.weightUnit }}
                     </p>
@@ -246,9 +270,22 @@
             <div v-if="this.type == 'yarn'" class="detail-text">
                 <div class="text-label">Amount Remaining:</div>
                 <div class="stashed-content">
-                    <p>{{ this.skeinsRemaining.toFixed(2) }} skeins</p>
-                    <p>{{ this.lengthRemaining.toFixed(2) }} {{ this.lengthUnit }}</p>
-                    <p>{{ this.weightRemaining.toFixed(2) }} {{ this.weightUnit }}</p>
+                    <p v-if="isNaN(this.skeinsRemaining)">— skeins</p>
+                    <p v-else>{{ this.skeinsRemaining.toFixed(2) }} skeins</p>
+                    <p v-if="isNaN(this.lengthRemaining)">
+                        — {{ this.lengthUnit }}
+                    </p>
+                    <p v-else>
+                        {{ this.lengthRemaining.toFixed(2) }}
+                        {{ this.lengthUnit }}
+                    </p>
+                    <p v-if="isNaN(this.weightRemaining)">
+                        — {{ this.weightUnit }}
+                    </p>
+                    <p v-else>
+                        {{ this.weightRemaining.toFixed(2) }}
+                        {{ this.weightUnit }}
+                    </p>
                 </div>
             </div>
             <div
