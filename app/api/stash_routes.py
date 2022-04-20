@@ -56,10 +56,15 @@ def get_linked_project_materials(id):
 def post_stash_item():
     stash_item = Stash_Item(
         user_id = request.json['user_id'],
+
         title = request.json['title'],
         description = request.json['description'],
         type = request.json['type'],
+
         status = request.json['status'],
+        tags = request.json['tags'],
+        attributes = request.json['attributes'],
+        stored_in = request.json['stored_in'],
 
         acquired = request.json['acquired'],
         acquired_from = request.json['acquired_from'],
@@ -70,8 +75,8 @@ def post_stash_item():
 
         dyer_name = request.json['dyer_name'],
         colorway_name = request.json['colorway_name'],
-
         fiber_content = request.json['fiber_content'],
+
         fiber_quantity = request.json['fiber_quantity'],
         fiber_quantity_unit = request.json['fiber_quantity_unit'],
 
@@ -84,6 +89,15 @@ def post_stash_item():
         length_stashed = request.json['length_stashed'],
         weight_stashed = request.json['weight_stashed'],
         is_handspun = request.json['is_handspun'],
+
+        fabric_width = request.json['fabric_width'],
+        fabric_width_unit = request.json['fabric_width_unit'],
+        fabric_weight = request.json['fabric_weight'],
+        fabric_weight_unit = request.json['fabric_weight_unit'],
+        fabric_weight_area_unit = request.json['fabric_weight_area_unit'],
+        fabric_pattern_repeat_width = request.json['fabric_pattern_repeat_width'],
+        fabric_pattern_repeat_height = request.json['fabric_pattern_repeat_height'],
+        fabric_pattern_repeat_unit = request.json['fabric_pattern_repeat_unit'],
 
         notes = request.json['notes'],
         created_at = datetime.now(),
@@ -115,7 +129,11 @@ def put_stash_item():
         'title': request.json['title'],
         'description': request.json['description'],
         'type': request.json['type'],
+
         'status': request.json['status'],
+        'tags': request.json['tags'],
+        'attributes': request.json['attributes'],
+        'stored_in': request.json['stored_in'],
 
         'acquired': request.json['acquired'],
         'acquired_from': request.json['acquired_from'],
@@ -126,8 +144,8 @@ def put_stash_item():
 
         'dyer_name': request.json['dyer_name'],
         'colorway_name': request.json['colorway_name'],
-
         'fiber_content': request.json['fiber_content'],
+
         'fiber_quantity': request.json['fiber_quantity'],
         'fiber_quantity_unit': request.json['fiber_quantity_unit'],
 
@@ -140,6 +158,15 @@ def put_stash_item():
         'length_stashed': request.json['length_stashed'],
         'weight_stashed': request.json['weight_stashed'],
         'is_handspun': request.json['is_handspun'],
+
+        'fabric_width': request.json['fabric_width'],
+        'fabric_width_unit': request.json['fabric_width_unit'],
+        'fabric_weight': request.json['fabric_weight'],
+        'fabric_weight_unit': request.json['fabric_weight_unit'],
+        'fabric_weight_area_unit': request.json['fabric_weight_area_unit'],
+        'fabric_pattern_repeat_width': request.json['fabric_pattern_repeat_width'],
+        'fabric_pattern_repeat_height': request.json['fabric_pattern_repeat_height'],
+        'fabric_pattern_repeat_unit': request.json['fabric_pattern_repeat_unit'],
 
         'notes': request.json['notes'],
         'updated_at': datetime.now(),
