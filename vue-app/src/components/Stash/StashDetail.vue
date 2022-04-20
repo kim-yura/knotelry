@@ -115,7 +115,8 @@
             <div v-if="this.type == 'fiber'" class="detail-text">
                 <div class="text-label">Amount Stashed:</div>
                 <div class="text-content" v-if="this.fiberQuantity">
-                    {{ this.fiberQuantity.toFixed(2) }} {{ this.fiberQuantityUnit }}
+                    {{ this.fiberQuantity.toFixed(2) }}
+                    {{ this.fiberQuantityUnit }}
                 </div>
                 <div class="text-content" v-else>—</div>
             </div>
@@ -271,16 +272,30 @@
                 <div class="text-label">Amount Remaining:</div>
                 <!-- Render for yarn remainder -->
                 <div class="stashed-content" v-if="this.type == 'yarn'">
-                    <p v-if="isNaN(this.skeinsRemaining)">— skeins</p>
+                    <p
+                        v-if="
+                            isNaN(this.skeinsRemaining) || !this.skeinsRemaining
+                        "
+                    >
+                        — skeins
+                    </p>
                     <p v-else>{{ this.skeinsRemaining.toFixed(2) }} skeins</p>
-                    <p v-if="isNaN(this.lengthRemaining)">
+                    <p
+                        v-if="
+                            isNaN(this.lengthRemaining) || !this.lengthRemaining
+                        "
+                    >
                         — {{ this.lengthUnit }}
                     </p>
                     <p v-else>
                         {{ this.lengthRemaining.toFixed(2) }}
                         {{ this.lengthUnit }}
                     </p>
-                    <p v-if="isNaN(this.weightRemaining)">
+                    <p
+                        v-if="
+                            isNaN(this.weightRemaining) || !this.weightRemaining
+                        "
+                    >
                         — {{ this.weightUnit }}
                     </p>
                     <p v-else>
@@ -290,7 +305,12 @@
                 </div>
                 <!-- Render for fiber remainder -->
                 <div class="stashed-content" v-if="this.type == 'fiber'">
-                    <p v-if="isNaN(this.fiberQuantityRemaining) || !this.fiberQuantityRemaining">
+                    <p
+                        v-if="
+                            isNaN(this.fiberQuantityRemaining) ||
+                            !this.fiberQuantityRemaining
+                        "
+                    >
                         — {{ this.fiberQuantityUnit }}
                     </p>
                     <p v-else>
@@ -603,7 +623,8 @@ export default {
                                     }
                                 );
                             } else {
-                                this.fiberQuantityRemaining = this.fiberQuantity;
+                                this.fiberQuantityRemaining =
+                                    this.fiberQuantity;
                             }
                         }
                     }
