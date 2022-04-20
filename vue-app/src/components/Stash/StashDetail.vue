@@ -382,7 +382,7 @@
                 <div class="detail-text">
                     <div class="text-label">Amount Stashed:</div>
                     <div class="text-content" v-if="this.lengthStashed">
-                        {{ this.lengthStashed }} {{ this.lengthUnit }}
+                        {{ this.lengthStashed.toFixed(2) }} {{ this.lengthUnit }}
                     </div>
                     <div class="text-content" v-else>—</div>
                 </div>
@@ -435,6 +435,19 @@
                     <p v-else>
                         {{ this.fiberQuantityRemaining.toFixed(2) }}
                         {{ this.fiberQuantityUnit }}
+                    </p>
+                </div>
+                <!-- Render for fabric remainder -->
+                <div class="stashed-content" v-if="this.type == 'fabric'">
+                    <p
+                        v-if="
+                            isNaN(this.lengthRemaining) || !this.lengthRemaining
+                        "
+                    >
+                        — {{ this.lengthUnit }}
+                    </p>
+                    <p v-else>
+                        {{ this.lengthRemaining.toFixed(2) }} {{ this.lengthUnit }}
                     </p>
                 </div>
             </div>
@@ -764,6 +777,45 @@ export default {
                                 this.fiberQuantityRemaining =
                                     this.fiberQuantity;
                             }
+                        }
+
+                        // Calculates remainders for fabric
+                        if (this.type == "fabric") {
+                            let lengthUsed = 0;
+
+                            if (this.linkedProjectMaterials.length) {
+                                this.linkedProjectMaterials.forEach(
+                                    (material) => {
+                                        if (
+                                            material.lengthUsed &&
+                                            material.lengthUnit ==
+                                                this.lengthUnit
+                                        ) {
+                                            lengthUsed =
+                                                lengthUsed +
+                                                material.lengthUsed;
+                                        } else if (
+                                            material.lengthUsed &&
+                                            material.lengthUnit == "yd" &&
+                                            this.lengthUnit == "m"
+                                        ) {
+                                            lengthUsed =
+                                                lengthUsed +
+                                                material.lengthUsed / 1.094;
+                                        } else if (
+                                            material.lengthUsed &&
+                                            material.lengthUnit == "m" &&
+                                            this.lengthUnit == "yd"
+                                        ) {
+                                            lengthUsed =
+                                                lengthUsed +
+                                                material.lengthUsed * 1.094;
+                                        }
+                                    }
+                                );
+                            }
+                            this.lengthRemaining =
+                                this.lengthStashed - lengthUsed;
                         }
                     }
                 });
