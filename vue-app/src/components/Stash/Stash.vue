@@ -32,12 +32,13 @@
                         </option>
                         <option value="fiber">Fiber</option>
                         <option value="yarn">Yarn</option>
+                        <option value="fabric">Fabric</option>
                     </select>
                 </div>
-                <!-- IF FIBER OR YARN -->
+                <!-- IF FIBER, YARN, OR FABRIC -->
                 <div
                     v-if="
-                        this.searchType == 'fiber' || this.searchType == 'yarn'
+                        this.searchType == 'fiber' || this.searchType == 'yarn' || this.searchType == 'fabric'
                     "
                 >
                     <label>Search for Any:</label>
