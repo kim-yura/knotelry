@@ -90,7 +90,7 @@
                 <div class="text-content" v-else>—</div>
             </div>
             <div class="divider" />
-            <!-- DYER NAME AND COLORWAY -->
+            <!-- FIBER, YARN FABRIC -->
             <div
                 v-if="this.type == 'fiber' || this.type == 'yarn'"
                 class="detail-text"
@@ -108,6 +108,16 @@
                 <div class="text-label">Colorway Name:</div>
                 <div class="text-content" v-if="this.colorwayName">
                     {{ this.colorwayName }}
+                </div>
+                <div class="text-content" v-else>—</div>
+            </div>
+            <div
+                v-if="this.type == 'fiber' || this.type == 'yarn'"
+                class="detail-text"
+            >
+                <div class="text-label">Fiber Content:</div>
+                <div class="text-content" v-if="this.fiberContent">
+                    {{ this.fiberContent }}
                 </div>
                 <div class="text-content" v-else>—</div>
             </div>

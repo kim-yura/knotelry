@@ -48,9 +48,9 @@ class Stash_Item(db.Model):
     # Fiber and yarn attributes
     dyer_name = db.Column(db.Text)
     colorway_name = db.Column(db.Text)
+    fiber_content = db.Column(db.String(200))
 
     # Fiber attributes
-    fiber_content = db.Column(db.String(200))
     fiber_quantity = db.Column(db.Float)
     fiber_quantity_unit = db.Column(db.String(5))
 
@@ -92,8 +92,8 @@ class Stash_Item(db.Model):
 
             'dyer_name': self.dyer_name,
             'colorway_name': self.colorway_name,
-
             'fiber_content': self.fiber_content,
+
             'fiber_quantity': self.fiber_quantity,
             'fiber_quantity_unit': self.fiber_quantity_unit,
 
@@ -134,8 +134,8 @@ class Stash_Item(db.Model):
 
             'dyerName': self.dyer_name,
             'colorwayName': self.colorway_name,
-
             'fiberContent': self.fiber_content,
+
             'fiberQuantity': self.fiber_quantity,
             'fiberQuantityUnit': self.fiber_quantity_unit,
 
