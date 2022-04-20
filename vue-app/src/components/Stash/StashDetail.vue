@@ -115,7 +115,7 @@
             <div v-if="this.type == 'fiber'" class="detail-text">
                 <div class="text-label">Amount Stashed:</div>
                 <div class="text-content" v-if="this.fiberQuantity">
-                    {{ this.fiberQuantity }} {{ this.fiberQuantityUnit }}
+                    {{ this.fiberQuantity.toFixed(2) }} {{ this.fiberQuantityUnit }}
                 </div>
                 <div class="text-content" v-else>—</div>
             </div>
@@ -267,9 +267,10 @@
                     <p v-else>— {{ this.weightUnit }}</p>
                 </div>
             </div>
-            <div v-if="this.type == 'yarn'" class="detail-text">
+            <div class="detail-text">
                 <div class="text-label">Amount Remaining:</div>
-                <div class="stashed-content">
+                <!-- Render for yarn remainder -->
+                <div class="stashed-content" v-if="this.type == 'yarn'">
                     <p v-if="isNaN(this.skeinsRemaining)">— skeins</p>
                     <p v-else>{{ this.skeinsRemaining.toFixed(2) }} skeins</p>
                     <p v-if="isNaN(this.lengthRemaining)">
@@ -285,6 +286,16 @@
                     <p v-else>
                         {{ this.weightRemaining.toFixed(2) }}
                         {{ this.weightUnit }}
+                    </p>
+                </div>
+                <!-- Render for fiber remainder -->
+                <div class="stashed-content" v-if="this.type == 'fiber'">
+                    <p v-if="isNaN(this.fiberQuantityRemaining)">
+                        — {{ this.fiberQuantityUnit }}
+                    </p>
+                    <p v-else>
+                        {{ this.fiberQuantityRemaining.toFixed(2) }}
+                        {{ this.fiberQuantityUnit }}
                     </p>
                 </div>
             </div>
@@ -552,6 +563,49 @@ export default {
                         }
 
                         // Calculates remainders for fiber
+                        if (this.type == "fiber") {
+                            let weightUsed = 0;
+
+                            if (this.linkedProjectMaterials.length) {
+                                this.linkedProjectMaterials.forEach(
+                                    (material) => {
+                                        if (
+                                            material.fiberQuantityUsed &&
+                                            material.fiberQuantityUnit ==
+                                                this.fiberQuantityUnit
+                                        ) {
+                                            weightUsed =
+                                                weightUsed +
+                                                material.fiberQuantityUsed;
+                                        } else if (
+                                            material.fiberQuantityUsed &&
+                                            material.fiberQuantityUnit == "g" &&
+                                            this.fiberQuantityUnit == "oz"
+                                        ) {
+                                            weightUsed =
+                                                weightUsed +
+                                                material.fiberQuantityUsed /
+                                                    28.35;
+                                        } else if (
+                                            material.fiberQuantityUsed &&
+                                            material.fiberQuantityUnit ==
+                                                "oz" &&
+                                            this.fiberQuantityUnit == "g"
+                                        ) {
+                                            weightUsed =
+                                                weightUsed +
+                                                material.fiberQuantityUsed *
+                                                    28.35;
+                                        }
+
+                                        this.fiberQuantityRemaining =
+                                            this.fiberQuantity - weightUsed;
+                                    }
+                                );
+                            } else {
+                                this.fiberQuantityRemaining = this.fiberQuantity;
+                            }
+                        }
                     }
                 });
             }
@@ -610,6 +664,7 @@ export default {
             skeinsRemaining: null,
             lengthRemaining: null,
             weightRemaining: null,
+            fiberQuantityRemaining: null,
 
             notes: null,
             images: [],
