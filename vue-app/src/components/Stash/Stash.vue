@@ -14,9 +14,7 @@
                 <div>
                     <label>Filter by Status</label>
                     <select name="status" id="status" v-model="searchStatus">
-                        <option value=null selected disabled hidden>
-                            —
-                        </option>
+                        <option value="null" selected disabled hidden>—</option>
                         <option value="inStash">In Stash</option>
                         <option value="inUse">In Use</option>
                         <option value="usedUp">Used Up</option>
@@ -27,9 +25,7 @@
                 <div>
                     <label>Filter by Type</label>
                     <select name="type" id="type" v-model="searchType">
-                        <option value=null selected disabled hidden>
-                            —
-                        </option>
+                        <option value="null" selected disabled hidden>—</option>
                         <option value="fiber">Fiber</option>
                         <option value="yarn">Yarn</option>
                         <option value="fabric">Fabric</option>
@@ -38,7 +34,9 @@
                 <!-- IF FIBER, YARN, OR FABRIC -->
                 <div
                     v-if="
-                        this.searchType == 'fiber' || this.searchType == 'yarn' || this.searchType == 'fabric'
+                        this.searchType == 'fiber' ||
+                        this.searchType == 'yarn' ||
+                        this.searchType == 'fabric'
                     "
                 >
                     <label>Search for Any:</label>
@@ -210,9 +208,7 @@
                         id="yarnWeight"
                         v-model="searchYarnWeight"
                     >
-                        <option value=null selected disabled hidden>
-                            —
-                        </option>
+                        <option value="null" selected disabled hidden>—</option>
                         <option value="lace">Lace</option>
                         <option value="lfingering">Light Fingering</option>
                         <option value="fingering">Fingering</option>
@@ -237,6 +233,26 @@
                             name="fiberUnit"
                             id="fiberUnit"
                             v-model="searchYarnUnit"
+                        >
+                            <option value="yd">yards</option>
+                            <option value="m">meters</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- IF FABRIC TYPE -->
+                <div v-if="this.searchType == 'fabric'">
+                    <label>Filter by Minimum Length</label>
+                    <div class="input-select">
+                        <input
+                            type="text"
+                            class="input-select-input"
+                            v-model="searchFabricLength"
+                            placeholder="0"
+                        />
+                        <select
+                            name="fabricUnit"
+                            id="fabricUnit"
+                            v-model="searchFabricUnit"
                         >
                             <option value="yd">yards</option>
                             <option value="m">meters</option>
@@ -332,6 +348,8 @@ export default {
             searchYarnWeight: null,
             searchYarnQuantity: null,
             searchYarnUnit: "yd",
+            searchFabricLength: null,
+            searchFabricUnit: "yd",
 
             searchRed: false,
             searchRedOrange: false,
@@ -498,6 +516,43 @@ export default {
                             });
                             stashData = temp;
                         }
+                    }
+                    if (this.searchFabricLength) {
+                        const temp = [];
+                        if (this.searchFabricUnit == "yd") {
+                            stashData.forEach((stashItem) => {
+                                if (
+                                    stashItem.lengthUnit == "yd" &&
+                                    stashItem.lengthStashed >=
+                                        this.searchFabricLength
+                                ) {
+                                    temp.push(stashItem);
+                                } else if (
+                                    stashItem.lengthUnit == "m" &&
+                                    stashItem.lengthStashed * 1.094 >=
+                                        this.searchFabricLength
+                                ) {
+                                    temp.push(stashItem);
+                                }
+                            });
+                        } else if (this.searchFabricUnit == "m") {
+                            stashData.forEach((stashItem) => {
+                                if (
+                                    stashItem.lengthUnit == "yd" &&
+                                    stashItem.lengthStashed / 1.094 >=
+                                        this.searchFabricLength
+                                ) {
+                                    temp.push(stashItem);
+                                } else if (
+                                    stashItem.lengthUnit == "m" &&
+                                    stashItem.lengthStashed >=
+                                        this.searchFabricLength
+                                ) {
+                                    temp.push(stashItem);
+                                }
+                            });
+                        }
+                        stashData = temp;
                     }
 
                     if (
