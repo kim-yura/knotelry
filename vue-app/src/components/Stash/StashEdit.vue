@@ -329,7 +329,8 @@
                     <label for="fiberQuantity">Amount Stashed:</label>
                     <div class="input-select">
                         <input
-                            type="text"
+                        type = "number"
+                        step="0.01"
                             placeholder="Enter fiber quantity"
                             v-model="fiberQuantity"
                         />
@@ -399,7 +400,8 @@
                     <div class="stashed-converter">
                         <div class="stashed-converter-inputs">
                             <input
-                                type="text"
+                                type="number"
+                                step="0.01"
                                 placeholder="0"
                                 v-model="skeinsStashed"
                                 id="skeinInput"
@@ -470,6 +472,7 @@
                     <div id="fabric-weight-container">
                         <input
                             type="number"
+                            step="0.01"
                             placeholder="0"
                             v-model="fabricWeight"
                         />
@@ -495,12 +498,14 @@
                     <div id="fabric-pattern-container">
                         <input
                             type="number"
+                            step="0.01"
                             placeholder="0"
                             v-model="fabricPatternRepeatWidth"
                         />
                         <p>x</p>
                         <input
                             type="number"
+                            step="0.01"
                             placeholder="0"
                             v-model="fabricPatternRepeatHeight"
                         />
@@ -517,7 +522,8 @@
                     <label for="lengthStashed">Amount Stashed:</label>
                     <div class="input-select">
                         <input
-                            type="text"
+                            type="number"
+                            step="0.01"
                             placeholder="Enter fabric quantity"
                             v-model="lengthStashed"
                         />
@@ -879,7 +885,11 @@ export default {
                     title: this.title,
                     description: this.description,
                     type: this.type,
+
                     status: this.status,
+                    tags: this.tags,
+                    attributes: this.attributes,
+                    stored_in: this.storedIn,
 
                     acquired: this.acquired,
                     acquired_from: this.acquiredFrom,
@@ -904,6 +914,15 @@ export default {
                     length_stashed: this.lengthStashed,
                     weight_stashed: this.weightStashed,
                     is_handspun: this.isHandspun,
+
+                    fabric_width: this.fabricWidth,
+                    fabric_width_unit: this.fabricWidthUnit,
+                    fabric_weight: this.fabricWeight,
+                    fabric_weight_unit: this.fabricWeightUnit,
+                    fabric_weight_area_unit: this.fabricWeightAreaUnit,
+                    fabric_pattern_repeat_width: this.fabricPatternRepeatWidth,
+                    fabric_pattern_repeat_height: this.fabricPatternRepeatHeight,
+                    fabric_pattern_repeat_unit: this.fabricPatternRepeatUnit,
 
                     notes: this.notes,
                 };

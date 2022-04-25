@@ -162,7 +162,7 @@ class Stash_Item(db.Model):
             'status': self.status,
             'tags': self.tags,
             'attributes': self.attributes,
-            'stored_in': self.stored_in,
+            'storedIn': self.stored_in,
 
             'acquired': self.acquired,
             'acquiredFrom': self.acquired_from,
