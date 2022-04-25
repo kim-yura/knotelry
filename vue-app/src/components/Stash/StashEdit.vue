@@ -389,8 +389,8 @@
                             <option value="null" selected disabled hidden>
                                 unit
                             </option>
-                            <option value="g">grams</option>
                             <option value="oz">oz</option>
+                            <option value="g">grams</option>
                         </select>
                     </div>
                 </div>
@@ -444,6 +444,74 @@
                     >
                         Handspun
                     </button>
+                </div>
+            </span>
+            <!-- FABRIC -->
+            <span v-if="type == 'fabric'">
+                <div class="form-element">
+                    <label for="fabricWidth">Fabric Width:</label>
+                    <div class="input-select">
+                        <input
+                            type="number"
+                            placeholder="0"
+                            v-model="fabricWidth"
+                        />
+                        <select v-model="fabricWidthUnit">
+                            <option value="null" selected disabled hidden>
+                                unit
+                            </option>
+                            <option value="in">inches</option>
+                            <option value="cm">centimeters</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-element">
+                    <label for="fabricWeight">Fabric Weight:</label>
+                    <div id="fabric-weight-container">
+                        <input
+                            type="number"
+                            placeholder="0"
+                            v-model="fabricWeight"
+                        />
+                        <select v-model="fabricWeightUnit">
+                            <option value="null" selected disabled hidden>
+                                unit
+                            </option>
+                            <option value="oz">oz</option>
+                            <option value="g">grams</option>
+                        </select>
+                        <p>per square</p>
+                        <select v-model="fabricWeightAreaUnit">
+                            <option value="null" selected disabled hidden>
+                                unit
+                            </option>
+                            <option value="yd">yards</option>
+                            <option value="m">meters</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-element">
+                    <label for="fabricPattern">Pattern Repeat</label>
+                    <div id="fabric-pattern-container">
+                        <input
+                            type="number"
+                            placeholder="0"
+                            v-model="fabricPatternRepeatWidth"
+                        />
+                        <p>x</p>
+                        <input
+                            type="number"
+                            placeholder="0"
+                            v-model="fabricPatternRepeatHeight"
+                        />
+                        <select v-model="fabricPatternRepeatUnit">
+                            <option value="null" selected disabled hidden>
+                                unit
+                            </option>
+                            <option value="in">inches</option>
+                            <option value="cm">centimeters</option>
+                        </select>
+                    </div>
                 </div>
             </span>
             <!-- COLOR SELECTOR -->
@@ -608,7 +676,11 @@ export default {
                 this.title = data.title;
                 this.description = data.description;
                 this.type = data.type;
+
                 this.status = data.status;
+                this.tags = data.tags;
+                this.attributes = data.attributes;
+                this.storedIn = data.storedIn;
 
                 if (data.acquired) this.acquired = formatDate(data.acquired);
 
@@ -660,6 +732,15 @@ export default {
                 this.weightStashed = data.weightStashed;
                 this.isHandspun = data.isHandspun;
 
+                this.fabricWidth = data.fabricWidth;
+                this.fabricWidthUnit = data.fabricWidthUnit;
+                this.fabricWeight = data.fabricWeight;
+                this.fabricWeightUnit = data.fabricWeightUnit;
+                this.fabricWeightAreaUnit = data.fabricWeightAreaUnit;
+                this.fabricPatternRepeatWidth = data.fabricPatternRepeatWidth;
+                this.fabricPatternRepeatHeight = data.fabricPatternRepeatHeight;
+                this.fabricPatternRepeatUnit = data.fabricPatternRepeatUnit;
+
                 this.notes = data.notes;
 
                 this.stashImages = data.stashItemImages;
@@ -675,7 +756,11 @@ export default {
             title: null,
             description: null,
             type: null,
+
             status: null,
+            tags: null,
+            attributes: null,
+            storedIn: null,
 
             acquired: null,
             acquiredFrom: null,
@@ -719,6 +804,15 @@ export default {
             lengthStashed: null,
             weightStashed: null,
             isHandspun: false,
+
+            fabricWidth: null,
+            fabricWidthUnit: null,
+            fabricWeight: null,
+            fabricWeightUnit: null,
+            fabricWeightAreaUnit: null,
+            fabricPatternRepeatWidth: null,
+            fabricPatternRepeatHeight: null,
+            fabricPatternRepeatUnit: null,
 
             notes: null,
 
@@ -1224,5 +1318,45 @@ button:active {
     column-gap: 4px;
     row-gap: 4px;
     justify-content: space-between;
+}
+
+#fabric-weight-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 8px;
+    align-items: center;
+}
+
+#fabric-weight-container > input {
+    width: 52px;
+}
+
+#fabric-weight-container > select {
+    width: 84px;
+}
+
+#fabric-weight-container > p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 14px;
+}
+
+#fabric-pattern-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 8px;
+    align-items: center;
+}
+
+#fabric-pattern-container > input {
+    width: 52px;
+}
+
+#fabric-pattern-container > p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 14px;
 }
 </style>
