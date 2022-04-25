@@ -445,6 +445,90 @@ def seed_stash_items():
         stash_item_id=20,
         image_url="https://knotelry.s3.amazonaws.com/stash_20.jpg",
     )
+    thread21 = Stash_Item(
+        user_id=1,
+        title="Gutermann Black",
+        type="thread",
+        status="inStash",
+        stored_in="Sewing room",
+        acquired_price=3.14,
+        acquired_currency="USD",
+        colors="black",
+        dyer_name="Gutermann",
+        colorway_name="Black",
+        fiber_content="100% Polyester",
+        length_per_bobbin=274,
+        length_unit="yd",
+        bobbins_stashed=2,
+        length_stashed=548,
+    )
+    thread21_image1 = Stash_Item_Image(
+        stash_item_id=21,
+        image_url="https://knotelry.s3.amazonaws.com/stash_21.jpg",
+    )
+    thread22 = Stash_Item(
+        user_id=1,
+        title="Gutermann Turquoise",
+        type="thread",
+        status="inStash",
+        stored_in="Sewing room",
+        acquired_price=3.14,
+        acquired_currency="USD",
+        colors="bluegreen",
+        dyer_name="Gutermann",
+        colorway_name="Turquoise",
+        fiber_content="100% Polyester",
+        length_per_bobbin=274,
+        length_unit="yd",
+        bobbins_stashed=1,
+        length_stashed=274,
+    )
+    thread22_image1 = Stash_Item_Image(
+        stash_item_id=22,
+        image_url="https://knotelry.s3.amazonaws.com/stash_22.jpg",
+    )
+    thread23 = Stash_Item(
+        user_id=1,
+        title="Gutermann Variegated",
+        type="thread",
+        status="inStash",
+        stored_in="Sewing room",
+        acquired_price=6.99,
+        acquired_currency="USD",
+        colors="purple white",
+        dyer_name="Gutermann",
+        colorway_name="Purple Passion",
+        fiber_content="100% Cotton",
+        length_per_bobbin=876,
+        length_unit="yd",
+        bobbins_stashed=1,
+        length_stashed=876,
+    )
+    thread23_image1 = Stash_Item_Image(
+        stash_item_id=23,
+        image_url="https://knotelry.s3.amazonaws.com/stash_23.jpg",
+    )
+    thread24 = Stash_Item(
+        user_id=1,
+        title="Gutermann Upholstery Thread",
+        type="thread",
+        status="inStash",
+        stored_in="Sewing room",
+        acquired_price=4.54,
+        acquired_currency="USD",
+        colors="blue",
+        dyer_name="Gutermann",
+        colorway_name="Stone Blue",
+        fiber_content="100% Polyester",
+        length_per_bobbin=325,
+        length_unit="yd",
+        bobbins_stashed=1,
+        length_stashed=325,
+    )
+    thread24_image1 = Stash_Item_Image(
+        stash_item_id=24,
+        image_url="https://knotelry.s3.amazonaws.com/stash_24.jpg",
+    )
     test1 = Stash_Item(
         user_id=2,
         title="Not DemoUser's stash"
@@ -493,6 +577,15 @@ def seed_stash_items():
     db.session.add(fabric19_image1)
     db.session.add(fabric20)
     db.session.add(fabric20_image1)
+
+    db.session.add(thread21)
+    db.session.add(thread21_image1)
+    db.session.add(thread22)
+    db.session.add(thread22_image1)
+    db.session.add(thread23)
+    db.session.add(thread23_image1)
+    db.session.add(thread24)
+    db.session.add(thread24_image1)
 
     db.session.add(test1)
 
