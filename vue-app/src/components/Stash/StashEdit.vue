@@ -326,7 +326,7 @@
             <!-- FIBER -->
             <span v-if="type == 'fiber'">
                 <div class="form-element">
-                    <label for="fiberQuantity">Fiber Quantity:</label>
+                    <label for="fiberQuantity">Amount Stashed:</label>
                     <div class="input-select">
                         <input
                             type="text"
@@ -510,6 +510,23 @@
                             </option>
                             <option value="in">inches</option>
                             <option value="cm">centimeters</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-element">
+                    <label for="lengthStashed">Amount Stashed:</label>
+                    <div class="input-select">
+                        <input
+                            type="text"
+                            placeholder="Enter fabric quantity"
+                            v-model="lengthStashed"
+                        />
+                        <select v-model="lengthUnit">
+                            <option value="null" selected disabled hidden>
+                                unit
+                            </option>
+                            <option value="yd">yards</option>
+                            <option value="m">meters</option>
                         </select>
                     </div>
                 </div>
