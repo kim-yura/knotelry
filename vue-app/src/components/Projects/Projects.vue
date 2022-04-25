@@ -193,33 +193,31 @@ export default {
                         });
                         projectsData = temp;
                     }
+
+                    // Inclusive craft sort
+                    const temp = new Set();
                     if (this.searchSpinning) {
-                        const temp = [];
                         projectsData.forEach((project) => {
                             if (project.craftTypes.includes("spinning")) {
-                                temp.push(project);
+                                temp.add(project);
                             }
                         });
-                        projectsData = temp;
                     }
                     if (this.searchKnitting) {
-                        const temp = [];
                         projectsData.forEach((project) => {
                             if (project.craftTypes.includes("knitting")) {
-                                temp.push(project);
+                                temp.add(project);
                             }
                         });
-                        projectsData = temp;
                     }
                     if (this.searchSewing) {
-                        const temp = [];
                         projectsData.forEach((project) => {
                             if (project.craftTypes.includes("sewing")) {
-                                temp.push(project);
+                                temp.add(project);
                             }
                         });
-                        projectsData = temp;
                     }
+                    projectsData = Array.from(temp);
 
                     this.$store.commit("setUsersProjects", projectsData);
                     window.scrollTo(0, 0);
