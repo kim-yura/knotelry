@@ -42,6 +42,15 @@
                         >
                             Knitting
                         </button>
+                        <button
+                            type="button"
+                            v-bind:class="{ selected: searchSewing }"
+                            @click.prevent="
+                                this.searchSewing = !this.searchSewing
+                            "
+                        >
+                            Sewing
+                        </button>
                     </div>
                 </div>
                 <div>
@@ -131,6 +140,7 @@ export default {
             searchStatus: null,
             searchSpinning: false,
             searchKnitting: false,
+            searchSewing: false,
         };
     },
     methods: {
@@ -142,6 +152,7 @@ export default {
             this.searchStatus = null;
             this.searchSpinning = false;
             this.searchKnitting = false;
+            this.searchSewing = false;
 
             let projectsData = loadUsersProjects(this.$route.params.id).then(
                 (projectsData) => {
@@ -172,7 +183,7 @@ export default {
                             }
                         });
                         projectsData = temp;
-                    };
+                    }
                     if (this.searchStatus) {
                         const temp = [];
                         projectsData.forEach((project) => {
@@ -181,7 +192,7 @@ export default {
                             }
                         });
                         projectsData = temp;
-                    };
+                    }
                     if (this.searchSpinning) {
                         const temp = [];
                         projectsData.forEach((project) => {
@@ -190,7 +201,7 @@ export default {
                             }
                         });
                         projectsData = temp;
-                    };
+                    }
                     if (this.searchKnitting) {
                         const temp = [];
                         projectsData.forEach((project) => {
@@ -199,7 +210,16 @@ export default {
                             }
                         });
                         projectsData = temp;
-                    };
+                    }
+                    if (this.searchSewing) {
+                        const temp = [];
+                        projectsData.forEach((project) => {
+                            if (project.craftTypes.includes("sewing")) {
+                                temp.push(project);
+                            }
+                        });
+                        projectsData = temp;
+                    }
 
                     this.$store.commit("setUsersProjects", projectsData);
                     window.scrollTo(0, 0);
@@ -255,10 +275,10 @@ const loadUsersProjects = async (userId) => {
     border-radius: 4px;
     box-shadow: 2px 2px 2px var(--color-shadow);
     margin-top: 120px;
-    margin-left: 32px;
+    margin-left: 28px;
     margin-bottom: 40px;
     position: sticky;
-    top: 32px;
+    top: 28px;
 }
 
 .projects-search-container > .header {
