@@ -29,25 +29,29 @@
                         <option value="fiber">Fiber</option>
                         <option value="yarn">Yarn</option>
                         <option value="fabric">Fabric</option>
+                        <option value="thread">Thread</option>
                     </select>
                 </div>
-                <!-- IF FIBER, YARN, OR FABRIC -->
+                <!-- IF FIBER, YARN, FABRIC, OR THREAD -->
                 <div
                     v-if="
                         this.searchType == 'fiber' ||
                         this.searchType == 'yarn' ||
-                        this.searchType == 'fabric'
+                        this.searchType == 'fabric' ||
+                        this.searchType == 'thread'
                     "
                 >
                     <label>Search for Any:</label>
                     <div class="color-options">
                         <button
+                            type="button"
                             v-bind:class="{ selected: searchRed }"
                             @click.prevent="this.searchRed = !this.searchRed"
                         >
                             Red
                         </button>
                         <button
+                            type="button"
                             v-bind:class="{ selected: searchRedOrange }"
                             @click.prevent="
                                 this.searchRedOrange = !this.searchRedOrange
@@ -56,6 +60,7 @@
                             Red-orange
                         </button>
                         <button
+                            type="button"
                             v-bind:class="{ selected: searchOrange }"
                             @click.prevent="
                                 this.searchOrange = !this.searchOrange
@@ -64,6 +69,7 @@
                             Orange
                         </button>
                         <button
+                            type="button"
                             v-bind:class="{ selected: searchOrangeYellow }"
                             @click.prevent="
                                 this.searchOrangeYellow =
@@ -73,6 +79,7 @@
                             Orange-yellow
                         </button>
                         <button
+                            type="button"
                             v-bind:class="{ selected: searchYellow }"
                             @click.prevent="
                                 this.searchYellow = !this.searchYellow
@@ -81,6 +88,7 @@
                             Yellow
                         </button>
                         <button
+                            type="button"
                             v-bind:class="{ selected: searchYellowGreen }"
                             @click.prevent="
                                 this.searchYellowGreen = !this.searchYellowGreen
@@ -89,6 +97,7 @@
                             Yellow-green
                         </button>
                         <button
+                            type="button"
                             v-bind:class="{ selected: searchGreen }"
                             @click.prevent="
                                 this.searchGreen = !this.searchGreen
@@ -97,6 +106,7 @@
                             Green
                         </button>
                         <button
+                            type="button"
                             v-bind:class="{ selected: searchBlueGreen }"
                             @click.prevent="
                                 this.searchBlueGreen = !this.searchBlueGreen
@@ -105,12 +115,14 @@
                             Blue-green
                         </button>
                         <button
+                            type="button"
                             v-bind:class="{ selected: searchBlue }"
                             @click.prevent="this.searchBlue = !this.searchBlue"
                         >
                             Blue
                         </button>
                         <button
+                            type="button"
                             v-bind:class="{ selected: searchBluePurple }"
                             @click.prevent="
                                 this.searchBluePurple = !this.searchBluePurple
@@ -119,6 +131,7 @@
                             Blue-purple
                         </button>
                         <button
+                            type="button"
                             v-bind:class="{ selected: searchPurple }"
                             @click.prevent="
                                 this.searchPurple = !this.searchPurple
@@ -127,12 +140,14 @@
                             Purple
                         </button>
                         <button
+                            type="button"
                             v-bind:class="{ selected: searchPink }"
                             @click.prevent="this.searchPink = !this.searchPink"
                         >
                             Pink
                         </button>
                         <button
+                            type="button"
                             v-bind:class="{ selected: searchWhite }"
                             @click.prevent="
                                 this.searchWhite = !this.searchWhite
@@ -141,12 +156,14 @@
                             White
                         </button>
                         <button
+                            type="button"
                             v-bind:class="{ selected: searchGray }"
                             @click.prevent="this.searchGray = !this.searchGray"
                         >
                             Gray
                         </button>
                         <button
+                            type="button"
                             v-bind:class="{ selected: searchBlack }"
                             @click.prevent="
                                 this.searchBlack = !this.searchBlack
@@ -155,6 +172,7 @@
                             Black
                         </button>
                         <button
+                            type="button"
                             v-bind:class="{ selected: searchCream }"
                             @click.prevent="
                                 this.searchCream = !this.searchCream
@@ -163,6 +181,7 @@
                             Cream / Natural
                         </button>
                         <button
+                            type="button"
                             v-bind:class="{ selected: searchBrown }"
                             @click.prevent="
                                 this.searchBrown = !this.searchBrown
@@ -171,6 +190,7 @@
                             Brown
                         </button>
                         <button
+                            type="button"
                             v-bind:class="{ selected: searchRainbow }"
                             @click.prevent="
                                 this.searchRainbow = !this.searchRainbow
@@ -220,8 +240,12 @@
                         <option value="sbulky">Super Bulky</option>
                     </select>
                 </div>
-                <div v-if="this.searchType == 'yarn'">
-                    <label>Filter by Minimum Yarn Quantity</label>
+                <div
+                    v-if="
+                        this.searchType == 'yarn' || this.searchType == 'thread'
+                    "
+                >
+                    <label>Filter by Minimum Quantity</label>
                     <div class="input-select">
                         <input
                             type="text"
@@ -718,8 +742,8 @@ const loadUsersStash = async (userId) => {
 }
 
 .stash-search-container > div {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     display: flex;
     flex-direction: column;
 }
