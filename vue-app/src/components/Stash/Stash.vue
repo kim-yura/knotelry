@@ -391,6 +391,8 @@ export default {
                     }
                 }
             );
+
+            window.scrollTo(0, 0);
         },
         submit() {
             let stashData = loadUsersStash(this.$route.params.id).then(
@@ -702,7 +704,7 @@ const loadUsersStash = async (userId) => {
     margin-left: 28px;
     margin-bottom: 40px;
     position: sticky;
-    top: 32px;
+    top: 28px;
 }
 
 .stash-search-container > .header {
@@ -716,8 +718,8 @@ const loadUsersStash = async (userId) => {
 }
 
 .stash-search-container > div {
-    margin-top: 12px;
-    margin-bottom: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
 }
