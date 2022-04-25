@@ -510,7 +510,25 @@
                 <div class="stashed-content" v-if="this.type == 'fabric'">
                     <p
                         v-if="
-                            isNaN(this.lengthRemaining) || !this.lengthRemaining
+                            (isNaN(this.lengthRemaining) ||
+                                !this.lengthRemaining) &&
+                            this.lengthRemaining != 0
+                        "
+                    >
+                        — {{ this.lengthUnit }}
+                    </p>
+                    <p v-else>
+                        {{ this.lengthRemaining.toFixed(2) }}
+                        {{ this.lengthUnit }}
+                    </p>
+                </div>
+                <!-- Render for thread remainder -->
+                <div class="stashed-content" v-if="this.type == 'thread'">
+                    <p
+                        v-if="
+                            (isNaN(this.lengthRemaining) ||
+                                !this.lengthRemaining) &&
+                            this.lengthRemaining != 0
                         "
                     >
                         — {{ this.lengthUnit }}
