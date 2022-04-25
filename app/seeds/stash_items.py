@@ -318,7 +318,7 @@ def seed_stash_items():
         weight_per_skein=115,
         weight_unit="g",
         skeins_stashed=1,
-        length_stashed=115,
+        length_stashed=150,
         weight_stashed=115,
         is_handspun=False,
         notes="Purchased while in New Orleans for a conference."

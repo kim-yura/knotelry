@@ -454,7 +454,9 @@
                 <div class="stashed-content" v-if="this.type == 'yarn'">
                     <p
                         v-if="
-                            isNaN(this.skeinsRemaining) || !this.skeinsRemaining
+                            (isNaN(this.skeinsRemaining) ||
+                                !this.skeinsRemaining) &&
+                            this.skeinsRemaining != 0
                         "
                     >
                         — skeins
@@ -462,7 +464,9 @@
                     <p v-else>{{ this.skeinsRemaining.toFixed(2) }} skeins</p>
                     <p
                         v-if="
-                            isNaN(this.lengthRemaining) || !this.lengthRemaining
+                            (isNaN(this.lengthRemaining) ||
+                                !this.lengthRemaining) &&
+                            this.lengthRemaining != 0
                         "
                     >
                         — {{ this.lengthUnit }}
@@ -473,7 +477,9 @@
                     </p>
                     <p
                         v-if="
-                            isNaN(this.weightRemaining) || !this.weightRemaining
+                            (isNaN(this.weightRemaining) ||
+                                !this.weightRemaining) &&
+                            this.weightRemaining != 0
                         "
                     >
                         — {{ this.weightUnit }}
@@ -487,8 +493,10 @@
                 <div class="stashed-content" v-if="this.type == 'fiber'">
                     <p
                         v-if="
-                            isNaN(this.fiberQuantityRemaining) ||
-                            !this.fiberQuantityRemaining
+                            i(
+                                sNaN(this.fiberQuantityRemaining) ||
+                                    !this.fiberQuantityRemaining
+                            ) && this.fiberQuantityRemaining != 0
                         "
                     >
                         — {{ this.fiberQuantityUnit }}
