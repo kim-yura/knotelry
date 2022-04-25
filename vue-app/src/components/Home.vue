@@ -16,9 +16,9 @@
                     <p class="craft-button">spinning</p>
                     <!-- <p class="craft-button">weaving</p> -->
                     <p class="craft-button">knitting</p>
-                    <!-- <p class="craft-button">crocheting</p>
+                    <!-- <p class="craft-button">crocheting</p> -->
                     <p class="craft-button">sewing</p>
-                    <p class="craft-button">embroidery</p> -->
+                    <!-- <p class="craft-button">embroidery</p> -->
                 </div>
             </div>
         </div>
