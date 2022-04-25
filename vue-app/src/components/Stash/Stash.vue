@@ -684,7 +684,7 @@ const loadUsersStash = async (userId) => {
 <style scoped>
 .stash-page {
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 380px 1fr;
     column-gap: 4%;
 }
 
@@ -699,7 +699,7 @@ const loadUsersStash = async (userId) => {
     border-radius: 4px;
     box-shadow: 2px 2px 2px var(--color-shadow);
     margin-top: 120px;
-    margin-left: 32px;
+    margin-left: 28px;
     margin-bottom: 40px;
     position: sticky;
     top: 32px;
@@ -728,7 +728,7 @@ const loadUsersStash = async (userId) => {
 
 .input-select {
     display: grid;
-    grid-template-columns: 130px 135px;
+    grid-template-columns: 1fr 1fr;
 }
 
 .input-select-input {
@@ -792,7 +792,7 @@ button:active {
 
 .color-options {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 124px);
+    grid-template-columns: repeat(auto-fill, 110px);
     justify-content: space-between;
     row-gap: 2px;
     padding-left: 8px;
