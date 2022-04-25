@@ -69,6 +69,7 @@
                     <option value="null" selected disabled hidden>—</option>
                     <option value="fiber">Fiber</option>
                     <option value="yarn">Yarn</option>
+                    <option value="fabric">Fabric</option>
                 </select>
             </div>
             <div class="form-element" v-if="this.imageURL.length > 0">
@@ -294,270 +295,284 @@
                 />
             </div>
 
-            <!-- FIBER AND YARN -->
-            <div class="spacer" v-if="type == 'fiber' || type == 'yarn'" />
-            <div class="form-element" v-if="type == 'fiber' || type == 'yarn'">
-                <label for="dyerName">Dyer Name:</label>
-                <input
-                    type="text"
-                    placeholder="Enter dyer information"
-                    v-model="dyerName"
-                />
-            </div>
-            <div class="form-element" v-if="type == 'fiber' || type == 'yarn'">
-                <label for="colorwayName">Colorway Name:</label>
-                <input
-                    type="text"
-                    placeholder="Enter colorway information"
-                    v-model="colorwayName"
-                />
-            </div>
-            <div class="form-element" v-if="type == 'fiber' || type == 'yarn'">
-                <label for="fiberContent">Fiber Content:</label>
-                <input
-                    type="text"
-                    placeholder="Enter fiber content information"
-                    v-model="fiberContent"
-                />
-            </div>
+            <!-- FIBER, YARN, FABRIC -->
+            <span v-if="type == 'fiber' || type == 'yarn' || type == 'fabric'">
+                <div class="spacer" />
+                <div class="form-element">
+                    <label for="dyerName">Dyer Name:</label>
+                    <input
+                        type="text"
+                        placeholder="Enter dyer information"
+                        v-model="dyerName"
+                    />
+                </div>
+                <div class="form-element">
+                    <label for="colorwayName">Colorway Name:</label>
+                    <input
+                        type="text"
+                        placeholder="Enter colorway information"
+                        v-model="colorwayName"
+                    />
+                </div>
+                <div class="form-element">
+                    <label for="fiberContent">Fiber Content:</label>
+                    <input
+                        type="text"
+                        placeholder="Enter fiber content information"
+                        v-model="fiberContent"
+                    />
+                </div>
+            </span>
             <!-- FIBER -->
-            <div class="form-element" v-if="type == 'fiber'">
-                <label for="fiberQuantity">Fiber Quantity:</label>
-                <div class="input-select">
-                    <input
-                        type="text"
-                        placeholder="Enter fiber quantity"
-                        v-model="fiberQuantity"
-                    />
-                    <select v-model="fiberQuantityUnit">
-                        <option value="null" selected disabled hidden>
-                            unit
-                        </option>
-                        <option value="oz">oz</option>
-                        <option value="g">grams</option>
-                    </select>
+            <span v-if="type == 'fiber'">
+                <div class="form-element">
+                    <label for="fiberQuantity">Fiber Quantity:</label>
+                    <div class="input-select">
+                        <input
+                            type="text"
+                            placeholder="Enter fiber quantity"
+                            v-model="fiberQuantity"
+                        />
+                        <select v-model="fiberQuantityUnit">
+                            <option value="null" selected disabled hidden>
+                                unit
+                            </option>
+                            <option value="oz">oz</option>
+                            <option value="g">grams</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
+            </span>
             <!-- YARN -->
-            <div class="form-element" v-if="type == 'yarn'">
-                <label for="yarnWeight">Yarn Weight:</label>
-                <select v-model="yarnWeight">
-                    <option value="null" selected disabled hidden>—</option>
-                    <option value="lace">Lace</option>
-                    <option value="lfingering">Light Fingering</option>
-                    <option value="fingering">Fingering</option>
-                    <option value="sport">Sport</option>
-                    <option value="dk">DK</option>
-                    <option value="worsted">Worsted</option>
-                    <option value="aran">Aran</option>
-                    <option value="bulky">Bulky</option>
-                    <option value="sbulky">Super Bulky</option>
-                </select>
-            </div>
-            <div class="form-element" v-if="type == 'yarn'">
-                <label for="lengthPerSkein">Length / Skein:</label>
-                <div class="input-select">
-                    <input
-                        type="text"
-                        placeholder="Enter length per skein"
-                        v-model="lengthPerSkein"
-                    />
-                    <select v-model="lengthUnit">
-                        <option value="null" selected disabled hidden>
-                            unit
-                        </option>
-                        <option value="yd">yards</option>
-                        <option value="m">meters</option>
+            <span v-if="type == 'yarn'">
+                <div class="form-element">
+                    <label for="yarnWeight">Yarn Weight:</label>
+                    <select v-model="yarnWeight">
+                        <option value="null" selected disabled hidden>—</option>
+                        <option value="lace">Lace</option>
+                        <option value="lfingering">Light Fingering</option>
+                        <option value="fingering">Fingering</option>
+                        <option value="sport">Sport</option>
+                        <option value="dk">DK</option>
+                        <option value="worsted">Worsted</option>
+                        <option value="aran">Aran</option>
+                        <option value="bulky">Bulky</option>
+                        <option value="sbulky">Super Bulky</option>
                     </select>
                 </div>
-            </div>
-            <div class="form-element" v-if="type == 'yarn'">
-                <label for="weightPerSkein">Weight / Skein:</label>
-                <div class="input-select">
-                    <input
-                        type="text"
-                        placeholder="Enter weight per skein"
-                        v-model="weightPerSkein"
-                    />
-                    <select v-model="weightUnit">
-                        <option value="null" selected disabled hidden>
-                            unit
-                        </option>
-                        <option value="g">grams</option>
-                        <option value="oz">oz</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-element" v-if="type == 'yarn'">
-                <label for="amountStashed">Amount Stashed:</label>
-                <div class="stashed-converter">
-                    <div class="stashed-converter-inputs">
+                <div class="form-element">
+                    <label for="lengthPerSkein">Length / Skein:</label>
+                    <div class="input-select">
                         <input
                             type="text"
-                            placeholder="0"
-                            v-model="skeinsStashed"
-                            id="skeinInput"
-                            v-on:keyup="convert"
+                            placeholder="Enter length per skein"
+                            v-model="lengthPerSkein"
                         />
-                        <p id="converter-text">Skeins</p>
-                    </div>
-                    <div class="stashed-converter-inputs">
-                        <input
-                            type="text"
-                            placeholder="0"
-                            v-model="lengthStashed"
-                            id="lengthInput"
-                            v-on:keyup="convert"
-                        />
-                        <p v-if="this.lengthUnit" id="converter-text">
-                            {{ this.lengthUnit }}
-                        </p>
-                        <p v-else id="converter-text">—</p>
-                    </div>
-                    <div class="stashed-converter-inputs">
-                        <input
-                            type="text"
-                            placeholder="0"
-                            v-model="weightStashed"
-                            id="weightInput"
-                            v-on:keyup="convert"
-                        />
-                        <p v-if="this.weightUnit" id="converter-text">
-                            {{ this.weightUnit }}
-                        </p>
-                        <p v-else id="converter-text">—</p>
+                        <select v-model="lengthUnit">
+                            <option value="null" selected disabled hidden>
+                                unit
+                            </option>
+                            <option value="yd">yards</option>
+                            <option value="m">meters</option>
+                        </select>
                     </div>
                 </div>
-            </div>
-            <div class="form-element" v-if="type == 'yarn'">
-                <label for="handspun">Is Handspun?:</label>
-                <button
-                    id="handspun-button"
-                    v-bind:class="{ selected: isHandspun }"
-                    @click.prevent="toggleHandspun"
-                >
-                    Handspun
-                </button>
-            </div>
+                <div class="form-element">
+                    <label for="weightPerSkein">Weight / Skein:</label>
+                    <div class="input-select">
+                        <input
+                            type="text"
+                            placeholder="Enter weight per skein"
+                            v-model="weightPerSkein"
+                        />
+                        <select v-model="weightUnit">
+                            <option value="null" selected disabled hidden>
+                                unit
+                            </option>
+                            <option value="g">grams</option>
+                            <option value="oz">oz</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-element">
+                    <label for="amountStashed">Amount Stashed:</label>
+                    <div class="stashed-converter">
+                        <div class="stashed-converter-inputs">
+                            <input
+                                type="text"
+                                placeholder="0"
+                                v-model="skeinsStashed"
+                                id="skeinInput"
+                                v-on:keyup="convert"
+                            />
+                            <p id="converter-text">Skeins</p>
+                        </div>
+                        <div class="stashed-converter-inputs">
+                            <input
+                                type="text"
+                                placeholder="0"
+                                v-model="lengthStashed"
+                                id="lengthInput"
+                                v-on:keyup="convert"
+                            />
+                            <p v-if="this.lengthUnit" id="converter-text">
+                                {{ this.lengthUnit }}
+                            </p>
+                            <p v-else id="converter-text">—</p>
+                        </div>
+                        <div class="stashed-converter-inputs">
+                            <input
+                                type="text"
+                                placeholder="0"
+                                v-model="weightStashed"
+                                id="weightInput"
+                                v-on:keyup="convert"
+                            />
+                            <p v-if="this.weightUnit" id="converter-text">
+                                {{ this.weightUnit }}
+                            </p>
+                            <p v-else id="converter-text">—</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-element">
+                    <label for="handspun">Is Handspun?:</label>
+                    <button
+                        id="handspun-button"
+                        v-bind:class="{ selected: isHandspun }"
+                        @click.prevent="toggleHandspun"
+                    >
+                        Handspun
+                    </button>
+                </div>
+            </span>
             <!-- COLOR SELECTOR -->
-            <div class="spacer" v-if="type == 'fiber' || type == 'yarn'" />
-            <div class="form-element" v-if="type == 'fiber' || type == 'yarn'">
-                <label for="colors">Colors:</label>
-                <div class="color-options">
-                    <button
-                        v-bind:class="{ selected: isRed }"
-                        @click.prevent="this.isRed = !this.isRed"
-                    >
-                        Red
-                    </button>
-                    <button
-                        v-bind:class="{ selected: isRedOrange }"
-                        @click.prevent="this.isRedOrange = !this.isRedOrange"
-                    >
-                        Red-orange
-                    </button>
-                    <button
-                        v-bind:class="{ selected: isOrange }"
-                        @click.prevent="this.isOrange = !this.isOrange"
-                    >
-                        Orange
-                    </button>
-                    <button
-                        v-bind:class="{ selected: isOrangeYellow }"
-                        @click.prevent="
-                            this.isOrangeYellow = !this.isOrangeYellow
-                        "
-                    >
-                        Orange-yellow
-                    </button>
-                    <button
-                        v-bind:class="{ selected: isYellow }"
-                        @click.prevent="this.isYellow = !this.isYellow"
-                    >
-                        Yellow
-                    </button>
-                    <button
-                        v-bind:class="{ selected: isYellowGreen }"
-                        @click.prevent="
-                            this.isYellowGreen = !this.isYellowGreen
-                        "
-                    >
-                        Yellow-green
-                    </button>
-                    <button
-                        v-bind:class="{ selected: isGreen }"
-                        @click.prevent="this.isGreen = !this.isGreen"
-                    >
-                        Green
-                    </button>
-                    <button
-                        v-bind:class="{ selected: isBlueGreen }"
-                        @click.prevent="this.isBlueGreen = !this.isBlueGreen"
-                    >
-                        Blue-green
-                    </button>
-                    <button
-                        v-bind:class="{ selected: isBlue }"
-                        @click.prevent="this.isBlue = !this.isBlue"
-                    >
-                        Blue
-                    </button>
-                    <button
-                        v-bind:class="{ selected: isBluePurple }"
-                        @click.prevent="this.isBluePurple = !this.isBluePurple"
-                    >
-                        Blue-purple
-                    </button>
-                    <button
-                        v-bind:class="{ selected: isPurple }"
-                        @click.prevent="this.isPurple = !this.isPurple"
-                    >
-                        Purple
-                    </button>
-                    <button
-                        v-bind:class="{ selected: isPink }"
-                        @click.prevent="this.isPink = !this.isPink"
-                    >
-                        Pink
-                    </button>
-                    <button
-                        v-bind:class="{ selected: isWhite }"
-                        @click.prevent="this.isWhite = !this.isWhite"
-                    >
-                        White
-                    </button>
-                    <button
-                        v-bind:class="{ selected: isGray }"
-                        @click.prevent="this.isGray = !this.isGray"
-                    >
-                        Gray
-                    </button>
-                    <button
-                        v-bind:class="{ selected: isBlack }"
-                        @click.prevent="this.isBlack = !this.isBlack"
-                    >
-                        Black
-                    </button>
-                    <button
-                        v-bind:class="{ selected: isCream }"
-                        @click.prevent="this.isCream = !this.isCream"
-                    >
-                        Cream / Natural
-                    </button>
-                    <button
-                        v-bind:class="{ selected: isBrown }"
-                        @click.prevent="this.isBrown = !this.isBrown"
-                    >
-                        Brown
-                    </button>
-                    <button
-                        v-bind:class="{ selected: isRainbow }"
-                        @click.prevent="this.isRainbow = !this.isRainbow"
-                    >
-                        Rainbow
-                    </button>
+            <span v-if="type == 'fiber' || type == 'yarn' || type == 'fabric'">
+                <div class="spacer" />
+                <div class="form-element">
+                    <label for="colors">Colors:</label>
+                    <div id="color-options">
+                        <button
+                            v-bind:class="{ selected: isRed }"
+                            @click.prevent="this.isRed = !this.isRed"
+                        >
+                            Red
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isRedOrange }"
+                            @click.prevent="
+                                this.isRedOrange = !this.isRedOrange
+                            "
+                        >
+                            Red-orange
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isOrange }"
+                            @click.prevent="this.isOrange = !this.isOrange"
+                        >
+                            Orange
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isOrangeYellow }"
+                            @click.prevent="
+                                this.isOrangeYellow = !this.isOrangeYellow
+                            "
+                        >
+                            Orange-yellow
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isYellow }"
+                            @click.prevent="this.isYellow = !this.isYellow"
+                        >
+                            Yellow
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isYellowGreen }"
+                            @click.prevent="
+                                this.isYellowGreen = !this.isYellowGreen
+                            "
+                        >
+                            Yellow-green
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isGreen }"
+                            @click.prevent="this.isGreen = !this.isGreen"
+                        >
+                            Green
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isBlueGreen }"
+                            @click.prevent="
+                                this.isBlueGreen = !this.isBlueGreen
+                            "
+                        >
+                            Blue-green
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isBlue }"
+                            @click.prevent="this.isBlue = !this.isBlue"
+                        >
+                            Blue
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isBluePurple }"
+                            @click.prevent="
+                                this.isBluePurple = !this.isBluePurple
+                            "
+                        >
+                            Blue-purple
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isPurple }"
+                            @click.prevent="this.isPurple = !this.isPurple"
+                        >
+                            Purple
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isPink }"
+                            @click.prevent="this.isPink = !this.isPink"
+                        >
+                            Pink
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isWhite }"
+                            @click.prevent="this.isWhite = !this.isWhite"
+                        >
+                            White
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isGray }"
+                            @click.prevent="this.isGray = !this.isGray"
+                        >
+                            Gray
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isBlack }"
+                            @click.prevent="this.isBlack = !this.isBlack"
+                        >
+                            Black
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isCream }"
+                            @click.prevent="this.isCream = !this.isCream"
+                        >
+                            Cream / Natural
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isBrown }"
+                            @click.prevent="this.isBrown = !this.isBrown"
+                        >
+                            Brown
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isRainbow }"
+                            @click.prevent="this.isRainbow = !this.isRainbow"
+                        >
+                            Rainbow
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </span>
             <!-- NOTES -->
             <div class="spacer" />
             <div class="form-element">
@@ -950,8 +965,6 @@ const formatDate = (date) => {
     padding-top: 60px;
 }
 
-
-
 .left {
     display: flex;
     flex-direction: column;
@@ -1203,5 +1216,13 @@ button:active {
 .selected {
     background-color: var(--color-primary-contrast);
     color: white;
+}
+
+#color-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 150px);
+    column-gap: 4px;
+    row-gap: 4px;
+    justify-content: space-between;
 }
 </style>

@@ -90,7 +90,7 @@
                 <div class="text-content" v-else>—</div>
             </div>
             <div class="divider" />
-            <!-- FIBER, YARN FABRIC -->
+            <!-- FIBER, YARN, FABRIC -->
             <div
                 v-if="
                     this.type == 'fiber' ||
