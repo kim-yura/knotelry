@@ -255,6 +255,52 @@ def seed_projects():
         image_url="https://knotelry.s3.amazonaws.com/project_13.jpg",
     )
 
+    project7 = Project(
+        user_id=1,
+        title="Small Project Bag 1",
+        craft_types="sewing",
+        status="finished",
+    )
+    project7_material1 = Project_Material(
+        project_id=7,
+        stash_id=25,
+        length_used=2,
+        length_unit="yd",
+    )
+    project7_image1 = Project_Image(
+        project_id=7,
+        image_url="https://knotelry.s3.amazonaws.com/project_14.jpg"
+    )
+    project7_image2 = Project_Image(
+        project_id=7,
+        image_url="https://knotelry.s3.amazonaws.com/project_15.jpg"
+    )
+
+    project8 = Project(
+        user_id=1,
+        title="Small Project Bag 2",
+        craft_types="sewing",
+        status="finished",
+    )
+    project8_material1 = Project_Material(
+        project_id=8,
+        stash_id=26,
+        length_used=2,
+        length_unit="yd",
+    )
+    project8_image1 = Project_Image(
+        project_id=8,
+        image_url="https://knotelry.s3.amazonaws.com/project_16.jpg"
+    )
+    project8_image2 = Project_Image(
+        project_id=8,
+        image_url="https://knotelry.s3.amazonaws.com/project_17.jpg"
+    )
+    project8_image3 = Project_Image(
+        project_id=8,
+        image_url="https://knotelry.s3.amazonaws.com/project_18.jpg"
+    )
+
     db.session.add(project1)
     db.session.add(project1_material1)
     db.session.add(project1_material2)
@@ -296,6 +342,17 @@ def seed_projects():
     db.session.add(project6_image1)
     db.session.add(project6_image2)
     db.session.add(project6_image3)
+
+    db.session.add(project7)
+    db.session.add(project7_material1)
+    db.session.add(project7_image1)
+    db.session.add(project7_image2)
+
+    db.session.add(project8)
+    db.session.add(project8_material1)
+    db.session.add(project8_image1)
+    db.session.add(project8_image2)
+    db.session.add(project8_image3)
 
     db.session.commit()
 

@@ -529,6 +529,34 @@ def seed_stash_items():
         stash_item_id=24,
         image_url="https://knotelry.s3.amazonaws.com/stash_24.jpg",
     )
+    fabric25 = Stash_Item(
+        user_id=1,
+        title="Cat Themed Fabric Pack",
+        type="fabric",
+        status="usedUp",
+        colors="pink white gray",
+        fiber_content="100% Cotton",
+        length_stashed=2,
+        length_unit="yd",
+    )
+    fabric25_image1 = Stash_Item_Image(
+        stash_item_id=25,
+        image_url="https://knotelry.s3.amazonaws.com/stash_25.jpg",
+    )
+    fabric26 = Stash_Item(
+        user_id=1,
+        title="Linen Fabric Pack from Korea",
+        type="fabric",
+        status="usedUp",
+        colors="white gray cream",
+        fiber_content="100% Linen",
+        length_stashed=2,
+        length_unit="yd",
+    )
+    fabric26_image1 = Stash_Item_Image(
+        stash_item_id=26,
+        image_url="https://knotelry.s3.amazonaws.com/stash_26.jpg",
+    )
     test1 = Stash_Item(
         user_id=2,
         title="Not DemoUser's stash"
@@ -586,6 +614,11 @@ def seed_stash_items():
     db.session.add(thread23_image1)
     db.session.add(thread24)
     db.session.add(thread24_image1)
+
+    db.session.add(fabric25)
+    db.session.add(fabric25_image1)
+    db.session.add(fabric26)
+    db.session.add(fabric26_image1)
 
     db.session.add(test1)
 
