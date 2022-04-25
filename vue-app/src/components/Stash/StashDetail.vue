@@ -126,49 +126,37 @@
                 <div class="text-content" v-else>—</div>
             </div>
             <div class="divider" />
-            <!-- FIBER, YARN, FABRIC -->
-            <div
+            <!-- FIBER, YARN, FABRIC, THREAD -->
+            <span
                 v-if="
                     this.type == 'fiber' ||
                     this.type == 'yarn' ||
-                    this.type == 'fabric'
+                    this.type == 'fabric' ||
+                    this.type == 'thread'
                 "
-                class="detail-text"
             >
-                <div class="text-label">Dyer Name:</div>
-                <div class="text-content" v-if="this.dyerName">
-                    {{ this.dyerName }}
+                <div class="detail-text">
+                    <div class="text-label">Dyer Name:</div>
+                    <div class="text-content" v-if="this.dyerName">
+                        {{ this.dyerName }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
                 </div>
-                <div class="text-content" v-else>—</div>
-            </div>
-            <div
-                v-if="
-                    this.type == 'fiber' ||
-                    this.type == 'yarn' ||
-                    this.type == 'fabric'
-                "
-                class="detail-text"
-            >
-                <div class="text-label">Colorway Name:</div>
-                <div class="text-content" v-if="this.colorwayName">
-                    {{ this.colorwayName }}
+                <div class="detail-text">
+                    <div class="text-label">Colorway Name:</div>
+                    <div class="text-content" v-if="this.colorwayName">
+                        {{ this.colorwayName }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
                 </div>
-                <div class="text-content" v-else>—</div>
-            </div>
-            <div
-                v-if="
-                    this.type == 'fiber' ||
-                    this.type == 'yarn' ||
-                    this.type == 'fabric'
-                "
-                class="detail-text"
-            >
-                <div class="text-label">Fiber Content:</div>
-                <div class="text-content" v-if="this.fiberContent">
-                    {{ this.fiberContent }}
+                <div class="detail-text">
+                    <div class="text-label">Fiber Content:</div>
+                    <div class="text-content" v-if="this.fiberContent">
+                        {{ this.fiberContent }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
                 </div>
-                <div class="text-content" v-else>—</div>
-            </div>
+            </span>
             <!-- FIBER DETAILS -->
             <div v-if="this.type == 'fiber'" class="detail-text">
                 <div class="text-label">Amount Stashed:</div>
@@ -424,6 +412,42 @@
                     <div class="text-content" v-else>—</div>
                 </div>
             </span>
+            <!-- THREAD DETAILS -->
+            <span v-if="this.type == 'thread'">
+                <div class="detail-text">
+                    <div class="text-label">Bobbin Details:</div>
+                    <div class="text-content" v-if="this.lengthPerBobbin">
+                        {{ this.lengthPerBobbin }} {{ this.lengthUnit }} /
+                        bobbin
+                    </div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Amount Stashed:</div>
+                    <div class="stashed-content">
+                        <p v-if="this.bobbinsStashed">
+                            {{ this.bobbinsStashed.toFixed(2) }} bobbins
+                        </p>
+                        <p v-else>— bobbins</p>
+                        <p v-if="this.lengthStashed">
+                            {{ this.lengthStashed.toFixed(2) }}
+                            {{ this.lengthUnit }}
+                        </p>
+                        <p
+                            v-else-if="
+                                this.bobbinsStashed && this.lengthPerBobbin
+                            "
+                        >
+                            {{
+                                (
+                                    this.bobbinsStashed * this.lengthPerBobbin
+                                ).toFixed(2)
+                            }}
+                            {{ this.lengthUnit }}
+                        </p>
+                        <p v-else>— {{ this.lengthUnit }}</p>
+                    </div>
+                </div>
+            </span>
             <div class="detail-text">
                 <div class="text-label">Amount Remaining:</div>
                 <!-- Render for yarn remainder -->
@@ -658,6 +682,9 @@ export default {
                     this.fabricPatternRepeatHeight =
                         data.fabricPatternRepeatHeight;
                     this.fabricPatternRepeatUnit = data.fabricPatternRepeatUnit;
+
+                    this.lengthPerBobbin = data.lengthPerBobbin;
+                    this.bobbinsStashed = data.bobbinsStashed;
 
                     this.notes = data.notes;
                     this.images = data.stashItemImages;
@@ -922,6 +949,9 @@ export default {
             fabricPatternRepeatWidth: null,
             fabricPatternRepeatHeight: null,
             fabricPatternRepeatUnit: null,
+
+            lengthPerBobbin: null,
+            bobbinsStashed: null,
 
             skeinsRemaining: null,
             lengthRemaining: null,
