@@ -1019,6 +1019,9 @@ export default {
                         this.fabricPatternRepeatHeight,
                     fabric_pattern_repeat_unit: this.fabricPatternRepeatUnit,
 
+                    length_per_bobbin: this.lengthPerBobbin,
+                    bobbins_stashed: this.bobbinsStashed,
+
                     notes: this.notes,
                 };
                 const response = await fetch("/api/stash/", {
