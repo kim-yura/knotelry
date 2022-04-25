@@ -99,6 +99,9 @@ def post_stash_item():
         fabric_pattern_repeat_height = request.json['fabric_pattern_repeat_height'],
         fabric_pattern_repeat_unit = request.json['fabric_pattern_repeat_unit'],
 
+        length_per_bobbin = request.json['length_per_bobbin'],
+        bobbins_stashed = request.json['bobbins_stashed'],
+
         notes = request.json['notes'],
         created_at = datetime.now(),
         updated_at = datetime.now(),
@@ -167,6 +170,9 @@ def put_stash_item():
         'fabric_pattern_repeat_width': request.json['fabric_pattern_repeat_width'],
         'fabric_pattern_repeat_height': request.json['fabric_pattern_repeat_height'],
         'fabric_pattern_repeat_unit': request.json['fabric_pattern_repeat_unit'],
+
+        'length_per_bobbin': request.json['length_per_bobbin'],
+        'bobbins_stashed': request.json['bobbins_stashed'],
 
         'notes': request.json['notes'],
         'updated_at': datetime.now(),
