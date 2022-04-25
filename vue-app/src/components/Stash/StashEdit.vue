@@ -91,6 +91,30 @@
                     <option value="gifted">Gifted</option>
                 </select>
             </div>
+            <div class="form-element">
+                <label for="tags">Tags:</label>
+                <input
+                    type="text"
+                    placeholder="Enter comma-separated tags for your stash item"
+                    v-model="this.tags"
+                />
+            </div>
+            <div class="form-element">
+                <label for="attributes">Attributes:</label>
+                <input
+                    type="text"
+                    placeholder="Enter comma-separated attributes for your stash item"
+                    v-model="this.attributes"
+                />
+            </div>
+            <div class="form-element">
+                <label for="storedIn">Stored In:</label>
+                <input
+                    type="text"
+                    placeholder="Where is this stash item stored in?"
+                    v-model="this.storedIn"
+                />
+            </div>
             <!-- ACQUIRED -->
             <div class="form-element">
                 <label for="acquired">Date Acquired:</label>
@@ -329,8 +353,8 @@
                     <label for="fiberQuantity">Amount Stashed:</label>
                     <div class="input-select">
                         <input
-                        type = "number"
-                        step="0.01"
+                            type="number"
+                            step="0.01"
                             placeholder="Enter fiber quantity"
                             v-model="fiberQuantity"
                         />
@@ -921,7 +945,8 @@ export default {
                     fabric_weight_unit: this.fabricWeightUnit,
                     fabric_weight_area_unit: this.fabricWeightAreaUnit,
                     fabric_pattern_repeat_width: this.fabricPatternRepeatWidth,
-                    fabric_pattern_repeat_height: this.fabricPatternRepeatHeight,
+                    fabric_pattern_repeat_height:
+                        this.fabricPatternRepeatHeight,
                     fabric_pattern_repeat_unit: this.fabricPatternRepeatUnit,
 
                     notes: this.notes,
