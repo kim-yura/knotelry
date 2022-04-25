@@ -70,6 +70,7 @@
                     <option value="fiber">Fiber</option>
                     <option value="yarn">Yarn</option>
                     <option value="fabric">Fabric</option>
+                    <option value="thread">Thread</option>
                 </select>
             </div>
             <div class="form-element" v-if="this.imageURL.length > 0">
@@ -132,7 +133,8 @@
                 <label for="acquiredPrice">Price:</label>
                 <div class="input-select">
                     <input
-                        type="text"
+                        type="number"
+                        step="0.01"
                         placeholder="How much did you pay for this stash item?"
                         v-model="acquiredPrice"
                     />
@@ -319,8 +321,15 @@
                 />
             </div>
 
-            <!-- FIBER, YARN, FABRIC -->
-            <span v-if="type == 'fiber' || type == 'yarn' || type == 'fabric'">
+            <!-- FIBER, YARN, FABRIC, THREAD -->
+            <span
+                v-if="
+                    type == 'fiber' ||
+                    type == 'yarn' ||
+                    type == 'fabric' ||
+                    type == 'thread'
+                "
+            >
                 <div class="spacer" />
                 <div class="form-element">
                     <label for="dyerName">Dyer Name:</label>
@@ -389,7 +398,8 @@
                     <label for="lengthPerSkein">Length / Skein:</label>
                     <div class="input-select">
                         <input
-                            type="text"
+                            type="number"
+                            step="0.01"
                             placeholder="Enter length per skein"
                             v-model="lengthPerSkein"
                         />
@@ -406,7 +416,8 @@
                     <label for="weightPerSkein">Weight / Skein:</label>
                     <div class="input-select">
                         <input
-                            type="text"
+                            type="number"
+                            step="0.01"
                             placeholder="Enter weight per skein"
                             v-model="weightPerSkein"
                         />
@@ -435,7 +446,8 @@
                         </div>
                         <div class="stashed-converter-inputs">
                             <input
-                                type="text"
+                                type="number"
+                                step="0.01"
                                 placeholder="0"
                                 v-model="lengthStashed"
                                 id="lengthInput"
@@ -448,7 +460,8 @@
                         </div>
                         <div class="stashed-converter-inputs">
                             <input
-                                type="text"
+                                type="number"
+                                step="0.01"
                                 placeholder="0"
                                 v-model="weightStashed"
                                 id="weightInput"
@@ -558,6 +571,57 @@
                             <option value="yd">yards</option>
                             <option value="m">meters</option>
                         </select>
+                    </div>
+                </div>
+            </span>
+            <!-- THREAD -->
+            <span v-if="type == 'thread'">
+                <div class="form-element">
+                    <label for="lengthPerBobbin">Length / Bobbin:</label>
+                    <div class="input-select">
+                        <input
+                            type="number"
+                            step="0.01"
+                            placeholder="Enter length per bobbin"
+                            v-model="lengthPerBobbin"
+                        />
+                        <select v-model="lengthUnit">
+                            <option value="null" selected disabled hidden>
+                                unit
+                            </option>
+                            <option value="yd">yards</option>
+                            <option value="m">meters</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-element">
+                    <label for="amountStashed">Amount Stashed:</label>
+                    <div class="stashed-converter">
+                        <div class="stashed-converter-inputs">
+                            <input
+                                type="number"
+                                step="0.01"
+                                placeholder="0"
+                                v-model="bobbinsStashed"
+                                id="bobbinInput"
+                                v-on:keyup="convert"
+                            />
+                            <p id="converter-text">Bobbins</p>
+                        </div>
+                        <div class="stashed-converter-inputs">
+                            <input
+                                type="number"
+                                step="0.01"
+                                placeholder="0"
+                                v-model="lengthStashed"
+                                id="lengthInput"
+                                v-on:keyup="convert"
+                            />
+                            <p v-if="this.lengthUnit" id="converter-text">
+                                {{ this.lengthUnit }}
+                            </p>
+                            <p v-else id="converter-text">—</p>
+                        </div>
                     </div>
                 </div>
             </span>
@@ -788,6 +852,9 @@ export default {
                 this.fabricPatternRepeatHeight = data.fabricPatternRepeatHeight;
                 this.fabricPatternRepeatUnit = data.fabricPatternRepeatUnit;
 
+                this.lengthPerBobbin = data.lengthPerBobbin;
+                this.bobbinsStashed = data.bobbinsStashed;
+
                 this.notes = data.notes;
 
                 this.stashImages = data.stashItemImages;
@@ -860,6 +927,9 @@ export default {
             fabricPatternRepeatWidth: null,
             fabricPatternRepeatHeight: null,
             fabricPatternRepeatUnit: null,
+
+            lengthPerBobbin: null,
+            bobbinsStashed: null,
 
             notes: null,
 
@@ -1034,37 +1104,60 @@ export default {
             }
         },
         convert($event) {
-            if ($event.target.id == "skeinInput") {
-                if (this.lengthPerSkein) {
-                    this.lengthStashed =
-                        this.skeinsStashed * this.lengthPerSkein;
-                }
-                if (this.weightPerSkein) {
-                    this.weightStashed =
-                        this.skeinsStashed * this.weightPerSkein;
-                }
-            } else if ($event.target.id == "lengthInput") {
-                this.stashedLengthUnit = this.lengthUnit;
-                if (this.lengthPerSkein) {
-                    this.skeinsStashed =
-                        this.lengthStashed / this.lengthPerSkein;
-                }
-                if (this.weightPerSkein) {
-                    this.weightStashed =
-                        (this.lengthStashed / this.lengthPerSkein) *
-                        this.weightPerSkein;
-                }
-            } else if ($event.target.id == "weightInput") {
-                this.stashedWeightUnit = this.weightUnit;
-                if (this.weightPerSkein) {
-                    this.skeinsStashed =
-                        this.weightStashed / this.weightPerSkein;
-                }
-                if (this.lengthPerSkein) {
-                    this.lengthStashed =
-                        (this.weightStashed / this.weightPerSkein) *
-                        this.lengthPerSkein;
+            if (this.type == "yarn") {
+                if ($event.target.id == "skeinInput") {
+                    if (this.lengthPerSkein) {
+                        this.lengthStashed = (
+                            this.skeinsStashed * this.lengthPerSkein
+                        ).toFixed(2);
+                    }
+                    if (this.weightPerSkein) {
+                        this.weightStashed = (
+                            this.skeinsStashed * this.weightPerSkein
+                        ).toFixed(2);
+                    }
+                } else if ($event.target.id == "lengthInput") {
                     this.stashedLengthUnit = this.lengthUnit;
+                    if (this.lengthPerSkein) {
+                        this.skeinsStashed =
+                            (this.lengthStashed / this.lengthPerSkein).toFixed(
+                            2
+                        );
+                    }
+                    if (this.weightPerSkein) {
+                        this.weightStashed = (
+                            (this.lengthStashed / this.lengthPerSkein) *
+                            this.weightPerSkein
+                        ).toFixed(2);
+                    }
+                } else if ($event.target.id == "weightInput") {
+                    this.stashedWeightUnit = this.weightUnit;
+                    if (this.weightPerSkein) {
+                        this.skeinsStashed = (
+                            this.weightStashed / this.weightPerSkein
+                        ).toFixed(2);
+                    }
+                    if (this.lengthPerSkein) {
+                        this.lengthStashed =
+                            ((this.weightStashed / this.weightPerSkein) *
+                            this.lengthPerSkein).toFixed(2);
+                        this.stashedLengthUnit = this.lengthUnit;
+                    }
+                }
+            } else if (this.type == "thread") {
+                if ($event.target.id == "bobbinInput") {
+                    if (this.lengthPerBobbin) {
+                        this.lengthStashed = (
+                            this.bobbinsStashed * this.lengthPerBobbin
+                        ).toFixed(2);
+                    }
+                } else if ($event.target.id == "lengthInput") {
+                    this.stashedLengthUnit = this.lengthUnit;
+                    if (this.lengthPerBobbin) {
+                        this.bobbinsStashed = (
+                            this.lengthStashed / this.lengthPerBobbin
+                        ).toFixed(2);
+                    }
                 }
             }
         },
@@ -1337,9 +1430,9 @@ button:active {
 
 .stashed-converter {
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
     column-gap: 8px;
+    justify-content: space-between;
 }
 
 .stashed-converter-inputs {
