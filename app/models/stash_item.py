@@ -49,7 +49,7 @@ class Stash_Item(db.Model):
     # Broader attributes
     colors = db.Column(db.Text)
 
-    # FIBER, YARN, FABRIC
+    # FIBER, YARN, FABRIC, THREAD
     dyer_name = db.Column(db.Text)
     colorway_name = db.Column(db.Text)
     fiber_content = db.Column(db.String(200))
@@ -81,6 +81,12 @@ class Stash_Item(db.Model):
     # length_stashed
     # length_unit
 
+    # THREAD
+    length_per_bobbin = db.Column(db.Float)
+    # length_unit
+    bobbins_stashed = db.Column(db.Float)
+    # length_stashed
+
     notes = db.Column(db.Text)
 
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
@@ -110,7 +116,7 @@ class Stash_Item(db.Model):
 
             'colors': self.colors,
 
-            # FIBER, YARN, FABRIC
+            # FIBER, YARN, FABRIC,THREAD
             'dyer_name': self.dyer_name,
             'colorway_name': self.colorway_name,
             'fiber_content': self.fiber_content,
@@ -142,6 +148,12 @@ class Stash_Item(db.Model):
             # length_stashed
             # length_unit
 
+            # THREAD
+            'length_per_bobbin': self.length_per_bobbin,
+            # length_unit
+            'bobbins_stashed': self.bobbins_stashed,
+            # length_stashed
+
             'notes': self.notes,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
@@ -171,7 +183,7 @@ class Stash_Item(db.Model):
 
             'colors': self.colors,
 
-            # FIBER, YARN, FABRIC
+            # FIBER, YARN, FABRIC, THREAD
             'dyerName': self.dyer_name,
             'colorwayName': self.colorway_name,
             'fiberContent': self.fiber_content,
@@ -202,6 +214,12 @@ class Stash_Item(db.Model):
             'fabricPatternRepeatUnit': self.fabric_pattern_repeat_unit,
             # lengthStashed
             # lengthUnit
+
+            # THREAD
+            'lengthPerBobbin': self.length_per_bobbin,
+            # lengthUnit
+            'bobbinsStashed': self.bobbins_stashed,
+            # lengthStashed
 
             'notes': self.notes,
             'createdAt': self.created_at,
