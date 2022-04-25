@@ -69,6 +69,42 @@
                 <div class="text-content" v-else>—</div>
             </div>
             <div class="detail-text">
+                <div class="text-label">Tags:</div>
+                <div class="attributes-container" v-if="this.tags?.length">
+                    <p
+                        class="attribute-container"
+                        v-for="tag in this.tags"
+                        :key="tag"
+                    >
+                        {{ tag }}
+                    </p>
+                </div>
+                <div class="text-content" v-else>—</div>
+            </div>
+            <div class="detail-text">
+                <div class="text-label">Attributes:</div>
+                <div
+                    class="attributes-container"
+                    v-if="this.attributes?.length"
+                >
+                    <p
+                        class="attribute-container"
+                        v-for="attribute in this.attributes"
+                        :key="attribute"
+                    >
+                        {{ attribute }}
+                    </p>
+                </div>
+                <div class="text-content" v-else>—</div>
+            </div>
+            <div class="detail-text">
+                <div class="text-label">Stored In:</div>
+                <div class="text-content" v-if="this.storedIn?.length">
+                    {{ this.storedIn }}
+                </div>
+                <div class="text-content" v-else>—</div>
+            </div>
+            <div class="detail-text">
                 <div class="text-label">Date Acquired:</div>
                 <div class="text-content" v-if="this.acquired">
                     {{ this.acquired.slice(5, 16) }}
@@ -382,7 +418,8 @@
                 <div class="detail-text">
                     <div class="text-label">Amount Stashed:</div>
                     <div class="text-content" v-if="this.lengthStashed">
-                        {{ this.lengthStashed.toFixed(2) }} {{ this.lengthUnit }}
+                        {{ this.lengthStashed.toFixed(2) }}
+                        {{ this.lengthUnit }}
                     </div>
                     <div class="text-content" v-else>—</div>
                 </div>
@@ -447,7 +484,8 @@
                         — {{ this.lengthUnit }}
                     </p>
                     <p v-else>
-                        {{ this.lengthRemaining.toFixed(2) }} {{ this.lengthUnit }}
+                        {{ this.lengthRemaining.toFixed(2) }}
+                        {{ this.lengthUnit }}
                     </p>
                 </div>
             </div>
@@ -556,8 +594,8 @@ export default {
                     this.type = data.type;
 
                     this.status = data.status;
-                    this.tags = data.tags;
-                    this.attributes = data.attributes;
+                    this.tags = data.tags?.split(",");
+                    this.attributes = data.attributes?.split(",");
                     this.storedIn = data.storedIn;
 
                     this.acquired = data.acquired;
@@ -1100,5 +1138,26 @@ button:active {
 .project-link:hover {
     font-weight: bold;
     cursor: pointer;
+}
+
+.attributes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 130px);
+    column-gap: 4px;
+    row-gap: 4px;
+}
+
+.attribute-container {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 0px;
+    border: 1px solid var(--color-shadow);
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px var(--color-shadow);
 }
 </style>
