@@ -246,12 +246,9 @@ export default {
                             projectsData = temp;
                         }
                         if (this.searchStatus) {
-                            console.log(this.searchStatus)
                             const temp = [];
                             projectsData.forEach((project) => {
-                                console.log(project);
                                 if (project.status == this.searchStatus) {
-                                    console.log("YES")
                                     temp.push(project);
                                 }
                             });
