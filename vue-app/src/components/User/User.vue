@@ -21,19 +21,20 @@
                 >
                     they/them/theirs
                 </p>
-                <p
+                <span
                     class="pronouns"
-                    v-if="$store.state.selectedUser.pronouns_custom"
-                ></p>
-                <p
-                    v-for="pronoun in $store.state.selectedUser.pronouns_custom.split(
-                        ','
-                    )"
-                    :key="pronoun"
-                    class="pronouns"
+                    v-if="$store.state.selectedUser.pronouns_custom?.length"
                 >
-                    {{ pronoun }}
-                </p>
+                    <p
+                        v-for="pronoun in $store.state.selectedUser.pronouns_custom.split(
+                            ','
+                        )"
+                        :key="pronoun"
+                        class="pronouns"
+                    >
+                        {{ pronoun }}
+                    </p>
+                </span>
             </div>
             <button
                 v-if="
