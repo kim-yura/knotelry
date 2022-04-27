@@ -327,99 +327,6 @@
                     <p>---</p>
                 </div>
             </div>
-            <!-- TOOLBOX -->
-            <div class="notebook-section">
-                <p class="header">
-                    <router-link
-                        class="router-link-light"
-                        :to="`/users/${$store.state.selectedUser?.id}/toolbox`"
-                        >{{ $store.state.selectedUser?.username }}'s
-                        Toolbox</router-link
-                    >
-                </p>
-                <div v-if="$store.state.usersTools?.length > 0">
-                    <p class="tools-count">
-                        <router-link
-                            class="router-link-p"
-                            :to="`/users/${$store.state.selectedUser?.id}/toolbox`"
-                            >{{ $store.state.usersTools.length }} Tools
-                        </router-link>
-                    </p>
-                    <div class="stats">
-                        <div
-                            class="tool-stat"
-                            v-if="$store.state.spinningTools?.length"
-                        >
-                            <p>{{ $store.state.spinningTools.length }}</p>
-                            <p>Spinning Tools</p>
-                        </div>
-                        <div class="tool-stat grayed" v-else>
-                            <p>-</p>
-                            <p>Spinning Tools</p>
-                        </div>
-                        <div
-                            class="tool-stat"
-                            v-if="$store.state.weavingTools?.length"
-                        >
-                            <p>{{ $store.state.weavingTools.length }}</p>
-                            <p>Weaving Tools</p>
-                        </div>
-                        <div class="tool-stat grayed" v-else>
-                            <p>-</p>
-                            <p>Weaving Tools</p>
-                        </div>
-                        <div
-                            class="tool-stat"
-                            v-if="$store.state.knittingTools?.length"
-                        >
-                            <p>{{ $store.state.knittingTools.length }}</p>
-                            <p>Knitting Tools</p>
-                        </div>
-                        <div class="tool-stat grayed" v-else>
-                            <p>-</p>
-                            <p>Knitting Tools</p>
-                        </div>
-                        <div
-                            class="tool-stat"
-                            v-if="$store.state.crochetingTools?.length"
-                        >
-                            <p>{{ $store.state.crochetingTools.length }}</p>
-                            <p>Crocheting Tools</p>
-                        </div>
-                        <div class="tool-stat grayed" v-else>
-                            <p>-</p>
-                            <p>Crocheting Tools</p>
-                        </div>
-                        <div
-                            class="tool-stat"
-                            v-if="$store.state.sewingTools?.length"
-                        >
-                            <p>{{ $store.state.sewingTools.length }}</p>
-                            <p>Sewing Tools</p>
-                        </div>
-                        <div class="tool-stat grayed" v-else>
-                            <p>-</p>
-                            <p>Sewing Tools</p>
-                        </div>
-                        <div
-                            class="tool-stat"
-                            v-if="$store.state.embroideryTools?.length"
-                        >
-                            <p>{{ $store.state.embroideryTools.length }}</p>
-                            <p>Embroidery Tools</p>
-                        </div>
-                        <div class="tool-stat grayed" v-else>
-                            <p>-</p>
-                            <p>Embroidery Tools</p>
-                        </div>
-                    </div>
-                </div>
-                <div v-else>
-                    <p>
-                        {{ $store.state.selectedUser?.username }} has no tools!
-                    </p>
-                </div>
-            </div>
             <!-- Possibly notebooks and summaries by craft -->
             <!-- Images could link to the project page -->
             <!-- SPINNING -->
@@ -550,6 +457,99 @@
                         />
                         <img v-else src="" alt="No image found" />
                     </span>
+                </div>
+            </div>
+            <!-- TOOLBOX -->
+            <div class="notebook-section">
+                <p class="header">
+                    <router-link
+                        class="router-link-light"
+                        :to="`/users/${$store.state.selectedUser?.id}/toolbox`"
+                        >{{ $store.state.selectedUser?.username }}'s
+                        Toolbox</router-link
+                    >
+                </p>
+                <div v-if="$store.state.usersTools?.length > 0">
+                    <p class="tools-count">
+                        <router-link
+                            class="router-link-p"
+                            :to="`/users/${$store.state.selectedUser?.id}/toolbox`"
+                            >{{ $store.state.usersTools.length }} Tools
+                        </router-link>
+                    </p>
+                    <div class="stats">
+                        <div
+                            class="tool-stat"
+                            v-if="$store.state.spinningTools?.length"
+                        >
+                            <p>{{ $store.state.spinningTools.length }}</p>
+                            <p>Spinning Tools</p>
+                        </div>
+                        <div class="tool-stat grayed" v-else>
+                            <p>-</p>
+                            <p>Spinning Tools</p>
+                        </div>
+                        <div
+                            class="tool-stat"
+                            v-if="$store.state.weavingTools?.length"
+                        >
+                            <p>{{ $store.state.weavingTools.length }}</p>
+                            <p>Weaving Tools</p>
+                        </div>
+                        <div class="tool-stat grayed" v-else>
+                            <p>-</p>
+                            <p>Weaving Tools</p>
+                        </div>
+                        <div
+                            class="tool-stat"
+                            v-if="$store.state.knittingTools?.length"
+                        >
+                            <p>{{ $store.state.knittingTools.length }}</p>
+                            <p>Knitting Tools</p>
+                        </div>
+                        <div class="tool-stat grayed" v-else>
+                            <p>-</p>
+                            <p>Knitting Tools</p>
+                        </div>
+                        <div
+                            class="tool-stat"
+                            v-if="$store.state.crochetingTools?.length"
+                        >
+                            <p>{{ $store.state.crochetingTools.length }}</p>
+                            <p>Crocheting Tools</p>
+                        </div>
+                        <div class="tool-stat grayed" v-else>
+                            <p>-</p>
+                            <p>Crocheting Tools</p>
+                        </div>
+                        <div
+                            class="tool-stat"
+                            v-if="$store.state.sewingTools?.length"
+                        >
+                            <p>{{ $store.state.sewingTools.length }}</p>
+                            <p>Sewing Tools</p>
+                        </div>
+                        <div class="tool-stat grayed" v-else>
+                            <p>-</p>
+                            <p>Sewing Tools</p>
+                        </div>
+                        <div
+                            class="tool-stat"
+                            v-if="$store.state.embroideryTools?.length"
+                        >
+                            <p>{{ $store.state.embroideryTools.length }}</p>
+                            <p>Embroidery Tools</p>
+                        </div>
+                        <div class="tool-stat grayed" v-else>
+                            <p>-</p>
+                            <p>Embroidery Tools</p>
+                        </div>
+                    </div>
+                </div>
+                <div v-else>
+                    <p>
+                        {{ $store.state.selectedUser?.username }} has no tools!
+                    </p>
                 </div>
             </div>
         </div>
