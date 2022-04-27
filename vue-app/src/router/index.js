@@ -112,6 +112,11 @@ const routes = [
 		component: Projects
 	},
 	{
+		path: '/users/:id/projects/:craftParam',
+		name: 'usersProjectsByCraft',
+		component: Projects
+	},
+	{
 		path: '/projects/:projectId',
 		name: 'projectDetail',
 		component: ProjectDetail

@@ -130,6 +130,54 @@ export default {
             (projectsData) => {
                 if (projectsData) {
                     this.$store.commit("setUsersProjects", projectsData);
+                    if (this.$route.params.craftParam) {
+                        if (this.$route.params.craftParam == "spinning") {
+                            this.searchSpinning = true;
+                        } else if (
+                            this.$route.params.craftParam == "knitting"
+                        ) {
+                            this.searchKnitting = true;
+                        } else if (this.$route.params.craftParam == "sewing") {
+                            this.searchSewing = true;
+                        }
+
+                        const temp = new Set();
+                        if (this.searchSpinning) {
+                            Object.values(projectsData)[0].forEach(
+                                (project) => {
+                                    if (
+                                        project.craftTypes.includes("spinning")
+                                    ) {
+                                        temp.add(project);
+                                    }
+                                }
+                            );
+                        }
+                        if (this.searchKnitting) {
+                            Object.values(projectsData)[0].forEach(
+                                (project) => {
+                                    if (
+                                        project.craftTypes.includes("knitting")
+                                    ) {
+                                        temp.add(project);
+                                    }
+                                }
+                            );
+                        }
+                        if (this.searchSewing) {
+                            Object.values(projectsData)[0].forEach(
+                                (project) => {
+                                    if (project.craftTypes.includes("sewing")) {
+                                        temp.add(project);
+                                    }
+                                }
+                            );
+                        }
+                        projectsData = Array.from(temp);
+
+                        this.$store.commit("setUsersProjects", projectsData);
+                        window.scrollTo(0, 0);
+                    }
                 }
             }
         );

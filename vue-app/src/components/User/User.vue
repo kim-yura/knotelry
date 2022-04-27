@@ -430,7 +430,14 @@
                 v-if="$store.state.spinningProjects?.length"
             >
                 <p class="header">Spinning Notebook</p>
-                <p>{{ $store.state.spinningProjects?.length }} projects</p>
+                <router-link
+                    class="router-link-small"
+                    :to="`/users/${$store.state.selectedUser?.id}/projects/spinning`"
+                    >{{
+                        $store.state.spinningProjects?.length
+                    }}
+                    projects</router-link
+                >
                 <div class="tiny-gallery">
                     <span
                         v-for="project in $store.state.spinningProjects.slice(
@@ -456,7 +463,14 @@
                 v-if="$store.state.knittingProjects?.length"
             >
                 <p class="header">Knitting Notebook</p>
-                <p>{{ $store.state.knittingProjects?.length }} projects</p>
+                <router-link
+                    class="router-link-small"
+                    :to="`/users/${$store.state.selectedUser?.id}/projects/knitting`"
+                    >{{
+                        $store.state.knittingProjects?.length
+                    }}
+                    projects</router-link
+                >
                 <div class="tiny-gallery">
                     <span
                         v-for="project in $store.state.knittingProjects.slice(
@@ -481,7 +495,14 @@
                 v-if="$store.state.crochetingProjects?.length"
             >
                 <p class="header">Crocheting Notebook</p>
-                <p>{{ $store.state.crochetingProjects?.length }} projects</p>
+                <router-link
+                    class="router-link-small"
+                    :to="`/users/${$store.state.selectedUser?.id}/projects/crocheting`"
+                    >{{
+                        $store.state.crochetingProjects?.length
+                    }}
+                    projects</router-link
+                >
                 <div class="tiny-gallery">
                     <span
                         v-for="project in $store.state.crochetingProjects.slice(
@@ -506,7 +527,14 @@
                 v-if="$store.state.sewingProjects?.length"
             >
                 <p class="header">Sewing Notebook</p>
-                <p>{{ $store.state.sewingProjects?.length }} projects</p>
+                <router-link
+                    class="router-link-small"
+                    :to="`/users/${$store.state.selectedUser?.id}/projects/sewing`"
+                    >{{
+                        $store.state.sewingProjects?.length
+                    }}
+                    projects</router-link
+                >
                 <div class="tiny-gallery">
                     <span
                         v-for="project in $store.state.sewingProjects.slice(
@@ -1096,6 +1124,10 @@ a:hover {
 
 .router-link-p:active {
     font-weight: bold;
+}
+
+.router-link-small {
+    font-size: 14px;
 }
 
 .grayed {
