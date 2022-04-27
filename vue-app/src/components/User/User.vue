@@ -241,12 +241,10 @@
                         />
                     </div>
                 </div>
-                <div class="user-gallery" v-else>
-                    <p>
-                        {{ $store.state.selectedUser?.username }} has no photos
-                        in their Gallery
-                    </p>
-                </div>
+                <p class="p-left-align" v-else>
+                    {{ $store.state.selectedUser?.username }} has no photos in
+                    their Gallery
+                </p>
                 <div
                     class="gallery-image-interactive"
                     v-if="
@@ -1139,5 +1137,10 @@ a:hover {
     margin-top: 16px;
     margin-bottom: 16px;
     padding: 0px;
+}
+
+.p-left-align {
+    text-align: left;
+    margin-top: 32px;
 }
 </style>
