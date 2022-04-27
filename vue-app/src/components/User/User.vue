@@ -419,6 +419,7 @@
             </div>
             <!-- Possibly notebooks and summaries by craft -->
             <!-- Images could link to the project page -->
+            <!-- SPINNING -->
             <div
                 class="notebook-section"
                 v-if="$store.state.spinningProjects?.length"
@@ -429,7 +430,7 @@
                     <span
                         v-for="project in $store.state.spinningProjects.slice(
                             0,
-                            6
+                            3
                         )"
                         :key="project.id"
                     >
@@ -444,6 +445,7 @@
                     </span>
                 </div>
             </div>
+            <!-- KNITTING -->
             <div
                 class="notebook-section"
                 v-if="$store.state.knittingProjects?.length"
@@ -454,7 +456,7 @@
                     <span
                         v-for="project in $store.state.knittingProjects.slice(
                             0,
-                            6
+                            3
                         )"
                         :key="project.id"
                     >
@@ -468,6 +470,7 @@
                     </span>
                 </div>
             </div>
+            <!-- CROCHETING -->
             <div
                 class="notebook-section"
                 v-if="$store.state.crochetingProjects?.length"
@@ -478,7 +481,7 @@
                     <span
                         v-for="project in $store.state.crochetingProjects.slice(
                             0,
-                            6
+                            3
                         )"
                         :key="project.id"
                     >
@@ -487,6 +490,32 @@
                             :src="project.projectImages[0].imageURL"
                             :key="project.id"
                             alt="User-uploaded project image"
+                        />
+                        <img v-else src="" alt="No image found" />
+                    </span>
+                </div>
+            </div>
+            <!-- SEWING -->
+            <div
+                class="notebook-section"
+                v-if="$store.state.sewingProjects?.length"
+            >
+                <p class="header">Sewing Notebook</p>
+                <p>{{ $store.state.sewingProjects?.length }} projects</p>
+                <div class="tiny-gallery">
+                    <span
+                        v-for="project in $store.state.sewingProjects.slice(
+                            0,
+                            3
+                        )"
+                        :key="project.id"
+                    >
+                        <img
+                            v-if="project.projectImages.length"
+                            :src="project.projectImages[0].imageURL"
+                            :key="project.id"
+                            alt="User-uploaded project image"
+                            @click="redirectToProject(project.id)"
                         />
                         <img v-else src="" alt="No image found" />
                     </span>
