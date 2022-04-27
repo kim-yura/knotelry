@@ -24,8 +24,15 @@
                 <p
                     class="pronouns"
                     v-if="$store.state.selectedUser.pronouns_custom"
+                ></p>
+                <p
+                    v-for="pronoun in $store.state.selectedUser.pronouns_custom.split(
+                        ','
+                    )"
+                    :key="pronoun"
+                    class="pronouns"
                 >
-                    {{ $store.state.selectedUser.pronouns_custom }}
+                    {{ pronoun }}
                 </p>
             </div>
             <button
@@ -1100,5 +1107,4 @@ a:hover {
     margin-bottom: 16px;
     padding: 0px;
 }
-
 </style>
