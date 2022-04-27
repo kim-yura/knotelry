@@ -9,6 +9,8 @@ def seed_users():
         password='demoPassword123',
         profile_pic_url='https://knotelry.s3.amazonaws.com/profilepic_1.jpg',
         bio='Just a crafty dev and SWE on the internet! Hire me to make cool sites like this for you.',
+        crafting_journey="I started knitting in 2015 on a road trip with some friends. Since then, I've been hooked! I've expanded my repertoire from just knitting to also include designing knitwear, spinning, and dabbling in sewing and crocheting.",
+        roles="knitwear designer, commmunity organizer, knotelry developer",
         pronouns_she=True,
         instagram='knitboop',
         twitter='knitwit_yura',

@@ -12,6 +12,8 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     profile_pic_url = db.Column(db.String(500), default='https://knotelry.s3.amazonaws.com/profilepic_default.png')
     bio = db.Column(db.Text)
+    crafting_journey = db.Column(db.Text)
+    roles = db.Column(db.Text)
     pronouns_she = db.Column(db.Boolean, nullable=False, default=False)
     pronouns_he = db.Column(db.Boolean, nullable=False, default=False)
     pronouns_they = db.Column(db.Boolean, nullable=False, default=False)
@@ -52,6 +54,8 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'profile_pic_url': self.profile_pic_url,
             'bio': self.bio,
+            'crafting_journey': self.crafting_journey,
+            'roles': self.roles,
             'pronouns_she': self.pronouns_she,
             'pronouns_he': self.pronouns_he,
             'pronouns_they': self.pronouns_they,
@@ -77,6 +81,8 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'profilePicUrl': self.profile_pic_url,
             'bio': self.bio,
+            'craftingJourney': self.crafting_journey,
+            'roles': self.roles,
             'pronounsShe': self.pronouns_she,
             'pronounsHe': self.pronouns_he,
             'pronounsThey': self.pronouns_they,
