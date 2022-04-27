@@ -339,7 +339,7 @@ const loadUsersProjects = async (userId) => {
     border: 1px solid var(--color-shadow);
     border-radius: 4px;
     box-shadow: 2px 2px 2px var(--color-shadow);
-    margin-top: 120px;
+    margin-top: 68px;
     margin-left: 28px;
     margin-bottom: 40px;
     position: sticky;
