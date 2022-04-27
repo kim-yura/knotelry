@@ -305,6 +305,17 @@
                 </div>
                 <div class="divider" />
             </span>
+            <!-- SEWING -->
+            <span v-if="this.craftTypes?.includes('sewing')">
+                <div class="detail-text">
+                    <div class="text-label">Size Made:</div>
+                    <div class="text-content" v-if="this.sizeMade">
+                        {{ this.sizeMade }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="divider" />
+            </span>
             <!-- LINKED GALLERY -->
             <div class="detail-text">
                 <div class="text-label">Linked Materials:</div>
@@ -320,7 +331,9 @@
                         <img
                             class="linked-image"
                             v-if="material.stashItem?.stashItemImages?.length"
-                            :src="material.stashItem.stashItemImages[0].imageURL"
+                            :src="
+                                material.stashItem.stashItemImages[0].imageURL
+                            "
                             alt="User-uploaded image of material"
                             @click.prevent="
                                 redirectStash(material.stashItem?.id)
@@ -692,7 +705,7 @@ button:active {
 
 .divider {
     border-top: 1px solid var(--color-shadow);
-    margin-top: 10px;
+    margin-top: 16px;
     margin-bottom: 16px;
     padding: 0px;
 }
