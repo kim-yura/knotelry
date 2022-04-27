@@ -39,6 +39,23 @@
                 />
             </div>
             <div class="form-element">
+                <label for="craftingJourney">Crafting Journey:</label>
+                <textarea
+                    name="craftingJourney"
+                    placeholder="Tell us about your crafting journey!"
+                    v-model="craftingJourney"
+                />
+            </div>
+            <div class="form-element">
+                <label for="roles">Roles:</label>
+                <input
+                    type="text"
+                    name="roles"
+                    placeholder="Tell us about your roles in the crafting community"
+                    v-model="roles"
+                />
+            </div>
+            <div class="form-element">
                 <label for="pronouns">Pronouns:</label>
                 <div class="pronouns-container">
                     <button
@@ -72,7 +89,7 @@
                 <input
                     type="text"
                     name="pronounsCustom"
-                    placeholder="Enter custom pronouns"
+                    placeholder="Enter comma-separated custom pronouns"
                     v-model="pronounsCustom"
                 />
             </div>
@@ -162,7 +179,9 @@
                     >
                         Embroidery
                     </button>
-                    <button v-else @click="toggleEmbroiderer">Embroidery</button>
+                    <button v-else @click="toggleEmbroiderer">
+                        Embroidery
+                    </button>
                     <!-- MORE CRAFTS GO HERE -->
                 </div>
             </div>
@@ -193,6 +212,8 @@ export default {
     data() {
         return {
             bio: this.$store.state.sessionUser.bio,
+            craftingJourney: this.$store.state.sessionUser.crafting_journey,
+            roles: this.$store.state.sessionUser.roles,
             pronounsShe: this.$store.state.sessionUser.pronouns_she,
             pronounsHe: this.$store.state.sessionUser.pronouns_he,
             pronounsThey: this.$store.state.sessionUser.pronouns_they,
@@ -247,6 +268,8 @@ export default {
             const editedUser = {
                 id: this.$store.state.sessionUser.id,
                 bio: this.bio,
+                craftingJourney: this.craftingJourney,
+                roles: this.roles,
                 profilePicURL: this.imageURL,
                 pronounsShe: this.pronounsShe,
                 pronounsHe: this.pronounsHe,
@@ -299,9 +322,7 @@ export default {
             }
         },
         cancel() {
-            this.$router.push(
-                `/users/${this.$store.state.sessionUser.id}`
-            );
+            this.$router.push(`/users/${this.$store.state.sessionUser.id}`);
         },
     },
     mutations: {
