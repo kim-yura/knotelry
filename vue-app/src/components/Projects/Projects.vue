@@ -17,7 +17,7 @@
                         <option value="null" selected disabled hidden>—</option>
                         <option value="queued">Queued</option>
                         <option value="inProgress">In Progress</option>
-                        <option value="finished">Completed</option>
+                        <option value="finished">Finished</option>
                         <option value="timeout">In Time Out</option>
                     </select>
                 </div>
@@ -216,59 +216,81 @@ export default {
                     if (projectsData) {
                         projectsData = projectsData.projects;
                     }
-                    if (this.searchParam) {
-                        const temp = [];
-                        projectsData.forEach((project) => {
-                            if (
-                                project.title
-                                    ?.toLowerCase()
-                                    .includes(this.searchParam.toLowerCase()) ||
-                                project.description
-                                    ?.toLowerCase()
-                                    .includes(this.searchParam.toLowerCase())
-                            ) {
-                                temp.push(project);
-                            }
-                        });
-                        projectsData = temp;
-                    }
-                    if (this.searchStatus) {
-                        const temp = [];
-                        projectsData.forEach((project) => {
-                            if (project.status == this.searchStatus) {
-                                temp.push(project);
-                            }
-                        });
-                        projectsData = temp;
-                    }
+                    if (
+                        !this.searchParam &&
+                        !this.searchStatus &&
+                        !this.searchSpinning &&
+                        !this.searchKnitting &&
+                        !this.searchSewing
+                    ) {
+                        window.scrollTo(0, 0);
+                    } else {
+                        if (this.searchParam) {
+                            const temp = [];
+                            projectsData.forEach((project) => {
+                                if (
+                                    project.title
+                                        ?.toLowerCase()
+                                        .includes(
+                                            this.searchParam.toLowerCase()
+                                        ) ||
+                                    project.description
+                                        ?.toLowerCase()
+                                        .includes(
+                                            this.searchParam.toLowerCase()
+                                        )
+                                ) {
+                                    temp.push(project);
+                                }
+                            });
+                            projectsData = temp;
+                        }
+                        if (this.searchStatus) {
+                            console.log(this.searchStatus)
+                            const temp = [];
+                            projectsData.forEach((project) => {
+                                console.log(project);
+                                if (project.status == this.searchStatus) {
+                                    console.log("YES")
+                                    temp.push(project);
+                                }
+                            });
+                            projectsData = temp;
+                        }
 
-                    // Inclusive craft sort
-                    const temp = new Set();
-                    if (this.searchSpinning) {
-                        projectsData.forEach((project) => {
-                            if (project.craftTypes.includes("spinning")) {
-                                temp.add(project);
+                        // Inclusive craft sort
+                        if (this.searchSpinning || this.searchKnitting || this.searchSewing) {
+                            const temp = new Set();
+                            if (this.searchSpinning) {
+                                projectsData.forEach((project) => {
+                                    if (project.craftTypes.includes("spinning")) {
+                                        temp.add(project);
+                                    }
+                                });
                             }
-                        });
-                    }
-                    if (this.searchKnitting) {
-                        projectsData.forEach((project) => {
-                            if (project.craftTypes.includes("knitting")) {
-                                temp.add(project);
+                            if (this.searchKnitting) {
+                                projectsData.forEach((project) => {
+                                    if (project.craftTypes.includes("knitting")) {
+                                        temp.add(project);
+                                    }
+                                });
                             }
-                        });
-                    }
-                    if (this.searchSewing) {
-                        projectsData.forEach((project) => {
-                            if (project.craftTypes.includes("sewing")) {
-                                temp.add(project);
+                            if (this.searchSewing) {
+                                projectsData.forEach((project) => {
+                                    if (project.craftTypes.includes("sewing")) {
+                                        temp.add(project);
+                                    }
+                                });
                             }
-                        });
-                    }
-                    projectsData = Array.from(temp);
+                            projectsData = Array.from(temp);
 
-                    this.$store.commit("setUsersProjects", projectsData);
-                    window.scrollTo(0, 0);
+                            this.$store.commit("setUsersProjects", projectsData);
+                            window.scrollTo(0, 0);
+                        } else {
+                            this.$store.commit("setUsersProjects", projectsData);
+                            window.scrollTo(0, 0);
+                        }
+                    }
                 }
             );
         },
