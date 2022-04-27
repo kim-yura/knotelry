@@ -493,8 +493,8 @@
                 <div class="stashed-content" v-if="this.type == 'fiber'">
                     <p
                         v-if="
-                            i(
-                                sNaN(this.fiberQuantityRemaining) ||
+                            (
+                                isNaN(this.fiberQuantityRemaining) ||
                                     !this.fiberQuantityRemaining
                             ) && this.fiberQuantityRemaining != 0
                         "
