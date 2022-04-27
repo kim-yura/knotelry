@@ -24,6 +24,8 @@ def user(id):
 def put_user():
     db.session.query(User).filter(User.id == request.json['id']).update({
         'bio': request.json['bio'],
+        'crafting_journey': request.json['craftingJourney'],
+        'roles': request.json['roles'],
         'profile_pic_url': request.json['profilePicURL'],
         'pronouns_she': request.json['pronounsShe'],
         'pronouns_he': request.json['pronounsHe'],
