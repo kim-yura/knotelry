@@ -345,6 +345,19 @@
                 </div>
             </span>
 
+            <!-- SEWING -->
+            <span v-if="this.sewing">
+                <div class="divider" />
+                <div class="form-element">
+                    <label for="sizeMade">Size Made:</label>
+                    <input
+                        type="text"
+                        placeholder="Enter size information"
+                        v-model="this.sizeMade"
+                    />
+                </div>
+            </span>
+
             <div class="divider" />
             <div class="form-element">
                 <label for="tools">Linked Tools:</label>
@@ -705,7 +718,9 @@
             <div class="form-element">
                 <div />
                 <div class="option-buttons">
-                    <button type="button" id="submit" @click="submit">Edit</button>
+                    <button type="button" id="submit" @click="submit">
+                        Edit
+                    </button>
                     <p class="option-button" id="cancel" @click="cancel">
                         Cancel
                     </p>
@@ -734,7 +749,6 @@ export default {
             sizeMade: null,
             spinning: false,
             knitting: false,
-            crocheting: false,
             sewing: false,
 
             tags: null,
@@ -794,7 +808,6 @@ export default {
                 this.craftTypes = data.craftTypes?.split(" ");
                 this.spinning = this.craftTypes?.includes("spinning");
                 this.knitting = this.craftTypes?.includes("knitting");
-                this.crocheting = this.craftTypes?.includes("crocheting");
                 this.sewing = this.craftTypes?.includes("sewing");
 
                 this.patternName = data.patternName;
@@ -1156,7 +1169,7 @@ export default {
                 updatedMaterial.fiber_quantity_used = document.getElementById(
                     `fiberQuantityUsed-${id}`
                 ).value;
-            };
+            }
             if (
                 document.getElementById(`fiberQuantityUnit-${id}`) &&
                 document.getElementById(`fiberQuantityUnit-${id}`).value
@@ -1164,7 +1177,7 @@ export default {
                 updatedMaterial.fiber_quantity_unit = document.getElementById(
                     `fiberQuantityUnit-${id}`
                 ).value;
-            };
+            }
             if (
                 document.getElementById(`lengthUsed-${id}`) &&
                 document.getElementById(`lengthUsed-${id}`).value
@@ -1172,7 +1185,7 @@ export default {
                 updatedMaterial.length_used = document.getElementById(
                     `lengthUsed-${id}`
                 ).value;
-            };
+            }
             if (
                 document.getElementById(`lengthUnit-${id}`) &&
                 document.getElementById(`lengthUnit-${id}`).value
@@ -1180,7 +1193,7 @@ export default {
                 updatedMaterial.length_unit = document.getElementById(
                     `lengthUnit-${id}`
                 ).value;
-            };
+            }
             if (
                 document.getElementById(`weightUsed-${id}`) &&
                 document.getElementById(`weightUsed-${id}`).value
@@ -1188,7 +1201,7 @@ export default {
                 updatedMaterial.weight_used = document.getElementById(
                     `weightUsed-${id}`
                 ).value;
-            };
+            }
             if (
                 document.getElementById(`weightUnit-${id}`) &&
                 document.getElementById(`weightUnit-${id}`).value
@@ -1196,7 +1209,7 @@ export default {
                 updatedMaterial.weight_unit = document.getElementById(
                     `weightUnit-${id}`
                 ).value;
-            };
+            }
             if (
                 document.getElementById(`skeinsUsed-${id}`) &&
                 document.getElementById(`skeinsUsed-${id}`).value
@@ -1204,7 +1217,7 @@ export default {
                 updatedMaterial.skeins_used = document.getElementById(
                     `skeinsUsed-${id}`
                 ).value;
-            };
+            }
 
             const response = await fetch("/api/projects/materials/", {
                 method: "PUT",
