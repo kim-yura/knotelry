@@ -27,6 +27,7 @@ export default createStore({
 		usersProjects: [],
 		spinningProjects: [],
 		knittingProjects: [],
+		sewingProjects: [],
 		selectedProject: null,
 	},
 	getters: {
@@ -138,6 +139,7 @@ export default createStore({
 		setUsersProjectCategories(state, projectsData) {
 			const spinningArr = [];
 			const knittingArr = [];
+			const sewingArr = [];
 			Object.values(projectsData)[0].forEach(project => {
 				if (project.craftTypes.includes('spinning')) {
 					spinningArr.push(project);
@@ -145,9 +147,13 @@ export default createStore({
 				if (project.craftTypes.includes('knitting')) {
 					knittingArr.push(project);
 				};
+				if (project.craftTypes.includes('sewing')) {
+					sewingArr.push(project);
+				};
 			});
 			state.spinningProjects = spinningArr;
 			state.knittingProjects = knittingArr;
+			state.sewingProjects = sewingArr;
 		},
 		setSelectedProject(state, project) {
 			state.selectedProject = project;
