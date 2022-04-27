@@ -3,10 +3,10 @@
         <nav>
             <div class="nav-section">
                 <router-link to="/" id="home-link">knotelry</router-link>
-                <router-link to="/patterns">patterns</router-link>
+                <!-- <router-link to="/patterns">patterns</router-link>
                 <router-link to="/yarns">yarns</router-link>
                 <router-link to="/community">community</router-link>
-                <router-link to="/search">advanced search</router-link>
+                <router-link to="/search">advanced search</router-link> -->
             </div>
             <div v-if="$store.state.authenticated" class="nav-section">
                 <p @mouseover="hover = true">

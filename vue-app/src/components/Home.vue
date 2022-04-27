@@ -12,7 +12,7 @@
             <div class="sidebar-section">
                 <p class="header">Quick Browse:</p>
                 <div class="quick-browse-options">
-                    <!-- These will eventually redirect to category pages for crafts -->
+                    These will eventually redirect to category pages for crafts
                     <p class="craft-button">spinning</p>
                     <!-- <p class="craft-button">weaving</p> -->
                     <p class="craft-button">knitting</p>
