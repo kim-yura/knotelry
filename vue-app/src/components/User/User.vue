@@ -179,34 +179,31 @@
         <div class="user-main">
             <div class="user-text">
                 <div class="user-text-label">Bio:</div>
-                <div class="user-text-content">
-                    {{ $store.state.selectedUser?.bio }}
+                <div
+                    class="user-text-content"
+                    v-if="$store.state.selectedUser?.bio?.length"
+                >
+                    {{ $store.state.selectedUser.bio }}
                 </div>
-                <div class="user-text-label">More info:</div>
-                <div class="user-main-content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vivamus ac elit nisi. Quisque efficitur efficitur mi,
-                    pulvinar tincidunt velit rhoncus eget.
+                <div class="user-text-content" v-else>—</div>
+                <div class="user-text-label">Crafting Journey:</div>
+                <div
+                    class="user-text-content"
+                    v-if="$store.state.selectedUser?.crafting_journey?.length"
+                >
+                    {{ $store.state.selectedUser.crafting_journey }}
                 </div>
-                <div class="user-text-label">Even more info:</div>
-                <div class="user-text-content">
-                    Pellentesque non viverra sapien, at euismod justo.
-                    Suspendisse ullamcorper id nisi sed lobortis. Morbi
-                    sollicitudin pulvinar sollicitudin. Suspendisse non augue
-                    quis erat faucibus hendrerit quis sit amet urna. Praesent
-                    tempus massa est, semper pellentesque dolor varius eget.
-                    Nunc et nibh ac tellus mollis volutpat ac eget diam.
+                <div class="text-content" v-else>—</div>
+                <div class="user-text-label">Roles:</div>
+                <div
+                    class="user-text-content"
+                    v-if="$store.state.selectedUser?.roles?.length"
+                >
+                    {{ $store.state.selectedUser.roles }}
                 </div>
-                <div class="user-text-label">Mucho mas info:</div>
-                <div class="user-text-content">
-                    Proin mi purus, aliquet vel sapien vel, cursus pellentesque
-                    arcu. Suspendisse potenti. Proin et sem ut dui sollicitudin
-                    commodo. Etiam sagittis augue vitae mi tincidunt commodo.
-                    Duis viverra euismod porta. Vivamus volutpat mollis elit, a
-                    commodo arcu facilisis a. Aliquam ac ultrices sapien. Nulla
-                    pretium augue ex, sit amet rutrum ex condimentum a.
-                </div>
+                <div class="text-content" v-else>—</div>
             </div>
+            <div class="divider" />
             <div class="user-gallery-container">
                 <div class="user-gallery-header">
                     <h4>{{ $store.state.selectedUser?.username }}'s Gallery</h4>
@@ -1096,4 +1093,12 @@ a:hover {
 .grayed {
     color: #7597aa;
 }
+
+.divider {
+    border-top: 1px solid var(--color-shadow);
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding: 0px;
+}
+
 </style>
