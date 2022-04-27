@@ -73,7 +73,7 @@
             </div>
             <div class="detail-text">
                 <div class="text-label">Tagged Crafts:</div>
-                <div class="attributes-container" v-if="this.craftTypes">
+                <div class="attributes-container" v-if="this.craftTypes?.length">
                     <p
                         class="attribute-container"
                         v-for="craft in this.craftTypes"
@@ -424,7 +424,9 @@ export default {
                 if (data) {
                     this.title = data.title;
                     this.description = data.description;
-                    this.craftTypes = data.craftTypes?.split(" ");
+                    if (data.craftTypes.length) {
+                        this.craftTypes = data.craftTypes?.split(" ");
+                    };
                     this.patternName = data.patternName;
                     this.patternAuthor = data.patternAuthor;
                     this.linkToPattern = data.linkToPattern;
