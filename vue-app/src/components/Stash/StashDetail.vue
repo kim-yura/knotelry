@@ -1022,7 +1022,7 @@ const loadLinkedProjects = async (stashId) => {
         return data;
     } else {
         const data = false;
-        return false;
+        return data;
     }
 };
 

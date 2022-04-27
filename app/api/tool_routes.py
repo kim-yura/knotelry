@@ -1,7 +1,7 @@
 from datetime import datetime
 from flask import Blueprint, jsonify, make_response, request
 from sqlalchemy import asc
-from app.models import db, Tool
+from app.models import db, Tool, Project, Project_Tool
 
 tool_routes = Blueprint('tools', __name__)
 
@@ -19,6 +19,19 @@ def get_users_tools(id):
 def tool(id):
     tool = Tool.query.get(id)
     return tool.to_JSON()
+
+@tool_routes.route('/<int:id>/projects')
+def get_linked_projects(id):
+    project_tools = Project_Tool.query.order_by((Project_Tool.project_id).asc()).all()
+    linked_project_tools = []
+    for tool in project_tools:
+        if tool.tool_id == id:
+            linked_project_tools.append(tool)
+    linked_projects = []
+    for tool in linked_project_tools:
+        project = Project.query.get(tool.project_id)
+        linked_projects.append(project)
+    return {'linkedProjects': [project.to_JSON() for project in linked_projects]}
 
 @tool_routes.route('/', methods=['POST'])
 def post_tool():

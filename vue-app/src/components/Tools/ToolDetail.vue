@@ -72,9 +72,41 @@
                 </div>
                 <div class="text-content" v-else>—</div>
             </div>
+            <div class="divider" />
             <div class="detail-text">
-                <div class="text-label">Projects Used:</div>
-                <div class="text-content">Lorem ipsum dolor sit amet</div>
+                <div class="text-label">Linked Projects:</div>
+                <div
+                    class="linked-project-gallery"
+                    v-if="this.linkedProjects?.length"
+                >
+                    <div
+                        class="project"
+                        v-for="project in linkedProjects"
+                        :key="project.id"
+                    >
+                        <img
+                            class="project-image"
+                            v-if="project.projectImages.length"
+                            :src="project.projectImages[0].imageURL"
+                            alt="User-uploaded image of project"
+                            @click.prevent="redirectProject(project.id)"
+                        />
+                        <img
+                            class="project-image"
+                            v-else
+                            src="https://knotelry.s3.amazonaws.com/image-placeholder.png"
+                            alt="No image found"
+                            @click.prevent="redirectProject(project.id)"
+                        />
+                        <p
+                            class="project-link"
+                            @click.prevent="redirectProject(project.id)"
+                        >
+                            {{ project.title }}
+                        </p>
+                    </div>
+                </div>
+                <div class="text-content" v-else>No linked projects</div>
             </div>
         </div>
     </div>
@@ -109,6 +141,13 @@ export default {
             } else {
                 this.$router.push("/404");
             }
+            const projectsData = loadLinkedProjects(
+                parseInt(this.$route.params.toolId)
+            ).then((projectsData) => {
+                if (projectsData) {
+                    this.linkedProjects = Object.values(projectsData)[0];
+                }
+            });
         });
     },
     data() {
@@ -127,6 +166,8 @@ export default {
             title: null,
             user: null,
             taggedCrafts: [],
+
+            linkedProjects: null,
         };
     },
     methods: {
@@ -178,6 +219,9 @@ export default {
         deleteTool: function () {
             this.$router.push(`/tools/${this.$route.params.toolId}/delete`);
         },
+        redirectProject(id) {
+            this.$router.push(`/projects/${id}`);
+        },
     },
 };
 
@@ -189,6 +233,17 @@ const loadTool = async (toolId) => {
     } else {
         const data = false;
         return false;
+    }
+};
+
+const loadLinkedProjects = async (toolId) => {
+    const response = await fetch(`/api/tools/${toolId}/projects`);
+    if (response.ok) {
+        const data = await response.json();
+        return data;
+    } else {
+        const data = false;
+        return data;
     }
 };
 </script>
@@ -287,4 +342,47 @@ button:active {
 .text-content {
     text-align: left;
 }
+
+.linked-project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 100px);
+    grid-gap: 12px;
+    justify-content: space-between;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid var(--color-shadow);
+    border-radius: 4px;
+}
+
+.project-image:hover {
+    cursor: pointer;
+}
+
+.project-link {
+    margin-top: 0px;
+    text-align: center;
+}
+
+.project-link:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.divider {
+    border-top: 1px solid var(--color-shadow);
+    margin-top: 10px;
+    margin-bottom: 16px;
+    padding: 0px;
+}
+
 </style>
