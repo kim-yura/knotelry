@@ -421,15 +421,11 @@
             <!-- Images could link to the project page -->
             <div
                 class="notebook-section"
-                v-if="$store.state.selectedUser?.is_spinner"
+                v-if="$store.state.spinningProjects?.length"
             >
                 <p class="header">Spinning Notebook</p>
                 <p>{{ $store.state.spinningProjects?.length }} projects</p>
-                <!-- {{ $store.state.spinningProjects }} -->
-                <div
-                    class="tiny-gallery"
-                    v-if="$store.state.spinningProjects?.length"
-                >
+                <div class="tiny-gallery">
                     <span
                         v-for="project in $store.state.spinningProjects.slice(
                             0,
@@ -441,7 +437,7 @@
                             v-if="project.projectImages.length"
                             :src="project.projectImages[0].imageURL"
                             :key="project.id"
-                            alt="User-uploaded spinning project image"
+                            alt="User-uploaded project image"
                             @click="redirectToProject(project.id)"
                         />
                         <img v-else src="" alt="No image found" />
@@ -450,15 +446,11 @@
             </div>
             <div
                 class="notebook-section"
-                v-if="$store.state.selectedUser?.is_knitter"
+                v-if="$store.state.knittingProjects?.length"
             >
                 <p class="header">Knitting Notebook</p>
                 <p>{{ $store.state.knittingProjects?.length }} projects</p>
-                <!-- {{ $store.state.spinningProjects }} -->
-                <div
-                    class="tiny-gallery"
-                    v-if="$store.state.knittingProjects?.length"
-                >
+                <div class="tiny-gallery">
                     <span
                         v-for="project in $store.state.knittingProjects.slice(
                             0,
@@ -470,7 +462,31 @@
                             v-if="project.projectImages.length"
                             :src="project.projectImages[0].imageURL"
                             :key="project.id"
-                            alt="User-uploaded spinning project image"
+                            alt="User-uploaded project image"
+                        />
+                        <img v-else src="" alt="No image found" />
+                    </span>
+                </div>
+            </div>
+            <div
+                class="notebook-section"
+                v-if="$store.state.crochetingProjects?.length"
+            >
+                <p class="header">Crocheting Notebook</p>
+                <p>{{ $store.state.crochetingProjects?.length }} projects</p>
+                <div class="tiny-gallery">
+                    <span
+                        v-for="project in $store.state.crochetingProjects.slice(
+                            0,
+                            6
+                        )"
+                        :key="project.id"
+                    >
+                        <img
+                            v-if="project.projectImages.length"
+                            :src="project.projectImages[0].imageURL"
+                            :key="project.id"
+                            alt="User-uploaded project image"
                         />
                         <img v-else src="" alt="No image found" />
                     </span>

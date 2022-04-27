@@ -27,6 +27,7 @@ export default createStore({
 		usersProjects: [],
 		spinningProjects: [],
 		knittingProjects: [],
+		crochetingProjects: [],
 		sewingProjects: [],
 		selectedProject: null,
 	},
