@@ -14,9 +14,7 @@
                 <div>
                     <label>Filter by Status</label>
                     <select name="status" id="status" v-model="searchStatus">
-                        <option value="none" selected disabled hidden>
-                            —
-                        </option>
+                        <option value="none" selected disabled hidden>—</option>
                         <option value="inStash">In stash</option>
                         <option value="inUse">In use</option>
                         <option value="loaned">Loaned</option>
@@ -179,7 +177,12 @@
             </table>
             <div class="no-results" v-else>
                 <h4>No results!</h4>
-                <p>Maybe try broadening your search or <span id="create-link" @click="createTool">adding a new tool?</span></p>
+                <p>
+                    Maybe try broadening your search or
+                    <span id="create-link" @click="createTool"
+                        >adding a new tool?</span
+                    >
+                </p>
             </div>
         </div>
     </div>
@@ -266,10 +269,10 @@ export default {
                                     .includes(this.searchParam.toLowerCase())
                             ) {
                                 temp.push(tool);
-                            };
+                            }
                         });
                         toolsData = temp;
-                    };
+                    }
                     if (this.searchStatus !== "none") {
                         const temp = [];
                         toolsData.forEach((tool) => {
@@ -334,10 +337,20 @@ export default {
                         toolsData = temp;
                     }
                     this.$store.commit("setUsersTools", toolsData);
+                    window.scrollTo(0, 0);
                 }
             );
         },
         reset() {
+            this.searchParam = "";
+            this.searchStatus = "none";
+            this.searchSpinning = false;
+            this.searchWeaving = false;
+            this.searchKnitting = false;
+            this.searchCrocheting = false;
+            this.searchSewing = false;
+            this.searchEmbroidery = false;
+
             const toolsData = loadUsersTools(this.$route.params.id).then(
                 (toolsData) => {
                     if (toolsData) {
@@ -346,6 +359,8 @@ export default {
                     }
                 }
             );
+
+            window.scrollTo(0, 0);
         },
         async favorite(e) {
             const favoritedTool = {
