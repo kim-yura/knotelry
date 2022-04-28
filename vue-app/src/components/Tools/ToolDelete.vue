@@ -2,10 +2,10 @@
     <div class="tool-delete-body">
         <form class="tool-form" @submit.prevent="submit">
             <h2>Deleting Tool</h2>
-            <h4>{{ this.$store.state.selectedTool?.title }}</h4>
+            <h4>{{ this.title }}</h4>
             <img
-                v-if="this.$store.state.selectedTool?.imageURL"
-                :src="this.$store.state.selectedTool?.imageURL"
+                v-if="this.imageURL"
+                :src="this.imageURL"
                 alt="Tool image"
                 class="tool-image"
             />
@@ -32,16 +32,24 @@ export default {
     mounted() {
         const data = loadTool(this.$route.params.toolId).then((data) => {
             if (data && data?.userId == this.$store.state.sessionUser?.id) {
-                this.$store.commit("setSelectedTool", data);
+                this.title = data.title;
+                this.imageURL = data.imageURL;
             } else {
                 this.$router.push("/404");
             }
         });
     },
+    data() {
+        return {
+            id: this.$route.params.toolId,
+            title: null,
+            imageURL: "",
+        };
+    },
     methods: {
         async submit() {
             const tool = {
-                id: this.$route.params.toolId,
+                id: this.id,
             };
             const response = await fetch("/api/tools/", {
                 method: "DELETE",
