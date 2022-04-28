@@ -136,7 +136,7 @@ export default {
             if (data && data?.userId == this.$store.state.sessionUser?.id) {
                 this.id = data.id;
                 this.title = data.title;
-                this.description = this.description;
+                this.description = data.description;
 
                 if (data.acquired) this.acquired = formatDate(data.acquired);
 
@@ -155,17 +155,17 @@ export default {
     },
     data() {
         return {
-            id: this.$store.state.selectedTool?.id,
-            title: this.$store.state.selectedTool?.title,
-            description: this.$store.state.selectedTool?.description,
-            acquired: this.$store.state.selectedTool?.acquired,
-            status: this.$store.state.selectedTool?.status,
-            forSpinning: this.$store.state.selectedTool?.forSpinning,
-            forWeaving: this.$store.state.selectedTool?.forWeaving,
-            forKnitting: this.$store.state.selectedTool?.forKnitting,
-            forCrocheting: this.$store.state.selectedTool?.forCrocheting,
-            forSewing: this.$store.state.selectedTool?.forSewing,
-            forEmbroidery: this.$store.state.selectedTool?.forEmbroidery,
+            id: null,
+            title: null,
+            description: null,
+            acquired: null,
+            status: null,
+            forSpinning: false,
+            forWeaving: false,
+            forKnitting: false,
+            forCrocheting: false,
+            forSewing: false,
+            forEmbroidery: false,
             image: null,
             imageURL: "",
             imageStatus: "Upload",
