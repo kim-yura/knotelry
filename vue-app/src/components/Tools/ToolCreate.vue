@@ -193,7 +193,6 @@ export default {
                     for_embroidery: this.forEmbroidery,
                     image_url: this.imageURL,
                 };
-                console.log(tool)
                 const response = await fetch("/api/tools/", {
                     method: "POST",
                     headers: {
