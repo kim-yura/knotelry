@@ -22,44 +22,15 @@
                 </div>
                 <div>
                     <label>Filter by Craft</label>
-                    <div class="craft-buttons">
-                        <p
-                            v-bind:class="{ active: searchSpinning }"
-                            @click="toggleSpinning"
-                        >
-                            Spinning
-                        </p>
-                        <p
-                            v-bind:class="{ active: searchWeaving }"
-                            @click="toggleWeaving"
-                        >
-                            Weaving
-                        </p>
-                        <p
-                            v-bind:class="{ active: searchKnitting }"
-                            @click="toggleKnitting"
-                        >
-                            Knitting
-                        </p>
-                        <p
-                            v-bind:class="{ active: searchCrocheting }"
-                            @click="toggleCrocheting"
-                        >
-                            Crocheting
-                        </p>
-                        <p
-                            v-bind:class="{ active: searchSewing }"
-                            @click="toggleSewing"
-                        >
-                            Sewing
-                        </p>
-                        <p
-                            v-bind:class="{ active: searchEmbroidery }"
-                            @click="toggleEmbroidery"
-                        >
-                            Embroidery
-                        </p>
-                    </div>
+                    <select name="craft" id="craft" v-model="searchCraft">
+                        <option value="none" selected disabled hidden>—</option>
+                        <option value="spinning">Spinning</option>
+                        <option value="weaving">Weaving</option>
+                        <option value="knitting">Knitting</option>
+                        <option value="crocheting">Crocheting</option>
+                        <option value="sewing">Sewing</option>
+                        <option value="embroidery">Embroidery</option>
+                    </select>
                     <button id="submit-search">Search!</button>
                     <p id="reset-search" @click="reset">Reset Toolbox Search</p>
                 </div>
@@ -215,12 +186,7 @@ export default {
         return {
             searchParam: "",
             searchStatus: "none",
-            searchSpinning: false,
-            searchWeaving: false,
-            searchKnitting: false,
-            searchCrocheting: false,
-            searchSewing: false,
-            searchEmbroidery: false,
+            searchCraft: "none",
         };
     },
     methods: {
@@ -232,24 +198,6 @@ export default {
         },
         createTool: function () {
             this.$router.push(`/tools/create`);
-        },
-        toggleSpinning: function () {
-            this.searchSpinning = !this.searchSpinning;
-        },
-        toggleWeaving: function () {
-            this.searchWeaving = !this.searchWeaving;
-        },
-        toggleKnitting: function () {
-            this.searchKnitting = !this.searchKnitting;
-        },
-        toggleCrocheting: function () {
-            this.searchCrocheting = !this.searchCrocheting;
-        },
-        toggleSewing: function () {
-            this.searchSewing = !this.searchSewing;
-        },
-        toggleEmbroidery: function () {
-            this.searchEmbroidery = !this.searchEmbroidery;
         },
         submit() {
             let toolsData = loadUsersTools(this.$route.params.id).then(
@@ -282,7 +230,7 @@ export default {
                         });
                         toolsData = temp;
                     }
-                    if (this.searchSpinning) {
+                    if (this.searchCraft == "spinning") {
                         const temp = [];
                         toolsData.forEach((tool) => {
                             if (tool.forSpinning) {
@@ -290,8 +238,7 @@ export default {
                             }
                         });
                         toolsData = temp;
-                    }
-                    if (this.searchWeaving) {
+                    } else if (this.searchCraft == "weaving") {
                         const temp = [];
                         toolsData.forEach((tool) => {
                             if (tool.forWeaving) {
@@ -299,8 +246,7 @@ export default {
                             }
                         });
                         toolsData = temp;
-                    }
-                    if (this.searchKnitting) {
+                    } else if (this.searchCraft == "knitting") {
                         const temp = [];
                         toolsData.forEach((tool) => {
                             if (tool.forKnitting) {
@@ -308,8 +254,7 @@ export default {
                             }
                         });
                         toolsData = temp;
-                    }
-                    if (this.searchCrocheting) {
+                    } else if (this.searchCraft == "crocheting") {
                         const temp = [];
                         toolsData.forEach((tool) => {
                             if (tool.forCrocheting) {
@@ -317,8 +262,7 @@ export default {
                             }
                         });
                         toolsData = temp;
-                    }
-                    if (this.searchSewing) {
+                    } else if (this.searchCraft == "sewing") {
                         const temp = [];
                         toolsData.forEach((tool) => {
                             if (tool.forSewing) {
@@ -326,8 +270,7 @@ export default {
                             }
                         });
                         toolsData = temp;
-                    }
-                    if (this.searchEmbroidery) {
+                    } else if (this.searchCraft == "embroidery") {
                         const temp = [];
                         toolsData.forEach((tool) => {
                             if (tool.forEmbroidery) {
@@ -344,12 +287,7 @@ export default {
         reset() {
             this.searchParam = "";
             this.searchStatus = "none";
-            this.searchSpinning = false;
-            this.searchWeaving = false;
-            this.searchKnitting = false;
-            this.searchCrocheting = false;
-            this.searchSewing = false;
-            this.searchEmbroidery = false;
+            this.searchCraft = "none";
 
             const toolsData = loadUsersTools(this.$route.params.id).then(
                 (toolsData) => {
@@ -517,13 +455,6 @@ select {
     margin-left: 20px;
 }
 
-.craft-buttons {
-    display: flex;
-    flex-direction: column;
-    margin-top: 6px;
-    margin-bottom: 6px;
-}
-
 button {
     border: 1px solid var(--color-shadow);
     background-color: white;
@@ -546,36 +477,6 @@ button:hover {
 
 button:active {
     box-shadow: 2px 2px 2px var(--color-shadow);
-}
-
-.craft-buttons > p {
-    border: 1px solid var(--color-shadow);
-    background-color: white;
-    border-radius: 4px;
-    color: var(--color-shadow);
-    box-shadow: 1px 1px 1px var(--color-shadow);
-    padding-top: 4px;
-    padding-bottom: 4px;
-    font-family: "Open Sans", sans-serif;
-    letter-spacing: 1px;
-    margin-right: 20px;
-    margin-left: 20px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    font-size: 14px;
-}
-
-.craft-buttons > p:hover {
-    cursor: pointer;
-}
-
-.craft-buttons > p:active {
-    box-shadow: 2px 2px 2px var(--color-shadow);
-}
-
-.craft-buttons > .active {
-    background-color: var(--color-primary-contrast);
-    color: white;
 }
 
 #submit-search {
