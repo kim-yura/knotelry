@@ -64,9 +64,12 @@
             <div class="form-element">
                 <label for="status">Status:</label>
                 <select>
-                    <option value="In use">In use</option>
-                    <option value="2">Other option</option>
-                    <option value="3">Mas options</option>
+                    <option value=null disabled hidden>
+                        —
+                    </option>
+                    <option value="inStash">In stash</option>
+                    <option value="inUse">In use</option>
+                    <option value="loaned">Loaned</option>
                 </select>
             </div>
             <div class="form-element">
