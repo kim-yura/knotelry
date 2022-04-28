@@ -656,7 +656,7 @@ tbody > tr:hover {
 .tool-image {
     width: 50px;
     height: 50px;
-    object-fit: contain;
+    object-fit: cover;
     border: 1px solid var(--color-shadow);
     border-radius: 4px;
 }
