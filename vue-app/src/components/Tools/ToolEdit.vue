@@ -235,7 +235,7 @@ export default {
         },
         deleteTool() {
             this.$router.push(
-                `/tools/${this.$store.state.selectedTool?.id}/delete`
+                `/tools/${this.$route.params.toolId}/delete`
             );
         },
         setImage($event) {
