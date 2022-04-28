@@ -66,7 +66,11 @@ export default {
                     title: this.title,
                     description: null,
                     type: null,
+
                     status: null,
+                    tags: null,
+                    attributes: null,
+                    stored_in: null,
 
                     acquired: null,
                     acquired_from: null,
@@ -91,6 +95,18 @@ export default {
                     length_stashed: null,
                     weight_stashed: null,
                     is_handspun: null,
+
+                    fabric_width: null,
+                    fabric_width_unit: null,
+                    fabric_weight: null,
+                    fabric_weight_unit: null,
+                    fabric_weight_area_unit: null,
+                    fabric_pattern_repeat_width: null,
+                    fabric_pattern_repeat_height: null,
+                    fabric_pattern_repeat_unit: null,
+
+                    length_per_bobbin: null,
+                    bobbins_stashed: null,
 
                     notes: null,
                 };
