@@ -2,10 +2,10 @@
     <div class="stash-delete-body">
         <form class="stash-form" @submit.prevent="submit">
             <h2>Deleting Stash Item</h2>
-            <h4>{{ this.$store.state.selectedStashItem?.title }}</h4>
+            <h4>{{ this.title }}</h4>
             <img
-                v-if="this.$store.state.selectedStashItem?.stashItemImages.length"
-                :src="this.$store.state.selectedStashItem?.stashItemImages[0].imageURL"
+                v-if="this.imageURL?.length"
+                :src="this.imageURL"
                 alt="Stash item image"
                 class="stash-image"
             />
@@ -33,16 +33,26 @@ export default {
     mounted() {
         const data = loadStash(this.$route.params.stashId).then((data) => {
             if (data && data?.userId == this.$store.state.sessionUser?.id) {
-                this.$store.commit("setSelectedStashItem", data);
+                this.title = data.title;
+                if (data.stashItemImages?.length) {
+                    this.imageURL = data.stashItemImages[0].imageURL;
+                };
             } else {
                 this.$router.push("/404");
             }
         });
     },
+    data() {
+        return {
+            id: this.$route.params.stashId,
+            title: null,
+            imageURL: "",
+        };
+    },
     methods: {
         async submit() {
             const stashItem = {
-                id: this.$route.params.stashId,
+                id: this.id,
             };
             const response = await fetch("/api/stash/", {
                 method: "DELETE",
