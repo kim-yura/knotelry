@@ -64,33 +64,35 @@
                     v-model="this.title"
                 />
             </div>
-            <div class="form-element">
-                <label for="pattern">Using Pattern:</label>
-                <div id="pattern-div">
-                    <input
-                        type="text"
-                        placeholder="Pattern title"
-                        v-model="this.patternName"
-                    />
-                    by
-                    <input
-                        type="text"
-                        placeholder="Pattern author"
-                        v-model="this.patternAuthor"
-                    />
+            <span v-if="this.knitting || this.crocheting || this.sewing">
+                <div class="form-element">
+                    <label for="pattern">Using Pattern:</label>
+                    <div id="pattern-div">
+                        <input
+                            type="text"
+                            placeholder="Pattern title"
+                            v-model="this.patternName"
+                        />
+                        by
+                        <input
+                            type="text"
+                            placeholder="Pattern author"
+                            v-model="this.patternAuthor"
+                        />
+                    </div>
                 </div>
-            </div>
-            <div class="form-element">
-                <div />
-                <div id="pattern-link">
-                    <label for="patternLink">Link to Pattern:</label>
-                    <input
-                        type="text"
-                        placeholder="Enter link to pattern"
-                        v-model="this.linkToPattern"
-                    />
+                <div class="form-element">
+                    <div />
+                    <div id="pattern-link">
+                        <label for="patternLink">Link to Pattern:</label>
+                        <input
+                            type="text"
+                            placeholder="Enter link to pattern"
+                            v-model="this.linkToPattern"
+                        />
+                    </div>
                 </div>
-            </div>
+            </span>
             <div class="form-element">
                 <label for="description">Description:</label>
                 <textarea
@@ -346,7 +348,7 @@
             </span>
 
             <!-- SEWING -->
-            <span v-if="this.sewing">
+            <span v-if="this.sewing && !this.knitting">
                 <div class="divider" />
                 <div class="form-element">
                     <label for="sizeMade">Size Made:</label>
@@ -749,6 +751,7 @@ export default {
             sizeMade: null,
             spinning: false,
             knitting: false,
+            crocheting: false,
             sewing: false,
 
             tags: null,
@@ -808,6 +811,7 @@ export default {
                 this.craftTypes = data.craftTypes?.split(" ");
                 this.spinning = this.craftTypes?.includes("spinning");
                 this.knitting = this.craftTypes?.includes("knitting");
+                this.crocheting = this.craftTypes?.includes("crocheting");
                 this.sewing = this.craftTypes?.includes("sewing");
 
                 this.patternName = data.patternName;
