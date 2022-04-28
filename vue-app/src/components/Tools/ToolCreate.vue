@@ -67,9 +67,9 @@
                     <option value=null selected disabled hidden>
                         —
                     </option>
-                    <option value="In use">In use</option>
-                    <option value="2">Other option</option>
-                    <option value="3">Mas options</option>
+                    <option value="inStash">In stash</option>
+                    <option value="inUse">In use</option>
+                    <option value="loaned">Loaned</option>
                 </select>
             </div>
             <div class="form-element">
@@ -193,6 +193,7 @@ export default {
                     for_embroidery: this.forEmbroidery,
                     image_url: this.imageURL,
                 };
+                console.log(tool)
                 const response = await fetch("/api/tools/", {
                     method: "POST",
                     headers: {
@@ -202,7 +203,7 @@ export default {
                 });
                 if (response.ok) {
                     const data = await response.json();
-                    this.$router.push(`/users/${data.id}`);
+                    this.$router.push(`/tools/${data.id}`);
                 }
             }
         },
