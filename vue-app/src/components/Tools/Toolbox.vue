@@ -148,6 +148,7 @@
                         <td v-if="tool.status == 'inUse'">In Use</td>
                         <td v-else-if="tool.status == 'inStash'">In Stash</td>
                         <td v-else-if="tool.status == 'loaned'">Loaned</td>
+                        <td v-else />
                         <td v-if="tool.forSpinning" class="centered">
                             <i class="fas fa-check-circle icon"></i>
                         </td>
