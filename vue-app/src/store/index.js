@@ -27,7 +27,6 @@ export default createStore({
 		knittingProjects: [],
 		crochetingProjects: [],
 		sewingProjects: [],
-		selectedProject: null,
 	},
 	getters: {
 	},
@@ -147,9 +146,6 @@ export default createStore({
 			state.spinningProjects = spinningArr;
 			state.knittingProjects = knittingArr;
 			state.sewingProjects = sewingArr;
-		},
-		setSelectedProject(state, project) {
-			state.selectedProject = project;
 		},
 	},
 	actions: {
