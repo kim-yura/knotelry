@@ -9,7 +9,6 @@
                 alt="Stash item image"
                 class="stash-image"
             />
-
             <img
                 v-else
                 src="https://knotelry.s3.amazonaws.com/image-placeholder.png"

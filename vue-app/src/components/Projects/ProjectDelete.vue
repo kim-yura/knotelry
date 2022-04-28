@@ -2,11 +2,17 @@
     <div class="project-delete-body">
         <form class="project-form" @submit.prevent="submit">
             <h2>Deleting Project</h2>
-            <h4>{{ this.$store.state.selectedProject?.title }}</h4>
+            <h4>{{ this.title }}</h4>
             <img
-                v-if="this.$store.state.selectedProject?.imageURL"
-                :src="this.$store.state.selectedProject?.imageURL"
+                v-if="this.imageURL"
+                :src="this.imageURL"
                 alt="Project image"
+                class="project-image"
+            />
+            <img
+                v-else
+                src="https://knotelry.s3.amazonaws.com/image-placeholder.png"
+                alt="No image found"
                 class="project-image"
             />
             <p>Are you sure you want to delete this project?</p>
@@ -26,11 +32,21 @@ export default {
     mounted() {
         const data = loadProject(this.$route.params.projectId).then((data) => {
             if (data && data?.userId == this.$store.state.sessionUser?.id) {
-                this.$store.commit("setSelectedProject", data);
+                this.title = data.title;
+                if (data.projectImages?.length) {
+                    this.imageURL = data.projectImages[0].imageURL;
+                };
             } else {
                 this.$router.push("/404");
             }
         });
+    },
+    data() {
+        return {
+            id: this.$route.params.projectId,
+            title: null,
+            imageURL: null,
+        }
     },
     methods: {
         async submit() {
