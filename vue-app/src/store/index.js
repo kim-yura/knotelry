@@ -21,7 +21,6 @@ export default createStore({
 		embroideryTools: [],
 		// ---------- STASH ---------- //
 		usersStash: [],
-		selectedStashItem: null,
 		// ---------- PROJECTS ---------- //
 		usersProjects: [],
 		spinningProjects: [],
@@ -121,9 +120,6 @@ export default createStore({
 			} else {
 				state.usersStash = Object.values(stashData)[0];
 			};
-		},
-		setSelectedStashItem(state, stashItem) {
-			state.selectedStashItem = stashItem;
 		},
 		// ---------- PROJECTS ---------- //
 		setUsersProjects(state, projectsData) {
