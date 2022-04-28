@@ -19,7 +19,6 @@ export default createStore({
 		crochetingTools: [],
 		sewingTools: [],
 		embroideryTools: [],
-		selectedTool: null,
 		// ---------- STASH ---------- //
 		usersStash: [],
 		selectedStashItem: null,
@@ -114,9 +113,6 @@ export default createStore({
 			state.crochetingTools = crochetingArr;
 			state.sewingTools = sewingArr;
 			state.embroideryTools = embroideryArr;
-		},
-		setSelectedTool(state, tool) {
-			state.selectedTool = tool;
 		},
 		// ---------- STASH ---------- //
 		setUsersStash(state, stashData) {
