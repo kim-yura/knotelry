@@ -173,7 +173,7 @@ export default {
             if (data) {
                 this.user = data;
             } else {
-                this.$router.push("/404");
+                this.$router.push("/login");
             }
         });
         const toolsData = loadUsersTools(this.$route.params.id).then(
