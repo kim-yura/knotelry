@@ -206,33 +206,33 @@ export default {
     mounted() {
         const sessionUser = this.$store.state.sessionUser;
         if (sessionUser === null) {
-            this.$router.push("/404");
+            this.$router.push("/login");
         }
     },
     data() {
         return {
-            bio: this.$store.state.sessionUser.bio,
-            craftingJourney: this.$store.state.sessionUser.crafting_journey,
-            roles: this.$store.state.sessionUser.roles,
-            pronounsShe: this.$store.state.sessionUser.pronouns_she,
-            pronounsHe: this.$store.state.sessionUser.pronouns_he,
-            pronounsThey: this.$store.state.sessionUser.pronouns_they,
-            pronounsCustom: this.$store.state.sessionUser.pronouns_custom,
+            bio: this.$store.state.sessionUser?.bio,
+            craftingJourney: this.$store.state.sessionUser?.crafting_journey,
+            roles: this.$store.state.sessionUser?.roles,
+            pronounsShe: this.$store.state.sessionUser?.pronouns_she,
+            pronounsHe: this.$store.state.sessionUser?.pronouns_he,
+            pronounsThey: this.$store.state.sessionUser?.pronouns_they,
+            pronounsCustom: this.$store.state.sessionUser?.pronouns_custom,
 
-            instagram: this.$store.state.sessionUser.instagram,
-            twitter: this.$store.state.sessionUser.twitter,
-            kofi: this.$store.state.sessionUser.kofi,
-            website: this.$store.state.sessionUser.website,
+            instagram: this.$store.state.sessionUser?.instagram,
+            twitter: this.$store.state.sessionUser?.twitter,
+            kofi: this.$store.state.sessionUser?.kofi,
+            website: this.$store.state.sessionUser?.website,
 
-            isSpinner: this.$store.state.sessionUser.is_spinner,
-            isWeaver: this.$store.state.sessionUser.is_weaver,
-            isKnitter: this.$store.state.sessionUser.is_knitter,
-            isCrocheter: this.$store.state.sessionUser.is_crocheter,
-            isSewist: this.$store.state.sessionUser.is_sewist,
-            isEmbroiderer: this.$store.state.sessionUser.is_embroiderer,
+            isSpinner: this.$store.state.sessionUser?.is_spinner,
+            isWeaver: this.$store.state.sessionUser?.is_weaver,
+            isKnitter: this.$store.state.sessionUser?.is_knitter,
+            isCrocheter: this.$store.state.sessionUser?.is_crocheter,
+            isSewist: this.$store.state.sessionUser?.is_sewist,
+            isEmbroiderer: this.$store.state.sessionUser?.is_embroiderer,
 
             image: null,
-            imageURL: this.$store.state.sessionUser.profile_pic_url,
+            imageURL: this.$store.state.sessionUser?.profile_pic_url,
             imageStatus: "Upload",
         };
     },
