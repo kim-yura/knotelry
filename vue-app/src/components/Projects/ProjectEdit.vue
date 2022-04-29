@@ -602,7 +602,12 @@
                                 </span>
                                 <span
                                     v-else-if="
-                                        materialLink?.stashItem?.type == 'yarn'
+                                        materialLink?.stashItem?.type ==
+                                            'yarn' ||
+                                        materialLink?.stashItem?.type ==
+                                            'fabric' ||
+                                        materialLink?.stashItem?.type ==
+                                            'thread'
                                     "
                                 >
                                     <div
