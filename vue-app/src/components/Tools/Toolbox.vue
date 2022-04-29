@@ -38,7 +38,7 @@
         </div>
         <div class="toolbox-body">
             <div class="toolbox-header">
-                <h2>{{ $store.state.selectedUser?.username }}'s Toolbox</h2>
+                <h2>{{ user?.username }}'s Toolbox</h2>
                 <h4
                     @click="createTool"
                     v-if="$store.state.sessionUser?.id == $route.params.id"
@@ -173,43 +173,7 @@ export default {
         const toolsData = loadUsersTools(this.$route.params.id).then(
             (toolsData) => {
                 if (toolsData) {
-                    if (Array.isArray(toolsData)) {
-                        this.usersTools = toolsData;
-                    } else {
-                        this.usersTools = Object.values(toolsData)[0];
-                    }
-                    const spinningArr = [];
-                    const weavingArr = [];
-                    const knittingArr = [];
-                    const crochetingArr = [];
-                    const sewingArr = [];
-                    const embroideryArr = [];
-                    Object.values(toolsData)[0].forEach((tool) => {
-                        if (tool.forSpinning) {
-                            spinningArr.push(tool);
-                        }
-                        if (tool.forWeaving) {
-                            weavingArr.push(tool);
-                        }
-                        if (tool.forKnitting) {
-                            knittingArr.push(tool);
-                        }
-                        if (tool.forCrocheting) {
-                            crochetingArr.push(tool);
-                        }
-                        if (tool.forSewing) {
-                            sewingArr.push(tool);
-                        }
-                        if (tool.forEmbroidery) {
-                            embroideryArr.push(tool);
-                        }
-                    });
-                    this.spinningTools = spinningArr;
-                    this.weavingTools = weavingArr;
-                    this.knittingTools = knittingArr;
-                    this.crochetingTools = crochetingArr;
-                    this.sewingTools = sewingArr;
-                    this.embroideryTools = embroideryArr;
+                    this.setData(toolsData);
                 }
             }
         );
@@ -231,6 +195,45 @@ export default {
         };
     },
     methods: {
+        setData(toolsData) {
+            if (Array.isArray(toolsData)) {
+                this.usersTools = toolsData;
+            } else {
+                this.usersTools = Object.values(toolsData)[0];
+            }
+            const spinningArr = [];
+            const weavingArr = [];
+            const knittingArr = [];
+            const crochetingArr = [];
+            const sewingArr = [];
+            const embroideryArr = [];
+            Object.values(toolsData)[0].forEach((tool) => {
+                if (tool.forSpinning) {
+                    spinningArr.push(tool);
+                }
+                if (tool.forWeaving) {
+                    weavingArr.push(tool);
+                }
+                if (tool.forKnitting) {
+                    knittingArr.push(tool);
+                }
+                if (tool.forCrocheting) {
+                    crochetingArr.push(tool);
+                }
+                if (tool.forSewing) {
+                    sewingArr.push(tool);
+                }
+                if (tool.forEmbroidery) {
+                    embroideryArr.push(tool);
+                }
+            });
+            this.spinningTools = spinningArr;
+            this.weavingTools = weavingArr;
+            this.knittingTools = knittingArr;
+            this.crochetingTools = crochetingArr;
+            this.sewingTools = sewingArr;
+            this.embroideryTools = embroideryArr;
+        },
         editTool: function (e) {
             this.$router.push(`/tools/${e.target.id}/edit`);
         },
@@ -333,43 +336,7 @@ export default {
             const toolsData = loadUsersTools(this.$route.params.id).then(
                 (toolsData) => {
                     if (toolsData) {
-                        if (Array.isArray(toolsData)) {
-                            this.usersTools = toolsData;
-                        } else {
-                            this.usersTools = Object.values(toolsData)[0];
-                        }
-                        const spinningArr = [];
-                        const weavingArr = [];
-                        const knittingArr = [];
-                        const crochetingArr = [];
-                        const sewingArr = [];
-                        const embroideryArr = [];
-                        Object.values(toolsData)[0].forEach((tool) => {
-                            if (tool.forSpinning) {
-                                spinningArr.push(tool);
-                            }
-                            if (tool.forWeaving) {
-                                weavingArr.push(tool);
-                            }
-                            if (tool.forKnitting) {
-                                knittingArr.push(tool);
-                            }
-                            if (tool.forCrocheting) {
-                                crochetingArr.push(tool);
-                            }
-                            if (tool.forSewing) {
-                                sewingArr.push(tool);
-                            }
-                            if (tool.forEmbroidery) {
-                                embroideryArr.push(tool);
-                            }
-                        });
-                        this.spinningTools = spinningArr;
-                        this.weavingTools = weavingArr;
-                        this.knittingTools = knittingArr;
-                        this.crochetingTools = crochetingArr;
-                        this.sewingTools = sewingArr;
-                        this.embroideryTools = embroideryArr;
+                        this.setData(toolsData);
                     }
                 }
             );
@@ -391,43 +358,7 @@ export default {
                 const toolsData = loadUsersTools(data.userId).then(
                     (toolsData) => {
                         if (toolsData) {
-                            if (Array.isArray(toolsData)) {
-                                this.usersTools = toolsData;
-                            } else {
-                                this.usersTools = Object.values(toolsData)[0];
-                            }
-                            const spinningArr = [];
-                            const weavingArr = [];
-                            const knittingArr = [];
-                            const crochetingArr = [];
-                            const sewingArr = [];
-                            const embroideryArr = [];
-                            Object.values(toolsData)[0].forEach((tool) => {
-                                if (tool.forSpinning) {
-                                    spinningArr.push(tool);
-                                }
-                                if (tool.forWeaving) {
-                                    weavingArr.push(tool);
-                                }
-                                if (tool.forKnitting) {
-                                    knittingArr.push(tool);
-                                }
-                                if (tool.forCrocheting) {
-                                    crochetingArr.push(tool);
-                                }
-                                if (tool.forSewing) {
-                                    sewingArr.push(tool);
-                                }
-                                if (tool.forEmbroidery) {
-                                    embroideryArr.push(tool);
-                                }
-                            });
-                            this.spinningTools = spinningArr;
-                            this.weavingTools = weavingArr;
-                            this.knittingTools = knittingArr;
-                            this.crochetingTools = crochetingArr;
-                            this.sewingTools = sewingArr;
-                            this.embroideryTools = embroideryArr;
+                            this.setData(toolsData);
                         }
                     }
                 );
@@ -448,43 +379,7 @@ export default {
                 const toolsData = loadUsersTools(data.userId).then(
                     (toolsData) => {
                         if (toolsData) {
-                            if (Array.isArray(toolsData)) {
-                                this.usersTools = toolsData;
-                            } else {
-                                this.usersTools = Object.values(toolsData)[0];
-                            }
-                            const spinningArr = [];
-                            const weavingArr = [];
-                            const knittingArr = [];
-                            const crochetingArr = [];
-                            const sewingArr = [];
-                            const embroideryArr = [];
-                            Object.values(toolsData)[0].forEach((tool) => {
-                                if (tool.forSpinning) {
-                                    spinningArr.push(tool);
-                                }
-                                if (tool.forWeaving) {
-                                    weavingArr.push(tool);
-                                }
-                                if (tool.forKnitting) {
-                                    knittingArr.push(tool);
-                                }
-                                if (tool.forCrocheting) {
-                                    crochetingArr.push(tool);
-                                }
-                                if (tool.forSewing) {
-                                    sewingArr.push(tool);
-                                }
-                                if (tool.forEmbroidery) {
-                                    embroideryArr.push(tool);
-                                }
-                            });
-                            this.spinningTools = spinningArr;
-                            this.weavingTools = weavingArr;
-                            this.knittingTools = knittingArr;
-                            this.crochetingTools = crochetingArr;
-                            this.sewingTools = sewingArr;
-                            this.embroideryTools = embroideryArr;
+                            this.setData(toolsData);
                         }
                     }
                 );
