@@ -493,10 +493,9 @@
                 <div class="stashed-content" v-if="this.type == 'fiber'">
                     <p
                         v-if="
-                            (
-                                isNaN(this.fiberQuantityRemaining) ||
-                                    !this.fiberQuantityRemaining
-                            ) && this.fiberQuantityRemaining != 0
+                            (isNaN(this.fiberQuantityRemaining) ||
+                                !this.fiberQuantityRemaining) &&
+                            this.fiberQuantityRemaining != 0
                         "
                     >
                         — {{ this.fiberQuantityUnit }}
@@ -537,6 +536,16 @@
                         {{ this.lengthRemaining.toFixed(2) }}
                         {{ this.lengthUnit }}
                     </p>
+                    <p
+                        v-if="
+                            (isNaN(this.bobbinsRemaining) ||
+                                !this.bobbinsRemaining) &&
+                            this.bobbinsRemaining != 0
+                        "
+                    >
+                        — bobbins
+                    </p>
+                    <p v-else>{{ this.bobbinsRemaining.toFixed(2) }} bobbins</p>
                 </div>
             </div>
             <div
@@ -908,6 +917,49 @@ export default {
                             this.lengthRemaining =
                                 this.lengthStashed - lengthUsed;
                         }
+
+                        // Calculates remainders for thread
+                        if (this.type == "thread") {
+                            let lengthUsed = 0;
+
+                            if (this.linkedProjectMaterials.length) {
+                                this.linkedProjectMaterials.forEach(
+                                    (material) => {
+                                        if (
+                                            material.lengthUsed &&
+                                            material.lengthUnit ==
+                                                this.lengthUnit
+                                        ) {
+                                            lengthUsed =
+                                                lengthUsed +
+                                                material.lengthUsed;
+                                        } else if (
+                                            material.lengthUsed &&
+                                            material.lengthUnit == "yd" &&
+                                            this.lengthUnit == "m"
+                                        ) {
+                                            lengthUsed =
+                                                lengthUsed +
+                                                material.lengthUsed / 1.094;
+                                        } else if (
+                                            material.lengthUsed &&
+                                            material.lengthUnit == "m" &&
+                                            this.lengthUnit == "yd"
+                                        ) {
+                                            lengthUsed =
+                                                lengthUsed +
+                                                material.lengthUsed * 1.094;
+                                        }
+                                    }
+                                );
+                            }
+                            this.lengthRemaining =
+                                this.lengthStashed - lengthUsed;
+                            if (this.lengthPerBobbin && this.lengthRemaining) {
+                                this.bobbinsRemaining =
+                                    this.lengthRemaining / this.lengthPerBobbin;
+                            }
+                        }
                     }
                 });
             }
@@ -983,6 +1035,7 @@ export default {
             lengthRemaining: null,
             weightRemaining: null,
             fiberQuantityRemaining: null,
+            bobbinsRemaining: null,
 
             notes: null,
             images: [],
