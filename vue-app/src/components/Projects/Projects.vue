@@ -63,7 +63,7 @@
         </div>
         <div class="projects-body">
             <div class="projects-header">
-                <h2>{{ $store.state.selectedUser?.username }}'s Projects</h2>
+                <h2>{{ user?.username }}'s Projects</h2>
                 <h4
                     @click="createProject"
                     v-if="$store.state.sessionUser?.id == $route.params.id"
@@ -71,13 +71,10 @@
                     <i class="fas fa-plus-circle" />Add New Project
                 </h4>
             </div>
-            <div
-                class="projects-gallery"
-                v-if="$store.state.usersProjects?.length"
-            >
+            <div class="projects-gallery" v-if="usersProjects?.length">
                 <div
                     class="project-card"
-                    v-for="project in $store.state.usersProjects"
+                    v-for="project in usersProjects"
                     :key="project.id"
                 >
                     <img
@@ -113,15 +110,12 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
-
 export default {
     name: "Projects",
     mounted() {
-        this.$store.commit("clearSelectedUser");
         const data = loadUser(this.$route.params.id).then((data) => {
             if (data) {
-                this.$store.commit("setSelectedUser", data);
+                this.user = data;
             } else {
                 this.$router.push("/404");
             }
@@ -129,7 +123,11 @@ export default {
         const projectsData = loadUsersProjects(this.$route.params.id).then(
             (projectsData) => {
                 if (projectsData) {
-                    this.$store.commit("setUsersProjects", projectsData);
+                    if (Array.isArray(projectsData)) {
+                        this.usersProjects = projectsData;
+                    } else {
+                        this.usersProjects = Object.values(projectsData)[0];
+                    }
                     if (this.$route.params.craftParam) {
                         if (this.$route.params.craftParam == "spinning") {
                             this.searchSpinning = true;
@@ -175,7 +173,7 @@ export default {
                         }
                         projectsData = Array.from(temp);
 
-                        this.$store.commit("setUsersProjects", projectsData);
+                        this.usersProjects = projectsData;
                         window.scrollTo(0, 0);
                     }
                 }
@@ -184,11 +182,13 @@ export default {
     },
     data() {
         return {
+            user: null,
             searchParam: "",
             searchStatus: null,
             searchSpinning: false,
             searchKnitting: false,
             searchSewing: false,
+            usersProjects: [],
         };
     },
     methods: {
@@ -205,7 +205,11 @@ export default {
             let projectsData = loadUsersProjects(this.$route.params.id).then(
                 (projectsData) => {
                     if (projectsData) {
-                        this.$store.commit("setUsersProjects", projectsData);
+                        if (Array.isArray(projectsData)) {
+                            this.usersProjects = projectsData;
+                        } else {
+                            this.usersProjects = Object.values(projectsData)[0];
+                        }
                     }
                 }
             );
@@ -256,18 +260,26 @@ export default {
                         }
 
                         // Inclusive craft sort
-                        if (this.searchSpinning || this.searchKnitting || this.searchSewing) {
+                        if (
+                            this.searchSpinning ||
+                            this.searchKnitting ||
+                            this.searchSewing
+                        ) {
                             const temp = new Set();
                             if (this.searchSpinning) {
                                 projectsData.forEach((project) => {
-                                    if (project.craftTypes.includes("spinning")) {
+                                    if (
+                                        project.craftTypes.includes("spinning")
+                                    ) {
                                         temp.add(project);
                                     }
                                 });
                             }
                             if (this.searchKnitting) {
                                 projectsData.forEach((project) => {
-                                    if (project.craftTypes.includes("knitting")) {
+                                    if (
+                                        project.craftTypes.includes("knitting")
+                                    ) {
                                         temp.add(project);
                                     }
                                 });
@@ -281,10 +293,10 @@ export default {
                             }
                             projectsData = Array.from(temp);
 
-                            this.$store.commit("setUsersProjects", projectsData);
+                            this.usersProjects = projectsData;
                             window.scrollTo(0, 0);
                         } else {
-                            this.$store.commit("setUsersProjects", projectsData);
+                            this.usersProjects = projectsData;
                             window.scrollTo(0, 0);
                         }
                     }
@@ -295,12 +307,10 @@ export default {
             this.$router.push(`/projects/create`);
         },
     },
-    mutations: {
-        ...mapMutations,
-    },
 };
 
 const loadUser = async (userId) => {
+    console.log(userId);
     const response = await fetch(`/api/users/${userId}`);
     if (response.ok) {
         const data = await response.json();
