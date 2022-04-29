@@ -1,32 +1,32 @@
 <template>
-    <div v-if="$store.state.selectedUser?.id" class="user-body">
+    <div v-if="user?.id" class="user-body">
         <div class="user-left">
-            <h3>{{ $store.state.selectedUser?.username }}</h3>
+            <h3>{{ user?.username }}</h3>
             <div class="pronouns-container">
                 <p
                     class="pronouns"
-                    v-if="$store.state.selectedUser.pronouns_she"
+                    v-if="user?.pronouns_she"
                 >
                     she/her/hers
                 </p>
                 <p
                     class="pronouns"
-                    v-if="$store.state.selectedUser.pronouns_he"
+                    v-if="user?.pronouns_he"
                 >
                     he/him/his
                 </p>
                 <p
                     class="pronouns"
-                    v-if="$store.state.selectedUser.pronouns_they"
+                    v-if="user?.pronouns_they"
                 >
                     they/them/theirs
                 </p>
                 <span
                     class="pronouns"
-                    v-if="$store.state.selectedUser.pronouns_custom?.length"
+                    v-if="user?.pronouns_custom?.length"
                 >
                     <p
-                        v-for="pronoun in $store.state.selectedUser.pronouns_custom.split(
+                        v-for="pronoun in user?.pronouns_custom.split(
                             ','
                         )"
                         :key="pronoun"
@@ -39,22 +39,22 @@
             <button
                 v-if="
                     $store.state.sessionUser?.id ==
-                    $store.state.selectedUser?.id
+                    user?.id
                 "
                 @click="edit"
             >
                 Edit Profile
             </button>
             <img
-                v-if="$store.state.selectedUser"
-                :src="$store.state.selectedUser.profile_pic_url"
+                v-if="user?.profile_pic_url"
+                :src="user?.profile_pic_url"
                 class="user-profile"
                 alt="User profile"
             />
             <!-- SOCIAL LINKS -->
             <div
                 class="social-container"
-                v-if="$store.state.selectedUser?.instagram"
+                v-if="user?.instagram"
             >
                 <img
                     src="https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png"
@@ -66,16 +66,16 @@
                     <a
                         v-bind:href="
                             'https://www.instagram.com/' +
-                            $store.state.selectedUser.instagram
+                            user?.instagram
                         "
                         target="_blank"
-                        >{{ $store.state.selectedUser.instagram }}
+                        >{{ user?.instagram }}
                     </a>
                 </div>
             </div>
             <div
                 class="social-container"
-                v-if="$store.state.selectedUser?.twitter"
+                v-if="user?.twitter"
             >
                 <img
                     src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Twitter-logo.svg"
@@ -87,16 +87,16 @@
                     <a
                         v-bind:href="
                             'https://twitter.com/' +
-                            $store.state.selectedUser.twitter
+                            user?.twitter
                         "
                         target="_blank"
-                        >{{ $store.state.selectedUser.twitter }}
+                        >{{ user?.twitter }}
                     </a>
                 </div>
             </div>
             <div
                 class="social-container"
-                v-if="$store.state.selectedUser?.kofi"
+                v-if="user?.kofi"
             >
                 <img
                     src="https://uploads-ssl.webflow.com/5c14e387dab576fe667689cf/61e1116779fc0a9bd5bdbcc7_Frame%206.png"
@@ -108,16 +108,16 @@
                     <a
                         v-bind:href="
                             'https://ko-fi.com/' +
-                            $store.state.selectedUser.kofi
+                            user?.kofi
                         "
                         target="_blank"
-                        >{{ $store.state.selectedUser.kofi }}
+                        >{{ user?.kofi }}
                     </a>
                 </div>
             </div>
             <div
                 class="social-container"
-                v-if="$store.state.selectedUser?.website"
+                v-if="user?.website"
             >
                 <img
                     src="https://w7.pngwing.com/pngs/549/715/png-transparent-web-development-logo-website-web-design-symmetry-internet-thumbnail.png"
@@ -128,10 +128,10 @@
                     <p>Website:</p>
                     <a
                         v-bind:href="
-                            'https://' + $store.state.selectedUser.website
+                            'https://' + user?.website
                         "
                         target="_blank"
-                        >{{ $store.state.selectedUser.website }}
+                        >{{ user?.website }}
                     </a>
                 </div>
             </div>
@@ -139,49 +139,45 @@
             <!-- Toggle query for crafts -->
             <div class="crafts-container">
                 <p class="header">
-                    {{ $store.state.selectedUser?.username }}'s Crafts
+                    {{ user?.username }}'s Crafts
                 </p>
                 <!-- Each button can maybe redirect to that user's craft notebook -->
                 <button
-                    v-if="$store.state.selectedUser?.is_spinner"
+                    v-if="user?.is_spinner"
                     class="craft-button"
                 >
                     spinning
                 </button>
                 <button
-                    v-if="$store.state.selectedUser?.is_weaver"
+                    v-if="user?.is_weaver"
                     class="craft-button"
                 >
                     weaving
                 </button>
                 <button
-                    v-if="$store.state.selectedUser?.is_knitter"
+                    v-if="user?.is_knitter"
                     class="craft-button"
                 >
                     knitting
                 </button>
                 <button
-                    v-if="$store.state.selectedUser?.is_crocheter"
+                    v-if="user?.is_crocheter"
                     class="craft-button"
                 >
                     crocheting
                 </button>
                 <button
-                    v-if="$store.state.selectedUser?.is_sewist"
+                    v-if="user?.is_sewist"
                     class="craft-button"
                 >
                     sewing
                 </button>
                 <button
-                    v-if="$store.state.selectedUser?.is_embroiderer"
+                    v-if="user?.is_embroiderer"
                     class="craft-button"
                 >
                     embroidery
                 </button>
-            </div>
-
-            <div class="user-text-label">
-                <img v-if="$store.state.selectedUser?.twitter" />
             </div>
         </div>
         <div class="user-main">
@@ -189,39 +185,39 @@
                 <div class="user-text-label">Bio:</div>
                 <div
                     class="user-text-content"
-                    v-if="$store.state.selectedUser?.bio?.length"
+                    v-if="user?.bio?.length"
                 >
-                    {{ $store.state.selectedUser.bio }}
+                    {{ user?.bio }}
                 </div>
                 <div class="user-text-content" v-else>—</div>
                 <div class="user-text-label">Crafting Journey:</div>
                 <div
                     class="user-text-content"
-                    v-if="$store.state.selectedUser?.crafting_journey?.length"
+                    v-if="user?.crafting_journey?.length"
                 >
-                    {{ $store.state.selectedUser.crafting_journey }}
+                    {{ user?.crafting_journey }}
                 </div>
                 <div class="text-content" v-else>—</div>
                 <div class="user-text-label">Roles:</div>
                 <div
                     class="user-text-content"
-                    v-if="$store.state.selectedUser?.roles?.length"
+                    v-if="user?.roles?.length"
                 >
-                    {{ $store.state.selectedUser.roles }}
+                    {{ user?.roles }}
                 </div>
                 <div class="text-content" v-else>—</div>
             </div>
             <div class="divider" />
             <div class="user-gallery-container">
                 <div class="user-gallery-header">
-                    <h4>{{ $store.state.selectedUser?.username }}'s Gallery</h4>
+                    <h4>{{ user?.username }}'s Gallery</h4>
                 </div>
                 <div
                     class="user-gallery"
-                    v-if="$store.state.usersPhotos.length > 0"
+                    v-if="usersPhotos?.length > 0"
                 >
                     <div
-                        v-for="image in $store.state.usersPhotos"
+                        v-for="image in usersPhotos"
                         :key="image.id"
                         class="gallery-image-container"
                     >
@@ -234,7 +230,7 @@
                             class="fas fa-trash-alt"
                             v-if="
                                 $store.state.sessionUser?.id ==
-                                $store.state.selectedUser?.id
+                                user?.id
                             "
                             @click="deleteFromGallery($event)"
                             :id="image.id"
@@ -242,14 +238,14 @@
                     </div>
                 </div>
                 <p class="p-left-align" v-else>
-                    {{ $store.state.selectedUser?.username }} has no photos in
+                    {{ user?.username }} has no photos in
                     their Gallery
                 </p>
                 <div
                     class="gallery-image-interactive"
                     v-if="
                         $store.state.sessionUser?.id ==
-                        $store.state.selectedUser?.id
+                        user?.id
                     "
                 >
                     <div class="preview-container" v-if="imageURL.length > 0">
@@ -562,18 +558,19 @@ import { mapMutations } from "vuex";
 export default {
     name: "User",
     mounted() {
-        this.$store.commit("clearSelectedUser");
-        const data = loadUser(this.$route.params.id).then((data) => {
+        const userData = loadUser(this.$route.params.id).then((data) => {
             if (data) {
-                this.$store.commit("setSelectedUser", data);
+                this.user = data;
+                console.log(this.user);
             } else {
                 this.$router.push("/404");
-            }
-        });
+            };
+        })
         const galleryData = loadUsersPhotos(this.$route.params.id).then(
             (galleryData) => {
                 if (galleryData) {
-                    this.$store.commit("setUsersPhotos", galleryData);
+                    this.usersPhotos = Object.values(galleryData)[0];
+                    console.log(this.usersPhotos);
                 }
             }
         );
@@ -606,6 +603,9 @@ export default {
     },
     data() {
         return {
+            user: null,
+            usersPhotos: null,
+
             showImageInput: false,
             image: null,
             imageURL: "",
