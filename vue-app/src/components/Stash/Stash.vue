@@ -299,10 +299,10 @@
                     <i class="fas fa-plus-circle" />Add to Stash
                 </h4>
             </div>
-            <div class="stash-gallery" v-if="$store.state.usersStash?.length">
+            <div class="stash-gallery" v-if="usersStash?.length">
                 <div
                     class="stash-card"
-                    v-for="stashItem in $store.state.usersStash"
+                    v-for="stashItem in usersStash"
                     :key="stashItem.id"
                 >
                     <img
@@ -341,15 +341,12 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
-
 export default {
     name: "Stash",
     mounted() {
-        this.$store.commit("clearSelectedUser");
         const data = loadUser(this.$route.params.id).then((data) => {
             if (data) {
-                this.$store.commit("setSelectedUser", data);
+                this.user = data;
             } else {
                 this.$router.push("/404");
             }
@@ -357,13 +354,16 @@ export default {
         const stashData = loadUsersStash(this.$route.params.id).then(
             (stashData) => {
                 if (stashData) {
-                    this.$store.commit("setUsersStash", stashData);
+                    this.usersStash = Object.values(stashData)[0];
                 }
             }
         );
     },
     data() {
         return {
+            user: null,
+            usersStash: null,
+
             searchParam: "",
             searchType: null,
             searchStatus: null,
@@ -411,7 +411,7 @@ export default {
             let stashData = loadUsersStash(this.$route.params.id).then(
                 (stashData) => {
                     if (stashData) {
-                        this.$store.commit("setUsersStash", stashData);
+                        this.usersStash = Object.values(stashData)[0];
                     }
                 }
             );
@@ -671,7 +671,7 @@ export default {
                         stashData = Array.from(temp);
                     }
 
-                    this.$store.commit("setUsersStash", stashData);
+                    this.usersStash = stashData;
                     window.scrollTo(0, 0);
                 }
             );
@@ -679,9 +679,6 @@ export default {
         createStash: function () {
             this.$router.push(`/stash/create`);
         },
-    },
-    mutations: {
-        ...mapMutations,
     },
 };
 
