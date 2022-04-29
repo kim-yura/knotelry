@@ -46,7 +46,7 @@
                     <i class="fas fa-plus-circle" /> Add new tool
                 </h4>
             </div>
-            <table v-if="$store.state.usersTools.length">
+            <table v-if="usersTools?.length">
                 <thead>
                     <tr>
                         <th />
@@ -62,8 +62,8 @@
                         <th>Embroidery</th>
                     </tr>
                 </thead>
-                <tbody v-if="$store.state.usersTools?.length > 0">
-                    <tr v-for="tool in $store.state.usersTools" :key="tool.id">
+                <tbody v-if="usersTools?.length > 0">
+                    <tr v-for="tool in usersTools" :key="tool.id">
                         <td
                             v-if="tool?.favorited"
                             @click.prevent="unfavorite"
@@ -160,15 +160,12 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
-
 export default {
     name: "Toolbox",
     mounted() {
-        this.$store.commit("clearSelectedUser");
         const data = loadUser(this.$route.params.id).then((data) => {
             if (data) {
-                this.$store.commit("setSelectedUser", data);
+                this.user = data;
             } else {
                 this.$router.push("/404");
             }
@@ -176,14 +173,58 @@ export default {
         const toolsData = loadUsersTools(this.$route.params.id).then(
             (toolsData) => {
                 if (toolsData) {
-                    this.$store.commit("setUsersTools", toolsData);
-                    this.$store.commit("setUsersToolCategories", toolsData);
+                    if (Array.isArray(toolsData)) {
+                        this.usersTools = toolsData;
+                    } else {
+                        this.usersTools = Object.values(toolsData)[0];
+                    }
+                    const spinningArr = [];
+                    const weavingArr = [];
+                    const knittingArr = [];
+                    const crochetingArr = [];
+                    const sewingArr = [];
+                    const embroideryArr = [];
+                    Object.values(toolsData)[0].forEach((tool) => {
+                        if (tool.forSpinning) {
+                            spinningArr.push(tool);
+                        }
+                        if (tool.forWeaving) {
+                            weavingArr.push(tool);
+                        }
+                        if (tool.forKnitting) {
+                            knittingArr.push(tool);
+                        }
+                        if (tool.forCrocheting) {
+                            crochetingArr.push(tool);
+                        }
+                        if (tool.forSewing) {
+                            sewingArr.push(tool);
+                        }
+                        if (tool.forEmbroidery) {
+                            embroideryArr.push(tool);
+                        }
+                    });
+                    this.spinningTools = spinningArr;
+                    this.weavingTools = weavingArr;
+                    this.knittingTools = knittingArr;
+                    this.crochetingTools = crochetingArr;
+                    this.sewingTools = sewingArr;
+                    this.embroideryTools = embroideryArr;
                 }
             }
         );
     },
     data() {
         return {
+            user: null,
+            usersTools: null,
+            spinningTools: [],
+            weavingTools: [],
+            knittingTools: [],
+            crochetingTools: [],
+            sewingTools: [],
+            embroideryTools: [],
+
             searchParam: "",
             searchStatus: "none",
             searchCraft: "none",
@@ -279,7 +320,7 @@ export default {
                         });
                         toolsData = temp;
                     }
-                    this.$store.commit("setUsersTools", toolsData);
+                    this.usersTools = toolsData;
                     window.scrollTo(0, 0);
                 }
             );
@@ -292,8 +333,43 @@ export default {
             const toolsData = loadUsersTools(this.$route.params.id).then(
                 (toolsData) => {
                     if (toolsData) {
-                        this.$store.commit("setUsersTools", toolsData);
-                        this.$store.commit("setUsersToolCategories", toolsData);
+                        if (Array.isArray(toolsData)) {
+                            this.usersTools = toolsData;
+                        } else {
+                            this.usersTools = Object.values(toolsData)[0];
+                        }
+                        const spinningArr = [];
+                        const weavingArr = [];
+                        const knittingArr = [];
+                        const crochetingArr = [];
+                        const sewingArr = [];
+                        const embroideryArr = [];
+                        Object.values(toolsData)[0].forEach((tool) => {
+                            if (tool.forSpinning) {
+                                spinningArr.push(tool);
+                            }
+                            if (tool.forWeaving) {
+                                weavingArr.push(tool);
+                            }
+                            if (tool.forKnitting) {
+                                knittingArr.push(tool);
+                            }
+                            if (tool.forCrocheting) {
+                                crochetingArr.push(tool);
+                            }
+                            if (tool.forSewing) {
+                                sewingArr.push(tool);
+                            }
+                            if (tool.forEmbroidery) {
+                                embroideryArr.push(tool);
+                            }
+                        });
+                        this.spinningTools = spinningArr;
+                        this.weavingTools = weavingArr;
+                        this.knittingTools = knittingArr;
+                        this.crochetingTools = crochetingArr;
+                        this.sewingTools = sewingArr;
+                        this.embroideryTools = embroideryArr;
                     }
                 }
             );
@@ -315,11 +391,43 @@ export default {
                 const toolsData = loadUsersTools(data.userId).then(
                     (toolsData) => {
                         if (toolsData) {
-                            this.$store.commit("setUsersTools", toolsData);
-                            this.$store.commit(
-                                "setUsersToolCategories",
-                                toolsData
-                            );
+                            if (Array.isArray(toolsData)) {
+                                this.usersTools = toolsData;
+                            } else {
+                                this.usersTools = Object.values(toolsData)[0];
+                            }
+                            const spinningArr = [];
+                            const weavingArr = [];
+                            const knittingArr = [];
+                            const crochetingArr = [];
+                            const sewingArr = [];
+                            const embroideryArr = [];
+                            Object.values(toolsData)[0].forEach((tool) => {
+                                if (tool.forSpinning) {
+                                    spinningArr.push(tool);
+                                }
+                                if (tool.forWeaving) {
+                                    weavingArr.push(tool);
+                                }
+                                if (tool.forKnitting) {
+                                    knittingArr.push(tool);
+                                }
+                                if (tool.forCrocheting) {
+                                    crochetingArr.push(tool);
+                                }
+                                if (tool.forSewing) {
+                                    sewingArr.push(tool);
+                                }
+                                if (tool.forEmbroidery) {
+                                    embroideryArr.push(tool);
+                                }
+                            });
+                            this.spinningTools = spinningArr;
+                            this.weavingTools = weavingArr;
+                            this.knittingTools = knittingArr;
+                            this.crochetingTools = crochetingArr;
+                            this.sewingTools = sewingArr;
+                            this.embroideryTools = embroideryArr;
                         }
                     }
                 );
@@ -340,11 +448,43 @@ export default {
                 const toolsData = loadUsersTools(data.userId).then(
                     (toolsData) => {
                         if (toolsData) {
-                            this.$store.commit("setUsersTools", toolsData);
-                            this.$store.commit(
-                                "setUsersToolCategories",
-                                toolsData
-                            );
+                            if (Array.isArray(toolsData)) {
+                                this.usersTools = toolsData;
+                            } else {
+                                this.usersTools = Object.values(toolsData)[0];
+                            }
+                            const spinningArr = [];
+                            const weavingArr = [];
+                            const knittingArr = [];
+                            const crochetingArr = [];
+                            const sewingArr = [];
+                            const embroideryArr = [];
+                            Object.values(toolsData)[0].forEach((tool) => {
+                                if (tool.forSpinning) {
+                                    spinningArr.push(tool);
+                                }
+                                if (tool.forWeaving) {
+                                    weavingArr.push(tool);
+                                }
+                                if (tool.forKnitting) {
+                                    knittingArr.push(tool);
+                                }
+                                if (tool.forCrocheting) {
+                                    crochetingArr.push(tool);
+                                }
+                                if (tool.forSewing) {
+                                    sewingArr.push(tool);
+                                }
+                                if (tool.forEmbroidery) {
+                                    embroideryArr.push(tool);
+                                }
+                            });
+                            this.spinningTools = spinningArr;
+                            this.weavingTools = weavingArr;
+                            this.knittingTools = knittingArr;
+                            this.crochetingTools = crochetingArr;
+                            this.sewingTools = sewingArr;
+                            this.embroideryTools = embroideryArr;
                         }
                     }
                 );
@@ -353,9 +493,6 @@ export default {
         redirectDetail(id) {
             this.$router.push(`/tools/${id}`);
         },
-    },
-    mutations: {
-        ...mapMutations,
     },
 };
 
