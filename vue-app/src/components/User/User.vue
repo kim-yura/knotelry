@@ -3,32 +3,14 @@
         <div class="user-left">
             <h3>{{ user?.username }}</h3>
             <div class="pronouns-container">
-                <p
-                    class="pronouns"
-                    v-if="user?.pronouns_she"
-                >
-                    she/her/hers
-                </p>
-                <p
-                    class="pronouns"
-                    v-if="user?.pronouns_he"
-                >
-                    he/him/his
-                </p>
-                <p
-                    class="pronouns"
-                    v-if="user?.pronouns_they"
-                >
+                <p class="pronouns" v-if="user?.pronouns_she">she/her/hers</p>
+                <p class="pronouns" v-if="user?.pronouns_he">he/him/his</p>
+                <p class="pronouns" v-if="user?.pronouns_they">
                     they/them/theirs
                 </p>
-                <span
-                    class="pronouns"
-                    v-if="user?.pronouns_custom?.length"
-                >
+                <span class="pronouns" v-if="user?.pronouns_custom?.length">
                     <p
-                        v-for="pronoun in user?.pronouns_custom.split(
-                            ','
-                        )"
+                        v-for="pronoun in user?.pronouns_custom.split(',')"
                         :key="pronoun"
                         class="pronouns"
                     >
@@ -37,10 +19,7 @@
                 </span>
             </div>
             <button
-                v-if="
-                    $store.state.sessionUser?.id ==
-                    user?.id
-                "
+                v-if="$store.state.sessionUser?.id == user?.id"
                 @click="edit"
             >
                 Edit Profile
@@ -52,10 +31,7 @@
                 alt="User profile"
             />
             <!-- SOCIAL LINKS -->
-            <div
-                class="social-container"
-                v-if="user?.instagram"
-            >
+            <div class="social-container" v-if="user?.instagram">
                 <img
                     src="https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png"
                     class="icon"
@@ -65,18 +41,14 @@
                     <p>Instagram:</p>
                     <a
                         v-bind:href="
-                            'https://www.instagram.com/' +
-                            user?.instagram
+                            'https://www.instagram.com/' + user?.instagram
                         "
                         target="_blank"
                         >{{ user?.instagram }}
                     </a>
                 </div>
             </div>
-            <div
-                class="social-container"
-                v-if="user?.twitter"
-            >
+            <div class="social-container" v-if="user?.twitter">
                 <img
                     src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Twitter-logo.svg"
                     class="icon"
@@ -85,19 +57,13 @@
                 <div class="social-text">
                     <p>Twitter:</p>
                     <a
-                        v-bind:href="
-                            'https://twitter.com/' +
-                            user?.twitter
-                        "
+                        v-bind:href="'https://twitter.com/' + user?.twitter"
                         target="_blank"
                         >{{ user?.twitter }}
                     </a>
                 </div>
             </div>
-            <div
-                class="social-container"
-                v-if="user?.kofi"
-            >
+            <div class="social-container" v-if="user?.kofi">
                 <img
                     src="https://uploads-ssl.webflow.com/5c14e387dab576fe667689cf/61e1116779fc0a9bd5bdbcc7_Frame%206.png"
                     class="icon"
@@ -106,19 +72,13 @@
                 <div class="social-text">
                     <p>Ko-fi:</p>
                     <a
-                        v-bind:href="
-                            'https://ko-fi.com/' +
-                            user?.kofi
-                        "
+                        v-bind:href="'https://ko-fi.com/' + user?.kofi"
                         target="_blank"
                         >{{ user?.kofi }}
                     </a>
                 </div>
             </div>
-            <div
-                class="social-container"
-                v-if="user?.website"
-            >
+            <div class="social-container" v-if="user?.website">
                 <img
                     src="https://w7.pngwing.com/pngs/549/715/png-transparent-web-development-logo-website-web-design-symmetry-internet-thumbnail.png"
                     class="icon"
@@ -126,11 +86,7 @@
                 />
                 <div class="social-text">
                     <p>Website:</p>
-                    <a
-                        v-bind:href="
-                            'https://' + user?.website
-                        "
-                        target="_blank"
+                    <a v-bind:href="'https://' + user?.website" target="_blank"
                         >{{ user?.website }}
                     </a>
                 </div>
@@ -138,44 +94,24 @@
 
             <!-- Toggle query for crafts -->
             <div class="crafts-container">
-                <p class="header">
-                    {{ user?.username }}'s Crafts
-                </p>
+                <p class="header">{{ user?.username }}'s Crafts</p>
                 <!-- Each button can maybe redirect to that user's craft notebook -->
-                <button
-                    v-if="user?.is_spinner"
-                    class="craft-button"
-                >
+                <button v-if="user?.is_spinner" class="craft-button">
                     spinning
                 </button>
-                <button
-                    v-if="user?.is_weaver"
-                    class="craft-button"
-                >
+                <button v-if="user?.is_weaver" class="craft-button">
                     weaving
                 </button>
-                <button
-                    v-if="user?.is_knitter"
-                    class="craft-button"
-                >
+                <button v-if="user?.is_knitter" class="craft-button">
                     knitting
                 </button>
-                <button
-                    v-if="user?.is_crocheter"
-                    class="craft-button"
-                >
+                <button v-if="user?.is_crocheter" class="craft-button">
                     crocheting
                 </button>
-                <button
-                    v-if="user?.is_sewist"
-                    class="craft-button"
-                >
+                <button v-if="user?.is_sewist" class="craft-button">
                     sewing
                 </button>
-                <button
-                    v-if="user?.is_embroiderer"
-                    class="craft-button"
-                >
+                <button v-if="user?.is_embroiderer" class="craft-button">
                     embroidery
                 </button>
             </div>
@@ -183,10 +119,7 @@
         <div class="user-main">
             <div class="user-text">
                 <div class="user-text-label">Bio:</div>
-                <div
-                    class="user-text-content"
-                    v-if="user?.bio?.length"
-                >
+                <div class="user-text-content" v-if="user?.bio?.length">
                     {{ user?.bio }}
                 </div>
                 <div class="user-text-content" v-else>—</div>
@@ -199,10 +132,7 @@
                 </div>
                 <div class="text-content" v-else>—</div>
                 <div class="user-text-label">Roles:</div>
-                <div
-                    class="user-text-content"
-                    v-if="user?.roles?.length"
-                >
+                <div class="user-text-content" v-if="user?.roles?.length">
                     {{ user?.roles }}
                 </div>
                 <div class="text-content" v-else>—</div>
@@ -212,10 +142,7 @@
                 <div class="user-gallery-header">
                     <h4>{{ user?.username }}'s Gallery</h4>
                 </div>
-                <div
-                    class="user-gallery"
-                    v-if="usersPhotos?.length > 0"
-                >
+                <div class="user-gallery" v-if="usersPhotos?.length > 0">
                     <div
                         v-for="image in usersPhotos"
                         :key="image.id"
@@ -228,25 +155,18 @@
                         />
                         <i
                             class="fas fa-trash-alt"
-                            v-if="
-                                $store.state.sessionUser?.id ==
-                                user?.id
-                            "
+                            v-if="$store.state.sessionUser?.id == user?.id"
                             @click="deleteFromGallery($event)"
                             :id="image.id"
                         />
                     </div>
                 </div>
                 <p class="p-left-align" v-else>
-                    {{ user?.username }} has no photos in
-                    their Gallery
+                    {{ user?.username }} has no photos in their Gallery
                 </p>
                 <div
                     class="gallery-image-interactive"
-                    v-if="
-                        $store.state.sessionUser?.id ==
-                        user?.id
-                    "
+                    v-if="$store.state.sessionUser?.id == user?.id"
                 >
                     <div class="preview-container" v-if="imageURL.length > 0">
                         <img
@@ -290,32 +210,18 @@
         </div>
         <div class="user-notebook">
             <div class="notebook-section">
-                <p class="header">
-                    {{ $store.state.selectedUser?.username }}'s Notebook
-                </p>
+                <p class="header">{{ user?.username }}'s Notebook</p>
                 <div class="stats">
                     <router-link
-                        v-if="$store.state.usersProjects?.length == 1"
-                        :to="`/users/${$store.state.selectedUser?.id}/projects`"
-                        >{{
-                            $store.state.usersProjects?.length
-                        }}
-                        project</router-link
+                        v-if="usersProjects?.length == 1"
+                        :to="`/users/${user?.id}/projects`"
+                        >{{ usersProjects?.length }} project</router-link
                     >
-                    <router-link
-                        v-else
-                        :to="`/users/${$store.state.selectedUser?.id}/projects`"
-                        >{{
-                            $store.state.usersProjects?.length
-                        }}
-                        projects</router-link
+                    <router-link v-else :to="`/users/${user?.id}/projects`"
+                        >{{ usersProjects?.length }} projects</router-link
                     >
-                    <router-link
-                        :to="`/users/${$store.state.selectedUser?.id}/stash`"
-                        >{{
-                            $store.state.usersStash?.length
-                        }}
-                        stashed</router-link
+                    <router-link :to="`/users/${user?.id}/stash`"
+                        >{{ usersStash?.length }} stashed</router-link
                     >
                     <p>---</p>
                     <p>---</p>
@@ -326,25 +232,16 @@
             <!-- Possibly notebooks and summaries by craft -->
             <!-- Images could link to the project page -->
             <!-- SPINNING -->
-            <div
-                class="notebook-section"
-                v-if="$store.state.spinningProjects?.length"
-            >
+            <div class="notebook-section" v-if="spinningProjects?.length">
                 <p class="header">Spinning Notebook</p>
                 <router-link
                     class="router-link-small"
-                    :to="`/users/${$store.state.selectedUser?.id}/projects/spinning`"
-                    >{{
-                        $store.state.spinningProjects?.length
-                    }}
-                    projects</router-link
+                    :to="`/users/${user?.id}/projects/spinning`"
+                    >{{ spinningProjects?.length }} projects</router-link
                 >
                 <div class="tiny-gallery">
                     <span
-                        v-for="project in $store.state.spinningProjects.slice(
-                            0,
-                            3
-                        )"
+                        v-for="project in spinningProjects.slice(0, 3)"
                         :key="project.id"
                     >
                         <img
@@ -359,25 +256,16 @@
                 </div>
             </div>
             <!-- KNITTING -->
-            <div
-                class="notebook-section"
-                v-if="$store.state.knittingProjects?.length"
-            >
+            <div class="notebook-section" v-if="knittingProjects?.length">
                 <p class="header">Knitting Notebook</p>
                 <router-link
                     class="router-link-small"
-                    :to="`/users/${$store.state.selectedUser?.id}/projects/knitting`"
-                    >{{
-                        $store.state.knittingProjects?.length
-                    }}
-                    projects</router-link
+                    :to="`/users/${user?.id}/projects/knitting`"
+                    >{{ knittingProjects?.length }} projects</router-link
                 >
                 <div class="tiny-gallery">
                     <span
-                        v-for="project in $store.state.knittingProjects.slice(
-                            0,
-                            3
-                        )"
+                        v-for="project in knittingProjects.slice(0, 3)"
                         :key="project.id"
                     >
                         <img
@@ -391,25 +279,16 @@
                 </div>
             </div>
             <!-- CROCHETING -->
-            <div
-                class="notebook-section"
-                v-if="$store.state.crochetingProjects?.length"
-            >
+            <div class="notebook-section" v-if="crochetingProjects?.length">
                 <p class="header">Crocheting Notebook</p>
                 <router-link
                     class="router-link-small"
-                    :to="`/users/${$store.state.selectedUser?.id}/projects/crocheting`"
-                    >{{
-                        $store.state.crochetingProjects?.length
-                    }}
-                    projects</router-link
+                    :to="`/users/${user?.id}/projects/crocheting`"
+                    >{{ crochetingProjects?.length }} projects</router-link
                 >
                 <div class="tiny-gallery">
                     <span
-                        v-for="project in $store.state.crochetingProjects.slice(
-                            0,
-                            3
-                        )"
+                        v-for="project in crochetingProjects.slice(0, 3)"
                         :key="project.id"
                     >
                         <img
@@ -423,25 +302,16 @@
                 </div>
             </div>
             <!-- SEWING -->
-            <div
-                class="notebook-section"
-                v-if="$store.state.sewingProjects?.length"
-            >
+            <div class="notebook-section" v-if="sewingProjects?.length">
                 <p class="header">Sewing Notebook</p>
                 <router-link
                     class="router-link-small"
-                    :to="`/users/${$store.state.selectedUser?.id}/projects/sewing`"
-                    >{{
-                        $store.state.sewingProjects?.length
-                    }}
-                    projects</router-link
+                    :to="`/users/${user?.id}/projects/sewing`"
+                    >{{ sewingProjects?.length }} projects</router-link
                 >
                 <div class="tiny-gallery">
                     <span
-                        v-for="project in $store.state.sewingProjects.slice(
-                            0,
-                            3
-                        )"
+                        v-for="project in sewingProjects.slice(0, 3)"
                         :key="project.id"
                     >
                         <img
@@ -460,80 +330,61 @@
                 <p class="header">
                     <router-link
                         class="router-link-light"
-                        :to="`/users/${$store.state.selectedUser?.id}/toolbox`"
-                        >{{ $store.state.selectedUser?.username }}'s
-                        Toolbox</router-link
+                        :to="`/users/${user?.id}/toolbox`"
+                        >{{ user?.username }}'s Toolbox</router-link
                     >
                 </p>
-                <div v-if="$store.state.usersTools?.length > 0">
+                <div v-if="usersTools?.length > 0">
                     <p class="tools-count">
                         <router-link
                             class="router-link-p"
-                            :to="`/users/${$store.state.selectedUser?.id}/toolbox`"
-                            >{{ $store.state.usersTools.length }} Tools
+                            :to="`/users/${user?.id}/toolbox`"
+                            >{{ usersTools?.length }} Tools
                         </router-link>
                     </p>
                     <div class="stats">
-                        <div
-                            class="tool-stat"
-                            v-if="$store.state.spinningTools?.length"
-                        >
-                            <p>{{ $store.state.spinningTools.length }}</p>
+                        <div class="tool-stat" v-if="spinningTools?.length">
+                            <p>{{ spinningTools.length }}</p>
                             <p>Spinning Tools</p>
                         </div>
                         <div class="tool-stat grayed" v-else>
                             <p>-</p>
                             <p>Spinning Tools</p>
                         </div>
-                        <div
-                            class="tool-stat"
-                            v-if="$store.state.weavingTools?.length"
-                        >
-                            <p>{{ $store.state.weavingTools.length }}</p>
+                        <div class="tool-stat" v-if="weavingTools?.length">
+                            <p>{{ weavingTools.length }}</p>
                             <p>Weaving Tools</p>
                         </div>
                         <div class="tool-stat grayed" v-else>
                             <p>-</p>
                             <p>Weaving Tools</p>
                         </div>
-                        <div
-                            class="tool-stat"
-                            v-if="$store.state.knittingTools?.length"
-                        >
-                            <p>{{ $store.state.knittingTools.length }}</p>
+                        <div class="tool-stat" v-if="knittingTools?.length">
+                            <p>{{ knittingTools.length }}</p>
                             <p>Knitting Tools</p>
                         </div>
                         <div class="tool-stat grayed" v-else>
                             <p>-</p>
                             <p>Knitting Tools</p>
                         </div>
-                        <div
-                            class="tool-stat"
-                            v-if="$store.state.crochetingTools?.length"
-                        >
-                            <p>{{ $store.state.crochetingTools.length }}</p>
+                        <div class="tool-stat" v-if="crochetingTools?.length">
+                            <p>{{ crochetingTools.length }}</p>
                             <p>Crocheting Tools</p>
                         </div>
                         <div class="tool-stat grayed" v-else>
                             <p>-</p>
                             <p>Crocheting Tools</p>
                         </div>
-                        <div
-                            class="tool-stat"
-                            v-if="$store.state.sewingTools?.length"
-                        >
-                            <p>{{ $store.state.sewingTools.length }}</p>
+                        <div class="tool-stat" v-if="sewingTools?.length">
+                            <p>{{ sewingTools.length }}</p>
                             <p>Sewing Tools</p>
                         </div>
                         <div class="tool-stat grayed" v-else>
                             <p>-</p>
                             <p>Sewing Tools</p>
                         </div>
-                        <div
-                            class="tool-stat"
-                            v-if="$store.state.embroideryTools?.length"
-                        >
-                            <p>{{ $store.state.embroideryTools.length }}</p>
+                        <div class="tool-stat" v-if="embroideryTools?.length">
+                            <p>{{ embroideryTools.length }}</p>
                             <p>Embroidery Tools</p>
                         </div>
                         <div class="tool-stat grayed" v-else>
@@ -543,9 +394,7 @@
                     </div>
                 </div>
                 <div v-else>
-                    <p>
-                        {{ $store.state.selectedUser?.username }} has no tools!
-                    </p>
+                    <p>{{ user?.username }} has no tools!</p>
                 </div>
             </div>
         </div>
@@ -553,50 +402,98 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
-
 export default {
     name: "User",
     mounted() {
         const userData = loadUser(this.$route.params.id).then((data) => {
             if (data) {
                 this.user = data;
-                console.log(this.user);
             } else {
                 this.$router.push("/404");
-            };
-        })
+            }
+        });
         const galleryData = loadUsersPhotos(this.$route.params.id).then(
             (galleryData) => {
                 if (galleryData) {
                     this.usersPhotos = Object.values(galleryData)[0];
-                    console.log(this.usersPhotos);
                 }
             }
         );
         const stashData = loadUsersStash(this.$route.params.id).then(
             (stashData) => {
                 if (stashData) {
-                    this.$store.commit("setUsersStash", stashData);
+                    this.usersStash = Object.values(stashData)[0];
                 }
             }
         );
         const toolsData = loadUsersTools(this.$route.params.id).then(
             (toolsData) => {
                 if (toolsData) {
-                    this.$store.commit("setUsersTools", toolsData);
-                    this.$store.commit("setUsersToolCategories", toolsData);
+                    if (Array.isArray(toolsData)) {
+                        this.usersTools = toolsData;
+                    } else {
+                        this.usersTools = Object.values(toolsData)[0];
+                    }
+                    const spinningArr = [];
+                    const weavingArr = [];
+                    const knittingArr = [];
+                    const crochetingArr = [];
+                    const sewingArr = [];
+                    const embroideryArr = [];
+                    Object.values(toolsData)[0].forEach((tool) => {
+                        if (tool.forSpinning) {
+                            spinningArr.push(tool);
+                        }
+                        if (tool.forWeaving) {
+                            weavingArr.push(tool);
+                        }
+                        if (tool.forKnitting) {
+                            knittingArr.push(tool);
+                        }
+                        if (tool.forCrocheting) {
+                            crochetingArr.push(tool);
+                        }
+                        if (tool.forSewing) {
+                            sewingArr.push(tool);
+                        }
+                        if (tool.forEmbroidery) {
+                            embroideryArr.push(tool);
+                        }
+                    });
+                    this.spinningTools = spinningArr;
+                    this.weavingTools = weavingArr;
+                    this.knittingTools = knittingArr;
+                    this.crochetingTools = crochetingArr;
+                    this.sewingTools = sewingArr;
+                    this.embroideryTools = embroideryArr;
                 }
             }
         );
         const projectsData = loadUsersProjects(this.$route.params.id).then(
             (projectsData) => {
                 if (projectsData) {
-                    this.$store.commit("setUsersProjects", projectsData);
-                    this.$store.commit(
-                        "setUsersProjectCategories",
-                        projectsData
-                    );
+                    if (Array.isArray(projectsData)) {
+                        this.usersProjects = projectsData;
+                    } else {
+                        this.usersProjects = Object.values(projectsData)[0];
+                    }
+                    const spinningArr = [];
+                    const knittingArr = [];
+                    const sewingArr = [];
+                    Object.values(projectsData)[0].forEach((project) => {
+                        if (project.craftTypes.includes("spinning")) {
+                            spinningArr.push(project);
+                        }
+                        if (project.craftTypes.includes("knitting")) {
+                            knittingArr.push(project);
+                        }
+                        if (project.craftTypes.includes("sewing")) {
+                            sewingArr.push(project);
+                        }
+                    });
+                    this.spinningProjects = spinningArr;
+                    this.knittingProjects = knittingArr;
+                    this.sewingProjects = sewingArr;
                 }
             }
         );
@@ -605,6 +502,20 @@ export default {
         return {
             user: null,
             usersPhotos: null,
+            usersStash: [],
+
+            usersTools: [],
+            spinningTools: [],
+            weavingTools: [],
+            knittingTools: [],
+            crochetingTools: [],
+            sewingTools: [],
+            embroideryTools: [],
+
+            usersProjects: [],
+            spinningProjects: [],
+            knittingProjects: [],
+            sewingProjects: [],
 
             showImageInput: false,
             image: null,
@@ -697,9 +608,6 @@ export default {
         redirectToProject(id) {
             this.$router.push(`/projects/${id}`);
         },
-    },
-    mutations: {
-        ...mapMutations,
     },
 };
 

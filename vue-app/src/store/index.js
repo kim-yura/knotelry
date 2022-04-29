@@ -11,22 +11,6 @@ export default createStore({
 		// ---------- USER PROFILE ---------- //
 		selectedUser: null,
 		usersPhotos: [],
-		// ---------- TOOLS ---------- //
-		usersTools: [],
-		spinningTools: [],
-		weavingTools: [],
-		knittingTools: [],
-		crochetingTools: [],
-		sewingTools: [],
-		embroideryTools: [],
-		// ---------- STASH ---------- //
-		usersStash: [],
-		// ---------- PROJECTS ---------- //
-		usersProjects: [],
-		spinningProjects: [],
-		knittingProjects: [],
-		crochetingProjects: [],
-		sewingProjects: [],
 	},
 	getters: {
 	},
@@ -69,83 +53,6 @@ export default createStore({
 			} else {
 				state.usersPhotos = Object.values(usersPhotos)[0]
 			};
-		},
-		// ---------- TOOLS ---------- //
-		setUsersTools(state, toolsData) {
-			if (Array.isArray(toolsData)) {
-				state.usersTools = toolsData;
-			} else {
-				state.usersTools = Object.values(toolsData)[0];
-			};
-		},
-		setUsersToolCategories(state, toolsData) {
-			const spinningArr = [];
-			const weavingArr = [];
-			const knittingArr = [];
-			const crochetingArr = [];
-			const sewingArr = [];
-			const embroideryArr = [];
-			Object.values(toolsData)[0].forEach(tool => {
-				if (tool.forSpinning) {
-					spinningArr.push(tool);
-				};
-				if (tool.forWeaving) {
-					weavingArr.push(tool);
-				};
-				if (tool.forKnitting) {
-					knittingArr.push(tool);
-				};
-				if (tool.forCrocheting) {
-					crochetingArr.push(tool);
-				};
-				if (tool.forSewing) {
-					sewingArr.push(tool);
-				};
-				if (tool.forEmbroidery) {
-					embroideryArr.push(tool);
-				};
-			});
-			state.spinningTools = spinningArr;
-			state.weavingTools = weavingArr;
-			state.knittingTools = knittingArr;
-			state.crochetingTools = crochetingArr;
-			state.sewingTools = sewingArr;
-			state.embroideryTools = embroideryArr;
-		},
-		// ---------- STASH ---------- //
-		setUsersStash(state, stashData) {
-			if (Array.isArray(stashData)) {
-				state.usersStash = stashData;
-			} else {
-				state.usersStash = Object.values(stashData)[0];
-			};
-		},
-		// ---------- PROJECTS ---------- //
-		setUsersProjects(state, projectsData) {
-			if (Array.isArray(projectsData)) {
-				state.usersProjects = projectsData;
-			} else {
-				state.usersProjects = Object.values(projectsData)[0];
-			};
-		},
-		setUsersProjectCategories(state, projectsData) {
-			const spinningArr = [];
-			const knittingArr = [];
-			const sewingArr = [];
-			Object.values(projectsData)[0].forEach(project => {
-				if (project.craftTypes.includes('spinning')) {
-					spinningArr.push(project);
-				};
-				if (project.craftTypes.includes('knitting')) {
-					knittingArr.push(project);
-				};
-				if (project.craftTypes.includes('sewing')) {
-					sewingArr.push(project);
-				};
-			});
-			state.spinningProjects = spinningArr;
-			state.knittingProjects = knittingArr;
-			state.sewingProjects = sewingArr;
 		},
 	},
 	actions: {
