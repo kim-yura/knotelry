@@ -81,6 +81,12 @@
                                 class="tool-image"
                                 alt="User-uploaded tool image"
                             />
+                            <img
+                                v-else
+                                src="https://knotelry.s3.amazonaws.com/image-placeholder.png"
+                                class="tool-image"
+                                alt="No image found"
+                            />
                         </td>
                         <td
                             v-if="
