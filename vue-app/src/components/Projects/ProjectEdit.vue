@@ -291,6 +291,11 @@
                 </div>
             </span>
 
+            <!-- WEAVING -->
+            <span v-if="this.weaving">
+                <div class="divider" />
+            </span>
+
             <!-- KNITTING -->
             <span v-if="this.knitting">
                 <div class="divider" />
@@ -357,6 +362,11 @@
                         </div>
                     </div>
                 </div>
+            </span>
+
+            <!-- CROCHETING -->
+            <span v-if="this.crocheting">
+                <div class="divider" />
             </span>
 
             <!-- SEWING -->
@@ -477,6 +487,12 @@
                     </div>
                 </div>
             </div>
+
+            <!-- EMBROIDERY -->
+            <span v-if="this.embroidery">
+                <div class="divider" />
+            </span>
+
             <!-- Linked Materials -->
             <div class="form-element">
                 <label for="materials">Linked Materials:</label>
