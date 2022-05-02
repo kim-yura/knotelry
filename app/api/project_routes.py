@@ -77,6 +77,18 @@ def post_project():
         drive_ratio_singles = request.json['drive_ratio_singles'],
         drive_ratio_plied = request.json['drive_ratio_plied'],
 
+        # Weaving
+        warp_yarn = request.json['warp_yarn'],
+        weft_yarn = request.json['weft_yarn'],
+        epi = request.json['epi'],
+        total_ends = request.json['total_ends'],
+        ppi = request.json['ppi'],
+        draft_image_url = request.json['draft_image_url'],
+        draft_notes = request.json['draft_notes'],
+        width_in_reed = request.json['width_in_reed'],
+        length = request.json['length'],
+        finished_length = request.json['finished_length'],
+
         # Knitting
         needle_sizes = request.json['needle_sizes'],
         gauge_count = request.json['gauge_count'],
@@ -171,6 +183,17 @@ def put_project():
         'twist_angle': request.json['twist_angle'],
         'drive_ratio_singles': request.json['drive_ratio_singles'],
         'drive_ratio_plied': request.json['drive_ratio_plied'],
+
+        'warp_yarn': request.json['warp_yarn'],
+        'weft_yarn': request.json['weft_yarn'],
+        'epi': request.json['epi'],
+        'total_ends': request.json['total_ends'],
+        'ppi': request.json['ppi'],
+        'draft_image_url': request.json['draft_image_url'],
+        'draft_notes': request.json['draft_notes'],
+        'width_in_reed': request.json['width_in_reed'],
+        'length': request.json['length'],
+        'finished_length': request.json['finished_length'],
 
         'needle_sizes': request.json['needle_sizes'],
         'gauge_count': request.json['gauge_count'],
