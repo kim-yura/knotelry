@@ -35,6 +35,15 @@
                         </button>
                         <button
                             type="button"
+                            v-bind:class="{ selected: searchWeaving }"
+                            @click.prevent="
+                                this.searchWeaving = !this.searchWeaving
+                            "
+                        >
+                            Weaving
+                        </button>
+                        <button
+                            type="button"
                             v-bind:class="{ selected: searchKnitting }"
                             @click.prevent="
                                 this.searchKnitting = !this.searchKnitting
@@ -44,12 +53,30 @@
                         </button>
                         <button
                             type="button"
+                            v-bind:class="{ selected: searchCrocheting }"
+                            @click.prevent="
+                                this.searchCrocheting = !this.searchCrocheting
+                            "
+                        >
+                            Crocheting
+                        </button>
+                        <button
+                            type="button"
                             v-bind:class="{ selected: searchSewing }"
                             @click.prevent="
                                 this.searchSewing = !this.searchSewing
                             "
                         >
                             Sewing
+                        </button>
+                        <button
+                            type="button"
+                            v-bind:class="{ selected: searchEmbroidery }"
+                            @click.prevent="
+                                this.searchEmbroidery = !this.searchEmbroidery
+                            "
+                        >
+                            Embroidery
                         </button>
                     </div>
                 </div>
@@ -131,12 +158,22 @@ export default {
                     if (this.$route.params.craftParam) {
                         if (this.$route.params.craftParam == "spinning") {
                             this.searchSpinning = true;
+                        } else if (this.$route.params.craftParam == "weaving") {
+                            this.searchWeaving = true;
                         } else if (
                             this.$route.params.craftParam == "knitting"
                         ) {
                             this.searchKnitting = true;
+                        } else if (
+                            this.$route.params.craftParam == "crocheting"
+                        ) {
+                            this.searchCrocheting = true;
                         } else if (this.$route.params.craftParam == "sewing") {
                             this.searchSewing = true;
+                        } else if (
+                            this.$route.params.craftParam == "embroidery"
+                        ) {
+                            this.searchEmbroidery = true;
                         }
 
                         const temp = new Set();
@@ -145,6 +182,17 @@ export default {
                                 (project) => {
                                     if (
                                         project.craftTypes.includes("spinning")
+                                    ) {
+                                        temp.add(project);
+                                    }
+                                }
+                            );
+                        }
+                        if (this.searchWeaving) {
+                            Object.values(projectsData)[0].forEach(
+                                (project) => {
+                                    if (
+                                        project.craftTypes.includes("weaving")
                                     ) {
                                         temp.add(project);
                                     }
@@ -162,10 +210,36 @@ export default {
                                 }
                             );
                         }
+                        if (this.searchCrocheting) {
+                            Object.values(projectsData)[0].forEach(
+                                (project) => {
+                                    if (
+                                        project.craftTypes.includes(
+                                            "crocheting"
+                                        )
+                                    ) {
+                                        temp.add(project);
+                                    }
+                                }
+                            );
+                        }
                         if (this.searchSewing) {
                             Object.values(projectsData)[0].forEach(
                                 (project) => {
                                     if (project.craftTypes.includes("sewing")) {
+                                        temp.add(project);
+                                    }
+                                }
+                            );
+                        }
+                        if (this.searchEmbroidery) {
+                            Object.values(projectsData)[0].forEach(
+                                (project) => {
+                                    if (
+                                        project.craftTypes.includes(
+                                            "embroidery"
+                                        )
+                                    ) {
                                         temp.add(project);
                                     }
                                 }
@@ -186,8 +260,11 @@ export default {
             searchParam: "",
             searchStatus: null,
             searchSpinning: false,
+            searchWeaving: false,
             searchKnitting: false,
+            searchCrocheting: false,
             searchSewing: false,
+            searchEmbroidery: false,
             usersProjects: [],
         };
     },
@@ -199,8 +276,11 @@ export default {
             this.searchParam = "";
             this.searchStatus = null;
             this.searchSpinning = false;
+            this.searchWeaving = false;
             this.searchKnitting = false;
+            this.searchCrocheting = false;
             this.searchSewing = false;
+            this.searchEmbroidery = false;
 
             let projectsData = loadUsersProjects(this.$route.params.id).then(
                 (projectsData) => {
@@ -224,8 +304,11 @@ export default {
                         !this.searchParam &&
                         !this.searchStatus &&
                         !this.searchSpinning &&
+                        !this.searchWeaving &&
                         !this.searchKnitting &&
-                        !this.searchSewing
+                        !this.searchCrocheting &&
+                        !this.searchSewing &&
+                        !this.searchEmbroidery
                     ) {
                         window.scrollTo(0, 0);
                     } else {
@@ -262,14 +345,26 @@ export default {
                         // Inclusive craft sort
                         if (
                             this.searchSpinning ||
+                            this.searchWeaving ||
                             this.searchKnitting ||
-                            this.searchSewing
+                            this.searchCrocheting ||
+                            this.searchSewing ||
+                            this.searchEmbroidery
                         ) {
                             const temp = new Set();
                             if (this.searchSpinning) {
                                 projectsData.forEach((project) => {
                                     if (
                                         project.craftTypes.includes("spinning")
+                                    ) {
+                                        temp.add(project);
+                                    }
+                                });
+                            }
+                            if (this.searchWeaving) {
+                                projectsData.forEach((project) => {
+                                    if (
+                                        project.craftTypes.includes("weaving")
                                     ) {
                                         temp.add(project);
                                     }
@@ -284,9 +379,31 @@ export default {
                                     }
                                 });
                             }
+                            if (this.searchCrocheting) {
+                                projectsData.forEach((project) => {
+                                    if (
+                                        project.craftTypes.includes(
+                                            "crocheting"
+                                        )
+                                    ) {
+                                        temp.add(project);
+                                    }
+                                });
+                            }
                             if (this.searchSewing) {
                                 projectsData.forEach((project) => {
                                     if (project.craftTypes.includes("sewing")) {
+                                        temp.add(project);
+                                    }
+                                });
+                            }
+                            if (this.searchEmbroidery) {
+                                projectsData.forEach((project) => {
+                                    if (
+                                        project.craftTypes.includes(
+                                            "embroidery"
+                                        )
+                                    ) {
                                         temp.add(project);
                                     }
                                 });
