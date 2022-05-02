@@ -382,6 +382,11 @@
                 </div>
             </span>
 
+            <!-- EMBROIDERY -->
+            <span v-if="this.embroidery">
+                <div class="divider" />
+            </span>
+
             <div class="divider" />
             <div class="form-element">
                 <label for="tools">Linked Tools:</label>
@@ -487,11 +492,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- EMBROIDERY -->
-            <span v-if="this.embroidery">
-                <div class="divider" />
-            </span>
 
             <!-- Linked Materials -->
             <div class="form-element">
