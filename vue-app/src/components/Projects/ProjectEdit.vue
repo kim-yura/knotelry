@@ -755,9 +755,11 @@ export default {
             linkToPattern: null,
             sizeMade: null,
             spinning: false,
+            weaving: false,
             knitting: false,
             crocheting: false,
             sewing: false,
+            embroidery: false,
 
             tags: null,
             status: null,
@@ -778,6 +780,17 @@ export default {
             twistAngle: null,
             driveRatioSingles: null,
             driveRatioPlied: null,
+
+            warpYarn: null,
+            weftYarn: null,
+            epi: null,
+            totalEnds: null,
+            ppi: null,
+            draftImageURL: null,
+            draftNotes: null,
+            widthInReed: null,
+            length: null,
+            finishedLength: null,
 
             needleSizes: null,
             gaugeCount: null,
@@ -815,9 +828,11 @@ export default {
 
                 this.craftTypes = data.craftTypes?.split(" ");
                 this.spinning = this.craftTypes?.includes("spinning");
+                this.weaving = this.craftTypes?.includes("weaving");
                 this.knitting = this.craftTypes?.includes("knitting");
                 this.crocheting = this.craftTypes?.includes("crocheting");
                 this.sewing = this.craftTypes?.includes("sewing");
+                this.embroidery = this.craftTypes?.includes("embroidery");
 
                 this.patternName = data.patternName;
                 this.patternAuthor = data.patternAuthor;
@@ -841,6 +856,17 @@ export default {
                 this.twistAngle = data.twistAngle;
                 this.driveRatioSingles = data.driveRatioSingles;
                 this.driveRatioPlied = data.driveRatioPlied;
+
+                this.warpYarn = data.warpYarn;
+                this.weftYarn = data.weftYarn;
+                this.epi = data.epi;
+                this.totalEnds = data.totalEnds;
+                this.ppi = data.ppi;
+                this.draftImageURL = data.draftImageURL;
+                this.draftNotes = data.draftNotes;
+                this.widthInReed = data.widthInReed;
+                this.length = data.length;
+                this.finishedLength = data.finishedLength;
 
                 this.needleSizes = data.needleSizes;
                 this.gaugeCount = data.gaugeCount;
@@ -895,9 +921,11 @@ export default {
                 let craftTypes = "";
 
                 if (this.spinning) craftTypes += "spinning ";
+                if (this.weaving) craftTypes += "weaving ";
                 if (this.knitting) craftTypes += "knitting ";
                 if (this.crocheting) craftTypes += "crocheting ";
                 if (this.sewing) craftTypes += "sewing ";
+                if (this.embroidery) craftTypes += "embroidery ";
 
                 craftTypes = craftTypes.slice(0, -1);
 
@@ -927,6 +955,17 @@ export default {
                     twist_angle: this.twistAngle,
                     drive_ratio_singles: this.driveRatioSingles,
                     drive_ratio_plied: this.driveRatioPlied,
+
+                    warp_yarn: this.warpYarn,
+                    weft_yarn: this.weftYarn,
+                    epi: this.epi,
+                    total_ends: this.totalEnds,
+                    ppi: this.ppi,
+                    draft_image_url: this.draftImageURL,
+                    draft_notes: this.draftNotes,
+                    width_in_reed: this.widthInReed,
+                    length: this.length,
+                    finished_length: this.finishedLength,
 
                     needle_sizes: this.needleSizes,
                     gauge_count: this.gaugeCount,
