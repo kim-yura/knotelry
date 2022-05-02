@@ -142,6 +142,18 @@ class Project(db.Model):
     drive_ratio_singles = db.Column(db.Integer)
     drive_ratio_plied = db.Column(db.Integer)
 
+    # Weaving
+    warp_yarn = db.Column(db.String(100))
+    weft_yarn = db.Column(db.String(100))
+    epi = db.Column(db.Float)
+    total_ends = db.Column(db.Integer)
+    ppi = db.Column(db.Integer)
+    draft_image_url = db.Column(db.String(100))
+    draft_notes = db.Column(db.Text)
+    width_in_reed = db.Column(db.Float)
+    length = db.Column(db.Float)
+    finished_length = db.Column(db.Float)
+
     # Knitting
     needle_sizes = db.Column(db.Text)
     gauge_count = db.Column(db.Integer)
@@ -192,6 +204,17 @@ class Project(db.Model):
             'drive_ratio_singles': self.drive_ratio_singles,
             'drive_ratio_plied': self.drive_ratio_plied,
 
+            'warp_yarn': self.warp_yarn,
+            'weft_yarn': self.weft_yarn,
+            'epi': self.epi,
+            'total_ends': self.total_ends,
+            'ppi': self.ppi,
+            'draft_image_url': self.draft_image_url,
+            'draft_notes': self.draft_notes,
+            'width_in_reed': self.width_in_reed,
+            'length': self.length,
+            'finished_length': self.finished_length,
+
             'needle_sizes': self.needle_sizes,
             'gauge_count': self.gauge_count,
             'gauge_unit': self.gauge_unit,
@@ -239,6 +262,17 @@ class Project(db.Model):
             'twistAngle': self.twist_angle,
             'driveRatioSingles': self.drive_ratio_singles,
             'driveRatioPlied': self.drive_ratio_plied,
+
+            'warpYarn': self.warp_yarn,
+            'weftYarn': self.weft_yarn,
+            'epi': self.epi,
+            'totalEnds': self.total_ends,
+            'ppi': self.ppi,
+            'draftImageURL': self.draft_image_url,
+            'draftNotes': self.draft_notes,
+            'widthInReed': self.width_in_reed,
+            'length': self.length,
+            'finishedLength': self.finished_length,
 
             'needleSizes': self.needle_sizes,
             'gaugeCount': self.gauge_count,
