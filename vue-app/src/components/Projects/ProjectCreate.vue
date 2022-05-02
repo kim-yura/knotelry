@@ -88,6 +88,17 @@ export default {
                     drive_ratio_singles: null,
                     drive_ratio_plied: null,
 
+                    warp_yarn: null,
+                    weft_yarn: null,
+                    epi: null,
+                    total_ends: null,
+                    ppi: null,
+                    draft_image_url: null,
+                    draft_notes: null,
+                    width_in_reed: null,
+                    length: null,
+                    finished_length: null,
+
                     needle_sizes: null,
                     gauge_count: null,
                     gauge_unit: null,
