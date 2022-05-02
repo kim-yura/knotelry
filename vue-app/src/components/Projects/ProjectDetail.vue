@@ -449,6 +449,17 @@ export default {
                     this.driveRatioSingles = data.driveRatioSingles;
                     this.driveRatioPlied = data.driveRatioPlied;
 
+                    this.warpYarn = data.warpYarn;
+                    this.weftYarn = data.weftYarn;
+                    this.epi = data.epi;
+                    this.totalEnds = data.totalEnds;
+                    this.ppi = data.ppi;
+                    this.draftImageURL = data.draftImageURL;
+                    this.draftNotes = data.draftNotes;
+                    this.widthInReed = data.widthInReed;
+                    this.length = data.length;
+                    this.finishedLength = data.finishedLength;
+
                     this.needleSizes = data.needleSizes?.split(",");
                     this.gaugeCount = data.gaugeCount;
                     this.gaugeUnit = data.gaugeUnit;
@@ -497,6 +508,17 @@ export default {
             twistAngle: null,
             driveRatioSingles: null,
             driveRatioPlied: null,
+
+            warpYarn: null,
+            weftYarn: null,
+            epi: null,
+            totalEnds: null,
+            ppi: null,
+            draftImageURL: null,
+            draftNotes: null,
+            widthInReed: null,
+            length: null,
+            finishedLength: null,
 
             needleSizes: null,
             gaugeCount: null,
