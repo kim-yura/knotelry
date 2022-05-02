@@ -1082,6 +1082,7 @@ export default {
                     draft_notes: this.draftNotes,
                     width_in_reed: this.widthInReed,
                     length: this.length,
+                    length_unit: this.lengthUnit,
                     finished_length: this.finishedLength,
 
                     needle_sizes: this.needleSizes,
