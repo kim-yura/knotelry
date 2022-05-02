@@ -312,7 +312,7 @@
                 </div>
                 <div class="form-element">
                     <label for="epi">EPI (Ends Per Inch):</label>
-                    <input type="number" placeholder="0" v-model="this.epi" />
+                    <input type="number" step="0.01" placeholder="0" v-model="this.epi" />
                 </div>
                 <div class="form-element">
                     <label for="totalEnds">Total Ends:</label>
@@ -320,8 +320,20 @@
                 </div>
                 <div class="form-element">
                     <label for="ppi">PPI (Picks Per Inch):</label>
-                    <input type="number" placeholder="0" v-model="this.ppi" />
+                    <input type="number" step="0.01" placeholder="0" v-model="this.ppi" />
                 </div>
+                <div class="form-element">
+                <label for="draftNotes">Draft Notes:</label>
+                <textarea
+                    placeholder="Enter notes for your project's draft"
+                    v-model="this.draftNotes"
+                />
+                </div>
+                <div class="form-element">
+                    <label for="widthInReed">Width In Reed:</label>
+                    <input type="number" step="0.01" placeholder="0" v-model="this.widthInReed" />
+                </div>
+
             </span>
 
             <!-- KNITTING -->
@@ -845,6 +857,7 @@ export default {
             draftNotes: null,
             widthInReed: null,
             length: null,
+            lengthUnit: null,
             finishedLength: null,
 
             needleSizes: null,
@@ -920,6 +933,7 @@ export default {
                 this.draftNotes = data.draftNotes;
                 this.widthInReed = data.widthInReed;
                 this.length = data.length;
+                this.lengthUnit = data.lengthUnit;
                 this.finishedLength = data.finishedLength;
 
                 this.needleSizes = data.needleSizes;

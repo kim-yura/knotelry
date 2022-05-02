@@ -96,6 +96,7 @@ export default {
                     draft_notes: null,
                     width_in_reed: null,
                     length: null,
+                    length_unit: null,
                     finished_length: null,
 
                     needle_sizes: null,

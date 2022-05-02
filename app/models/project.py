@@ -147,10 +147,11 @@ class Project(db.Model):
     weft_yarn = db.Column(db.String(100))
     epi = db.Column(db.Float)
     total_ends = db.Column(db.Integer)
-    ppi = db.Column(db.Integer)
+    ppi = db.Column(db.Float)
     draft_notes = db.Column(db.Text)
     width_in_reed = db.Column(db.Float)
     length = db.Column(db.Float)
+    length_unit = db.Column(db.String(2))
     finished_length = db.Column(db.Float)
 
     # Knitting
@@ -211,6 +212,7 @@ class Project(db.Model):
             'draft_notes': self.draft_notes,
             'width_in_reed': self.width_in_reed,
             'length': self.length,
+            'length_unit': self.length_unit,
             'finished_length': self.finished_length,
 
             'needle_sizes': self.needle_sizes,
@@ -269,6 +271,7 @@ class Project(db.Model):
             'draftNotes': self.draft_notes,
             'widthInReed': self.width_in_reed,
             'length': self.length,
+            'lengthUnit': self.length_unit,
             'finishedLength': self.finished_length,
 
             'needleSizes': self.needle_sizes,

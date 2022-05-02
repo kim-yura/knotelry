@@ -457,6 +457,7 @@ export default {
                     this.draftNotes = data.draftNotes;
                     this.widthInReed = data.widthInReed;
                     this.length = data.length;
+                    this.lengthUnit = data.lengthUnit;
                     this.finishedLength = data.finishedLength;
 
                     this.needleSizes = data.needleSizes?.split(",");
@@ -516,6 +517,7 @@ export default {
             draftNotes: null,
             widthInReed: null,
             length: null,
+            lengthUnit: null,
             finishedLength: null,
 
             needleSizes: null,

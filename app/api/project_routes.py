@@ -86,6 +86,7 @@ def post_project():
         draft_notes = request.json['draft_notes'],
         width_in_reed = request.json['width_in_reed'],
         length = request.json['length'],
+        length_unit = request.json['length_unit'],
         finished_length = request.json['finished_length'],
 
         # Knitting
@@ -191,6 +192,7 @@ def put_project():
         'draft_notes': request.json['draft_notes'],
         'width_in_reed': request.json['width_in_reed'],
         'length': request.json['length'],
+        'length_unit': request.json['length_unit'],
         'finished_length': request.json['finished_length'],
 
         'needle_sizes': request.json['needle_sizes'],
