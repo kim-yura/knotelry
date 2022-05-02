@@ -312,28 +312,78 @@
                 </div>
                 <div class="form-element">
                     <label for="epi">EPI (Ends Per Inch):</label>
-                    <input type="number" step="0.01" placeholder="0" v-model="this.epi" />
+                    <input
+                        type="number"
+                        step="0.01"
+                        placeholder="0"
+                        v-model="this.epi"
+                    />
                 </div>
                 <div class="form-element">
                     <label for="totalEnds">Total Ends:</label>
-                    <input type="number" placeholder="0" v-model="this.totalEnds" />
+                    <input
+                        type="number"
+                        placeholder="0"
+                        v-model="this.totalEnds"
+                    />
                 </div>
                 <div class="form-element">
                     <label for="ppi">PPI (Picks Per Inch):</label>
-                    <input type="number" step="0.01" placeholder="0" v-model="this.ppi" />
+                    <input
+                        type="number"
+                        step="0.01"
+                        placeholder="0"
+                        v-model="this.ppi"
+                    />
                 </div>
                 <div class="form-element">
-                <label for="draftNotes">Draft Notes:</label>
-                <textarea
-                    placeholder="Enter notes for your project's draft"
-                    v-model="this.draftNotes"
-                />
+                    <label for="draftNotes">Draft Notes:</label>
+                    <textarea
+                        placeholder="Enter notes for your project's draft"
+                        v-model="this.draftNotes"
+                    />
                 </div>
                 <div class="form-element">
                     <label for="widthInReed">Width In Reed:</label>
-                    <input type="number" step="0.01" placeholder="0" v-model="this.widthInReed" />
+                    <input
+                        type="number"
+                        step="0.01"
+                        placeholder="0"
+                        v-model="this.widthInReed"
+                    />
                 </div>
-
+                <div class="form-element">
+                    <label for="length">Length:</label>
+                    <div class="input-select">
+                        <input
+                            type="number"
+                            step="0.01"
+                            placeholder="0"
+                            v-model="this.length"
+                        />
+                        <select v-model="this.lengthUnit">
+                            <option value="null" selected disabled hidden>
+                                —
+                            </option>
+                            <option value="in">inches</option>
+                            <option value="cm">centimeters</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-element">
+                    <label for="finishedLength">Finished Length:</label>
+                    <div class="input-select">
+                        <input
+                            type="number"
+                            step="0.01"
+                            placeholder="0"
+                            v-model="this.finishedLength"
+                        />
+                        <p v-if="this.lengthUnit == 'in'">inches</p>
+                        <p v-else-if="this.lengthUnit == 'cm'">centimeters</p>
+                        <p v-else>—</p>
+                    </div>
+                </div>
             </span>
 
             <!-- KNITTING -->
@@ -1500,7 +1550,7 @@ const formatDate = (date) => {
 
 label {
     text-align: justify;
-    align-self: flex-start;
+    align-self: middle;
 }
 
 input {
@@ -1894,5 +1944,18 @@ button:active {
 .link:hover {
     font-weight: bold;
     cursor: pointer;
+}
+
+.input-select {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    column-gap: 16px;
+}
+
+.input-select > p {
+    align-self: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 </style>
