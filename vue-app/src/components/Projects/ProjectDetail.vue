@@ -454,7 +454,6 @@ export default {
                     this.epi = data.epi;
                     this.totalEnds = data.totalEnds;
                     this.ppi = data.ppi;
-                    this.draftImageURL = data.draftImageURL;
                     this.draftNotes = data.draftNotes;
                     this.widthInReed = data.widthInReed;
                     this.length = data.length;
@@ -514,7 +513,6 @@ export default {
             epi: null,
             totalEnds: null,
             ppi: null,
-            draftImageURL: null,
             draftNotes: null,
             widthInReed: null,
             length: null,

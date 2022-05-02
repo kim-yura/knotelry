@@ -148,7 +148,6 @@ class Project(db.Model):
     epi = db.Column(db.Float)
     total_ends = db.Column(db.Integer)
     ppi = db.Column(db.Integer)
-    draft_image_url = db.Column(db.String(100))
     draft_notes = db.Column(db.Text)
     width_in_reed = db.Column(db.Float)
     length = db.Column(db.Float)
@@ -209,7 +208,6 @@ class Project(db.Model):
             'epi': self.epi,
             'total_ends': self.total_ends,
             'ppi': self.ppi,
-            'draft_image_url': self.draft_image_url,
             'draft_notes': self.draft_notes,
             'width_in_reed': self.width_in_reed,
             'length': self.length,
@@ -268,7 +266,6 @@ class Project(db.Model):
             'epi': self.epi,
             'totalEnds': self.total_ends,
             'ppi': self.ppi,
-            'draftImageURL': self.draft_image_url,
             'draftNotes': self.draft_notes,
             'widthInReed': self.width_in_reed,
             'length': self.length,

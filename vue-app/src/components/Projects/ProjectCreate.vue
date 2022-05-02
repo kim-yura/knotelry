@@ -93,7 +93,6 @@ export default {
                     epi: null,
                     total_ends: null,
                     ppi: null,
-                    draft_image_url: null,
                     draft_notes: null,
                     width_in_reed: null,
                     length: null,

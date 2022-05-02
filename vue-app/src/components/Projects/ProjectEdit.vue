@@ -224,7 +224,7 @@
                     </div>
                 </div>
                 <div class="form-element">
-                    <label for="wpi">WPI:</label>
+                    <label for="wpi">WPI (Wraps Per Inch):</label>
                     <input type="number" placeholder="0" v-model="this.wpi" />
                 </div>
                 <div class="form-element">
@@ -294,6 +294,34 @@
             <!-- WEAVING -->
             <span v-if="this.weaving">
                 <div class="divider" />
+                <div class="form-element">
+                    <label for="warpYarn">Warp Yarn:</label>
+                    <input
+                        type="text"
+                        placeholder="Warp yarn information"
+                        v-model="this.warpYarn"
+                    />
+                </div>
+                <div class="form-element">
+                    <label for="weftYarn">Weft Yarn:</label>
+                    <input
+                        type="text"
+                        placeholder="Weft yarn information"
+                        v-model="this.weftYarn"
+                    />
+                </div>
+                <div class="form-element">
+                    <label for="epi">EPI (Ends Per Inch):</label>
+                    <input type="number" placeholder="0" v-model="this.epi" />
+                </div>
+                <div class="form-element">
+                    <label for="totalEnds">Total Ends:</label>
+                    <input type="number" placeholder="0" v-model="this.totalEnds" />
+                </div>
+                <div class="form-element">
+                    <label for="ppi">PPI (Picks Per Inch):</label>
+                    <input type="number" placeholder="0" v-model="this.ppi" />
+                </div>
             </span>
 
             <!-- KNITTING -->
@@ -814,7 +842,6 @@ export default {
             epi: null,
             totalEnds: null,
             ppi: null,
-            draftImageURL: null,
             draftNotes: null,
             widthInReed: null,
             length: null,
@@ -890,7 +917,6 @@ export default {
                 this.epi = data.epi;
                 this.totalEnds = data.totalEnds;
                 this.ppi = data.ppi;
-                this.draftImageURL = data.draftImageURL;
                 this.draftNotes = data.draftNotes;
                 this.widthInReed = data.widthInReed;
                 this.length = data.length;
@@ -989,7 +1015,6 @@ export default {
                     epi: this.epi,
                     total_ends: this.totalEnds,
                     ppi: this.ppi,
-                    draft_image_url: this.draftImageURL,
                     draft_notes: this.draftNotes,
                     width_in_reed: this.widthInReed,
                     length: this.length,
