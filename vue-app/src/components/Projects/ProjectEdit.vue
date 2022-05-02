@@ -120,6 +120,12 @@
                         Spinning
                     </button>
                     <button
+                        v-bind:class="{ selected: weaving }"
+                        @click.prevent="this.weaving = !this.weaving"
+                    >
+                        Weaving
+                    </button>
+                    <button
                         v-bind:class="{ selected: knitting }"
                         @click.prevent="this.knitting = !this.knitting"
                     >
@@ -136,6 +142,12 @@
                         @click.prevent="this.sewing = !this.sewing"
                     >
                         Sewing
+                    </button>
+                    <button
+                        v-bind:class="{ selected: embroidery }"
+                        @click.prevent="this.embroidery = !this.embroidery"
+                    >
+                        Embroidery
                     </button>
                 </div>
             </div>
