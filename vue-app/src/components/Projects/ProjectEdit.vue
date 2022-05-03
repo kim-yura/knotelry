@@ -192,7 +192,7 @@
             <span v-if="this.spinning">
                 <div class="divider" />
                 <div class="form-element">
-                    <label for="yarnWeight">Finished Yarn Weight:</label>
+                    <label for="yarnWeight">Finished Yarn:</label>
                     <select v-model="this.yarnWeight">
                         <option value="null" selected disabled hidden>—</option>
                         <option value="lace">Lace</option>
@@ -205,6 +205,40 @@
                         <option value="bulky">Bulky</option>
                         <option value="sbulky">Super Bulky</option>
                     </select>
+                </div>
+                <div class="form-element">
+                    <label for="finishedLength">Finished Yarn Length:</label>
+                    <div class="split-two">
+                        <input
+                            type="number"
+                            placeholder="0"
+                            v-model="this.finishedLength"
+                        />
+                        <select v-model="this.lengthUnit">
+                            <option value="null" selected disabled hidden>
+                                —
+                            </option>
+                            <option value="yd">yards</option>
+                            <option value="m">meters</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-element">
+                    <label for="finishedWeight">Finished Yarn Weight:</label>
+                    <div class="split-two">
+                        <input
+                            type="number"
+                            placeholder="0"
+                            v-model="this.finishedWeight"
+                        />
+                        <select v-model="this.weightUnit">
+                            <option value="null" selected disabled hidden>
+                                —
+                            </option>
+                            <option value="oz">oz</option>
+                            <option value="g">grams</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="form-element">
                     <label for="grist">Grist:</label>
@@ -898,6 +932,8 @@ export default {
             twistAngle: null,
             driveRatioSingles: null,
             driveRatioPlied: null,
+            finishedWeight: null,
+            weightUnit: null,
 
             warpYarn: null,
             weftYarn: null,
@@ -974,6 +1010,8 @@ export default {
                 this.twistAngle = data.twistAngle;
                 this.driveRatioSingles = data.driveRatioSingles;
                 this.driveRatioPlied = data.driveRatioPlied;
+                this.finishedWeight = data.finishedWeight;
+                this.weightUnit = data.weightUnit;
 
                 this.warpYarn = data.warpYarn;
                 this.weftYarn = data.weftYarn;
@@ -1073,6 +1111,8 @@ export default {
                     twist_angle: this.twistAngle,
                     drive_ratio_singles: this.driveRatioSingles,
                     drive_ratio_plied: this.driveRatioPlied,
+                    finished_weight: this.finishedWeight,
+                    weight_unit: this.weightUnit,
 
                     warp_yarn: this.warpYarn,
                     weft_yarn: this.weftYarn,
@@ -1736,15 +1776,21 @@ button:active {
 }
 
 #twist-direction-container {
-    display: flex;
-    justify-content: space-between;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10%;
 }
 
 #twist-direction-container > div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    column-gap: 10%;
+    column-gap: 8%;
+}
+
+#twist-direction-container > div > select {
+    width: 100%;
 }
 
 #drive-ratios-container {

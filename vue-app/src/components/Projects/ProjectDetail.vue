@@ -139,7 +139,7 @@
             <!-- SPINNING -->
             <span v-if="this.craftTypes?.includes('spinning')">
                 <div class="detail-text">
-                    <div class="text-label">Finished Yarn Weight:</div>
+                    <div class="text-label">Finished Yarn:</div>
                     <div class="text-content" v-if="this.yarnWeight == 'lace'">
                         Lace
                     </div>
