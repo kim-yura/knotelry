@@ -266,6 +266,104 @@
 
                 <div class="divider" />
             </span>
+            <!-- WEAVING -->
+            <span v-if="this.craftTypes?.includes('weaving')">
+                <div class="detail-text">
+                    <div class="text-label">Warp Yarn:</div>
+                    <div class="text-content" v-if="this.warpYarn">
+                        {{ this.warpYarn }}
+                    </div>
+                    <div v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Weft Yarn:</div>
+                    <div class="text-content" v-if="this.weftYarn">
+                        {{ this.weftYarn }}
+                    </div>
+                    <div v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">EPI x PPI:</div>
+                    <div class="text-content" v-if="this.epi && this.ppi">
+                        {{ this.epi }} EPI x {{ this.ppi }} PPI
+                    </div>
+                    <div class="text-content" v-else-if="this.epi">
+                        {{ this.epi }} EPI
+                    </div>
+                    <div class="text-content" v-else-if="this.ppi">
+                        {{ this.ppi }} PPI
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Draft Notes:</div>
+                    <div class="text-content" v-if="this.draftNotes">
+                        {{ this.draftNotes }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Width in Reed:</div>
+                    <div class="text-content" v-if="this.widthInReed">
+                        {{ this.widthInReed }} {{ this.widthUnit }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Warped Length:</div>
+                    <div
+                        class="text-content"
+                        v-if="this.warpedLength && this.lengthUnit == 'in'"
+                    >
+                        {{ this.warpedLength }} in /
+                        {{ (this.warpedLength / 36).toFixed(2) }} yds
+                    </div>
+                    <div
+                        class="text-content"
+                        v-else-if="this.warpedLength && this.lengthUnit == 'cm'"
+                    >
+                        {{ this.warpedLength }} cm /
+                        {{ this.warpedLength / 100 }} m
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Length Woven:</div>
+                    <div
+                        class="text-content"
+                        v-if="this.length && this.lengthUnit == 'in'"
+                    >
+                        {{ this.length }} in /
+                        {{ (this.length / 36).toFixed(2) }} yds
+                    </div>
+                    <div
+                        class="text-content"
+                        v-else-if="this.length && this.lengthUnit == 'cm'"
+                    >
+                        {{ this.length }} cm / {{ this.length / 100 }} m
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Finished Dimensions:</div>
+                    <div
+                        class="text-content"
+                        v-if="this.finishedLength && this.finishedWidth"
+                    >
+                        {{ this.finishedLength }} {{ this.lengthUnit }} x
+                        {{ this.finishedWidth }} {{ this.widthUnit }}
+                    </div>
+                    <div class="text-content" v-else-if="this.finishedLength">
+                        {{ this.finishedLength }} {{ this.lengthUnit }}
+                    </div>
+                    <div class="text-content" v-else-if="this.finishedWidth">
+                        {{ this.finishedWidth }} {{ this.widthUnit }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+
+                <div class="divider" />
+            </span>
             <!-- KNITTING -->
             <span v-if="this.craftTypes?.includes('knitting')">
                 <div class="detail-text">
