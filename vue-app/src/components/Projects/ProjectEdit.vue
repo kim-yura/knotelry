@@ -942,9 +942,12 @@ export default {
             ppi: null,
             draftNotes: null,
             widthInReed: null,
+            warpedLength: null,
             length: null,
             lengthUnit: null,
+            widthUnit: null,
             finishedLength: null,
+            finishedWidth: null,
 
             needleSizes: null,
             gaugeCount: null,
@@ -1020,9 +1023,12 @@ export default {
                 this.ppi = data.ppi;
                 this.draftNotes = data.draftNotes;
                 this.widthInReed = data.widthInReed;
+                this.warpedLength = data.warpedLength;
                 this.length = data.length;
                 this.lengthUnit = data.lengthUnit;
+                this.widthUnit = data.widthUnit;
                 this.finishedLength = data.finishedLength;
+                this.finishedWidth = data.finishedWidth;
 
                 this.needleSizes = data.needleSizes;
                 this.gaugeCount = data.gaugeCount;
@@ -1121,9 +1127,12 @@ export default {
                     ppi: this.ppi,
                     draft_notes: this.draftNotes,
                     width_in_reed: this.widthInReed,
+                    warped_length: this.warpedLength,
                     length: this.length,
                     length_unit: this.lengthUnit,
+                    width_unit: this.widthUnit,
                     finished_length: this.finishedLength,
+                    finished_width: this.finishedWidth,
 
                     needle_sizes: this.needleSizes,
                     gauge_count: this.gaugeCount,
