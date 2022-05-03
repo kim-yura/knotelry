@@ -153,11 +153,11 @@ class Project(db.Model):
     total_ends = db.Column(db.Integer)
     ppi = db.Column(db.Float)
     draft_notes = db.Column(db.Text)
+    length_unit = db.Column(db.String(2))
+    width_unit = db.Column(db.String(2))
     width_in_reed = db.Column(db.Float)
     warped_length=db.Column(db.Float)
     length = db.Column(db.Float)
-    length_unit = db.Column(db.String(2))
-    width_unit = db.Column(db.String(2))
     finished_length = db.Column(db.Float)
     finished_width = db.Column(db.Float)
 

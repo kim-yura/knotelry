@@ -325,6 +325,91 @@ def seed_projects():
         width_unit="in",
         finished_length=66,
         finished_width=6.5,
+        notes='Just a plain weave scarf. Very stretchy (and very beautiful) knitting yarn. Warped 84”. Alternated hot/cold baths, thrown in the dryer on high heat, then steam pressed. Final scarf measurements: 6.5” wide, 66” long (excluding 2” fringe each end).',
+    )
+    project9_image1 = Project_Image(
+        project_id=9,
+        image_url="https://knotelry.s3.amazonaws.com/project_19.jpg",
+    )
+    project9_image2 = Project_Image(
+        project_id=9,
+        image_url="https://knotelry.s3.amazonaws.com/project_20.jpg",
+    )
+
+    project10 = Project(
+        user_id=1,
+        title="Scrap Towels",
+        craft_types="weaving",
+        epi=20,
+        ppi=20,
+        total_ends=400,
+        draft_notes="2/2 twill biased",
+        length_unit="in",
+        width_unit="in",
+        width_in_reed=20,
+        warped_length=162,
+        length=31.5,
+        finished_length=25,
+        finished_width=16.5,
+        notes='I was able to get 4 towels and a little sampler. Final measurements after hemming, washing, drying and pressing: 16.5” by 25”. They are a little wonky. The 2/2 twill biased and you can see how the natural cottolin behaves differently from the dyed cottolin. But they are very soft and thirsty. Maybe a little too long.',
+    )
+    project10_image1 = Project_Image(
+        project_id=10,
+        image_url="https://knotelry.s3.amazonaws.com/project_21.jpg",
+    )
+    project10_image2 = Project_Image(
+        project_id=10,
+        image_url="https://knotelry.s3.amazonaws.com/project_22.jpg"
+    )
+    project10_image3 = Project_Image(
+        project_id=10,
+        image_url="https://knotelry.s3.amazonaws.com/project_23.jpg"
+    )
+    project10_image4 = Project_Image(
+        project_id=10,
+        image_url="https://knotelry.s3.amazonaws.com/project_24.jpg"
+    )
+
+    project11 = Project(
+        user_id=1,
+        title="Dash Scarf",
+        craft_types="weaving",
+        warp_yarn="Northbound Knitting Cotton Lace",
+        weft_yarn="Northbound Knitting Cotton Lace",
+        epi=24,
+        draft_notes="Weaving pattern by Amanda Rataj, available here: https://amandarataj.com/index.php/product/dash-tea-towels-pdf-pattern/",
+        length_unit="in",
+        width_unit="in",
+        width_in_reed=20,
+        warped_length=108,
+        length=81,
+        finished_length=73,
+        finished_width=18.5,
+        notes="This handdyed cotton yarn seems the equivalent of 10/2 cotton, and I’ll be making a scarf, rather than tea towels.Aquarius, Sterling, Pacific, Seafoam, Denim, Wheat, Conch, Papyrus, Copper. Modified the draft to fit my 20” table loom. Finished measurements after finishing (handwash, tumble dry): 18.5” by 73” excluding fringe.",
+    )
+    project11_image1 = Project_Image(
+        project_id=11,
+        image_url="https://knotelry.s3.amazonaws.com/project_25.jpg"
+    )
+    project11_image2 = Project_Image(
+        project_id=11,
+        image_url="https://knotelry.s3.amazonaws.com/project_26.jpg"
+    )
+    project11_image3 = Project_Image(
+        project_id=11,
+        image_url="https://knotelry.s3.amazonaws.com/project_27.jpg"
+    )
+    project11_image4 = Project_Image(
+        project_id=11,
+        image_url="https://knotelry.s3.amazonaws.com/project_28.jpg"
+    )
+    project11_image5 = Project_Image(
+        project_id=11,
+        image_url="https://knotelry.s3.amazonaws.com/project_29.jpg"
+    )
+    project11_image6 = Project_Image(
+        project_id=11,
+        image_url="https://knotelry.s3.amazonaws.com/project_30.jpg"
     )
 
     db.session.add(project1)
@@ -379,6 +464,24 @@ def seed_projects():
     db.session.add(project8_image1)
     db.session.add(project8_image2)
     db.session.add(project8_image3)
+
+    db.session.add(project9)
+    db.session.add(project9_image1)
+    db.session.add(project9_image2)
+
+    db.session.add(project10)
+    db.session.add(project10_image1)
+    db.session.add(project10_image2)
+    db.session.add(project10_image3)
+    db.session.add(project10_image4)
+
+    db.session.add(project11)
+    db.session.add(project11_image1)
+    db.session.add(project11_image2)
+    db.session.add(project11_image3)
+    db.session.add(project11_image4)
+    db.session.add(project11_image5)
+    db.session.add(project11_image6)
 
     db.session.commit()
 
