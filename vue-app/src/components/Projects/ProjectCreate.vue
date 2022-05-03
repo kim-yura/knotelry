@@ -97,9 +97,12 @@ export default {
                     ppi: null,
                     draft_notes: null,
                     width_in_reed: null,
+                    warped_length: null,
                     length: null,
                     length_unit: null,
+                    width_unit: null,
                     finished_length: null,
+                    finished_width: null,
 
                     needle_sizes: null,
                     gauge_count: null,
