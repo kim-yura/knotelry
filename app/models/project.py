@@ -154,6 +154,7 @@ class Project(db.Model):
     ppi = db.Column(db.Float)
     draft_notes = db.Column(db.Text)
     width_in_reed = db.Column(db.Float)
+    warped_length=db.Column(db.Float)
     length = db.Column(db.Float)
     length_unit = db.Column(db.String(2))
     finished_length = db.Column(db.Float)

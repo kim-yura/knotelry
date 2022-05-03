@@ -311,6 +311,18 @@ def seed_projects():
         image_url="https://knotelry.s3.amazonaws.com/project_18.jpg"
     )
 
+    project9 = Project(
+        user_id=1,
+        title="Smitten Scarf",
+        craft_types="weaving",
+        warp_yarn="Handmaiden Fine Yarn Smitten",
+        weft_yarn="Handmaiden Fine Yarn Smitten",
+        epi=7.5,
+        ppi=7.5,
+        draft_notes="Just a plain weave scarf.",
+        length=8
+    )
+
     db.session.add(project1)
     db.session.add(project1_material1)
     db.session.add(project1_material2)
