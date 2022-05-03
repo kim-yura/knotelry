@@ -73,7 +73,10 @@
             </div>
             <div class="detail-text">
                 <div class="text-label">Tagged Crafts:</div>
-                <div class="attributes-container" v-if="this.craftTypes?.length">
+                <div
+                    class="attributes-container"
+                    v-if="this.craftTypes?.length"
+                >
                     <p
                         class="attribute-container"
                         v-for="craft in this.craftTypes"
@@ -191,6 +194,20 @@
                     <div class="text-content" v-else-if="!this.yarnWeight">
                         —
                     </div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Finished Yarn Length:</div>
+                    <div class="text-content" v-if="this.finishedLength">
+                        {{ this.finishedLength }} {{ this.lengthUnit }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Finished Yarn Weight:</div>
+                    <div class="text-content" v-if="this.finishedWeight">
+                        {{ this.finishedWeight }} {{ this.weightUnit }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
                 </div>
                 <div class="detail-text">
                     <div class="text-label">Grist:</div>
@@ -426,7 +443,7 @@ export default {
                     this.description = data.description;
                     if (data.craftTypes.length) {
                         this.craftTypes = data.craftTypes?.split(" ");
-                    };
+                    }
                     this.patternName = data.patternName;
                     this.patternAuthor = data.patternAuthor;
                     this.linkToPattern = data.linkToPattern;
@@ -459,6 +476,8 @@ export default {
                     this.length = data.length;
                     this.lengthUnit = data.lengthUnit;
                     this.finishedLength = data.finishedLength;
+                    this.finishedWeight = data.finishedWeight;
+                    this.weightUnit = data.weightUnit;
 
                     this.needleSizes = data.needleSizes?.split(",");
                     this.gaugeCount = data.gaugeCount;
@@ -508,6 +527,8 @@ export default {
             twistAngle: null,
             driveRatioSingles: null,
             driveRatioPlied: null,
+            finishedWeight: null,
+            weightUnit: null,
 
             warpYarn: null,
             weftYarn: null,
