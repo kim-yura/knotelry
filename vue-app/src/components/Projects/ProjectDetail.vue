@@ -539,11 +539,11 @@ export default {
             totalEnds: null,
             ppi: null,
             draftNotes: null,
+            lengthUnit: null,
+            widthUnit: null,
             widthInReed: null,
             warpedLength: null,
             length: null,
-            lengthUnit: null,
-            widthUnit: null,
             finishedLength: null,
             finishedWidth: null,
 

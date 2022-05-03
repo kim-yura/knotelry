@@ -411,6 +411,10 @@ def seed_projects():
         project_id=11,
         image_url="https://knotelry.s3.amazonaws.com/project_30.jpg"
     )
+    project11_image7 = Project_Image(
+        project_id=11,
+        image_url="https://knotelry.s3.amazonaws.com/project_31.jpg"
+    )
 
     db.session.add(project1)
     db.session.add(project1_material1)
@@ -482,6 +486,7 @@ def seed_projects():
     db.session.add(project11_image4)
     db.session.add(project11_image5)
     db.session.add(project11_image6)
+    db.session.add(project11_image7)
 
     db.session.commit()
 
