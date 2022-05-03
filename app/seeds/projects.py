@@ -187,6 +187,11 @@ def seed_projects():
         plies_count=2,
         twist_direction_singles="Z",
         twist_direction_plied="S",
+
+        finished_length=938,
+        length_unit="yd",
+        finished_weight=202,
+        weight_unit="g",
     )
     project5_material1 = Project_Material(
         project_id=5,
@@ -225,6 +230,11 @@ def seed_projects():
         plies_count=2,
         twist_direction_singles="Z",
         twist_direction_plied="S",
+
+        finished_length=620,
+        length_unit="yd",
+        finished_weight=269,
+        weight_unit="g",
     )
     project6_material1 = Project_Material(
         project_id=6,
