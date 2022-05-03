@@ -157,7 +157,9 @@ class Project(db.Model):
     warped_length=db.Column(db.Float)
     length = db.Column(db.Float)
     length_unit = db.Column(db.String(2))
+    width_unit = db.Column(db.String(2))
     finished_length = db.Column(db.Float)
+    finished_width = db.Column(db.Float)
 
     # Knitting
     needle_sizes = db.Column(db.Text)
@@ -218,9 +220,12 @@ class Project(db.Model):
             'ppi': self.ppi,
             'draft_notes': self.draft_notes,
             'width_in_reed': self.width_in_reed,
+            'warped_length': self.warped_length,
             'length': self.length,
             'length_unit': self.length_unit,
+            'width_unit': self.width_unit,
             'finished_length': self.finished_length,
+            'finished_width': self.finished_width,
 
             'needle_sizes': self.needle_sizes,
             'gauge_count': self.gauge_count,
@@ -279,9 +284,12 @@ class Project(db.Model):
             'ppi': self.ppi,
             'draftNotes': self.draft_notes,
             'widthInReed': self.width_in_reed,
+            'warpedLength': self.warped_length,
             'length': self.length,
             'lengthUnit': self.length_unit,
+            'widthUnit': self.width_unit,
             'finishedLength': self.finished_length,
+            'finishedWidth': self.finished_width,
 
             'needleSizes': self.needle_sizes,
             'gaugeCount': self.gauge_count,

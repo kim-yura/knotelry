@@ -320,7 +320,11 @@ def seed_projects():
         epi=7.5,
         ppi=7.5,
         draft_notes="Just a plain weave scarf.",
-        length=8
+        warped_length=84,
+        length_unit="in",
+        width_unit="in",
+        finished_length=66,
+        finished_width=6.5,
     )
 
     db.session.add(project1)
