@@ -255,6 +255,30 @@
                     </span>
                 </div>
             </div>
+            <!-- WEAVING -->
+            <div class="notebook-section" v-if="weavingProjects?.length">
+                <p class="header">Weaving Notebook</p>
+                <router-link
+                    class="router-link-small"
+                    :to="`/users/${user?.id}/projects/weaving`"
+                    >{{ weavingProjects?.length }} projects</router-link
+                >
+                <div class="tiny-gallery">
+                    <span
+                        v-for="project in weavingProjects.slice(0, 3)"
+                        :key="project.id"
+                    >
+                        <img
+                            v-if="project.projectImages.length"
+                            :src="project.projectImages[0].imageURL"
+                            :key="project.id"
+                            alt="User-uploaded project image"
+                            @click="redirectToProject(project.id)"
+                        />
+                        <img v-else src="" alt="No image found" />
+                    </span>
+                </div>
+            </div>
             <!-- KNITTING -->
             <div class="notebook-section" v-if="knittingProjects?.length">
                 <p class="header">Knitting Notebook</p>
@@ -312,6 +336,30 @@
                 <div class="tiny-gallery">
                     <span
                         v-for="project in sewingProjects.slice(0, 3)"
+                        :key="project.id"
+                    >
+                        <img
+                            v-if="project.projectImages.length"
+                            :src="project.projectImages[0].imageURL"
+                            :key="project.id"
+                            alt="User-uploaded project image"
+                            @click="redirectToProject(project.id)"
+                        />
+                        <img v-else src="" alt="No image found" />
+                    </span>
+                </div>
+            </div>
+            <!-- EMBROIDERY -->
+            <div class="notebook-section" v-if="embroideryProjects?.length">
+                <p class="header">Embroidery Notebook</p>
+                <router-link
+                    class="router-link-small"
+                    :to="`/users/${user?.id}/projects/embroidery`"
+                    >{{ embroideryProjects?.length }} projects</router-link
+                >
+                <div class="tiny-gallery">
+                    <span
+                        v-for="project in embroideryProjects.slice(0, 3)"
                         :key="project.id"
                     >
                         <img
@@ -478,22 +526,37 @@ export default {
                         this.usersProjects = Object.values(projectsData)[0];
                     }
                     const spinningArr = [];
+                    const weavingArr = [];
                     const knittingArr = [];
+                    const crochetingArr = [];
                     const sewingArr = [];
+                    const embroideryArr = [];
                     Object.values(projectsData)[0].forEach((project) => {
                         if (project.craftTypes.includes("spinning")) {
                             spinningArr.push(project);
                         }
+                        if (project.craftTypes.includes("weaving")) {
+                            weavingArr.push(project);
+                        }
                         if (project.craftTypes.includes("knitting")) {
                             knittingArr.push(project);
+                        }
+                        if (project.craftTypes.includes("crocheting")) {
+                            crochetingArr.push(project);
                         }
                         if (project.craftTypes.includes("sewing")) {
                             sewingArr.push(project);
                         }
+                        if (project.craftTypes.includes("embroidery")) {
+                            embroideryArr.push(project);
+                        }
                     });
                     this.spinningProjects = spinningArr;
+                    this.weavingProjects = weavingArr;
                     this.knittingProjects = knittingArr;
+                    this.crochetingProjects = crochetingArr;
                     this.sewingProjects = sewingArr;
+                    this.embroideryProjects = embroideryArr;
                 }
             }
         );
@@ -514,8 +577,11 @@ export default {
 
             usersProjects: [],
             spinningProjects: [],
+            weavingProjects: [],
             knittingProjects: [],
+            crochetingProjects: [],
             sewingProjects: [],
+            embroideryProjects: [],
 
             showImageInput: false,
             image: null,
