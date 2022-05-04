@@ -214,9 +214,9 @@
                         <input
                             type="number"
                             placeholder="0"
-                            v-model="this.finishedLength"
+                            v-model="this.finishedYarnLength"
                         />
-                        <select v-model="this.lengthUnit">
+                        <select v-model="this.finishedYarnLengthUnit">
                             <option value="null" selected disabled hidden>
                                 —
                             </option>
@@ -231,9 +231,9 @@
                         <input
                             type="number"
                             placeholder="0"
-                            v-model="this.finishedWeight"
+                            v-model="this.finishedYarnWeight"
                         />
-                        <select v-model="this.weightUnit">
+                        <select v-model="this.finishedYarnWeightUnit">
                             <option value="null" selected disabled hidden>
                                 —
                             </option>
@@ -994,8 +994,10 @@ export default {
             twistAngle: null,
             driveRatioSingles: null,
             driveRatioPlied: null,
-            finishedWeight: null,
-            weightUnit: null,
+            finishedYarnLength: null,
+            finishedYarnLengthUnit: null,
+            finishedYarnWeight: null,
+            finishedYarnWeightUnit: null,
 
             warpYarn: null,
             weftYarn: null,
@@ -1079,8 +1081,10 @@ export default {
                 this.twistAngle = data.twistAngle;
                 this.driveRatioSingles = data.driveRatioSingles;
                 this.driveRatioPlied = data.driveRatioPlied;
-                this.finishedWeight = data.finishedWeight;
-                this.weightUnit = data.weightUnit;
+                this.finishedYarnLength = data.finishedYarnLength;
+                this.finishedYarnLengthUnit = data.finishedYarnLengthUnit;
+                this.finishedYarnWeight = data.finishedYarnWeight;
+                this.finishedYarnWeightUnit = data.finishedYarnWeightUnit;
 
                 this.warpYarn = data.warpYarn;
                 this.weftYarn = data.weftYarn;
@@ -1187,8 +1191,10 @@ export default {
                     twist_angle: this.twistAngle,
                     drive_ratio_singles: this.driveRatioSingles,
                     drive_ratio_plied: this.driveRatioPlied,
-                    finished_weight: this.finishedWeight,
-                    weight_unit: this.weightUnit,
+                    finished_yarn_length: this.finishedYarnLength,
+                    finished_yarn_length_unit: this.finishedYarnLengthUnit,
+                    finished_yarn_weight: this.finishedYarnWeight,
+                    finished_yarn_weight_unit: this.finishedYarnWeightUnit,
 
                     warp_yarn: this.warpYarn,
                     weft_yarn: this.weftYarn,
