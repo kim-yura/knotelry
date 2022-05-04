@@ -950,16 +950,20 @@ export default {
             warpYarn: null,
             weftYarn: null,
             epi: null,
-            totalEnds: null,
             ppi: null,
+            totalEnds: null,
             draftNotes: null,
+
             widthInReed: null,
+            widthInReedUnit: null,
             warpedLength: null,
+            warpedLengthUnit: null,
             length: null,
             lengthUnit: null,
-            widthUnit: null,
             finishedLength: null,
+            finishedLengthUnit: null,
             finishedWidth: null,
+            finishedWidthUnit: null,
 
             needleSizes: null,
             gaugeCount: null,
@@ -1031,16 +1035,20 @@ export default {
                 this.warpYarn = data.warpYarn;
                 this.weftYarn = data.weftYarn;
                 this.epi = data.epi;
-                this.totalEnds = data.totalEnds;
                 this.ppi = data.ppi;
+                this.totalEnds = data.totalEnds;
                 this.draftNotes = data.draftNotes;
+
                 this.widthInReed = data.widthInReed;
+                this.widthInReedUnit = data.widthInReedUnit;
                 this.warpedLength = data.warpedLength;
+                this.warpedLengthUnit = data.warpedLengthUnit;
                 this.length = data.length;
                 this.lengthUnit = data.lengthUnit;
-                this.widthUnit = data.widthUnit;
                 this.finishedLength = data.finishedLength;
+                this.finishedLengthUnit = data.finishedLengthUnit;
                 this.finishedWidth = data.finishedWidth;
+                this.finishedWidthUnit = data.finishedWidthUnit;
 
                 this.needleSizes = data.needleSizes;
                 this.gaugeCount = data.gaugeCount;
