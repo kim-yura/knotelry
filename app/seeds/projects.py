@@ -72,12 +72,12 @@ def seed_projects():
         description="Sample for my first garment design, the Namu sweater. This is the second sample knit out of financially-accessible yarn options.",
 
         needle_sizes="6,7",
-        gauge_count=16,
-        gauge_unit="sts",
-        gauge_rows=22,
-        gauge_size_width=4,
-        gauge_size_height=4,
-        gauge_size_unit="in",
+        knit_gauge_count=16,
+        knit_gauge_unit="sts",
+        knit_gauge_rows=22,
+        knit_gauge_size_width=4,
+        knit_gauge_size_height=4,
+        knit_gauge_size_unit="in",
     )
     project2_material1 = Project_Material(
         project_id=2,
