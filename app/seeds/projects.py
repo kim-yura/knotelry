@@ -188,10 +188,10 @@ def seed_projects():
         twist_direction_singles="Z",
         twist_direction_plied="S",
 
-        finished_length=938,
-        length_unit="yd",
-        finished_weight=202,
-        weight_unit="g",
+        finished_yarn_length=938,
+        finished_yarn_length_unit="yd",
+        finished_yarn_weight=202,
+        finished_yarn_weight_unit="g",
     )
     project5_material1 = Project_Material(
         project_id=5,
@@ -231,10 +231,10 @@ def seed_projects():
         twist_direction_singles="Z",
         twist_direction_plied="S",
 
-        finished_length=620,
-        length_unit="yd",
-        finished_weight=269,
-        weight_unit="g",
+        finished_yarn_length=620,
+        finished_yarn_length_unit="yd",
+        finished_yarn_weight=269,
+        finished_yarn_weight_unit="g",
     )
     project6_material1 = Project_Material(
         project_id=6,
