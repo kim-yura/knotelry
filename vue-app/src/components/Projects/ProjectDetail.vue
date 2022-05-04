@@ -296,6 +296,13 @@
                     <div class="text-content" v-else>—</div>
                 </div>
                 <div class="detail-text">
+                    <div class="text-label">Total Ends:</div>
+                    <div class="text-content" v-if="this.totalEnds">
+                        {{ this.totalEnds }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="detail-text">
                     <div class="text-label">Draft Notes:</div>
                     <div class="text-content" v-if="this.draftNotes">
                         {{ this.draftNotes }}
@@ -305,7 +312,7 @@
                 <div class="detail-text">
                     <div class="text-label">Width in Reed:</div>
                     <div class="text-content" v-if="this.widthInReed">
-                        {{ this.widthInReed }} {{ this.widthUnit }}
+                        {{ this.widthInReed }} {{ this.widthInReedUnit }}
                     </div>
                     <div class="text-content" v-else>—</div>
                 </div>
@@ -313,17 +320,14 @@
                     <div class="text-label">Warped Length:</div>
                     <div
                         class="text-content"
-                        v-if="this.warpedLength && this.lengthUnit == 'in'"
+                        v-if="
+                            this.warpedLength && this.warpedLengthUnit == 'yd'
+                        "
                     >
-                        {{ this.warpedLength }} in /
-                        {{ (this.warpedLength / 36).toFixed(2) }} yds
+                        {{ this.warpedLength }} yds
                     </div>
-                    <div
-                        class="text-content"
-                        v-else-if="this.warpedLength && this.lengthUnit == 'cm'"
-                    >
-                        {{ this.warpedLength }} cm /
-                        {{ this.warpedLength / 100 }} m
+                    <div class="text-content" v-else-if="this.warpedLength">
+                        {{ this.warpedLength }} {{ this.warpedLengthUnit }}
                     </div>
                     <div class="text-content" v-else>—</div>
                 </div>
@@ -331,16 +335,12 @@
                     <div class="text-label">Length Woven:</div>
                     <div
                         class="text-content"
-                        v-if="this.length && this.lengthUnit == 'in'"
+                        v-if="this.length && this.lengthUnit == 'yd'"
                     >
-                        {{ this.length }} in /
-                        {{ (this.length / 36).toFixed(2) }} yds
+                        {{ this.length }} yds
                     </div>
-                    <div
-                        class="text-content"
-                        v-else-if="this.length && this.lengthUnit == 'cm'"
-                    >
-                        {{ this.length }} cm / {{ this.length / 100 }} m
+                    <div class="text-content" v-else-if="this.length">
+                        {{ this.length }} {{ this.lengthUnit }}
                     </div>
                     <div class="text-content" v-else>—</div>
                 </div>
@@ -350,14 +350,14 @@
                         class="text-content"
                         v-if="this.finishedLength && this.finishedWidth"
                     >
-                        {{ this.finishedLength }} {{ this.lengthUnit }} x
-                        {{ this.finishedWidth }} {{ this.widthUnit }}
+                        {{ this.finishedLength }} {{ this.finishedLengthUnit }} x
+                        {{ this.finishedWidth }} {{ this.finishedWidthUnit }}
                     </div>
                     <div class="text-content" v-else-if="this.finishedLength">
-                        {{ this.finishedLength }} {{ this.lengthUnit }}
+                        {{ this.finishedLength }} {{ this.finishedLengthUnit }}
                     </div>
                     <div class="text-content" v-else-if="this.finishedWidth">
-                        {{ this.finishedWidth }} {{ this.widthUnit }}
+                        {{ this.finishedWidth }} {{ this.finishedWidthUnit }}
                     </div>
                     <div class="text-content" v-else>—</div>
                 </div>
@@ -573,12 +573,12 @@ export default {
                     this.totalEnds = data.totalEnds;
                     this.draftNotes = data.draftNotes;
 
-                    this.length = data.length;
-                    this.lengthUnit = data.lengthUnit;
                     this.widthInReed = data.widthInReed;
                     this.widthInReedUnit = data.widthInReedUnit;
                     this.warpedLength = data.warpedLength;
                     this.warpedLengthUnit = data.warpedLengthUnit;
+                    this.length = data.length;
+                    this.lengthUnit = data.lengthUnit;
                     this.finishedLength = data.finishedLength;
                     this.finishedLengthUnit = data.finishedLengthUnit;
                     this.finishedWidth = data.finishedWidth;
@@ -642,12 +642,12 @@ export default {
             totalEnds: null,
             draftNotes: null,
 
-            length: null,
-            lengthUnit: null,
             widthInReed: null,
             widthInReedUnit: null,
             warpedLength: null,
             warpedLengthUnit: null,
+            length: null,
+            lengthUnit: null,
             finishedLength: null,
             finishedLengthUnit: null,
             finishedWidth: null,
