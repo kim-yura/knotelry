@@ -87,8 +87,10 @@ export default {
                     twist_angle: null,
                     drive_ratio_singles: null,
                     drive_ratio_plied: null,
-                    finished_weight: null,
-                    weight_unit: null,
+                    finished_yarn_length: null,
+                    finished_yarn_length_unit: null,
+                    finished_yarn_weight: null,
+                    finished_yarn_weight_unit: null,
 
                     warp_yarn: null,
                     weft_yarn: null,
