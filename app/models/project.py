@@ -141,10 +141,10 @@ class Project(db.Model):
     twist_angle = db.Column(db.Float)
     drive_ratio_singles = db.Column(db.Integer)
     drive_ratio_plied = db.Column(db.Integer)
-    # finished_length
-    # length_unit
-    finished_weight = db.Column(db.Float)
-    weight_unit = db.Column(db.String(2))
+    finished_yarn_length = db.Column(db.Integer)
+    finished_yarn_length_unit = db.Column(db.String(2))
+    finished_yarn_weight = db.Column(db.Float)
+    finished_yarn_weight_unit = db.Column(db.String(2))
 
     # Weaving
     warp_yarn = db.Column(db.String(100))
@@ -214,8 +214,10 @@ class Project(db.Model):
             'twist_angle': self.twist_angle,
             'drive_ratio_singles': self.drive_ratio_singles,
             'drive_ratio_plied': self.drive_ratio_plied,
-            'finished_weight': self.finished_weight,
-            'weight_unit': self.weight_unit,
+            'finished_yarn_length': self.finished_yarn_length,
+            'finished_yarn_length_unit': self.finished_yarn_length_unit,
+            'finished_yarn_weight': self.finished_yarn_weight,
+            'finished_yarn_weight_unit': self.finished_yarn_weight_unit,
 
             'warp_yarn': self.warp_yarn,
             'weft_yarn': self.weft_yarn,
@@ -282,8 +284,10 @@ class Project(db.Model):
             'twistAngle': self.twist_angle,
             'driveRatioSingles': self.drive_ratio_singles,
             'driveRatioPlied': self.drive_ratio_plied,
-            'finishedWeight': self.finished_weight,
-            'weightUnit': self.weight_unit,
+            'finishedYarnLength': self.finished_yarn_length,
+            'finishedYarnLengthUnit': self.finished_yarn_length_unit,
+            'finishedYarnWeight': self.finished_yarn_weight,
+            'finishedYarnWeightUnit': self.finished_yarn_weight_unit,
 
             'warpYarn': self.warp_yarn,
             'weftYarn': self.weft_yarn,
