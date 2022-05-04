@@ -371,15 +371,15 @@
                     />
                 </div>
                 <div class="form-element">
-                    <label for="draftNotes">Draft Notes:</label>
+                    <label for="draftNotes" class="label-top-align"
+                        >Draft Notes:</label
+                    >
                     <textarea
                         placeholder="Enter notes for your project's draft"
                         v-model="this.draftNotes"
                     />
                 </div>
-                <div class="form-element">
-                    <label for="warpedLength">Warped Length:</label>
-                    </div>
+
                 <div class="form-element">
                     <label for="widthInReed">Width In Reed:</label>
                     <div class="input-select">
@@ -389,7 +389,7 @@
                             placeholder="0"
                             v-model="this.widthInReed"
                         />
-                        <select v-model="this.widthUnit">
+                        <select v-model="this.widthInReedUnit">
                             <option value="null" selected disabled hidden>
                                 —
                             </option>
@@ -399,7 +399,27 @@
                     </div>
                 </div>
                 <div class="form-element">
-                    <label for="length">Length:</label>
+                    <label for="warpedLength">Warped Length:</label>
+                    <div class="input-select">
+                        <input
+                            type="number"
+                            step="0.01"
+                            placeholder="0"
+                            v-model="this.warpedLength"
+                        />
+                        <select v-model="this.warpedLengthUnit">
+                            <option value="null" selected disabled hidden>
+                                —
+                            </option>
+                            <option value="in">inches</option>
+                            <option value="yd">yards</option>
+                            <option value="cm">centimeters</option>
+                            <option value="m">meters</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-element">
+                    <label for="length">Length Woven:</label>
                     <div class="input-select">
                         <input
                             type="number"
@@ -412,7 +432,9 @@
                                 —
                             </option>
                             <option value="in">inches</option>
+                            <option value="yd">yards</option>
                             <option value="cm">centimeters</option>
+                            <option value="m">meters</option>
                         </select>
                     </div>
                 </div>
@@ -425,9 +447,35 @@
                             placeholder="0"
                             v-model="this.finishedLength"
                         />
-                        <p v-if="this.lengthUnit == 'in'">inches</p>
-                        <p v-else-if="this.lengthUnit == 'cm'">centimeters</p>
-                        <p v-else>—</p>
+                        <select v-model="this.finishedLengthUnit">
+                            <option value="null" selected disabled hidden>
+                                —
+                            </option>
+                            <option value="in">inches</option>
+                            <option value="yd">yards</option>
+                            <option value="cm">centimeters</option>
+                            <option value="m">meters</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-element">
+                    <label for="finishedWidth">Finished Width:</label>
+                    <div class="input-select">
+                        <input
+                            type="number"
+                            step="0.01"
+                            placeholder="0"
+                            v-model="this.finishedWidth"
+                        />
+                        <select v-model="this.finishedWidthUnit">
+                            <option value="null" selected disabled hidden>
+                                —
+                            </option>
+                            <option value="in">inches</option>
+                            <option value="yd">yards</option>
+                            <option value="cm">centimeters</option>
+                            <option value="m">meters</option>
+                        </select>
                     </div>
                 </div>
             </span>
@@ -452,7 +500,7 @@
                     />
                 </div>
                 <div class="form-element">
-                    <label for="gauge">Gauge:</label>
+                    <label for="gauge" class="label-top-align">Gauge:</label>
                     <div id="gauge-container">
                         <div id="gauge-container-row1">
                             <input
@@ -1623,6 +1671,11 @@ label {
     align-self: middle;
 }
 
+.label-top-align {
+    align-self: flex-start;
+    margin-top: 8px;
+}
+
 input {
     font-size: 14px;
     font-family: "Open Sans", sans-serif;
@@ -1848,7 +1901,7 @@ button:active {
 #gauge-container-row1 {
     display: flex;
     flex-direction: row;
-    column-gap: 4px;
+    column-gap: 8px;
     align-items: center;
 }
 
@@ -2023,8 +2076,8 @@ button:active {
 }
 
 .input-select {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     width: 100%;
     column-gap: 16px;
 }
