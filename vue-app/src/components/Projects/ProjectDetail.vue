@@ -198,14 +198,16 @@
                 <div class="detail-text">
                     <div class="text-label">Finished Yarn Length:</div>
                     <div class="text-content" v-if="this.finishedYarnLength">
-                        {{ this.finishedYarnLength }} {{ this.finishedYarnLengthUnit }}
+                        {{ this.finishedYarnLength }}
+                        {{ this.finishedYarnLengthUnit }}
                     </div>
                     <div class="text-content" v-else>—</div>
                 </div>
                 <div class="detail-text">
                     <div class="text-label">Finished Yarn Weight:</div>
                     <div class="text-content" v-if="this.finishedYarnWeight">
-                        {{ this.finishedYarnWeight }} {{ this.finishedYarnWeightUnit }}
+                        {{ this.finishedYarnWeight }}
+                        {{ this.finishedYarnWeightUnit }}
                     </div>
                     <div class="text-content" v-else>—</div>
                 </div>
@@ -390,30 +392,35 @@
                     <div class="text-label">Gauge:</div>
                     <div
                         id="gauge-container"
-                        v-if="this.gaugeCount || this.gaugeRows"
+                        v-if="this.knitGaugeCount || this.knitGaugeRows"
                     >
                         <div id="gauge-container-row1">
-                            <div v-if="this.gaugeUnit == 'sts'">
-                                {{ gaugeCount }} stitches
+                            <div v-if="this.knitGaugeUnit == 'sts'">
+                                {{ knitGaugeCount }} stitches
                             </div>
-                            <div v-else-if="this.gaugeUnit == 'reps'">
-                                {{ gaugeCount }} repeats
-                            </div>
-                            <div v-else>—</div>
-                            <p v-if="this.gaugeUnit && this.gaugeRows">and</p>
-                            <div v-if="this.gaugeRows">
-                                {{ gaugeRows }} rows
+                            <div v-else-if="this.knitGaugeUnit == 'reps'">
+                                {{ knitGaugeCount }} repeats
                             </div>
                             <div v-else>—</div>
-                            <p v-if="this.gaugeCount || this.gaugeRows">/</p>
+                            <p v-if="this.knitGaugeUnit && this.knitGaugeRows">
+                                and
+                            </p>
+                            <div v-if="this.knitGaugeRows">
+                                {{ knitGaugeRows }} rows
+                            </div>
+                            <div v-else>—</div>
+                            <p v-if="this.knitGaugeCount || this.knitGaugeRows">
+                                /
+                            </p>
                         </div>
                         <div id="gauge-container-row2">
-                            <div v-if="this.gaugeSizeUnit == 'in'">
-                                {{ gaugeSizeWidth }} x
-                                {{ gaugeSizeHeight }} inches
+                            <div v-if="this.knitGaugeSizeUnit == 'in'">
+                                {{ knitGaugeSizeWidth }} x
+                                {{ knitGaugeSizeHeight }} inches
                             </div>
-                            <div v-if="this.gaugeSizeUnit == 'cm'">
-                                {{ gaugeSizeWidth }} x {{ gaugeSizeHeight }} cm
+                            <div v-if="this.knitGaugeSizeUnit == 'cm'">
+                                {{ knitGaugeSizeWidth }} x
+                                {{ knitGaugeSizeHeight }} cm
                             </div>
                         </div>
                     </div>
@@ -588,12 +595,20 @@ export default {
                     this.finishedWidthUnit = data.finishedWidthUnit;
 
                     this.needleSizes = data.needleSizes?.split(",");
-                    this.gaugeCount = data.gaugeCount;
-                    this.gaugeUnit = data.gaugeUnit;
-                    this.gaugeRows = data.gaugeRows;
-                    this.gaugeSizeWidth = data.gaugeSizeWidth;
-                    this.gaugeSizeHeight = data.gaugeSizeHeight;
-                    this.gaugeSizeUnit = data.gaugeSizeUnit;
+                    this.knitGaugeCount = data.knitGaugeCount;
+                    this.knitGaugeUnit = data.knitGaugeUnit;
+                    this.knitGaugeRows = data.knitGaugeRows;
+                    this.knitGaugeSizeWidth = data.knitGaugeSizeWidth;
+                    this.knitGaugeSizeHeight = data.knitGaugeSizeHeight;
+                    this.knitGaugeSizeUnit = data.knitGaugeSizeUnit;
+
+                    this.hookSizes = data.hookSizes?.split(",");
+                    this.crochetGaugeCount = data.crochetGaugeCount;
+                    this.crochetGaugeUnit = data.crochetGaugeUnit;
+                    this.crochetGaugeRows = data.crochetGaugeRows;
+                    this.crochetGaugeSizeWidth = data.crochetGaugeSizeWidth;
+                    this.crochetGaugeSizeHeight = data.crochetGaugeSizeHeight;
+                    this.crochetGaugeSizeUnit = data.crochetGaugeSizeUnit;
 
                     this.notes = data.notes;
                     this.createdAt = data.createdAt;
@@ -659,12 +674,20 @@ export default {
             finishedWidthUnit: null,
 
             needleSizes: null,
-            gaugeCount: null,
-            gaugeUnit: null,
-            gaugeRows: null,
-            gaugeSizeWidth: null,
-            gaugeSizeHeight: null,
-            gaugeSizeUnit: null,
+            knitGaugeCount: null,
+            knitGaugeUnit: null,
+            knitGaugeRows: null,
+            knitGaugeSizeWidth: null,
+            knitGaugeSizeHeight: null,
+            knitGaugeSizeUnit: null,
+
+            hookSizes: null,
+            crochetGaugeCount: null,
+            crochetGaugeUnit: null,
+            crochetGaugeRows: null,
+            crochetGaugeSizeWidth: null,
+            crochetGaugeSizeHeight: null,
+            crochetGaugeSizeUnit: null,
 
             notes: null,
             createdAt: null,
@@ -717,6 +740,10 @@ const loadLinkedMaterials = async (projectId) => {
 </script>
 
 <style scoped>
+p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
 a {
     text-decoration: none;
     color: var(--color-shadow);
@@ -857,12 +884,8 @@ button:active {
 #gauge-container-row1 {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     column-gap: 4px;
-}
-
-#gauge-container-row2 {
-    margin-top: -12px;
 }
 
 .divider {
@@ -911,5 +934,10 @@ button:active {
 .linked-p {
     margin-top: 2px;
     font-size: 12px;
+}
+
+.text-label {
+    text-align: justify;
+    align-self: flex-start;
 }
 </style>

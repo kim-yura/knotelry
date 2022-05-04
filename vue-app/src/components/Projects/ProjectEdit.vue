@@ -1680,7 +1680,7 @@ const formatDate = (date) => {
 
 label {
     text-align: justify;
-    align-self: middle;
+    align-self: center;
 }
 
 .label-top-align {
