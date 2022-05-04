@@ -94,7 +94,9 @@
                 </div>
             </span>
             <div class="form-element">
-                <label for="description">Description:</label>
+                <label for="description" class="label-top-align"
+                    >Description:</label
+                >
                 <textarea
                     placeholder="Enter a description for your project"
                     v-model="this.description"
@@ -1191,16 +1193,20 @@ export default {
                     warp_yarn: this.warpYarn,
                     weft_yarn: this.weftYarn,
                     epi: this.epi,
-                    total_ends: this.totalEnds,
                     ppi: this.ppi,
+                    total_ends: this.totalEnds,
                     draft_notes: this.draftNotes,
+
                     width_in_reed: this.widthInReed,
+                    width_in_reed_unit: this.widthInReedUnit,
                     warped_length: this.warpedLength,
+                    warped_length_unit: this.warpedLengthUnit,
                     length: this.length,
                     length_unit: this.lengthUnit,
-                    width_unit: this.widthUnit,
                     finished_length: this.finishedLength,
+                    finished_length_unit: this.finishedLengthUnit,
                     finished_width: this.finishedWidth,
+                    finished_width_unit: this.finishedWidthUnit,
 
                     needle_sizes: this.needleSizes,
                     gauge_count: this.gaugeCount,
