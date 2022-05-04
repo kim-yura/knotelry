@@ -197,15 +197,15 @@
                 </div>
                 <div class="detail-text">
                     <div class="text-label">Finished Yarn Length:</div>
-                    <div class="text-content" v-if="this.finishedLength">
-                        {{ this.finishedLength }} {{ this.lengthUnit }}
+                    <div class="text-content" v-if="this.finishedYarnLength">
+                        {{ this.finishedYarnLength }} {{ this.finishedYarnLengthUnit }}
                     </div>
                     <div class="text-content" v-else>—</div>
                 </div>
                 <div class="detail-text">
                     <div class="text-label">Finished Yarn Weight:</div>
-                    <div class="text-content" v-if="this.finishedWeight">
-                        {{ this.finishedWeight }} {{ this.weightUnit }}
+                    <div class="text-content" v-if="this.finishedYarnWeight">
+                        {{ this.finishedYarnWeight }} {{ this.finishedYarnWeightUnit }}
                     </div>
                     <div class="text-content" v-else>—</div>
                 </div>
@@ -350,7 +350,8 @@
                         class="text-content"
                         v-if="this.finishedLength && this.finishedWidth"
                     >
-                        {{ this.finishedLength }} {{ this.finishedLengthUnit }} x
+                        {{ this.finishedLength }}
+                        {{ this.finishedLengthUnit }} x
                         {{ this.finishedWidth }} {{ this.finishedWidthUnit }}
                     </div>
                     <div class="text-content" v-else-if="this.finishedLength">
@@ -563,8 +564,10 @@ export default {
                     this.twistAngle = data.twistAngle;
                     this.driveRatioSingles = data.driveRatioSingles;
                     this.driveRatioPlied = data.driveRatioPlied;
-                    this.finishedWeight = data.finishedWeight;
-                    this.weightUnit = data.weightUnit;
+                    this.finishedYarnLength = data.finishedYarnLength;
+                    this.finishedYarnLengthUnit = data.finishedYarnLengthUnit;
+                    this.finishedYarnWeight = data.finishedYarnWeight;
+                    this.finishedYarnWeightUnit = data.finishedYarnWeightUnit;
 
                     this.warpYarn = data.warpYarn;
                     this.weftYarn = data.weftYarn;
@@ -632,8 +635,10 @@ export default {
             twistAngle: null,
             driveRatioSingles: null,
             driveRatioPlied: null,
-            finishedWeight: null,
-            weightUnit: null,
+            finishedYarnLength: null,
+            finishedYarnLengthUnit: null,
+            finishedYarnWeight: null,
+            finishedYarnWeightUnit: null,
 
             warpYarn: null,
             weftYarn: null,
