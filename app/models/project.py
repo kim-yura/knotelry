@@ -167,12 +167,21 @@ class Project(db.Model):
 
     # Knitting
     needle_sizes = db.Column(db.Text)
-    gauge_count = db.Column(db.Integer)
-    gauge_unit = db.Column(db.String(4))
-    gauge_rows = db.Column(db.Integer)
-    gauge_size_width = db.Column(db.Integer)
-    gauge_size_height = db.Column(db.Integer)
-    gauge_size_unit = db.Column(db.String(2))
+    knit_gauge_count = db.Column(db.Integer)
+    knit_gauge_unit = db.Column(db.String(4))
+    knit_gauge_rows = db.Column(db.Integer)
+    knit_gauge_size_width = db.Column(db.Integer)
+    knit_gauge_size_height = db.Column(db.Integer)
+    knit_gauge_size_unit = db.Column(db.String(2))
+
+    # Crocheting
+    hook_sizes = db.Column(db.Text)
+    crochet_gauge_count = db.Column(db.Integer)
+    crochet_gauge_unit = db.Column(db.String(4))
+    crochet_gauge_rows = db.Column(db.Integer)
+    crochet_gauge_size_width = db.Column(db.Integer)
+    crochet_gauge_size_height = db.Column(db.Integer)
+    crochet_gauge_size_unit = db.Column(db.String(2))
 
     notes = db.Column(db.Text)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
@@ -238,12 +247,20 @@ class Project(db.Model):
             'finished_width_unit': self.finished_width_unit,
 
             'needle_sizes': self.needle_sizes,
-            'gauge_count': self.gauge_count,
-            'gauge_unit': self.gauge_unit,
-            'gauge_rows': self.gauge_rows,
-            'gauge_size_width': self.gauge_size_width,
-            'gauge_size_height': self.gauge_size_height,
-            'gauge_size_unit': self.gauge_size_unit,
+            'knit_gauge_count': self.knit_gauge_count,
+            'knit_gauge_unit': self.knit_gauge_unit,
+            'knit_gauge_rows': self.knit_gauge_rows,
+            'knit_gauge_size_width': self.knit_gauge_size_width,
+            'knit_gauge_size_height': self.knit_gauge_size_height,
+            'knit_gauge_size_unit': self.knit_gauge_size_unit,
+
+            'hook_sizes': self.hook_sizes,
+            'crochet_gauge_count': self.crochet_gauge_count,
+            'crochet_gauge_unit': self.crochet_gauge_unit,
+            'crochet_gauge_rows': self.crochet_gauge_rows,
+            'crochet_gauge_size_width': self.crochet_gauge_size_width,
+            'crochet_gauge_size_height': self.crochet_gauge_size_height,
+            'crochet_gauge_size_unit': self.crochet_gauge_size_unit,
 
             'notes': self.notes,
             'created_at': self.created_at,
@@ -308,12 +325,20 @@ class Project(db.Model):
             'finishedWidthUnit': self.finished_width_unit,
 
             'needleSizes': self.needle_sizes,
-            'gaugeCount': self.gauge_count,
-            'gaugeUnit': self.gauge_unit,
-            'gaugeRows': self.gauge_rows,
-            'gaugeSizeWidth': self.gauge_size_width,
-            'gaugeSizeHeight': self.gauge_size_height,
-            'gaugeSizeUnit': self.gauge_size_unit,
+            'knitGaugeCount': self.knit_gauge_count,
+            'knitGaugeUnit': self.knit_gauge_unit,
+            'knitGaugeRows': self.knit_gauge_rows,
+            'knitGaugeSizeWidth': self.knit_gauge_size_width,
+            'knitGaugeSizeHeight': self.knit_gauge_size_height,
+            'knitGaugeSizeUnit': self.knit_gauge_size_unit,
+
+            'hookSizes': self.hook_sizes,
+            'crochetGaugeCount': self.crochet_gauge_count,
+            'crochetGaugeUnit': self.crochet_gauge_unit,
+            'crochetGaugeRows': self.crochet_gauge_rows,
+            'crochetGaugeSizeWidth': self.crochet_gauge_size_width,
+            'crochetGaugeSizeHeight': self.crochet_gauge_size_height,
+            'crochetGaugeSizeUnit': self.crochet_gauge_size_unit,
 
             'notes': self.notes,
             'createdAt': self.created_at,
