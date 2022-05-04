@@ -354,20 +354,20 @@
                     />
                 </div>
                 <div class="form-element">
-                    <label for="totalEnds">Total Ends:</label>
-                    <input
-                        type="number"
-                        placeholder="0"
-                        v-model="this.totalEnds"
-                    />
-                </div>
-                <div class="form-element">
                     <label for="ppi">PPI (Picks Per Inch):</label>
                     <input
                         type="number"
                         step="0.01"
                         placeholder="0"
                         v-model="this.ppi"
+                    />
+                </div>
+                <div class="form-element">
+                    <label for="totalEnds">Total Ends:</label>
+                    <input
+                        type="number"
+                        placeholder="0"
+                        v-model="this.totalEnds"
                     />
                 </div>
                 <div class="form-element">
@@ -378,13 +378,25 @@
                     />
                 </div>
                 <div class="form-element">
+                    <label for="warpedLength">Warped Length:</label>
+                    </div>
+                <div class="form-element">
                     <label for="widthInReed">Width In Reed:</label>
-                    <input
-                        type="number"
-                        step="0.01"
-                        placeholder="0"
-                        v-model="this.widthInReed"
-                    />
+                    <div class="input-select">
+                        <input
+                            type="number"
+                            step="0.01"
+                            placeholder="0"
+                            v-model="this.widthInReed"
+                        />
+                        <select v-model="this.widthUnit">
+                            <option value="null" selected disabled hidden>
+                                —
+                            </option>
+                            <option value="in">inches</option>
+                            <option value="cm">centimeters</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="form-element">
                     <label for="length">Length:</label>

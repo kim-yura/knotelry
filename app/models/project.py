@@ -150,16 +150,20 @@ class Project(db.Model):
     warp_yarn = db.Column(db.String(100))
     weft_yarn = db.Column(db.String(100))
     epi = db.Column(db.Float)
-    total_ends = db.Column(db.Integer)
     ppi = db.Column(db.Float)
+    total_ends = db.Column(db.Integer)
     draft_notes = db.Column(db.Text)
-    length_unit = db.Column(db.String(2))
-    width_unit = db.Column(db.String(2))
-    width_in_reed = db.Column(db.Float)
-    warped_length=db.Column(db.Float)
+
     length = db.Column(db.Float)
+    length_unit = db.Column(db.String(2))
+    width_in_reed = db.Column(db.Float)
+    width_in_reed_unit = db.Column(db.String(2))
+    warped_length = db.Column(db.Float)
+    warped_length_unit = db.Column(db.String(2))
     finished_length = db.Column(db.Float)
+    finished_length_unit = db.Column(db.String(2))
     finished_width = db.Column(db.Float)
+    finished_width_unit = db.Column(db.String(2))
 
     # Knitting
     needle_sizes = db.Column(db.Text)
@@ -216,16 +220,20 @@ class Project(db.Model):
             'warp_yarn': self.warp_yarn,
             'weft_yarn': self.weft_yarn,
             'epi': self.epi,
-            'total_ends': self.total_ends,
             'ppi': self.ppi,
+            'total_ends': self.total_ends,
             'draft_notes': self.draft_notes,
-            'width_in_reed': self.width_in_reed,
-            'warped_length': self.warped_length,
+
             'length': self.length,
             'length_unit': self.length_unit,
-            'width_unit': self.width_unit,
+            'width_in_reed': self.width_in_reed,
+            'width_in_reed_unit': self.width_in_reed_unit,
+            'warped_length': self.warped_length,
+            'warped_length_unit': self.warped_length_unit,
             'finished_length': self.finished_length,
+            'finished_length_unit': self.finished_length_unit,
             'finished_width': self.finished_width,
+            'finished_width_unit': self.finished_width_unit,
 
             'needle_sizes': self.needle_sizes,
             'gauge_count': self.gauge_count,
@@ -280,16 +288,20 @@ class Project(db.Model):
             'warpYarn': self.warp_yarn,
             'weftYarn': self.weft_yarn,
             'epi': self.epi,
-            'totalEnds': self.total_ends,
             'ppi': self.ppi,
+            'totalEnds': self.total_ends,
             'draftNotes': self.draft_notes,
-            'widthInReed': self.width_in_reed,
-            'warpedLength': self.warped_length,
+
             'length': self.length,
             'lengthUnit': self.length_unit,
-            'widthUnit': self.width_unit,
+            'widthInReed': self.width_in_reed,
+            'widthInReedUnit': self.width_in_reed_unit,
+            'warpedLength': self.warped_length,
+            'warpedLengthUnit': self.warped_length_unit,
             'finishedLength': self.finished_length,
+            'finishedLengthUnit': self.finished_length_unit,
             'finishedWidth': self.finished_width,
+            'finishedWidthUnit': self.finished_width_unit,
 
             'needleSizes': self.needle_sizes,
             'gaugeCount': self.gauge_count,
