@@ -76,8 +76,10 @@ def post_project():
         twist_angle = request.json['twist_angle'],
         drive_ratio_singles = request.json['drive_ratio_singles'],
         drive_ratio_plied = request.json['drive_ratio_plied'],
-        finished_weight = request.json['finished_weight'],
-        weight_unit = request.json['weight_unit'],
+        finished_yarn_length = request.json['finished_yarn_length'],
+        finished_yarn_length_unit = request.json['finished_yarn_length_unit'],
+        finished_yarn_weight = request.json['finished_yarn_weight'],
+        finished_yarn_weight_unit = request.json['finished_yarn_weight_unit'],
 
         # Weaving
         warp_yarn = request.json['warp_yarn'],
@@ -192,8 +194,10 @@ def put_project():
         'twist_angle': request.json['twist_angle'],
         'drive_ratio_singles': request.json['drive_ratio_singles'],
         'drive_ratio_plied': request.json['drive_ratio_plied'],
-        'finished_weight': request.json['finished_weight'],
-        'weight_unit': request.json['weight_unit'],
+        'finished_yarn_length': request.json['finished_yarn_length'],
+        'finished_yarn_length_unit': request.json['finished_yarn_length_unit'],
+        'finished_yarn_weight': request.json['finished_yarn_weight'],
+        'finished_yarn_weight_unit': request.json['finished_yarn_weight_unit'],
 
         'warp_yarn': request.json['warp_yarn'],
         'weft_yarn': request.json['weft_yarn'],
