@@ -111,12 +111,20 @@ export default {
                     finished_width_unit: null,
 
                     needle_sizes: null,
-                    gauge_count: null,
-                    gauge_unit: null,
-                    gauge_rows: null,
-                    gauge_size_width: null,
-                    gauge_size_height: null,
-                    gauge_size_unit: null,
+                    knit_gauge_count: null,
+                    knit_gauge_unit: null,
+                    knit_gauge_rows: null,
+                    knit_gauge_size_width: null,
+                    knit_gauge_size_height: null,
+                    knit_gauge_size_unit: null,
+
+                    hook_sizes: null,
+                    crochet_gauge_count: null,
+                    crochet_gauge_unit: null,
+                    crochet_gauge_rows: null,
+                    crochet_gauge_size_width: null,
+                    crochet_gauge_size_height: null,
+                    crochet_gauge_size_unit: null,
 
                     notes: null,
                 };

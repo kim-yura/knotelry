@@ -102,12 +102,12 @@ def post_project():
 
         # Knitting
         needle_sizes = request.json['needle_sizes'],
-        knitting_gauge_count = request.json['knitting_gauge_count'],
-        knitting_gauge_unit = request.json['knitting_gauge_unit'],
-        knitting_gauge_rows = request.json['knitting_gauge_rows'],
-        knitting_gauge_size_width = request.json['knitting_gauge_size_width'],
-        knitting_gauge_size_height = request.json['knitting_gauge_size_height'],
-        knitting_gauge_size_unit = request.json['knitting_gauge_size_unit'],
+        knit_gauge_count = request.json['knit_gauge_count'],
+        knit_gauge_unit = request.json['knit_gauge_unit'],
+        knit_gauge_rows = request.json['knit_gauge_rows'],
+        knit_gauge_size_width = request.json['knit_gauge_size_width'],
+        knit_gauge_size_height = request.json['knit_gauge_size_height'],
+        knit_gauge_size_unit = request.json['knit_gauge_size_unit'],
 
         # Crocheting
         hook_sizes = request.json['hook_sizes'],
