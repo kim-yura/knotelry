@@ -427,7 +427,6 @@ export default {
 };
 
 const loadUser = async (userId) => {
-    console.log(userId);
     const response = await fetch(`/api/users/${userId}`);
     if (response.ok) {
         const data = await response.json();

@@ -532,22 +532,22 @@ export default {
                     const sewingArr = [];
                     const embroideryArr = [];
                     Object.values(projectsData)[0].forEach((project) => {
-                        if (project.craftTypes.includes("spinning")) {
+                        if (project.craftTypes?.includes("spinning")) {
                             spinningArr.push(project);
                         }
-                        if (project.craftTypes.includes("weaving")) {
+                        if (project.craftTypes?.includes("weaving")) {
                             weavingArr.push(project);
                         }
-                        if (project.craftTypes.includes("knitting")) {
+                        if (project.craftTypes?.includes("knitting")) {
                             knittingArr.push(project);
                         }
-                        if (project.craftTypes.includes("crocheting")) {
+                        if (project.craftTypes?.includes("crocheting")) {
                             crochetingArr.push(project);
                         }
-                        if (project.craftTypes.includes("sewing")) {
+                        if (project.craftTypes?.includes("sewing")) {
                             sewingArr.push(project);
                         }
-                        if (project.craftTypes.includes("embroidery")) {
+                        if (project.craftTypes?.includes("embroidery")) {
                             embroideryArr.push(project);
                         }
                     });
