@@ -320,11 +320,14 @@ def seed_projects():
         epi=7.5,
         ppi=7.5,
         draft_notes="Just a plain weave scarf.",
+
         warped_length=84,
-        length_unit="in",
-        width_unit="in",
+        warped_length_unit="in",
         finished_length=66,
+        finished_length_unit="in",
         finished_width=6.5,
+        finished_width_unit="in",
+
         notes='Just a plain weave scarf. Very stretchy (and very beautiful) knitting yarn. Warped 84”. Alternated hot/cold baths, thrown in the dryer on high heat, then steam pressed. Final scarf measurements: 6.5” wide, 66” long (excluding 2” fringe each end).',
     )
     project9_image1 = Project_Image(
@@ -344,13 +347,16 @@ def seed_projects():
         ppi=20,
         total_ends=400,
         draft_notes="2/2 twill biased",
-        length_unit="in",
-        width_unit="in",
+
         width_in_reed=20,
-        warped_length=162,
-        length=31.5,
+        width_in_reed_unit="in",
+        warped_length=4.5,
+        warped_length_unit="yd",
         finished_length=25,
+        finished_length_unit="in",
         finished_width=16.5,
+        finished_width_unit="in",
+
         notes='I was able to get 4 towels and a little sampler. Final measurements after hemming, washing, drying and pressing: 16.5” by 25”. They are a little wonky. The 2/2 twill biased and you can see how the natural cottolin behaves differently from the dyed cottolin. But they are very soft and thirsty. Maybe a little too long.',
     )
     project10_image1 = Project_Image(
@@ -378,13 +384,18 @@ def seed_projects():
         weft_yarn="Northbound Knitting Cotton Lace",
         epi=24,
         draft_notes="Weaving pattern by Amanda Rataj, available here: https://amandarataj.com/index.php/product/dash-tea-towels-pdf-pattern/",
-        length_unit="in",
-        width_unit="in",
-        width_in_reed=20,
-        warped_length=108,
+
         length=81,
+        length_unit="in",
+        width_in_reed=20,
+        width_in_reed_unit="in",
+        warped_length=3,
+        warped_length_unit="yd",
         finished_length=73,
+        finished_length_unit="in",
         finished_width=18.5,
+        finished_width_unit="in",
+
         notes="This handdyed cotton yarn seems the equivalent of 10/2 cotton, and I’ll be making a scarf, rather than tea towels.Aquarius, Sterling, Pacific, Seafoam, Denim, Wheat, Conch, Papyrus, Copper. Modified the draft to fit my 20” table loom. Finished measurements after finishing (handwash, tumble dry): 18.5” by 73” excluding fringe.",
     )
     project11_image1 = Project_Image(
