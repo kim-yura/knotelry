@@ -1018,12 +1018,20 @@ export default {
             finishedWidthUnit: null,
 
             needleSizes: null,
-            gaugeCount: null,
-            gaugeUnit: null,
-            gaugeRows: null,
-            gaugeSizeWidth: null,
-            gaugeSizeHeight: null,
-            gaugeSizeUnit: null,
+            knitGaugeCount: null,
+            knitGaugeUnit: null,
+            knitGaugeRows: null,
+            knitGaugeSizeWidth: null,
+            knitGaugeSizeHeight: null,
+            knitGaugeSizeUnit: null,
+
+            hookSizes: null,
+            crochetGaugeCount: null,
+            crochetGaugeUnit: null,
+            crochetGaugeRows: null,
+            crochetGaugeSizeWidth: null,
+            crochetGaugeSizeHeight: null,
+            crochetGaugeSizeUnit: null,
 
             notes: null,
 
@@ -1105,12 +1113,20 @@ export default {
                 this.finishedWidthUnit = data.finishedWidthUnit;
 
                 this.needleSizes = data.needleSizes;
-                this.gaugeCount = data.gaugeCount;
-                this.gaugeUnit = data.gaugeUnit;
-                this.gaugeRows = data.gaugeRows;
-                this.gaugeSizeWidth = data.gaugeSizeWidth;
-                this.gaugeSizeHeight = data.gaugeSizeHeight;
-                this.gaugeSizeUnit = data.gaugeSizeUnit;
+                this.knitGaugeCount = data.knitGaugeCount;
+                this.knitGaugeUnit = data.knitGaugeUnit;
+                this.knitGaugeRows = data.knitGaugeRows;
+                this.knitGaugeSizeWidth = data.knitGaugeSizeWidth;
+                this.knitGaugeSizeHeight = data.knitGaugeSizeHeight;
+                this.knitGaugeSizeUnit = data.knitGaugeSizeUnit;
+
+                this.hookSizes = data.hookSizes;
+                this.crochetGaugeCount = data.crochetGaugeCount;
+                this.crochetGaugeUnit = data.crochetGaugeUnit;
+                this.crochetGaugeRows = data.crochetGaugeRows;
+                this.crochetGaugeSizeWidth = data.crochetGaugeSizeWidth;
+                this.crochetGaugeSizeHeight = data.crochetGaugeSizeHeight;
+                this.crochetGaugeSizeUnit = data.crochetGaugeSizeUnit;
 
                 this.notes = data.notes;
                 this.createdAt = data.createdAt;
@@ -1215,12 +1231,20 @@ export default {
                     finished_width_unit: this.finishedWidthUnit,
 
                     needle_sizes: this.needleSizes,
-                    gauge_count: this.gaugeCount,
-                    gauge_unit: this.gaugeUnit,
-                    gauge_rows: this.gaugeRows,
-                    gauge_size_width: this.gaugeSizeWidth,
-                    gauge_size_height: this.gaugeSizeHeight,
-                    gauge_size_unit: this.gaugeSizeUnit,
+                    knit_gauge_count: this.knitGaugeCount,
+                    knit_gauge_unit: this.knitGaugeUnit,
+                    knit_gauge_rows: this.knitGaugeRows,
+                    knit_gauge_size_width: this.knitGaugeSizeWidth,
+                    knit_gauge_size_height: this.knitGaugeSizeHeight,
+                    knit_gauge_size_unit: this.knitGaugeSizeUnit,
+
+                    hook_sizes: this.hookSizes,
+                    crochet_gauge_count: this.crochetGaugeCount,
+                    crochet_gauge_unit: this.crochetGaugeUnit,
+                    crochet_gauge_rows: this.crochetGaugeRows,
+                    crochet_gauge_size_width: this.crochetGaugeSizeWidth,
+                    crochet_gauge_size_height: this.crochetGaugeSizeHeight,
+                    crochet_gauge_size_unit: this.crochetGaugeSizeUnit,
 
                     notes: this.notes,
                 };
