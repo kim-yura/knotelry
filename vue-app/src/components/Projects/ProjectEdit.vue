@@ -508,9 +508,9 @@
                             <input
                                 type="number"
                                 placeholder="0"
-                                v-model="this.gaugeCount"
+                                v-model="this.knitGaugeCount"
                             />
-                            <select v-model="this.gaugeUnit">
+                            <select v-model="this.knitGaugeUnit">
                                 <option value="null" selected disabled hidden>
                                     —
                                 </option>
@@ -521,7 +521,7 @@
                             <input
                                 type="number"
                                 placeholder="0"
-                                v-model="this.gaugeRows"
+                                v-model="this.knitGaugeRows"
                             />
                             <p>rows/rounds</p>
                         </div>
@@ -530,15 +530,15 @@
                             <input
                                 type="number"
                                 placeholder="0"
-                                v-model="this.gaugeSizeWidth"
+                                v-model="this.knitGaugeSizeWidth"
                             />
                             <p>x</p>
                             <input
                                 type="number"
                                 placeholder="0"
-                                v-model="this.gaugeSizeHeight"
+                                v-model="this.knitGaugeSizeHeight"
                             />
-                            <select v-model="this.gaugeSizeUnit">
+                            <select v-model="this.knitGaugeSizeUnit">
                                 <option value="null" selected disabled hidden>
                                     —
                                 </option>
