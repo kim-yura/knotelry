@@ -553,10 +553,93 @@
             <!-- CROCHETING -->
             <span v-if="this.crocheting">
                 <div class="divider" />
+                <div class="form-element" v-if="!this.knitting">
+                    <label for="sizeMade">Size Made:</label>
+                    <input
+                        type="text"
+                        placeholder="Enter size information"
+                        v-model="this.sizeMade"
+                    />
+                </div>
+                <div class="form-element">
+                    <label for="hooks" class="label-top-align">Hooks Used:</label>
+                    <div id="hooks-container">
+                        <button>B-1 (2.25 mm)</button>
+                        <button>C-2 (2.75 mm)</button>
+                        <button>D (3.125 mm)</button>
+                        <button>D-3 (3.25 mm)</button>
+                        <button>E-4 (3.5 mm)</button>
+                        <button>F-5 (3.75 mm)</button>
+                        <button>G-6 (4 mm)</button>
+                        <button>G (4.25 mm)</button>
+                        <button>7 (4.5 mm)</button>
+                        <button>H-8 (5 mm)</button>
+                        <button>I (5.25 mm)</button>
+                        <button>J (5.5 mm)</button>
+                        <button>J-10 (6 mm)</button>
+                        <button>K-10 1/2 (6.5 mm)</button>
+                        <button>L-11 (8 mm)</button>
+                        <button>M/N-13 (9 mm)</button>
+                        <button>N/P-15 (10 mm)</button>
+                        <button>P-16 (11.5 mm)</button>
+                        <button>P/Q (15 mm)</button>
+                        <button>Q (16 mm)</button>
+                        <button>S (19 mm)</button>
+                        <button>T/U/X (25 mm)</button>
+                        <button>T/X (30 mm)</button>
+                    </div>
+                </div>
+                <div class="form-element">
+                    <label for="gauge" class="label-top-align">Gauge:</label>
+                    <div id="gauge-container">
+                        <div id="gauge-container-row1">
+                            <input
+                                type="number"
+                                placeholder="0"
+                                v-model="this.crochetGaugeCount"
+                            />
+                            <select v-model="this.crochetGaugeUnit">
+                                <option value="null" selected disabled hidden>
+                                    —
+                                </option>
+                                <option value="sts">stitches</option>
+                                <option value="reps">repeats</option>
+                            </select>
+                            <p>and</p>
+                            <input
+                                type="number"
+                                placeholder="0"
+                                v-model="this.crochetGaugeRows"
+                            />
+                            <p>rows/rounds</p>
+                        </div>
+                        <div id="gauge-container-row2">
+                            <p>/</p>
+                            <input
+                                type="number"
+                                placeholder="0"
+                                v-model="this.crochetGaugeSizeWidth"
+                            />
+                            <p>x</p>
+                            <input
+                                type="number"
+                                placeholder="0"
+                                v-model="this.crochetGaugeSizeHeight"
+                            />
+                            <select v-model="this.crochetGaugeSizeUnit">
+                                <option value="null" selected disabled hidden>
+                                    —
+                                </option>
+                                <option value="in">inches</option>
+                                <option value="cm">centimeters</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </span>
 
             <!-- SEWING -->
-            <span v-if="this.sewing && !this.knitting">
+            <span v-if="this.sewing && !this.knitting && !this.crocheting">
                 <div class="divider" />
                 <div class="form-element">
                     <label for="sizeMade">Size Made:</label>
