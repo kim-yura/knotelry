@@ -495,11 +495,200 @@
                 </div>
                 <div class="form-element">
                     <label for="needles">Needles Used:</label>
-                    <input
-                        type="text"
-                        placeholder="Enter comma-separated needle sizes"
-                        v-model="this.needleSizes"
-                    />
+                    <div id="needles-container">
+                        <button
+                            v-bind:class="{ selected: isKnitting01 }"
+                            @click.prevent="
+                                this.isKnitting01 = !this.isKnitting01
+                            "
+                        >
+                            000 (1.5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting02 }"
+                            @click.prevent="
+                                this.isKnitting02 = !this.isKnitting02
+                            "
+                        >
+                            00 (1.75 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting03 }"
+                            @click.prevent="
+                                this.isKnitting03 = !this.isKnitting03
+                            "
+                        >
+                            0 (2 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting04 }"
+                            @click.prevent="
+                                this.isKnitting04 = !this.isKnitting04
+                            "
+                        >
+                            1 (2.25 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting05 }"
+                            @click.prevent="
+                                this.isKnitting05 = !this.isKnitting05
+                            "
+                        >
+                            2 (2.75 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting06 }"
+                            @click.prevent="
+                                this.isKnitting06 = !this.isKnitting06
+                            "
+                        >
+                            3 mm
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting07 }"
+                            @click.prevent="
+                                this.isKnitting07 = !this.isKnitting07
+                            "
+                        >
+                            3 (3.25 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting08 }"
+                            @click.prevent="
+                                this.isKnitting08 = !this.isKnitting08
+                            "
+                        >
+                            4 (3.5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting09 }"
+                            @click.prevent="
+                                this.isKnitting09 = !this.isKnitting09
+                            "
+                        >
+                            5 (3.75 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting10 }"
+                            @click.prevent="
+                                this.isKnitting10 = !this.isKnitting10
+                            "
+                        >
+                            6 (4 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting11 }"
+                            @click.prevent="
+                                this.isKnitting11 = !this.isKnitting11
+                            "
+                        >
+                            7 (4.5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting12 }"
+                            @click.prevent="
+                                this.isKnitting12 = !this.isKnitting12
+                            "
+                        >
+                            8 (5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting13 }"
+                            @click.prevent="
+                                this.isKnitting13 = !this.isKnitting13
+                            "
+                        >
+                            9 (5.5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting14 }"
+                            @click.prevent="
+                                this.isKnitting14 = !this.isKnitting14
+                            "
+                        >
+                            10 (6 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting15 }"
+                            @click.prevent="
+                                this.isKnitting15 = !this.isKnitting15
+                            "
+                        >
+                            10 1/2 (6.5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting16 }"
+                            @click.prevent="
+                                this.isKnitting16 = !this.isKnitting16
+                            "
+                        >
+                            7 mm
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting17 }"
+                            @click.prevent="
+                                this.isKnitting17 = !this.isKnitting17
+                            "
+                        >
+                            11 (8 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting18 }"
+                            @click.prevent="
+                                this.isKnitting18 = !this.isKnitting18
+                            "
+                        >
+                            13 (9 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting19 }"
+                            @click.prevent="
+                                this.isKnitting19 = !this.isKnitting19
+                            "
+                        >
+                            15 (10 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting20 }"
+                            @click.prevent="
+                                this.isKnitting20 = !this.isKnitting20
+                            "
+                        >
+                            17 (12.5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting21 }"
+                            @click.prevent="
+                                this.isKnitting21 = !this.isKnitting21
+                            "
+                        >
+                            19 (15 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting22 }"
+                            @click.prevent="
+                                this.isKnitting22 = !this.isKnitting22
+                            "
+                        >
+                            35 (19 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting23 }"
+                            @click.prevent="
+                                this.isKnitting23 = !this.isKnitting23
+                            "
+                        >
+                            50 (25 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isKnitting24 }"
+                            @click.prevent="
+                                this.isKnitting24 = !this.isKnitting24
+                            "
+                        >
+                            70 (35 mm)
+                        </button>
+                    </div>
                 </div>
                 <div class="form-element">
                     <label for="gauge" class="label-top-align">Gauge:</label>
@@ -1489,7 +1678,7 @@ export default {
                     this.needleSizes = this.needleSizes;
                 } else {
                     this.needleSizes = null;
-                };
+                }
 
                 let hooks = "";
 
@@ -1521,7 +1710,7 @@ export default {
                     hooks = hooks.slice(0, -1);
                 } else {
                     hooks = null;
-                };
+                }
 
                 const project = {
                     id: this.id,
@@ -2305,6 +2494,15 @@ button:active {
 
 #gauge-container-row2 > select {
     width: 100%;
+}
+
+#needles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 150px);
+    column-gap: 4px;
+    row-gap: 4px;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 #hooks-container {
