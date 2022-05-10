@@ -603,8 +603,8 @@
                             F-5 (3.75 mm)
                         </button>
                         <button
-                            v-bind:class="{ selected: ishook07 }"
-                            @click.prevent="this.ishook07 = !this.ishook07"
+                            v-bind:class="{ selected: isHook07 }"
+                            @click.prevent="this.isHook07 = !this.isHook07"
                         >
                             G-6 (4 mm)
                         </button>
@@ -1348,29 +1348,29 @@ export default {
                 this.hookSizes = data.hookSizes;
 
                 const hooksArr = this.hookSizes?.split(",");
-                this.isHook01 = hooksArr.includes("2.25");
-                this.isHook02 = hooksArr.includes("2.75");
-                this.isHook03 = hooksArr.includes("3.125");
-                this.isHook04 = hooksArr.includes("3.25");
-                this.isHook05 = hooksArr.includes("3.5");
-                this.isHook06 = hooksArr.includes("3.75");
-                this.isHook07 = hooksArr.includes("4");
-                this.isHook08 = hooksArr.includes("4.25");
-                this.isHook09 = hooksArr.includes("4.5");
-                this.isHook10 = hooksArr.includes("5");
-                this.isHook11 = hooksArr.includes("5.25");
-                this.isHook12 = hooksArr.includes("5.5");
-                this.isHook13 = hooksArr.includes("6");
-                this.isHook14 = hooksArr.includes("6.5");
-                this.isHook15 = hooksArr.includes("8");
-                this.isHook16 = hooksArr.includes("9");
-                this.isHook17 = hooksArr.includes("10");
-                this.isHook18 = hooksArr.includes("11.5");
-                this.isHook19 = hooksArr.includes("15");
-                this.isHook20 = hooksArr.includes("16");
-                this.isHook21 = hooksArr.includes("19");
-                this.isHook22 = hooksArr.includes("25");
-                this.isHook23 = hooksArr.includes("30");
+                this.isHook01 = hooksArr?.includes("2.25");
+                this.isHook02 = hooksArr?.includes("2.75");
+                this.isHook03 = hooksArr?.includes("3.125");
+                this.isHook04 = hooksArr?.includes("3.25");
+                this.isHook05 = hooksArr?.includes("3.5");
+                this.isHook06 = hooksArr?.includes("3.75");
+                this.isHook07 = hooksArr?.includes("4");
+                this.isHook08 = hooksArr?.includes("4.25");
+                this.isHook09 = hooksArr?.includes("4.5");
+                this.isHook10 = hooksArr?.includes("5");
+                this.isHook11 = hooksArr?.includes("5.25");
+                this.isHook12 = hooksArr?.includes("5.5");
+                this.isHook13 = hooksArr?.includes("6");
+                this.isHook14 = hooksArr?.includes("6.5");
+                this.isHook15 = hooksArr?.includes("8");
+                this.isHook16 = hooksArr?.includes("9");
+                this.isHook17 = hooksArr?.includes("10");
+                this.isHook18 = hooksArr?.includes("11.5");
+                this.isHook19 = hooksArr?.includes("15");
+                this.isHook20 = hooksArr?.includes("16");
+                this.isHook21 = hooksArr?.includes("19");
+                this.isHook22 = hooksArr?.includes("25");
+                this.isHook23 = hooksArr?.includes("30");
 
                 this.crochetGaugeCount = data.crochetGaugeCount;
                 this.crochetGaugeUnit = data.crochetGaugeUnit;
@@ -1432,6 +1432,38 @@ export default {
 
                 craftTypes = craftTypes.slice(0, -1);
 
+                let hooks = "";
+
+                if (this.isHook01) hooks += "2.25,";
+                if (this.isHook02) hooks += "2.75,";
+                if (this.isHook03) hooks += "3.125,";
+                if (this.isHook04) hooks += "3.25,";
+                if (this.isHook05) hooks += "3.5,";
+                if (this.isHook06) hooks += "3.75,";
+                if (this.isHook07) hooks += "4,";
+                if (this.isHook08) hooks += "4.25,";
+                if (this.isHook09) hooks += "4.5,";
+                if (this.isHook10) hooks += "5,";
+                if (this.isHook11) hooks += "5.25,";
+                if (this.isHook12) hooks += "5.5,";
+                if (this.isHook13) hooks += "6,";
+                if (this.isHook14) hooks += "6.5,";
+                if (this.isHook15) hooks += "8,";
+                if (this.isHook16) hooks += "9,";
+                if (this.isHook17) hooks += "10,";
+                if (this.isHook18) hooks += "11.5,";
+                if (this.isHook19) hooks += "15,";
+                if (this.isHook20) hooks += "16,";
+                if (this.isHook21) hooks += "19,";
+                if (this.isHook22) hooks += "25,";
+                if (this.isHook23) hooks += "30,";
+
+                if (hooks.length) {
+                    hooks = hooks.slice(0, -1);
+                } else {
+                    hooks = null;
+                };
+
                 const project = {
                     id: this.id,
                     title: this.title,
@@ -1489,7 +1521,7 @@ export default {
                     knit_gauge_size_height: this.knitGaugeSizeHeight,
                     knit_gauge_size_unit: this.knitGaugeSizeUnit,
 
-                    hook_sizes: this.hookSizes,
+                    hook_sizes: hooks,
                     crochet_gauge_count: this.crochetGaugeCount,
                     crochet_gauge_unit: this.crochetGaugeUnit,
                     crochet_gauge_rows: this.crochetGaugeRows,
