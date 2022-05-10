@@ -1674,11 +1674,38 @@ export default {
 
                 craftTypes = craftTypes.slice(0, -1);
 
-                if (this.needleSizes?.length) {
-                    this.needleSizes = this.needleSizes;
+                let knittingNeedles = "";
+
+                if (this.isKnitting01) knittingNeedles += "1.5,";
+                if (this.isKnitting02) knittingNeedles += "1.75,";
+                if (this.isKnitting03) knittingNeedles += "2,";
+                if (this.isKnitting04) knittingNeedles += "2.25,";
+                if (this.isKnitting05) knittingNeedles += "2.75,";
+                if (this.isKnitting06) knittingNeedles += "3,";
+                if (this.isKnitting07) knittingNeedles += "3.25,";
+                if (this.isKnitting08) knittingNeedles += "3.5,";
+                if (this.isKnitting09) knittingNeedles += "3.75,";
+                if (this.isKnitting10) knittingNeedles += "4,";
+                if (this.isKnitting11) knittingNeedles += "4.5,";
+                if (this.isKnitting12) knittingNeedles += "5,";
+                if (this.isKnitting13) knittingNeedles += "5.5,";
+                if (this.isKnitting14) knittingNeedles += "6,";
+                if (this.isKnitting15) knittingNeedles += "6.5,";
+                if (this.isKnitting16) knittingNeedles += "7,";
+                if (this.isKnitting17) knittingNeedles += "8,";
+                if (this.isKnitting18) knittingNeedles += "9,";
+                if (this.isKnitting19) knittingNeedles += "10,";
+                if (this.isKnitting20) knittingNeedles += "12.5,";
+                if (this.isKnitting21) knittingNeedles += "15,";
+                if (this.isKnitting22) knittingNeedles += "19,";
+                if (this.isKnitting23) knittingNeedles += "25,";
+                if (this.isKnitting24) knittingNeedles += "35,";
+
+                if (knittingNeedles?.length) {
+                    knittingNeedles = knittingNeedles.slice(0, -1);
                 } else {
-                    this.needleSizes = null;
-                }
+                    knittingNeedles = null;
+                };
 
                 let hooks = "";
 
@@ -1761,7 +1788,7 @@ export default {
                     finished_width: this.finishedWidth,
                     finished_width_unit: this.finishedWidthUnit,
 
-                    needle_sizes: this.needleSizes,
+                    needle_sizes: knittingNeedles,
                     knit_gauge_count: this.knitGaugeCount,
                     knit_gauge_unit: this.knitGaugeUnit,
                     knit_gauge_rows: this.knitGaugeRows,
