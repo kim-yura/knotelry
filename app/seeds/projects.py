@@ -5,21 +5,24 @@ from datetime import datetime
 def seed_projects():
     project1 = Project(
         user_id=1,
+
         title="Moose Hat",
+        description="Hat knit for Paul. He loves it!",
         craft_types="knitting",
 
         pattern_name="Moose Camouflage Hat",
         pattern_author="Dawn Kinsey",
         link_to_pattern="https://www.ravelry.com/patterns/library/moose-camouflage-hat",
+        size_made="Large",
 
         tags="hat, accessory",
         status="finished",
+        attributes="in-the-round, colorwork",
+
+        start_date=datetime.strptime('Jun 14 2020', '%b %d %Y'),
+        end_date=datetime.strptime('Jun 17 2020', '%b %d %Y'),
 
         needle_sizes="2,3",
-
-        attributes="in-the-round, colorwork",
-        size_made="Large",
-        description="Hat knit for Paul. He loves it!",
     )
     project1_material1 = Project_Material(
         project_id=1,
@@ -57,19 +60,23 @@ def seed_projects():
 
     project2 = Project(
         user_id=1,
+
         title="Namu Sweater",
+        description="Sample for my first garment design, the Namu sweater. This is the second sample knit out of financially-accessible yarn options.",
         craft_types="knitting",
 
         pattern_name="Namu Sweater",
         pattern_author="knitboop",
         link_to_pattern="https://www.knitboop.com/patterns/namu-sweater",
+        size_made='37" bust',
 
         tags="garment, sweater, pullover",
         status="finished",
-        size_made='37" bust',
         attributes="cabled, in-the-round, top-down",
         stored_in="Handknit garment drawer",
-        description="Sample for my first garment design, the Namu sweater. This is the second sample knit out of financially-accessible yarn options.",
+
+        start_date=datetime.strptime('Dec 4 2019', '%b %d %Y'),
+        end_date=datetime.strptime('Dec 15 2019', '%b %d %Y'),
 
         needle_sizes="6,7",
         knit_gauge_count=16,
@@ -101,7 +108,9 @@ def seed_projects():
 
     project3 = Project(
         user_id=1,
+
         title="Daybreak Socks",
+        description="Test knit for my friend A.",
         craft_types="knitting",
 
         pattern_name="Daybreak Socks",
@@ -110,8 +119,10 @@ def seed_projects():
         tags="socks, accessory",
         status="finished",
 
+        start_date=datetime.strptime('May 7 2020', '%b %d %Y'),
+        end_date=datetime.strptime('May 22 2020', '%b %d %Y'),
+
         needle_sizes="1",
-        description="Test knit for my friend A.",
     )
     project3_material1 = Project_Material(
         project_id=3,
@@ -139,7 +150,9 @@ def seed_projects():
 
     project4 = Project(
         user_id=1,
+
         title="Spring in Brioche Cowl",
+        description="Stash-busting Christmas gift project.",
         craft_types="knitting",
 
         pattern_name="Spring in Brioche Cowl",
@@ -149,8 +162,10 @@ def seed_projects():
         tags="cowl, accessory",
         status="finished",
 
+        start_date=datetime.strptime('Apr 17 2020', '%b %d %Y'),
+        end_date=datetime.strptime('Apr 21 2020', '%b %d %Y'),
+
         needle_sizes="6",
-        description="Stash-busting Christmas gift project.",
     )
     project4_material1 = Project_Material(
         project_id=4,
@@ -177,11 +192,16 @@ def seed_projects():
 
     project5 = Project(
         user_id=1,
+
         title="Sugar Rush Handspun",
         craft_types="spinning",
+
         tags="handspinning",
         status="finished",
         attributes="top, semi-worsted, soaked, snapped, barber-pole, 2-ply",
+
+        start_date=datetime.strptime('Aug 4 2018', '%b %d %Y'),
+        end_date=datetime.strptime('Aug 28 2018', '%b %d %Y'),
 
         yarn_weight="lfingering",
         plies_count=2,
@@ -225,6 +245,9 @@ def seed_projects():
         tags="handspinning",
         status="finished",
         attributes="top, semi-worsted, soaked, snapped, barber-pole, 2-ply",
+
+        start_date=datetime.strptime('Apr 26 2021', '%b %d %Y'),
+        end_date=datetime.strptime('Apr 27 2021', '%b %d %Y'),
 
         yarn_weight="lfingering",
         plies_count=2,
@@ -313,8 +336,11 @@ def seed_projects():
 
     project9 = Project(
         user_id=1,
+
         title="Smitten Scarf",
         craft_types="weaving",
+        status="finished",
+
         warp_yarn="Handmaiden Fine Yarn Smitten",
         weft_yarn="Handmaiden Fine Yarn Smitten",
         epi=7.5,
@@ -341,8 +367,11 @@ def seed_projects():
 
     project10 = Project(
         user_id=1,
+
         title="Scrap Towels",
         craft_types="weaving",
+        status="finished",
+
         epi=20,
         ppi=20,
         total_ends=400,
@@ -378,8 +407,11 @@ def seed_projects():
 
     project11 = Project(
         user_id=1,
+
         title="Dash Scarf",
         craft_types="weaving",
+        status="finished",
+
         warp_yarn="Northbound Knitting Cotton Lace",
         weft_yarn="Northbound Knitting Cotton Lace",
         epi=24,
@@ -435,6 +467,7 @@ def seed_projects():
         pattern_author="Lucy of Attic24",
         link_to_pattern="https://attic24.typepad.com/weblog/granny-stripe.html",
 
+        status="inProgress",
         start_date=datetime.strptime('Aug 18 2019', '%b %d %Y'),
 
         hook_sizes='5.0H',
