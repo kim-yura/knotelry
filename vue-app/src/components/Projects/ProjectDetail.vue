@@ -428,9 +428,81 @@
                 </div>
                 <div class="divider" />
             </span>
+            <!-- CROCHETING -->
+            <span v-if="this.craftTypes?.includes('crocheting')">
+                <div
+                    class="detail-text"
+                    v-if="!this.craftTypes?.includes('knitting')"
+                >
+                    <div class="text-label">Size Made:</div>
+                    <div class="text-content" v-if="this.sizeMade">
+                        {{ this.sizeMade }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Hooks Used:</div>
+                    <div id="needles-container" v-if="this.hookSizes">
+                        <p
+                            class="attribute-container"
+                            v-for="hookSize in this.hookSizes"
+                            :key="hookSize"
+                        >
+                            {{ hookSizeChart[hookSize] }}
+                        </p>
+                    </div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Gauge:</div>
+                    <div
+                        id="gauge-container"
+                        v-if="this.crochetGaugeCount || this.crochetGaugeRows"
+                    >
+                        <div id="gauge-container-row1">
+                            <div v-if="this.crochetGaugeUnit == 'sts'">
+                                {{ crochetGaugeCount }} stitches
+                            </div>
+                            <div v-else-if="this.crochetGaugeUnit == 'reps'">
+                                {{ crochetGaugeCount }} repeats
+                            </div>
+                            <div v-else>—</div>
+                            <p v-if="this.crochetGaugeUnit && this.crochetGaugeRows">
+                                and
+                            </p>
+                            <div v-if="this.crochetGaugeRows">
+                                {{ crochetGaugeRows }} rows
+                            </div>
+                            <div v-else>—</div>
+                            <p v-if="this.crochetGaugeCount || this.crochetGaugeRows">
+                                /
+                            </p>
+                        </div>
+                        <div id="gauge-container-row2">
+                            <div v-if="this.crochetGaugeSizeUnit == 'in'">
+                                {{ crochetGaugeSizeWidth }} x
+                                {{ crochetGaugeSizeHeight }} inches
+                            </div>
+                            <div v-if="this.crochetGaugeSizeUnit == 'cm'">
+                                {{ crochetGaugeSizeWidth }} x
+                                {{ crochetGaugeSizeHeight }} cm
+                            </div>
+                        </div>
+                    </div>
+                    <div id="gauge-container" v-else>—</div>
+                </div>
+                <div class="divider" />
+            </span>
             <!-- SEWING -->
             <span v-if="this.craftTypes?.includes('sewing')">
-                <div class="detail-text">
+                <div
+                    class="detail-text"
+                    v-if="
+                        !(
+                            this.craftTypes?.includes('knitting') ||
+                            this.craftTypes?.includes('crocheting')
+                        )
+                    "
+                >
                     <div class="text-label">Size Made:</div>
                     <div class="text-content" v-if="this.sizeMade">
                         {{ this.sizeMade }}
@@ -439,6 +511,7 @@
                 </div>
                 <div class="divider" />
             </span>
+            <!-- EMBROIDERY -->
             <!-- LINKED GALLERY -->
             <div class="detail-text">
                 <div class="text-label">Linked Materials:</div>
@@ -682,6 +755,31 @@ export default {
             knitGaugeSizeUnit: null,
 
             hookSizes: null,
+            hookSizeChart: {
+                '2.25': 'B-1 (2.25 mm)',
+                '2.75': 'C-2 (2.75 mm)',
+                '3.125': 'D (3.125 mm)',
+                '3.25': 'D-3 (3.25 mm)',
+                '3.5': 'E-4 (3.5 mm)',
+                '3.75': 'F-5 (3.75 mm)',
+                '4': 'G-6 (4 mm)',
+                '4.25': 'G (4.25 mm)',
+                '4.5': '7 (4.5 mm)',
+                '5': 'H-8 (5 mm)',
+                '5.25': 'I (5.25 mm)',
+                '5.5': 'J (5.5 mm)',
+                '6': 'J-10 (6 mm)',
+                '6.5': 'K-10 1/2 (6.5 mm)',
+                '8': 'L-11 (8 mm)',
+                '9': 'M/N-13 (9 mm)',
+                '10': 'N/P-15 (10 mm)',
+                '11.5': 'P-16 (11.5 mm)',
+                '15': 'P/Q (15 mm)',
+                '16': 'Q (16 mm)',
+                '19': 'S (19 mm)',
+                '25': 'T/U/X (25 mm)',
+                '30': 'T/X (30 mm)',
+            },
             crochetGaugeCount: null,
             crochetGaugeUnit: null,
             crochetGaugeRows: null,
