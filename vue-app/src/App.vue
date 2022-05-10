@@ -137,7 +137,7 @@ nav p {
     padding-bottom: 20px;
     background-color: var(--color-nav);
     border-bottom-right-radius: 4px;
-    box-shadow: 0px 4px 2px -1px var(--color-shadow);
+    box-shadow: 0px 4px 2px -2px var(--color-shadow);
     right: 120px;
     top: 0px;
     display: flex;
