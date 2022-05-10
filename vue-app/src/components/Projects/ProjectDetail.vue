@@ -442,7 +442,7 @@
                 </div>
                 <div class="detail-text">
                     <div class="text-label">Hooks Used:</div>
-                    <div id="needles-container" v-if="this.hookSizes">
+                    <div id="hooks-container" v-if="this.hookSizes">
                         <p
                             class="attribute-container"
                             v-for="hookSize in this.hookSizes"
@@ -970,6 +970,13 @@ button:active {
 #needles-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, 75px);
+    column-gap: 4px;
+    row-gap: 4px;
+}
+
+#hooks-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 150px);
     column-gap: 4px;
     row-gap: 4px;
 }
