@@ -384,9 +384,10 @@
                             v-for="needleSize in this.needleSizes"
                             :key="needleSize"
                         >
-                            {{ needleSize }}
+                            {{ knittingSizeChart[needleSize] }}
                         </p>
                     </div>
+                    <div class="text-content" v-else>—</div>
                 </div>
                 <div class="detail-text">
                     <div class="text-label">Gauge:</div>
@@ -991,8 +992,8 @@ button:active {
 }
 
 .attribute-container {
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     padding-left: 0px;
     padding-right: 0px;
     margin: 0px;
@@ -1006,7 +1007,7 @@ button:active {
 
 #needles-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 75px);
+    grid-template-columns: repeat(auto-fill, 140px);
     column-gap: 4px;
     row-gap: 4px;
 }

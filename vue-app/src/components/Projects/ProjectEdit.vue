@@ -1218,6 +1218,32 @@ export default {
             finishedWidthUnit: null,
 
             needleSizes: null,
+
+            isKnitting01: false,
+            isKnitting02: false,
+            isKnitting03: false,
+            isKnitting04: false,
+            isKnitting05: false,
+            isKnitting06: false,
+            isKnitting07: false,
+            isKnitting08: false,
+            isKnitting09: false,
+            isKnitting10: false,
+            isKnitting11: false,
+            isKnitting12: false,
+            isKnitting13: false,
+            isKnitting14: false,
+            isKnitting15: false,
+            isKnitting16: false,
+            isKnitting17: false,
+            isKnitting18: false,
+            isKnitting19: false,
+            isKnitting20: false,
+            isKnitting21: false,
+            isKnitting22: false,
+            isKnitting23: false,
+            isKnitting24: false,
+
             knitGaugeCount: null,
             knitGaugeUnit: null,
             knitGaugeRows: null,
@@ -1338,6 +1364,33 @@ export default {
                 this.finishedWidthUnit = data.finishedWidthUnit;
 
                 this.needleSizes = data.needleSizes;
+
+                const knittingNeedlesArr = this.needleSizes?.split(",");
+                this.isKnitting01 = knittingNeedlesArr?.includes("1.5");
+                this.isKnitting02 = knittingNeedlesArr?.includes("1.75");
+                this.isKnitting03 = knittingNeedlesArr?.includes("2");
+                this.isKnitting04 = knittingNeedlesArr?.includes("2.25");
+                this.isKnitting05 = knittingNeedlesArr?.includes("2.75");
+                this.isKnitting06 = knittingNeedlesArr?.includes("3");
+                this.isKnitting07 = knittingNeedlesArr?.includes("3.25");
+                this.isKnitting08 = knittingNeedlesArr?.includes("3.5");
+                this.isKnitting09 = knittingNeedlesArr?.includes("3.75");
+                this.isKnitting10 = knittingNeedlesArr?.includes("4");
+                this.isKnitting11 = knittingNeedlesArr?.includes("4.5");
+                this.isKnitting12 = knittingNeedlesArr?.includes("5");
+                this.isKnitting13 = knittingNeedlesArr?.includes("5.5");
+                this.isKnitting14 = knittingNeedlesArr?.includes("6");
+                this.isKnitting15 = knittingNeedlesArr?.includes("6.5");
+                this.isKnitting16 = knittingNeedlesArr?.includes("7");
+                this.isKnitting17 = knittingNeedlesArr?.includes("8");
+                this.isKnitting18 = knittingNeedlesArr?.includes("9");
+                this.isKnitting19 = knittingNeedlesArr?.includes("10");
+                this.isKnitting20 = knittingNeedlesArr?.includes("12.5");
+                this.isKnitting21 = knittingNeedlesArr?.includes("15");
+                this.isKnitting22 = knittingNeedlesArr?.includes("19");
+                this.isKnitting23 = knittingNeedlesArr?.includes("25");
+                this.isKnitting24 = knittingNeedlesArr?.includes("35");
+
                 this.knitGaugeCount = data.knitGaugeCount;
                 this.knitGaugeUnit = data.knitGaugeUnit;
                 this.knitGaugeRows = data.knitGaugeRows;
@@ -1432,6 +1485,12 @@ export default {
 
                 craftTypes = craftTypes.slice(0, -1);
 
+                if (this.needleSizes?.length) {
+                    this.needleSizes = this.needleSizes;
+                } else {
+                    this.needleSizes = null;
+                };
+
                 let hooks = "";
 
                 if (this.isHook01) hooks += "2.25,";
@@ -1458,7 +1517,7 @@ export default {
                 if (this.isHook22) hooks += "25,";
                 if (this.isHook23) hooks += "30,";
 
-                if (hooks.length) {
+                if (hooks?.length) {
                     hooks = hooks.slice(0, -1);
                 } else {
                     hooks = null;
