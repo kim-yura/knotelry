@@ -470,7 +470,7 @@ def seed_projects():
         status="inProgress",
         start_date=datetime.strptime('Aug 18 2019', '%b %d %Y'),
 
-        hook_sizes='5',
+        hook_sizes='5,5.25,5.5',
     )
     project12_tool1 = Project_Tool(
         project_id=12,
