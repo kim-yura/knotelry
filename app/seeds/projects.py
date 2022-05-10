@@ -1,5 +1,5 @@
 from app.models import db, Project, Project_Material, Project_Tool, Project_Image
-
+from datetime import datetime
 
 
 def seed_projects():
@@ -427,6 +427,28 @@ def seed_projects():
         image_url="https://knotelry.s3.amazonaws.com/project_31.jpg"
     )
 
+    project12 = Project(
+        user_id=1,
+        title="Granny Stripes Blanket",
+        craft_types="crocheting",
+        pattern_name="Granny Stripes",
+        pattern_author="Lucy of Attic24",
+        link_to_pattern="https://attic24.typepad.com/weblog/granny-stripe.html",
+
+        start_date=datetime.strptime('Aug 18 2019', '%b %d %Y'),
+
+        hook_sizes='5.0H',
+    )
+    project12_tool1 = Project_Tool(
+        project_id=12,
+        tool_id=4,
+    )
+    project12_image1 = Project_Image(
+        project_id=12,
+        image_url="https://knotelry.s3.amazonaws.com/project_32.jpg"
+    )
+
+    # Knitting
     db.session.add(project1)
     db.session.add(project1_material1)
     db.session.add(project1_material2)
@@ -454,6 +476,7 @@ def seed_projects():
     db.session.add(project4_tool1)
     db.session.add(project4_image1)
 
+    # Spinning
     db.session.add(project5)
     db.session.add(project5_material1)
     db.session.add(project5_material2)
@@ -469,6 +492,7 @@ def seed_projects():
     db.session.add(project6_image2)
     db.session.add(project6_image3)
 
+    # Sewing
     db.session.add(project7)
     db.session.add(project7_material1)
     db.session.add(project7_image1)
@@ -480,6 +504,7 @@ def seed_projects():
     db.session.add(project8_image2)
     db.session.add(project8_image3)
 
+    # Weaving
     db.session.add(project9)
     db.session.add(project9_image1)
     db.session.add(project9_image2)
@@ -498,6 +523,11 @@ def seed_projects():
     db.session.add(project11_image5)
     db.session.add(project11_image6)
     db.session.add(project11_image7)
+
+    # Crocheting
+    db.session.add(project12)
+    db.session.add(project12_tool1)
+    db.session.add(project12_image1)
 
     db.session.commit()
 
