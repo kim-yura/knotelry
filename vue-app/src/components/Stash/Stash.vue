@@ -611,58 +611,82 @@ export default {
                                 colorsArr.includes("redorange")
                             )
                                 temp.add(stashItem);
-                            if (
+                            else if (
                                 this.searchOrange &&
                                 colorsArr.includes("orange")
                             )
                                 temp.add(stashItem);
-                            if (
+                            else if (
                                 this.searchOrangeYellow &&
                                 colorsArr.includes("orangeyellow")
                             )
                                 temp.add(stashItem);
-                            if (
+                            else if (
                                 this.searchYellow &&
                                 colorsArr.includes("yellow")
                             )
                                 temp.add(stashItem);
-                            if (
+                            else if (
                                 this.searchYellowGreen &&
                                 colorsArr.includes("yellowgreen")
                             )
                                 temp.add(stashItem);
-                            if (this.searchGreen && colorsArr.includes("green"))
+                            else if (
+                                this.searchGreen &&
+                                colorsArr.includes("green")
+                            )
                                 temp.add(stashItem);
-                            if (
+                            else if (
                                 this.searchBlueGreen &&
                                 colorsArr.includes("bluegreen")
                             )
                                 temp.add(stashItem);
-                            if (this.searchBlue && colorsArr.includes("blue"))
+                            else if (
+                                this.searchBlue &&
+                                colorsArr.includes("blue")
+                            )
                                 temp.add(stashItem);
-                            if (
+                            else if (
                                 this.searchBluePurple &&
                                 colorsArr.includes("bluepurple")
                             )
                                 temp.add(stashItem);
-                            if (
+                            else if (
                                 this.searchPurple &&
                                 colorsArr.includes("purple")
                             )
                                 temp.add(stashItem);
-                            if (this.searchPink && colorsArr.includes("pink"))
+                            else if (
+                                this.searchPink &&
+                                colorsArr.includes("pink")
+                            )
                                 temp.add(stashItem);
-                            if (this.searchWhite && colorsArr.includes("white"))
+                            else if (
+                                this.searchWhite &&
+                                colorsArr.includes("white")
+                            )
                                 temp.add(stashItem);
-                            if (this.searchGray && colorsArr.includes("gray"))
+                            else if (
+                                this.searchGray &&
+                                colorsArr.includes("gray")
+                            )
                                 temp.add(stashItem);
-                            if (this.searchBlack && colorsArr.includes("black"))
+                            else if (
+                                this.searchBlack &&
+                                colorsArr.includes("black")
+                            )
                                 temp.add(stashItem);
-                            if (this.searchCream && colorsArr.includes("cream"))
+                            else if (
+                                this.searchCream &&
+                                colorsArr.includes("cream")
+                            )
                                 temp.add(stashItem);
-                            if (this.searchBrown && colorsArr.includes("brown"))
+                            else if (
+                                this.searchBrown &&
+                                colorsArr.includes("brown")
+                            )
                                 temp.add(stashItem);
-                            if (
+                            else if (
                                 this.searchRainbow &&
                                 colorsArr.includes("rainbow")
                             )
