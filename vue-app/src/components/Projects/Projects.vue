@@ -286,145 +286,193 @@
                     <div id="needle-options">
                         <button
                             v-bind:class="{ selected: searchCrochet01 }"
-                            @click.prevent="this.searchCrochet01 = !this.searchCrochet01"
+                            @click.prevent="
+                                this.searchCrochet01 = !this.searchCrochet01
+                            "
                         >
                             B-1 (2.25 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet02 }"
-                            @click.prevent="this.searchCrochet02 = !this.searchCrochet02"
+                            @click.prevent="
+                                this.searchCrochet02 = !this.searchCrochet02
+                            "
                         >
                             2.5mm
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet03 }"
-                            @click.prevent="this.searchCrochet03 = !this.searchCrochet03"
+                            @click.prevent="
+                                this.searchCrochet03 = !this.searchCrochet03
+                            "
                         >
                             C-2 (2.75 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet04 }"
-                            @click.prevent="this.searchCrochet04 = !this.searchCrochet04"
+                            @click.prevent="
+                                this.searchCrochet04 = !this.searchCrochet04
+                            "
                         >
                             D (3.125 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet05 }"
-                            @click.prevent="this.searchCrochet05 = !this.searchCrochet05"
+                            @click.prevent="
+                                this.searchCrochet05 = !this.searchCrochet05
+                            "
                         >
                             D-3 (3.25 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet06 }"
-                            @click.prevent="this.searchCrochet06 = !this.searchCrochet06"
+                            @click.prevent="
+                                this.searchCrochet06 = !this.searchCrochet06
+                            "
                         >
                             E-4 (3.5 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet07 }"
-                            @click.prevent="this.searchCrochet07 = !this.searchCrochet07"
+                            @click.prevent="
+                                this.searchCrochet07 = !this.searchCrochet07
+                            "
                         >
                             F-5 (3.75 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet08 }"
-                            @click.prevent="this.searchCrochet08 = !this.searchCrochet08"
+                            @click.prevent="
+                                this.searchCrochet08 = !this.searchCrochet08
+                            "
                         >
                             G-6 (4 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet09 }"
-                            @click.prevent="this.searchCrochet09 = !this.searchCrochet09"
+                            @click.prevent="
+                                this.searchCrochet09 = !this.searchCrochet09
+                            "
                         >
                             G (4.25 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet10 }"
-                            @click.prevent="this.searchCrochet10 = !this.searchCrochet10"
+                            @click.prevent="
+                                this.searchCrochet10 = !this.searchCrochet10
+                            "
                         >
                             7 (4.5 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet11 }"
-                            @click.prevent="this.searchCrochet11 = !this.searchCrochet11"
+                            @click.prevent="
+                                this.searchCrochet11 = !this.searchCrochet11
+                            "
                         >
                             H-8 (5 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet12 }"
-                            @click.prevent="this.searchCrochet12 = !this.searchCrochet12"
+                            @click.prevent="
+                                this.searchCrochet12 = !this.searchCrochet12
+                            "
                         >
                             I (5.25 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet13 }"
-                            @click.prevent="this.searchCrochet13 = !this.searchCrochet13"
+                            @click.prevent="
+                                this.searchCrochet13 = !this.searchCrochet13
+                            "
                         >
                             J (5.5 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet14 }"
-                            @click.prevent="this.searchCrochet14 = !this.searchCrochet14"
+                            @click.prevent="
+                                this.searchCrochet14 = !this.searchCrochet14
+                            "
                         >
                             J-10 (6 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet15 }"
-                            @click.prevent="this.searchCrochet15 = !this.searchCrochet15"
+                            @click.prevent="
+                                this.searchCrochet15 = !this.searchCrochet15
+                            "
                         >
                             K-10 1/2 (6.5 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet16 }"
-                            @click.prevent="this.searchCrochet16 = !this.searchCrochet16"
+                            @click.prevent="
+                                this.searchCrochet16 = !this.searchCrochet16
+                            "
                         >
                             L-11 (8 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet17 }"
-                            @click.prevent="this.searchCrochet17 = !this.searchCrochet17"
+                            @click.prevent="
+                                this.searchCrochet17 = !this.searchCrochet17
+                            "
                         >
                             M/N-13 (9 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet18 }"
-                            @click.prevent="this.searchCrochet18 = !this.searchCrochet18"
+                            @click.prevent="
+                                this.searchCrochet18 = !this.searchCrochet18
+                            "
                         >
                             N/P-15 (10 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet19 }"
-                            @click.prevent="this.searchCrochet19 = !this.searchCrochet19"
+                            @click.prevent="
+                                this.searchCrochet19 = !this.searchCrochet19
+                            "
                         >
                             P-16 (11.5 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet20 }"
-                            @click.prevent="this.searchCrochet20 = !this.searchCrochet20"
+                            @click.prevent="
+                                this.searchCrochet20 = !this.searchCrochet20
+                            "
                         >
                             P/Q (15 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet21 }"
-                            @click.prevent="this.searchCrochet21 = !this.searchCrochet21"
+                            @click.prevent="
+                                this.searchCrochet21 = !this.searchCrochet21
+                            "
                         >
                             Q (16 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet22 }"
-                            @click.prevent="this.searchCrochet22 = !this.searchCrochet22"
+                            @click.prevent="
+                                this.searchCrochet22 = !this.searchCrochet22
+                            "
                         >
                             S (19 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet23 }"
-                            @click.prevent="this.searchCrochet23 = !this.searchCrochet23"
+                            @click.prevent="
+                                this.searchCrochet23 = !this.searchCrochet23
+                            "
                         >
                             T/U/X (25 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: searchCrochet24 }"
-                            @click.prevent="this.searchCrochet24 = !this.searchCrochet24"
+                            @click.prevent="
+                                this.searchCrochet24 = !this.searchCrochet24
+                            "
                         >
                             T/X (30 mm)
                         </button>
@@ -1016,7 +1064,160 @@ export default {
                                 )
                                     temp.add(project);
                             });
+                            projectsData = Array.from(temp);
+                        }
 
+                        // Crochet hook size sort
+                        if (
+                            this.searchCrochet01 ||
+                            this.searchCrochet02 ||
+                            this.searchCrochet03 ||
+                            this.searchCrochet04 ||
+                            this.searchCrochet05 ||
+                            this.searchCrochet06 ||
+                            this.searchCrochet07 ||
+                            this.searchCrochet08 ||
+                            this.searchCrochet09 ||
+                            this.searchCrochet10 ||
+                            this.searchCrochet11 ||
+                            this.searchCrochet12 ||
+                            this.searchCrochet13 ||
+                            this.searchCrochet14 ||
+                            this.searchCrochet15 ||
+                            this.searchCrochet16 ||
+                            this.searchCrochet17 ||
+                            this.searchCrochet18 ||
+                            this.searchCrochet19 ||
+                            this.searchCrochet20 ||
+                            this.searchCrochet21 ||
+                            this.searchCrochet22 ||
+                            this.searchCrochet23 ||
+                            this.searchCrochet24
+                        ) {
+                            const temp = new Set();
+                            projectsData.forEach((project) => {
+                                const hooksArr = project.hookSizes?.split(",");
+                                if (
+                                    this.searchCrochet01 &&
+                                    hooksArr.includes("2.25")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet02 &&
+                                    hooksArr.includes("2.5")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet03 &&
+                                    hooksArr.includes("2.75")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet04 &&
+                                    hooksArr.includes("3.125")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet05 &&
+                                    hooksArr.includes("3.25")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet06 &&
+                                    hooksArr.includes("3.5")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet07 &&
+                                    hooksArr.includes("3.75")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet08 &&
+                                    hooksArr.includes("4")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet09 &&
+                                    hooksArr.includes("4.25")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet10 &&
+                                    hooksArr.includes("4.5")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet11 &&
+                                    hooksArr.includes("5")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet12 &&
+                                    hooksArr.includes("5.25")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet13 &&
+                                    hooksArr.includes("5.5")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet14 &&
+                                    hooksArr.includes("6")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet15 &&
+                                    hooksArr.includes("6.5")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet16 &&
+                                    hooksArr.includes("8")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet17 &&
+                                    hooksArr.includes("9")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet18 &&
+                                    hooksArr.includes("10")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet19 &&
+                                    hooksArr.includes("11.5")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet20 &&
+                                    hooksArr.includes("15")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet21 &&
+                                    hooksArr.includes("16")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet22 &&
+                                    hooksArr.includes("19")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet23 &&
+                                    hooksArr.includes("25")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchCrochet24 &&
+                                    hooksArr.includes("30")
+                                )
+                                    temp.add(project);
+                            });
                             projectsData = Array.from(temp);
                         }
 
