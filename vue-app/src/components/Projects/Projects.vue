@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div v-if="this.searchKnitting">
-                    <label>Filter by Needle Size:</label>
+                    <label id="needle-options-label">Filter by Needle Size:</label>
                     <div id="needle-options">
                         <button
                             v-bind:class="{ selected: searchKnitting01 }"
@@ -925,6 +925,10 @@ button:active {
 
 #create-link:hover {
     cursor: pointer;
+}
+
+#needle-options-label {
+    margin-top: 8px;
 }
 
 #needle-options {
