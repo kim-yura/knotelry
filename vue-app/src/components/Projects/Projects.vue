@@ -862,7 +862,8 @@ export default {
                                         temp.add(project);
                                     }
                                 });
-                            } else if (this.searchWeaving) {
+                            }
+                            if (this.searchWeaving) {
                                 projectsData.forEach((project) => {
                                     if (
                                         project.craftTypes.includes("weaving")
@@ -870,7 +871,8 @@ export default {
                                         temp.add(project);
                                     }
                                 });
-                            } else if (this.searchKnitting) {
+                            }
+                            if (this.searchKnitting) {
                                 projectsData.forEach((project) => {
                                     if (
                                         project.craftTypes.includes("knitting")
@@ -878,7 +880,8 @@ export default {
                                         temp.add(project);
                                     }
                                 });
-                            } else if (this.searchCrocheting) {
+                            }
+                            if (this.searchCrocheting) {
                                 projectsData.forEach((project) => {
                                     if (
                                         project.craftTypes.includes(
@@ -888,13 +891,15 @@ export default {
                                         temp.add(project);
                                     }
                                 });
-                            } else if (this.searchSewing) {
+                            }
+                            if (this.searchSewing) {
                                 projectsData.forEach((project) => {
                                     if (project.craftTypes.includes("sewing")) {
                                         temp.add(project);
                                     }
                                 });
-                            } else if (this.searchEmbroidery) {
+                            }
+                            if (this.searchEmbroidery) {
                                 projectsData.forEach((project) => {
                                     if (
                                         project.craftTypes.includes(
@@ -937,128 +942,132 @@ export default {
                         ) {
                             const temp = new Set();
                             projectsData.forEach((project) => {
-                                const needlesArr =
-                                    project.needleSizes?.split(",");
-                                if (
-                                    this.searchKnitting01 &&
-                                    needlesArr.includes("1.5")
-                                )
+                                if (!project.craftTypes?.includes("knitting")) {
                                     temp.add(project);
-                                else if (
-                                    this.searchKnitting02 &&
-                                    needlesArr.includes("1.75")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting03 &&
-                                    needlesArr.includes("2")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting04 &&
-                                    needlesArr.includes("2.25")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting05 &&
-                                    needlesArr.includes("2.75")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting06 &&
-                                    needlesArr.includes("3")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting07 &&
-                                    needlesArr.includes("3.25")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting08 &&
-                                    needlesArr.includes("3.5")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting09 &&
-                                    needlesArr.includes("3.75")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting10 &&
-                                    needlesArr.includes("4")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting11 &&
-                                    needlesArr.includes("4.5")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting12 &&
-                                    needlesArr.includes("5")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting13 &&
-                                    needlesArr.includes("5.5")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting14 &&
-                                    needlesArr.includes("6")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting15 &&
-                                    needlesArr.includes("6.5")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting16 &&
-                                    needlesArr.includes("7")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting17 &&
-                                    needlesArr.includes("8")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting18 &&
-                                    needlesArr.includes("9")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting19 &&
-                                    needlesArr.includes("10")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting20 &&
-                                    needlesArr.includes("12.5")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting21 &&
-                                    needlesArr.includes("15")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting22 &&
-                                    needlesArr.includes("19")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting23 &&
-                                    needlesArr.includes("25")
-                                )
-                                    temp.add(project);
-                                else if (
-                                    this.searchKnitting24 &&
-                                    needlesArr.includes("35")
-                                )
-                                    temp.add(project);
+                                } else {
+                                    const needlesArr =
+                                        project.needleSizes?.split(",");
+                                    if (
+                                        this.searchKnitting01 &&
+                                        needlesArr?.includes("1.5")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting02 &&
+                                        needlesArr?.includes("1.75")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting03 &&
+                                        needlesArr?.includes("2")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting04 &&
+                                        needlesArr?.includes("2.25")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting05 &&
+                                        needlesArr?.includes("2.75")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting06 &&
+                                        needlesArr?.includes("3")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting07 &&
+                                        needlesArr?.includes("3.25")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting08 &&
+                                        needlesArr?.includes("3.5")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting09 &&
+                                        needlesArr?.includes("3.75")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting10 &&
+                                        needlesArr?.includes("4")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting11 &&
+                                        needlesArr?.includes("4.5")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting12 &&
+                                        needlesArr?.includes("5")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting13 &&
+                                        needlesArr?.includes("5.5")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting14 &&
+                                        needlesArr?.includes("6")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting15 &&
+                                        needlesArr?.includes("6.5")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting16 &&
+                                        needlesArr?.includes("7")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting17 &&
+                                        needlesArr?.includes("8")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting18 &&
+                                        needlesArr?.includes("9")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting19 &&
+                                        needlesArr?.includes("10")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting20 &&
+                                        needlesArr?.includes("12.5")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting21 &&
+                                        needlesArr?.includes("15")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting22 &&
+                                        needlesArr?.includes("19")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting23 &&
+                                        needlesArr?.includes("25")
+                                    )
+                                        temp.add(project);
+                                    else if (
+                                        this.searchKnitting24 &&
+                                        needlesArr?.includes("35")
+                                    )
+                                        temp.add(project);
+                                }
                             });
                             projectsData = Array.from(temp);
                         }
@@ -1095,122 +1104,122 @@ export default {
                                 const hooksArr = project.hookSizes?.split(",");
                                 if (
                                     this.searchCrochet01 &&
-                                    hooksArr.includes("2.25")
+                                    hooksArr?.includes("2.25")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet02 &&
-                                    hooksArr.includes("2.5")
+                                    hooksArr?.includes("2.5")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet03 &&
-                                    hooksArr.includes("2.75")
+                                    hooksArr?.includes("2.75")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet04 &&
-                                    hooksArr.includes("3.125")
+                                    hooksArr?.includes("3.125")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet05 &&
-                                    hooksArr.includes("3.25")
+                                    hooksArr?.includes("3.25")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet06 &&
-                                    hooksArr.includes("3.5")
+                                    hooksArr?.includes("3.5")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet07 &&
-                                    hooksArr.includes("3.75")
+                                    hooksArr?.includes("3.75")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet08 &&
-                                    hooksArr.includes("4")
+                                    hooksArr?.includes("4")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet09 &&
-                                    hooksArr.includes("4.25")
+                                    hooksArr?.includes("4.25")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet10 &&
-                                    hooksArr.includes("4.5")
+                                    hooksArr?.includes("4.5")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet11 &&
-                                    hooksArr.includes("5")
+                                    hooksArr?.includes("5")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet12 &&
-                                    hooksArr.includes("5.25")
+                                    hooksArr?.includes("5.25")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet13 &&
-                                    hooksArr.includes("5.5")
+                                    hooksArr?.includes("5.5")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet14 &&
-                                    hooksArr.includes("6")
+                                    hooksArr?.includes("6")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet15 &&
-                                    hooksArr.includes("6.5")
+                                    hooksArr?.includes("6.5")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet16 &&
-                                    hooksArr.includes("8")
+                                    hooksArr?.includes("8")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet17 &&
-                                    hooksArr.includes("9")
+                                    hooksArr?.includes("9")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet18 &&
-                                    hooksArr.includes("10")
+                                    hooksArr?.includes("10")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet19 &&
-                                    hooksArr.includes("11.5")
+                                    hooksArr?.includes("11.5")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet20 &&
-                                    hooksArr.includes("15")
+                                    hooksArr?.includes("15")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet21 &&
-                                    hooksArr.includes("16")
+                                    hooksArr?.includes("16")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet22 &&
-                                    hooksArr.includes("19")
+                                    hooksArr?.includes("19")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet23 &&
-                                    hooksArr.includes("25")
+                                    hooksArr?.includes("25")
                                 )
                                     temp.add(project);
                                 else if (
                                     this.searchCrochet24 &&
-                                    hooksArr.includes("30")
+                                    hooksArr?.includes("30")
                                 )
                                     temp.add(project);
                             });
