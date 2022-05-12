@@ -488,6 +488,30 @@ export default {
             searchKnitting24: false,
 
             searchCrocheting: false,
+            searchCrochet01: false,
+            searchCrochet02: false,
+            searchCrochet03: false,
+            searchCrochet04: false,
+            searchCrochet05: false,
+            searchCrochet06: false,
+            searchCrochet07: false,
+            searchCrochet08: false,
+            searchCrochet09: false,
+            searchCrochet10: false,
+            searchCrochet11: false,
+            searchCrochet12: false,
+            searchCrochet13: false,
+            searchCrochet14: false,
+            searchCrochet15: false,
+            searchCrochet16: false,
+            searchCrochet17: false,
+            searchCrochet18: false,
+            searchCrochet19: false,
+            searchCrochet20: false,
+            searchCrochet21: false,
+            searchCrochet22: false,
+            searchCrochet23: false,
+
             searchSewing: false,
             searchEmbroidery: false,
             usersProjects: [],
@@ -531,6 +555,30 @@ export default {
             this.searchKnitting24 = false;
 
             this.searchCrocheting = false;
+            this.searchCrochet01 = false;
+            this.searchCrochet02 = false;
+            this.searchCrochet03 = false;
+            this.searchCrochet04 = false;
+            this.searchCrochet05 = false;
+            this.searchCrochet06 = false;
+            this.searchCrochet07 = false;
+            this.searchCrochet08 = false;
+            this.searchCrochet09 = false;
+            this.searchCrochet10 = false;
+            this.searchCrochet11 = false;
+            this.searchCrochet12 = false;
+            this.searchCrochet13 = false;
+            this.searchCrochet14 = false;
+            this.searchCrochet15 = false;
+            this.searchCrochet16 = false;
+            this.searchCrochet17 = false;
+            this.searchCrochet18 = false;
+            this.searchCrochet19 = false;
+            this.searchCrochet20 = false;
+            this.searchCrochet21 = false;
+            this.searchCrochet22 = false;
+            this.searchCrochet23 = false;
+
             this.searchSewing = false;
             this.searchEmbroidery = false;
 
