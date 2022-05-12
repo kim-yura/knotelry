@@ -23,7 +23,7 @@
                 </div>
                 <div>
                     <label>Filter by Craft Type</label>
-                    <div class="craft-options">
+                    <div id="craft-options">
                         <button
                             type="button"
                             v-bind:class="{ selected: searchSpinning }"
@@ -77,6 +77,203 @@
                             "
                         >
                             Embroidery
+                        </button>
+                    </div>
+                </div>
+                <div v-if="this.searchKnitting">
+                    <label>Filter by Needle Size:</label>
+                    <div id="needle-options">
+                        <button
+                            v-bind:class="{ selected: searchKnitting01 }"
+                            @click.prevent="
+                                this.searchKnitting01 = !this.searchKnitting01
+                            "
+                        >
+                            000 (1.5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting02 }"
+                            @click.prevent="
+                                this.searchKnitting02 = !this.searchKnitting02
+                            "
+                        >
+                            00 (1.75 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting03 }"
+                            @click.prevent="
+                                this.searchKnitting03 = !this.searchKnitting03
+                            "
+                        >
+                            0 (2 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting04 }"
+                            @click.prevent="
+                                this.searchKnitting04 = !this.searchKnitting04
+                            "
+                        >
+                            1 (2.25 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting05 }"
+                            @click.prevent="
+                                this.searchKnitting05 = !this.searchKnitting05
+                            "
+                        >
+                            2 (2.75 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting06 }"
+                            @click.prevent="
+                                this.searchKnitting06 = !this.searchKnitting06
+                            "
+                        >
+                            3 mm
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting07 }"
+                            @click.prevent="
+                                this.searchKnitting07 = !this.searchKnitting07
+                            "
+                        >
+                            3 (3.25 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting08 }"
+                            @click.prevent="
+                                this.searchKnitting08 = !this.searchKnitting08
+                            "
+                        >
+                            4 (3.5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting09 }"
+                            @click.prevent="
+                                this.searchKnitting09 = !this.searchKnitting09
+                            "
+                        >
+                            5 (3.75 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting10 }"
+                            @click.prevent="
+                                this.searchKnitting10 = !this.searchKnitting10
+                            "
+                        >
+                            6 (4 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting11 }"
+                            @click.prevent="
+                                this.searchKnitting11 = !this.searchKnitting11
+                            "
+                        >
+                            7 (4.5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting12 }"
+                            @click.prevent="
+                                this.searchKnitting12 = !this.searchKnitting12
+                            "
+                        >
+                            8 (5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting13 }"
+                            @click.prevent="
+                                this.searchKnitting13 = !this.searchKnitting13
+                            "
+                        >
+                            9 (5.5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting14 }"
+                            @click.prevent="
+                                this.searchKnitting14 = !this.searchKnitting14
+                            "
+                        >
+                            10 (6 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting15 }"
+                            @click.prevent="
+                                this.searchKnitting15 = !this.searchKnitting15
+                            "
+                        >
+                            10 1/2 (6.5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting16 }"
+                            @click.prevent="
+                                this.searchKnitting16 = !this.searchKnitting16
+                            "
+                        >
+                            7 mm
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting17 }"
+                            @click.prevent="
+                                this.searchKnitting17 = !this.searchKnitting17
+                            "
+                        >
+                            11 (8 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting18 }"
+                            @click.prevent="
+                                this.searchKnitting18 = !this.searchKnitting18
+                            "
+                        >
+                            13 (9 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting19 }"
+                            @click.prevent="
+                                this.searchKnitting19 = !this.searchKnitting19
+                            "
+                        >
+                            15 (10 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting20 }"
+                            @click.prevent="
+                                this.searchKnitting20 = !this.searchKnitting20
+                            "
+                        >
+                            17 (12.5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting21 }"
+                            @click.prevent="
+                                this.searchKnitting21 = !this.searchKnitting21
+                            "
+                        >
+                            19 (15 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting22 }"
+                            @click.prevent="
+                                this.searchKnitting22 = !this.searchKnitting22
+                            "
+                        >
+                            35 (19 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting23 }"
+                            @click.prevent="
+                                this.searchKnitting23 = !this.searchKnitting23
+                            "
+                        >
+                            50 (25 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchKnitting24 }"
+                            @click.prevent="
+                                this.searchKnitting24 = !this.searchKnitting24
+                            "
+                        >
+                            70 (35 mm)
                         </button>
                     </div>
                 </div>
@@ -261,7 +458,33 @@ export default {
             searchStatus: null,
             searchSpinning: false,
             searchWeaving: false,
+
             searchKnitting: false,
+            searchKnitting01: false,
+            searchKnitting02: false,
+            searchKnitting03: false,
+            searchKnitting04: false,
+            searchKnitting05: false,
+            searchKnitting06: false,
+            searchKnitting07: false,
+            searchKnitting08: false,
+            searchKnitting09: false,
+            searchKnitting10: false,
+            searchKnitting11: false,
+            searchKnitting12: false,
+            searchKnitting13: false,
+            searchKnitting14: false,
+            searchKnitting15: false,
+            searchKnitting16: false,
+            searchKnitting17: false,
+            searchKnitting18: false,
+            searchKnitting19: false,
+            searchKnitting20: false,
+            searchKnitting21: false,
+            searchKnitting22: false,
+            searchKnitting23: false,
+            searchKnitting24: false,
+
             searchCrocheting: false,
             searchSewing: false,
             searchEmbroidery: false,
@@ -557,7 +780,7 @@ button:active {
     box-shadow: 2px 2px 2px var(--color-shadow);
 }
 
-.craft-options {
+#craft-options {
     display: grid;
     grid-template-columns: repeat(auto-fill, 110px);
     justify-content: space-between;
@@ -567,7 +790,7 @@ button:active {
     margin-left: 20px;
 }
 
-.craft-options > button {
+#craft-options > button {
     font-size: 12px;
     letter-spacing: 0px;
     margin: 2px;
@@ -702,5 +925,21 @@ button:active {
 
 #create-link:hover {
     cursor: pointer;
+}
+
+#needle-options {
+    display: grid;
+    grid-template-columns: 110px 110px;
+    column-gap: 6px;
+    row-gap: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8px;
+}
+
+#needle-options > button {
+    font-size: 11px;
+    letter-spacing: 0px;
+    margin: 0px;
 }
 </style>
