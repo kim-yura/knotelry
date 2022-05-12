@@ -22,7 +22,7 @@ def seed_projects():
         start_date=datetime.strptime('Jun 14 2020', '%b %d %Y'),
         end_date=datetime.strptime('Jun 17 2020', '%b %d %Y'),
 
-        needle_sizes="2,3",
+        needle_sizes="2.75,3.25",
     )
     project1_material1 = Project_Material(
         project_id=1,
@@ -78,7 +78,7 @@ def seed_projects():
         start_date=datetime.strptime('Dec 4 2019', '%b %d %Y'),
         end_date=datetime.strptime('Dec 15 2019', '%b %d %Y'),
 
-        needle_sizes="6,7",
+        needle_sizes="4,4.5",
         knit_gauge_count=16,
         knit_gauge_unit="sts",
         knit_gauge_rows=22,
@@ -122,7 +122,7 @@ def seed_projects():
         start_date=datetime.strptime('May 7 2020', '%b %d %Y'),
         end_date=datetime.strptime('May 22 2020', '%b %d %Y'),
 
-        needle_sizes="1",
+        needle_sizes="2.25",
     )
     project3_material1 = Project_Material(
         project_id=3,
@@ -165,7 +165,7 @@ def seed_projects():
         start_date=datetime.strptime('Apr 17 2020', '%b %d %Y'),
         end_date=datetime.strptime('Apr 21 2020', '%b %d %Y'),
 
-        needle_sizes="6",
+        needle_sizes="4",
     )
     project4_material1 = Project_Material(
         project_id=4,

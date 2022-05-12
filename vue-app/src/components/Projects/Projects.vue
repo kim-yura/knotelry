@@ -81,7 +81,9 @@
                     </div>
                 </div>
                 <div v-if="this.searchKnitting">
-                    <label id="needle-options-label">Filter by Needle Size:</label>
+                    <label id="needle-options-label"
+                        >Filter by Needle Size:</label
+                    >
                     <div id="needle-options">
                         <button
                             v-bind:class="{ selected: searchKnitting01 }"
@@ -632,13 +634,166 @@ export default {
                                 });
                             }
                             projectsData = Array.from(temp);
-
-                            this.usersProjects = projectsData;
-                            window.scrollTo(0, 0);
-                        } else {
-                            this.usersProjects = projectsData;
-                            window.scrollTo(0, 0);
                         }
+
+                        // Knitting needle size sort
+                        if (
+                            this.searchKnitting01 ||
+                            this.searchKnitting02 ||
+                            this.searchKnitting03 ||
+                            this.searchKnitting04 ||
+                            this.searchKnitting05 ||
+                            this.searchKnitting06 ||
+                            this.searchKnitting07 ||
+                            this.searchKnitting08 ||
+                            this.searchKnitting09 ||
+                            this.searchKnitting10 ||
+                            this.searchKnitting11 ||
+                            this.searchKnitting12 ||
+                            this.searchKnitting13 ||
+                            this.searchKnitting14 ||
+                            this.searchKnitting15 ||
+                            this.searchKnitting16 ||
+                            this.searchKnitting17 ||
+                            this.searchKnitting18 ||
+                            this.searchKnitting19 ||
+                            this.searchKnitting20 ||
+                            this.searchKnitting21 ||
+                            this.searchKnitting22 ||
+                            this.searchKnitting23 ||
+                            this.searchKnitting24
+                        ) {
+                            const temp = new Set();
+                            projectsData.forEach((project) => {
+                                const needlesArr =
+                                    project.needleSizes?.split(",");
+                                if (
+                                    this.searchKnitting01 &&
+                                    needlesArr.includes("1.5")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting02 &&
+                                    needlesArr.includes("1.75")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting03 &&
+                                    needlesArr.includes("2")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting04 &&
+                                    needlesArr.includes("2.25")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting05 &&
+                                    needlesArr.includes("2.75")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting06 &&
+                                    needlesArr.includes("3")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting07 &&
+                                    needlesArr.includes("3.25")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting08 &&
+                                    needlesArr.includes("3.5")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting09 &&
+                                    needlesArr.includes("3.75")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting10 &&
+                                    needlesArr.includes("4")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting11 &&
+                                    needlesArr.includes("4.5")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting12 &&
+                                    needlesArr.includes("5")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting13 &&
+                                    needlesArr.includes("5.5")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting14 &&
+                                    needlesArr.includes("6")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting15 &&
+                                    needlesArr.includes("6.5")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting16 &&
+                                    needlesArr.includes("7")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting17 &&
+                                    needlesArr.includes("8")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting18 &&
+                                    needlesArr.includes("9")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting19 &&
+                                    needlesArr.includes("10")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting20 &&
+                                    needlesArr.includes("12.5")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting21 &&
+                                    needlesArr.includes("15")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting22 &&
+                                    needlesArr.includes("19")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting23 &&
+                                    needlesArr.includes("25")
+                                )
+                                    temp.add(project);
+                                if (
+                                    this.searchKnitting24 &&
+                                    needlesArr.includes("35")
+                                )
+                                    temp.add(project);
+                            });
+
+                            projectsData = Array.from(temp);
+                        }
+
+                        this.usersProjects = projectsData;
+                        window.scrollTo(0, 0);
                     }
                 }
             );
@@ -674,7 +829,7 @@ const loadUsersProjects = async (userId) => {
 <style scoped>
 .projects-page {
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 380px 1fr;
     column-gap: 4%;
 }
 
@@ -782,7 +937,7 @@ button:active {
 
 #craft-options {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 110px);
+    grid-template-columns: repeat(auto-fill, 100px);
     justify-content: space-between;
     row-gap: 2px;
     padding-top: 4px;
@@ -933,7 +1088,7 @@ button:active {
 
 #needle-options {
     display: grid;
-    grid-template-columns: 110px 110px;
+    grid-template-columns: 110px 110px 110px;
     column-gap: 6px;
     row-gap: 6px;
     margin-left: auto;
