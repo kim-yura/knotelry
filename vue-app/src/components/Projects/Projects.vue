@@ -794,6 +794,7 @@ export default {
                     }
                 }
             );
+            window.scrollTo(0, 0);
         },
         submit() {
             let projectsData = loadUsersProjects(this.$route.params.id).then(
