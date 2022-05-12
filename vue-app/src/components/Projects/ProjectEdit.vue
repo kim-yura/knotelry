@@ -765,131 +765,137 @@
                             v-bind:class="{ selected: isHook02 }"
                             @click.prevent="this.isHook02 = !this.isHook02"
                         >
-                            C-2 (2.75 mm)
+                            2.5mm
                         </button>
                         <button
                             v-bind:class="{ selected: isHook03 }"
                             @click.prevent="this.isHook03 = !this.isHook03"
                         >
-                            D (3.125 mm)
+                            C-2 (2.75 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook04 }"
                             @click.prevent="this.isHook04 = !this.isHook04"
                         >
-                            D-3 (3.25 mm)
+                            D (3.125 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook05 }"
                             @click.prevent="this.isHook05 = !this.isHook05"
                         >
-                            E-4 (3.5 mm)
+                            D-3 (3.25 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook06 }"
                             @click.prevent="this.isHook06 = !this.isHook06"
                         >
-                            F-5 (3.75 mm)
+                            E-4 (3.5 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook07 }"
                             @click.prevent="this.isHook07 = !this.isHook07"
                         >
-                            G-6 (4 mm)
+                            F-5 (3.75 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook08 }"
                             @click.prevent="this.isHook08 = !this.isHook08"
                         >
-                            G (4.25 mm)
+                            G-6 (4 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook09 }"
                             @click.prevent="this.isHook09 = !this.isHook09"
                         >
-                            7 (4.5 mm)
+                            G (4.25 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook10 }"
                             @click.prevent="this.isHook10 = !this.isHook10"
                         >
-                            H-8 (5 mm)
+                            7 (4.5 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook11 }"
                             @click.prevent="this.isHook11 = !this.isHook11"
                         >
-                            I (5.25 mm)
+                            H-8 (5 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook12 }"
                             @click.prevent="this.isHook12 = !this.isHook12"
                         >
-                            J (5.5 mm)
+                            I (5.25 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook13 }"
                             @click.prevent="this.isHook13 = !this.isHook13"
                         >
-                            J-10 (6 mm)
+                            J (5.5 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook14 }"
                             @click.prevent="this.isHook14 = !this.isHook14"
                         >
-                            K-10 1/2 (6.5 mm)
+                            J-10 (6 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook15 }"
                             @click.prevent="this.isHook15 = !this.isHook15"
                         >
-                            L-11 (8 mm)
+                            K-10 1/2 (6.5 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook16 }"
                             @click.prevent="this.isHook16 = !this.isHook16"
                         >
-                            M/N-13 (9 mm)
+                            L-11 (8 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook17 }"
                             @click.prevent="this.isHook17 = !this.isHook17"
                         >
-                            N/P-15 (10 mm)
+                            M/N-13 (9 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook18 }"
                             @click.prevent="this.isHook18 = !this.isHook18"
                         >
-                            P-16 (11.5 mm)
+                            N/P-15 (10 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook19 }"
                             @click.prevent="this.isHook19 = !this.isHook19"
                         >
-                            P/Q (15 mm)
+                            P-16 (11.5 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook20 }"
                             @click.prevent="this.isHook20 = !this.isHook20"
                         >
-                            Q (16 mm)
+                            P/Q (15 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook21 }"
                             @click.prevent="this.isHook21 = !this.isHook21"
                         >
-                            S (19 mm)
+                            Q (16 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook22 }"
                             @click.prevent="this.isHook22 = !this.isHook22"
                         >
-                            T/U/X (25 mm)
+                            S (19 mm)
                         </button>
                         <button
                             v-bind:class="{ selected: isHook23 }"
                             @click.prevent="this.isHook23 = !this.isHook23"
+                        >
+                            T/U/X (25 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: isHook24 }"
+                            @click.prevent="this.isHook24 = !this.isHook24"
                         >
                             T/X (30 mm)
                         </button>
@@ -1465,6 +1471,7 @@ export default {
             isHook21: false,
             isHook22: false,
             isHook23: false,
+            isHook24: false,
 
             crochetGaugeCount: null,
             crochetGaugeUnit: null,
@@ -1591,28 +1598,29 @@ export default {
 
                 const hooksArr = this.hookSizes?.split(",");
                 this.isHook01 = hooksArr?.includes("2.25");
-                this.isHook02 = hooksArr?.includes("2.75");
-                this.isHook03 = hooksArr?.includes("3.125");
-                this.isHook04 = hooksArr?.includes("3.25");
-                this.isHook05 = hooksArr?.includes("3.5");
-                this.isHook06 = hooksArr?.includes("3.75");
-                this.isHook07 = hooksArr?.includes("4");
-                this.isHook08 = hooksArr?.includes("4.25");
-                this.isHook09 = hooksArr?.includes("4.5");
-                this.isHook10 = hooksArr?.includes("5");
-                this.isHook11 = hooksArr?.includes("5.25");
-                this.isHook12 = hooksArr?.includes("5.5");
-                this.isHook13 = hooksArr?.includes("6");
-                this.isHook14 = hooksArr?.includes("6.5");
-                this.isHook15 = hooksArr?.includes("8");
-                this.isHook16 = hooksArr?.includes("9");
-                this.isHook17 = hooksArr?.includes("10");
-                this.isHook18 = hooksArr?.includes("11.5");
-                this.isHook19 = hooksArr?.includes("15");
-                this.isHook20 = hooksArr?.includes("16");
-                this.isHook21 = hooksArr?.includes("19");
-                this.isHook22 = hooksArr?.includes("25");
-                this.isHook23 = hooksArr?.includes("30");
+                this.isHook02 = hooksArr?.includes("2.5");
+                this.isHook03 = hooksArr?.includes("2.75");
+                this.isHook04 = hooksArr?.includes("3.125");
+                this.isHook05 = hooksArr?.includes("3.25");
+                this.isHook06 = hooksArr?.includes("3.5");
+                this.isHook07 = hooksArr?.includes("3.75");
+                this.isHook08 = hooksArr?.includes("4");
+                this.isHook09 = hooksArr?.includes("4.25");
+                this.isHook10 = hooksArr?.includes("4.5");
+                this.isHook11 = hooksArr?.includes("5");
+                this.isHook12 = hooksArr?.includes("5.25");
+                this.isHook13 = hooksArr?.includes("5.5");
+                this.isHook14 = hooksArr?.includes("6");
+                this.isHook15 = hooksArr?.includes("6.5");
+                this.isHook16 = hooksArr?.includes("8");
+                this.isHook17 = hooksArr?.includes("9");
+                this.isHook18 = hooksArr?.includes("10");
+                this.isHook19 = hooksArr?.includes("11.5");
+                this.isHook20 = hooksArr?.includes("15");
+                this.isHook21 = hooksArr?.includes("16");
+                this.isHook22 = hooksArr?.includes("19");
+                this.isHook23 = hooksArr?.includes("25");
+                this.isHook24 = hooksArr?.includes("30");
 
                 this.crochetGaugeCount = data.crochetGaugeCount;
                 this.crochetGaugeUnit = data.crochetGaugeUnit;
@@ -1710,28 +1718,29 @@ export default {
                 let hooks = "";
 
                 if (this.isHook01) hooks += "2.25,";
-                if (this.isHook02) hooks += "2.75,";
-                if (this.isHook03) hooks += "3.125,";
-                if (this.isHook04) hooks += "3.25,";
-                if (this.isHook05) hooks += "3.5,";
-                if (this.isHook06) hooks += "3.75,";
-                if (this.isHook07) hooks += "4,";
-                if (this.isHook08) hooks += "4.25,";
-                if (this.isHook09) hooks += "4.5,";
-                if (this.isHook10) hooks += "5,";
-                if (this.isHook11) hooks += "5.25,";
-                if (this.isHook12) hooks += "5.5,";
-                if (this.isHook13) hooks += "6,";
-                if (this.isHook14) hooks += "6.5,";
-                if (this.isHook15) hooks += "8,";
-                if (this.isHook16) hooks += "9,";
-                if (this.isHook17) hooks += "10,";
-                if (this.isHook18) hooks += "11.5,";
-                if (this.isHook19) hooks += "15,";
-                if (this.isHook20) hooks += "16,";
-                if (this.isHook21) hooks += "19,";
-                if (this.isHook22) hooks += "25,";
-                if (this.isHook23) hooks += "30,";
+                if (this.isHook02) hooks += "2.5,";
+                if (this.isHook03) hooks += "2.75,";
+                if (this.isHook04) hooks += "3.125,";
+                if (this.isHook05) hooks += "3.25,";
+                if (this.isHook06) hooks += "3.5,";
+                if (this.isHook07) hooks += "3.75,";
+                if (this.isHook08) hooks += "4,";
+                if (this.isHook09) hooks += "4.25,";
+                if (this.isHook10) hooks += "4.5,";
+                if (this.isHook11) hooks += "5,";
+                if (this.isHook12) hooks += "5.25,";
+                if (this.isHook13) hooks += "5.5,";
+                if (this.isHook14) hooks += "6,";
+                if (this.isHook15) hooks += "6.5,";
+                if (this.isHook16) hooks += "8,";
+                if (this.isHook17) hooks += "9,";
+                if (this.isHook18) hooks += "10,";
+                if (this.isHook19) hooks += "11.5,";
+                if (this.isHook20) hooks += "15,";
+                if (this.isHook21) hooks += "16,";
+                if (this.isHook22) hooks += "19,";
+                if (this.isHook23) hooks += "25,";
+                if (this.isHook24) hooks += "30,";
 
                 if (hooks?.length) {
                     hooks = hooks.slice(0, -1);

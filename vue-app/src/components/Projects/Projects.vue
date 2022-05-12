@@ -280,6 +280,157 @@
                     </div>
                 </div>
                 <div>
+                    <label id="needle-options-label"
+                        >Filter by Hook Size:</label
+                    >
+                    <div id="needle-options">
+                        <button
+                            v-bind:class="{ selected: searchCrochet01 }"
+                            @click.prevent="this.searchCrochet01 = !this.searchCrochet01"
+                        >
+                            B-1 (2.25 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet02 }"
+                            @click.prevent="this.searchCrochet02 = !this.searchCrochet02"
+                        >
+                            2.5mm
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet03 }"
+                            @click.prevent="this.searchCrochet03 = !this.searchCrochet03"
+                        >
+                            C-2 (2.75 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet04 }"
+                            @click.prevent="this.searchCrochet04 = !this.searchCrochet04"
+                        >
+                            D (3.125 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet05 }"
+                            @click.prevent="this.searchCrochet05 = !this.searchCrochet05"
+                        >
+                            D-3 (3.25 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet06 }"
+                            @click.prevent="this.searchCrochet06 = !this.searchCrochet06"
+                        >
+                            E-4 (3.5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet07 }"
+                            @click.prevent="this.searchCrochet07 = !this.searchCrochet07"
+                        >
+                            F-5 (3.75 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet08 }"
+                            @click.prevent="this.searchCrochet08 = !this.searchCrochet08"
+                        >
+                            G-6 (4 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet09 }"
+                            @click.prevent="this.searchCrochet09 = !this.searchCrochet09"
+                        >
+                            G (4.25 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet10 }"
+                            @click.prevent="this.searchCrochet10 = !this.searchCrochet10"
+                        >
+                            7 (4.5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet11 }"
+                            @click.prevent="this.searchCrochet11 = !this.searchCrochet11"
+                        >
+                            H-8 (5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet12 }"
+                            @click.prevent="this.searchCrochet12 = !this.searchCrochet12"
+                        >
+                            I (5.25 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet13 }"
+                            @click.prevent="this.searchCrochet13 = !this.searchCrochet13"
+                        >
+                            J (5.5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet14 }"
+                            @click.prevent="this.searchCrochet14 = !this.searchCrochet14"
+                        >
+                            J-10 (6 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet15 }"
+                            @click.prevent="this.searchCrochet15 = !this.searchCrochet15"
+                        >
+                            K-10 1/2 (6.5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet16 }"
+                            @click.prevent="this.searchCrochet16 = !this.searchCrochet16"
+                        >
+                            L-11 (8 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet17 }"
+                            @click.prevent="this.searchCrochet17 = !this.searchCrochet17"
+                        >
+                            M/N-13 (9 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet18 }"
+                            @click.prevent="this.searchCrochet18 = !this.searchCrochet18"
+                        >
+                            N/P-15 (10 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet19 }"
+                            @click.prevent="this.searchCrochet19 = !this.searchCrochet19"
+                        >
+                            P-16 (11.5 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet20 }"
+                            @click.prevent="this.searchCrochet20 = !this.searchCrochet20"
+                        >
+                            P/Q (15 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet21 }"
+                            @click.prevent="this.searchCrochet21 = !this.searchCrochet21"
+                        >
+                            Q (16 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet22 }"
+                            @click.prevent="this.searchCrochet22 = !this.searchCrochet22"
+                        >
+                            S (19 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet23 }"
+                            @click.prevent="this.searchCrochet23 = !this.searchCrochet23"
+                        >
+                            T/U/X (25 mm)
+                        </button>
+                        <button
+                            v-bind:class="{ selected: searchCrochet24 }"
+                            @click.prevent="this.searchCrochet24 = !this.searchCrochet24"
+                        >
+                            T/X (30 mm)
+                        </button>
+                    </div>
+                </div>
+                <div>
                     <button id="submit-search">Search!</button>
                     <p id="reset-search" @click="reset">
                         Reset Projects Search
@@ -511,6 +662,7 @@ export default {
             searchCrochet21: false,
             searchCrochet22: false,
             searchCrochet23: false,
+            searchCrochet24: false,
 
             searchSewing: false,
             searchEmbroidery: false,
@@ -578,6 +730,7 @@ export default {
             this.searchCrochet21 = false;
             this.searchCrochet22 = false;
             this.searchCrochet23 = false;
+            this.searchCrochet24 = false;
 
             this.searchSewing = false;
             this.searchEmbroidery = false;
@@ -1163,7 +1316,7 @@ button:active {
 
 #needle-options {
     display: grid;
-    grid-template-columns: 110px 110px 110px;
+    grid-template-columns: 105px 105px 105px;
     column-gap: 6px;
     row-gap: 6px;
     margin-left: auto;

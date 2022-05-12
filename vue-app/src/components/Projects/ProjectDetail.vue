@@ -795,6 +795,7 @@ export default {
             hookSizes: null,
             hookSizeChart: {
                 2.25: "B-1 (2.25 mm)",
+                2.5: "2.5 mm",
                 2.75: "C-2 (2.75 mm)",
                 3.125: "D (3.125 mm)",
                 3.25: "D-3 (3.25 mm)",
