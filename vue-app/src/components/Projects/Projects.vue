@@ -502,7 +502,34 @@ export default {
             this.searchStatus = null;
             this.searchSpinning = false;
             this.searchWeaving = false;
+
             this.searchKnitting = false;
+            this.searchKnitting01 = false;
+            this.searchKnitting02 = false;
+            this.searchKnitting03 = false;
+            this.searchKnitting04 = false;
+            this.searchKnitting05 = false;
+            this.searchKnitting06 = false;
+            this.searchKnitting07 = false;
+            this.searchKnitting08 = false;
+            this.searchKnitting09 = false;
+            this.searchKnitting10 = false;
+            this.searchKnitting10 = false;
+            this.searchKnitting11 = false;
+            this.searchKnitting12 = false;
+            this.searchKnitting13 = false;
+            this.searchKnitting14 = false;
+            this.searchKnitting15 = false;
+            this.searchKnitting16 = false;
+            this.searchKnitting17 = false;
+            this.searchKnitting18 = false;
+            this.searchKnitting19 = false;
+            this.searchKnitting20 = false;
+            this.searchKnitting21 = false;
+            this.searchKnitting22 = false;
+            this.searchKnitting23 = false;
+            this.searchKnitting24 = false;
+
             this.searchCrocheting = false;
             this.searchSewing = false;
             this.searchEmbroidery = false;
