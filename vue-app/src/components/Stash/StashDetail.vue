@@ -575,7 +575,10 @@
                     </p>
                 </div>
                 <!-- Render for fiber remainder -->
-                <div class="stashed-content" v-if="this.type == 'fiber'">
+                <div
+                    class="stashed-content"
+                    v-if="this.type == 'fiber' && this.fiberQuantityRemaining"
+                >
                     <p
                         v-if="
                             (isNaN(this.fiberQuantityRemaining) ||
