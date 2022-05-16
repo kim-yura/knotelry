@@ -581,22 +581,24 @@
                 <!-- Render for fiber remainder -->
                 <div
                     class="stashed-content"
-                    v-if="this.type == 'fiber' && this.fiberQuantityRemaining"
+                    v-if="
+                        this.type == 'fiber' &&
+                        this.fiberQuantityRemaining !== null &&
+                        this.fiberQuantity
+                    "
                 >
                     <p
                         v-if="
-                            (isNaN(this.fiberQuantityRemaining) ||
-                                !this.fiberQuantityRemaining) &&
-                            this.fiberQuantityRemaining != 0
+                            !isNaN(this.fiberQuantityRemaining) ||
+                            this.fiberQuantityRemaining == 0
                         "
                     >
-                        — {{ this.fiberQuantityUnit }}
-                    </p>
-                    <p v-else>
-                        {{ this.fiberQuantityRemaining.toFixed(2) }}
+                        {{ this.fiberQuantityRemaining?.toFixed(2) }}
                         {{ this.fiberQuantityUnit }}
                     </p>
+                    <p v-else>— {{ this.fiberQuantityUnit }}</p>
                 </div>
+                <div v-else-if="this.type == 'fiber'">—</div>
                 <!-- Render for fabric remainder -->
                 <div
                     class="stashed-content"
