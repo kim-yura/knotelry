@@ -101,6 +101,7 @@ def post_stash_item():
 
         length_per_bobbin = request.json['length_per_bobbin'],
         bobbins_stashed = request.json['bobbins_stashed'],
+        plies = request.json['plies'],
 
         notes = request.json['notes'],
         created_at = datetime.now(),
@@ -173,6 +174,7 @@ def put_stash_item():
 
         'length_per_bobbin': request.json['length_per_bobbin'],
         'bobbins_stashed': request.json['bobbins_stashed'],
+        'plies': request.json['plies'],
 
         'notes': request.json['notes'],
         'updated_at': datetime.now(),

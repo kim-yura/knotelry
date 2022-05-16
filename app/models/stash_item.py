@@ -86,6 +86,7 @@ class Stash_Item(db.Model):
     # length_unit
     bobbins_stashed = db.Column(db.Float)
     # length_stashed
+    plies = db.Column(db.Integer)
 
     notes = db.Column(db.Text)
 
@@ -153,6 +154,7 @@ class Stash_Item(db.Model):
             # length_unit
             'bobbins_stashed': self.bobbins_stashed,
             # length_stashed
+            'plies': self.plies,
 
             'notes': self.notes,
             'created_at': self.created_at,
@@ -220,6 +222,7 @@ class Stash_Item(db.Model):
             # lengthUnit
             'bobbinsStashed': self.bobbins_stashed,
             # lengthStashed
+            'plies': self.plies,
 
             'notes': self.notes,
             'createdAt': self.created_at,
