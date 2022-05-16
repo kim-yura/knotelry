@@ -107,6 +107,7 @@ export default {
 
                     length_per_bobbin: null,
                     bobbins_stashed: null,
+                    plies: null,
 
                     notes: null,
                 };

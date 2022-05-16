@@ -420,6 +420,14 @@
                         {{ this.lengthPerBobbin }} {{ this.lengthUnit }} /
                         bobbin
                     </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Plies:</div>
+                    <div class="text-content" v-if="this.plies">
+                        {{ this.plies }} plies
+                    </div>
+                    <div class="text-content" v-else>—</div>
                 </div>
                 <div class="detail-text">
                     <div class="text-label">Amount Stashed:</div>
@@ -720,6 +728,7 @@ export default {
 
                     this.lengthPerBobbin = data.lengthPerBobbin;
                     this.bobbinsStashed = data.bobbinsStashed;
+                    this.plies = data.plies;
 
                     this.notes = data.notes;
                     this.images = data.stashItemImages;
@@ -1036,6 +1045,7 @@ export default {
             weightRemaining: null,
             fiberQuantityRemaining: null,
             bobbinsRemaining: null,
+            plies: null,
 
             notes: null,
             images: [],
