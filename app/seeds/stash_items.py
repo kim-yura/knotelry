@@ -557,6 +557,58 @@ def seed_stash_items():
         stash_item_id=26,
         image_url="https://knotelry.s3.amazonaws.com/stash_26.jpg",
     )
+    aida27 = Stash_Item(
+        user_id=1,
+        title="Printed Watercolor Aida",
+        type="aida",
+        status="inStash",
+        colors="bluegreen blue bluepurple purple white",
+        fiber_content="100% Cotton",
+        fabric_width=14,
+        fabric_width_unit="in",
+        fabric_height=10,
+        fabric_height_unit="in",
+        aida_count=14,
+    )
+    aida27_image1 = Stash_Item_Image(
+        stash_item_id=27,
+        image_url="https://knotelry.s3.amazonaws.com/stash_27.jpg",
+    )
+    aida28 = Stash_Item(
+        user_id=1,
+        title="Printed Nebula Aida",
+        type="aida",
+        status="usedUp",
+        colors="blue bluepurple purpe white",
+        fiber_content="100% Cotton",
+        fabric_width=9.45,
+        fabric_width_unit="in",
+        fabric_height=9.45,
+        fabric_height_unit="in",
+        aida_count=16,
+    )
+    aida28_image1 = Stash_Item_Image(
+        stash_item_id=28,
+        image_url="https://knotelry.s3.amazonaws.com/stash_28.jpg",
+    )
+    aida29 = Stash_Item(
+        user_id=1,
+        title="Natural Aida Cloth",
+        type="aida",
+        status="inStash",
+        colors="cream",
+        fiber_content="100% Cotton",
+        fabric_width=60,
+        fabric_width_unit="in",
+        fabric_height=2,
+        fabric_height_unit="yd",
+        aida_count=14,
+    )
+    aida29_image1 = Stash_Item_Image(
+        stash_item_id=29,
+        image_url="https://knotelry.s3.amazonaws.com/stash_29.jpg",
+    )
+
     test1 = Stash_Item(
         user_id=2,
         title="Not DemoUser's stash"
@@ -619,6 +671,13 @@ def seed_stash_items():
     db.session.add(fabric25_image1)
     db.session.add(fabric26)
     db.session.add(fabric26_image1)
+
+    db.session.add(aida27)
+    db.session.add(aida27_image1)
+    db.session.add(aida28)
+    db.session.add(aida28_image1)
+    db.session.add(aida29)
+    db.session.add(aida29_image1)
 
     db.session.add(test1)
 
