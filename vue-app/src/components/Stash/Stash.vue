@@ -831,6 +831,7 @@ const loadUsersStash = async (userId) => {
     margin-top: 0px;
     margin-bottom: 0px;
     align-self: center;
+    font-size: 14px;
 }
 
 .input-select-input {
