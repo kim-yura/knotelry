@@ -37,6 +37,15 @@
                 <div class="text-content" v-else-if="this.type == 'yarn'">
                     Yarn
                 </div>
+                <div class="text-content" v-else-if="this.type == 'fabric'">
+                    Fabric
+                </div>
+                <div class="text-content" v-else-if="this.type == 'thread'">
+                    Thread
+                </div>
+                <div class="text-content" v-else-if="this.type == 'aida'">
+                    Aida Fabric
+                </div>
                 <div class="text-content" v-else>—</div>
             </div>
             <div class="detail-text">
@@ -456,6 +465,51 @@
                     </div>
                 </div>
             </span>
+            <!-- AIDA FABRIC DETAILS -->
+            <span v-if="this.type == 'aida'">
+                <div class="detail-text">
+                    <div class="text-label">Manufacturer Name:</div>
+                    <div class="text-content" v-if="this.dyerName">
+                        {{ this.dyerName }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Colorway Name:</div>
+                    <div class="text-content" v-if="this.colorwayName">
+                        {{ this.colorwayName }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Fiber Content:</div>
+                    <div class="text-content" v-if="this.fiberContent">
+                        {{ this.fiberContent }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Fabric Width:</div>
+                    <div class="text-content" v-if="this.fabricWidth">
+                        {{ this.fabricWidth }} {{ this.fabricWidthUnit }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Fabric Height:</div>
+                    <div class="text-content" v-if="this.fabricHeight">
+                        {{ this.fabricHeight }} {{ this.fabricHeightUnit }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+                <div class="detail-text">
+                    <div class="text-label">Aida Count:</div>
+                    <div class="text-content" v-if="this.aidaCount">
+                        {{ this.aidaCount }}
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
+            </span>
             <div class="detail-text">
                 <div class="text-label">Amount Remaining:</div>
                 <!-- Render for yarn remainder -->
@@ -560,7 +614,9 @@
                 v-if="
                     this.type == 'yarn' ||
                     this.type == 'fiber' ||
-                    this.type == 'fabric'
+                    this.type == 'fabric' ||
+                    this.type == 'thread' ||
+                    this.type == 'aida'
                 "
                 class="detail-text"
             >
@@ -729,6 +785,10 @@ export default {
                     this.lengthPerBobbin = data.lengthPerBobbin;
                     this.bobbinsStashed = data.bobbinsStashed;
                     this.plies = data.plies;
+
+                    this.fabricHeight = data.fabricHeight;
+                    this.fabricHeightUnit = data.fabricHeightUnit;
+                    this.aidaCount = data.aidaCount;
 
                     this.notes = data.notes;
                     this.images = data.stashItemImages;
@@ -1046,6 +1106,10 @@ export default {
             fiberQuantityRemaining: null,
             bobbinsRemaining: null,
             plies: null,
+
+            fabricHeight: null,
+            fabricHeightUnit: null,
+            aidaCount: null,
 
             notes: null,
             images: [],

@@ -95,6 +95,8 @@ class Stash_Item(db.Model):
     fabric_height = db.Column(db.Integer)
     fabric_height_unit = db.Column(db.String(2))
     aida_count = db.Column(db.Integer)
+    units_stashed = db.Column(db.Float)
+    # length_stashed
 
     notes = db.Column(db.Text)
 
@@ -170,6 +172,8 @@ class Stash_Item(db.Model):
             'fabric_height': self.fabric_height,
             'fabric_height_unit': self.fabric_height_unit,
             'aida_count': self.aida_count,
+            'units_stashed': self.units_stashed,
+            # length_stashed
 
             'notes': self.notes,
             'created_at': self.created_at,
@@ -245,6 +249,8 @@ class Stash_Item(db.Model):
             'fabricHeight': self.fabric_height,
             'fabricHeightUnit': self.fabric_height_unit,
             'aidaCount': self.aida_count,
+            'unitsStashed': self.units_stashed,
+            # lengthStashed
 
             'notes': self.notes,
             'createdAt': self.created_at,
