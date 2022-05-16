@@ -532,9 +532,12 @@
                     class="stashed-content"
                     v-if="
                         this.type == 'yarn' &&
-                        (this.skeinsRemaining ||
-                            this.lengthRemaining ||
-                            this.weightRemaining)
+                        ((this.skeinsRemaining !== null &&
+                            this.skeinsStashed) ||
+                            (this.lengthRemaining !== null &&
+                                this.lengthStashed) ||
+                            (this.weightRemaining !== null &&
+                                this.weightStashed))
                     "
                 >
                     <p
@@ -574,6 +577,7 @@
                         {{ this.weightUnit }}
                     </p>
                 </div>
+                <div v-else-if="this.type == 'yarn'">—</div>
                 <!-- Render for fiber remainder -->
                 <div
                     class="stashed-content"
@@ -594,7 +598,10 @@
                     </p>
                 </div>
                 <!-- Render for fabric remainder -->
-                <div class="stashed-content" v-if="this.type == 'fabric'">
+                <div
+                    class="stashed-content"
+                    v-if="this.type == 'fabric' && this.lengthRemaining"
+                >
                     <p
                         v-if="
                             (isNaN(this.lengthRemaining) ||
@@ -648,7 +655,6 @@
                     </p>
                     <p v-else>{{ this.unitsRemaining.toFixed(2) }} units</p>
                 </div>
-                <div v-else>—</div>
             </div>
             <div class="divider" />
             <div
