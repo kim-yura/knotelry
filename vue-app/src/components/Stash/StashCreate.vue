@@ -112,6 +112,7 @@ export default {
                     fabric_height: null,
                     fabric_height_unit: null,
                     aida_count: null,
+                    units_stashed: null,
 
                     notes: null,
                 };

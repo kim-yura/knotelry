@@ -509,6 +509,13 @@
                     </div>
                     <div class="text-content" v-else>—</div>
                 </div>
+                <div class="detail-text">
+                    <div class="text-label">Units Stashed:</div>
+                    <div class="text-content" v-if="this.unitsStashed">
+                        {{ this.unitsStashed.toFixed(2) }} units
+                    </div>
+                    <div class="text-content" v-else>—</div>
+                </div>
             </span>
             <div class="detail-text">
                 <div class="text-label">Amount Remaining:</div>
@@ -609,7 +616,21 @@
                     </p>
                     <p v-else>{{ this.bobbinsRemaining.toFixed(2) }} bobbins</p>
                 </div>
+                <!-- Render for Aida fabric remainder -->
+                <div class="stashed-content" v-if="this.type == 'aida'">
+                    <p
+                        v-if="
+                            (isNaN(this.unitsRemaining) ||
+                                !this.unitsRemaining) &&
+                            this.unitsRemaining != 0
+                        "
+                    >
+                        — {{ this.lengthUnit }}
+                    </p>
+                    <p v-else>{{ this.unitsRemaining.toFixed(2) }} units</p>
+                </div>
             </div>
+            <div class="divider" />
             <div
                 v-if="
                     this.type == 'yarn' ||
@@ -789,6 +810,7 @@ export default {
                     this.fabricHeight = data.fabricHeight;
                     this.fabricHeightUnit = data.fabricHeightUnit;
                     this.aidaCount = data.aidaCount;
+                    this.unitsStashed = data.unitsStashed;
 
                     this.notes = data.notes;
                     this.images = data.stashItemImages;
@@ -1029,6 +1051,21 @@ export default {
                                     this.lengthRemaining / this.lengthPerBobbin;
                             }
                         }
+
+                        // Calculates remainders for Aida fabric
+                        if (this.type == "aida") {
+                            let unitsUsed = 0;
+
+                            if (this.linkedProjectMaterials.length) {
+                                this.linkedProjectMaterials.forEach(
+                                    (material) => {
+                                        unitsUsed =
+                                            unitsUsed + material.unitsUsed;
+                                    }
+                                );
+                            }
+                            this.unitsRemaining = this.unitsStashed - unitsUsed;
+                        }
                     }
                 });
             }
@@ -1099,17 +1136,19 @@ export default {
 
             lengthPerBobbin: null,
             bobbinsStashed: null,
+            plies: null,
+
+            fabricHeight: null,
+            fabricHeightUnit: null,
+            aidaCount: null,
+            unitsStashed: null,
 
             skeinsRemaining: null,
             lengthRemaining: null,
             weightRemaining: null,
             fiberQuantityRemaining: null,
             bobbinsRemaining: null,
-            plies: null,
-
-            fabricHeight: null,
-            fabricHeightUnit: null,
-            aidaCount: null,
+            unitsRemaining: null,
 
             notes: null,
             images: [],
