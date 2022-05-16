@@ -448,7 +448,10 @@
                 </div>
                 <div class="detail-text">
                     <div class="text-label">Amount Stashed:</div>
-                    <div class="stashed-content">
+                    <div
+                        class="stashed-content"
+                        v-if="this.bobbinsStashed || this.lengthStashed"
+                    >
                         <p v-if="this.bobbinsStashed">
                             {{ this.bobbinsStashed.toFixed(2) }} bobbins
                         </p>
@@ -471,6 +474,7 @@
                         </p>
                         <p v-else>— {{ this.lengthUnit }}</p>
                     </div>
+                    <div v-else>—</div>
                 </div>
             </span>
             <!-- AIDA FABRIC DETAILS -->
@@ -624,7 +628,14 @@
                 </div>
                 <div v-else-if="this.type == 'fabric'">—</div>
                 <!-- Render for thread remainder -->
-                <div class="stashed-content" v-if="this.type == 'thread'">
+                <div
+                    class="stashed-content"
+                    v-if="
+                        this.type == 'thread' &&
+                        this.lengthRemaining !== null &&
+                        this.lengthStashed
+                    "
+                >
                     <p
                         v-if="
                             (isNaN(this.lengthRemaining) ||
@@ -649,6 +660,7 @@
                     </p>
                     <p v-else>{{ this.bobbinsRemaining.toFixed(2) }} bobbins</p>
                 </div>
+                <div v-else-if="this.type == 'thread'">—</div>
                 <!-- Render for Aida fabric remainder -->
                 <div class="stashed-content" v-if="this.type == 'aida'">
                     <p
