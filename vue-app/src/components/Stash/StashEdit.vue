@@ -595,6 +595,18 @@
                     </div>
                 </div>
                 <div class="form-element">
+                    <label for="threadPlies">Plies / Bobbin:</label>
+                    <div class="input-select">
+                        <input
+                            type="number"
+                            step="1"
+                            placeholder="Enter plies"
+                            v-model="plies"
+                        />
+                        <p>plies</p>
+                    </div>
+                </div>
+                <div class="form-element">
                     <label for="amountStashed">Amount Stashed:</label>
                     <div class="stashed-converter">
                         <div class="stashed-converter-inputs">
@@ -854,6 +866,7 @@ export default {
 
                 this.lengthPerBobbin = data.lengthPerBobbin;
                 this.bobbinsStashed = data.bobbinsStashed;
+                this.plies = data.plies;
 
                 this.notes = data.notes;
 
@@ -930,6 +943,7 @@ export default {
 
             lengthPerBobbin: null,
             bobbinsStashed: null,
+            plies: null,
 
             notes: null,
 
@@ -1021,6 +1035,7 @@ export default {
 
                     length_per_bobbin: this.lengthPerBobbin,
                     bobbins_stashed: this.bobbinsStashed,
+                    plies: this.plies,
 
                     notes: this.notes,
                 };
@@ -1122,10 +1137,9 @@ export default {
                 } else if ($event.target.id == "lengthInput") {
                     this.stashedLengthUnit = this.lengthUnit;
                     if (this.lengthPerSkein) {
-                        this.skeinsStashed =
-                            (this.lengthStashed / this.lengthPerSkein).toFixed(
-                            2
-                        );
+                        this.skeinsStashed = (
+                            this.lengthStashed / this.lengthPerSkein
+                        ).toFixed(2);
                     }
                     if (this.weightPerSkein) {
                         this.weightStashed = (
@@ -1141,9 +1155,10 @@ export default {
                         ).toFixed(2);
                     }
                     if (this.lengthPerSkein) {
-                        this.lengthStashed =
-                            ((this.weightStashed / this.weightPerSkein) *
-                            this.lengthPerSkein).toFixed(2);
+                        this.lengthStashed = (
+                            (this.weightStashed / this.weightPerSkein) *
+                            this.lengthPerSkein
+                        ).toFixed(2);
                         this.stashedLengthUnit = this.lengthUnit;
                     }
                 }
@@ -1409,6 +1424,14 @@ button:active {
     display: grid;
     grid-template-columns: 1fr 120px;
     column-gap: 8px;
+}
+
+.input-select > p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    align-self: center;
+    font-size: 14px;
+    justify-self: left;
 }
 
 .input-select-input {
