@@ -602,7 +602,11 @@
                 <!-- Render for fabric remainder -->
                 <div
                     class="stashed-content"
-                    v-if="this.type == 'fabric' && this.lengthRemaining"
+                    v-if="
+                        this.type == 'fabric' &&
+                        this.lengthRemaining !== null &&
+                        this.lengthStashed
+                    "
                 >
                     <p
                         v-if="
@@ -618,6 +622,7 @@
                         {{ this.lengthUnit }}
                     </p>
                 </div>
+                <div v-else-if="this.type == 'fabric'">—</div>
                 <!-- Render for thread remainder -->
                 <div class="stashed-content" v-if="this.type == 'thread'">
                     <p
