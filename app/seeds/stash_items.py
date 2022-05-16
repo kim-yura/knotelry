@@ -569,6 +569,7 @@ def seed_stash_items():
         fabric_height=10,
         fabric_height_unit="in",
         aida_count=14,
+        units_stashed=1,
     )
     aida27_image1 = Stash_Item_Image(
         stash_item_id=27,
@@ -586,6 +587,7 @@ def seed_stash_items():
         fabric_height=9.45,
         fabric_height_unit="in",
         aida_count=16,
+        units_stashed=1,
     )
     aida28_image1 = Stash_Item_Image(
         stash_item_id=28,
@@ -603,6 +605,7 @@ def seed_stash_items():
         fabric_height=2,
         fabric_height_unit="yd",
         aida_count=14,
+        units_stashed=2,
     )
     aida29_image1 = Stash_Item_Image(
         stash_item_id=29,
