@@ -945,6 +945,11 @@ export default {
             bobbinsStashed: null,
             plies: null,
 
+            fabricHeight: null,
+            fabricHeightUnit: null,
+            aidaCount: null,
+            unitsStashed: null,
+
             notes: null,
 
             image: null,
@@ -1036,6 +1041,11 @@ export default {
                     length_per_bobbin: this.lengthPerBobbin,
                     bobbins_stashed: this.bobbinsStashed,
                     plies: this.plies,
+
+                    fabric_height: this.fabricHeight,
+                    fabric_height_unit: this.fabricHeightUnit,
+                    aida_count: this.aidaCount,
+                    units_stashed: this.unitsStashed,
 
                     notes: this.notes,
                 };
