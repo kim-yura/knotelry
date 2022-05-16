@@ -106,6 +106,7 @@ def post_stash_item():
         fabric_height = request.json['fabric_height'],
         fabric_height_unit = request.json['fabric_height_unit'],
         aida_count = request.json['aida_count'],
+        units_stashed = request.json['units_stashed'],
 
         notes = request.json['notes'],
         created_at = datetime.now(),
@@ -183,6 +184,7 @@ def put_stash_item():
         'fabric_height': request.json['fabric_height'],
         'fabric_height_unit': request.json['fabric_height_unit'],
         'aida_count': request.json['aida_count'],
+        'units_stashed': request.json['units_stashed'],
 
         'notes': request.json['notes'],
         'updated_at': datetime.now(),
