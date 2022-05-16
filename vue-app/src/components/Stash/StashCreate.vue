@@ -109,6 +109,10 @@ export default {
                     bobbins_stashed: null,
                     plies: null,
 
+                    fabric_height: null,
+                    fabric_height_unit: null,
+                    aida_count: null,
+
                     notes: null,
                 };
                 const response = await fetch("/api/stash/", {
