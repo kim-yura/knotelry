@@ -51,7 +51,7 @@ class Stash_Item(db.Model):
 
     # FIBER, YARN, FABRIC, THREAD, AIDA
     dyer_name = db.Column(db.Text)
-    # For AIDA, refer as manufacturer, not dyer
+    # For Aida, refer as manufacturer, not dyer
     colorway_name = db.Column(db.Text)
     fiber_content = db.Column(db.String(200))
 

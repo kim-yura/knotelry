@@ -30,15 +30,17 @@
                         <option value="yarn">Yarn</option>
                         <option value="fabric">Fabric</option>
                         <option value="thread">Thread</option>
+                        <option value="aida">Aida Fabric</option>
                     </select>
                 </div>
-                <!-- IF FIBER, YARN, FABRIC, OR THREAD -->
+                <!-- IF FIBER, YARN, FABRIC, THREAD, OR AIDA -->
                 <div
                     v-if="
                         this.searchType == 'fiber' ||
                         this.searchType == 'yarn' ||
                         this.searchType == 'fabric' ||
-                        this.searchType == 'thread'
+                        this.searchType == 'thread' ||
+                        this.searchType == 'aida'
                     "
                 >
                     <label>Search for Any:</label>
@@ -283,6 +285,19 @@
                         </select>
                     </div>
                 </div>
+                <!-- IF AIDA -->
+                <div v-if="this.searchType == 'aida'">
+                    <label>Filter by Aida Count</label>
+                    <div class="input-select">
+                        <input
+                            type="number"
+                            class="input-select-input"
+                            v-model="searchAidaCount"
+                            placeholder="0"
+                        />
+                        <p>Count</p>
+                    </div>
+                </div>
                 <div>
                     <button id="submit-search">Search!</button>
                     <p id="reset-search" @click="reset">Reset Stash Search</p>
@@ -374,6 +389,7 @@ export default {
             searchYarnUnit: "yd",
             searchFabricLength: null,
             searchFabricUnit: "yd",
+            searchAidaCount: null,
 
             searchRed: false,
             searchRedOrange: false,
@@ -405,8 +421,31 @@ export default {
             this.searchStatus = null;
             this.searchFiberQuantity = null;
             this.searchFiberUnit = "oz";
+            this.searchYarnWeight = null;
             this.searchYarnQuantity = null;
             this.searchYarnUnit = "yd";
+            this.searchFabricLength = null;
+            this.searchFabricUnit = "yd";
+            this.searchAidaCount = null;
+
+            this.searchRed = false;
+            this.searchRedOrange = false;
+            this.searchOrange = false;
+            this.searchOrangeYellow = false;
+            this.searchYellow = false;
+            this.searchYellowGreen = false;
+            this.searchGreen = false;
+            this.searchBlueGreen = false;
+            this.searchBlue = false;
+            this.searchBluePurple = false;
+            this.searchPurple = false;
+            this.searchPink = false;
+            this.searchWhite = false;
+            this.searchGray = false;
+            this.searchBlack = false;
+            this.searchCream = false;
+            this.searchBrown = false;
+            this.searchRainbow = false;
 
             let stashData = loadUsersStash(this.$route.params.id).then(
                 (stashData) => {
@@ -695,6 +734,16 @@ export default {
                         stashData = Array.from(temp);
                     }
 
+                    if (this.searchAidaCount) {
+                        const temp = [];
+                        stashData.forEach((stashItem) => {
+                            if (stashItem.aidaCount == this.searchAidaCount) {
+                                temp.push(stashItem);
+                            }
+                        });
+                        stashData = temp;
+                    }
+
                     this.usersStash = stashData;
                     window.scrollTo(0, 0);
                 }
@@ -776,6 +825,12 @@ const loadUsersStash = async (userId) => {
 .input-select {
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+
+.input-select > p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    align-self: center;
 }
 
 .input-select-input {
