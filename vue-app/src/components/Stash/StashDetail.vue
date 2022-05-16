@@ -29,7 +29,16 @@
         </div>
         <div class="right">
             <!-- METADATA -->
-            <div class="detail-text">
+            <div
+                class="detail-text"
+                v-if="
+                    this.type == 'fiber' ||
+                    this.type == 'yarn' ||
+                    this.type == 'fabric' ||
+                    this.type == 'thread' ||
+                    this.type == 'aida'
+                "
+            >
                 <div class="text-label">Type:</div>
                 <div class="text-content" v-if="this.type == 'fiber'">
                     Fiber
@@ -46,16 +55,14 @@
                 <div class="text-content" v-else-if="this.type == 'aida'">
                     Aida Fabric
                 </div>
-                <div class="text-content" v-else>—</div>
             </div>
-            <div class="detail-text">
+            <div class="detail-text" v-if="this.description">
                 <div class="text-label">Description:</div>
-                <div class="text-content" v-if="this.description">
+                <div class="text-content">
                     {{ this.description }}
                 </div>
-                <div class="text-content" v-else>—</div>
             </div>
-            <div class="detail-text">
+            <div class="detail-text" v-if="this.status">
                 <div class="text-label">Status:</div>
                 <div class="text-content" v-if="this.status == 'inUse'">
                     In Use
@@ -75,11 +82,10 @@
                 <div class="text-content" v-else-if="this.status == 'sold'">
                     Sold
                 </div>
-                <div class="text-content" v-else>—</div>
             </div>
-            <div class="detail-text">
+            <div class="detail-text" v-if="this.tags?.length">
                 <div class="text-label">Tags:</div>
-                <div class="attributes-container" v-if="this.tags?.length">
+                <div class="attributes-container">
                     <p
                         class="attribute-container"
                         v-for="tag in this.tags"
@@ -88,14 +94,10 @@
                         {{ tag }}
                     </p>
                 </div>
-                <div class="text-content" v-else>—</div>
             </div>
-            <div class="detail-text">
+            <div class="detail-text" v-if="this.attributes?.length">
                 <div class="text-label">Attributes:</div>
-                <div
-                    class="attributes-container"
-                    v-if="this.attributes?.length"
-                >
+                <div class="attributes-container">
                     <p
                         class="attribute-container"
                         v-for="attribute in this.attributes"
@@ -104,35 +106,30 @@
                         {{ attribute }}
                     </p>
                 </div>
-                <div class="text-content" v-else>—</div>
             </div>
-            <div class="detail-text">
+            <div class="detail-text" v-if="this.storedIn?.length">
                 <div class="text-label">Stored In:</div>
-                <div class="text-content" v-if="this.storedIn?.length">
+                <div class="text-content">
                     {{ this.storedIn }}
                 </div>
-                <div class="text-content" v-else>—</div>
             </div>
-            <div class="detail-text">
+            <div class="detail-text" v-if="this.acquired">
                 <div class="text-label">Date Acquired:</div>
-                <div class="text-content" v-if="this.acquired">
+                <div class="text-content">
                     {{ this.acquired.slice(5, 16) }}
                 </div>
-                <div class="text-content" v-else>—</div>
             </div>
-            <div class="detail-text">
+            <div class="detail-text" v-if="this.acquiredFrom">
                 <div class="text-label">Acquired From:</div>
-                <div class="text-content" v-if="this.acquiredFrom">
+                <div class="text-content">
                     {{ this.acquiredFrom }}
                 </div>
-                <div class="text-content" v-else>—</div>
             </div>
-            <div class="detail-text">
+            <div class="detail-text" v-if="this.acquiredPrice">
                 <div class="text-label">Purchase Price:</div>
-                <div class="text-content" v-if="this.acquiredPrice">
+                <div class="text-content">
                     {{ this.acquiredPrice }} {{ this.acquiredCurrency }}
                 </div>
-                <div class="text-content" v-else>—</div>
             </div>
             <div class="divider" />
             <!-- FIBER, YARN, FABRIC, THREAD -->
@@ -144,40 +141,39 @@
                     this.type == 'thread'
                 "
             >
-                <div class="detail-text">
+                <div class="detail-text" v-if="this.dyerName">
                     <div class="text-label">Dyer Name:</div>
-                    <div class="text-content" v-if="this.dyerName">
+                    <div class="text-content">
                         {{ this.dyerName }}
                     </div>
-                    <div class="text-content" v-else>—</div>
                 </div>
-                <div class="detail-text">
+                <div class="detail-text" v-if="this.colorwayName">
                     <div class="text-label">Colorway Name:</div>
-                    <div class="text-content" v-if="this.colorwayName">
+                    <div class="text-content">
                         {{ this.colorwayName }}
                     </div>
-                    <div class="text-content" v-else>—</div>
                 </div>
-                <div class="detail-text">
+                <div class="detail-text" v-if="this.fiberContent">
                     <div class="text-label">Fiber Content:</div>
-                    <div class="text-content" v-if="this.fiberContent">
+                    <div class="text-content">
                         {{ this.fiberContent }}
                     </div>
-                    <div class="text-content" v-else>—</div>
                 </div>
             </span>
             <!-- FIBER DETAILS -->
-            <div v-if="this.type == 'fiber'" class="detail-text">
+            <div
+                v-if="this.type == 'fiber' && this.fiberQuantity"
+                class="detail-text"
+            >
                 <div class="text-label">Amount Stashed:</div>
-                <div class="text-content" v-if="this.fiberQuantity">
+                <div class="text-content">
                     {{ this.fiberQuantity.toFixed(2) }}
                     {{ this.fiberQuantityUnit }}
                 </div>
-                <div class="text-content" v-else>—</div>
             </div>
             <!-- YARN DETAILS -->
             <span v-if="this.type == 'yarn'">
-                <div class="detail-text">
+                <div class="detail-text" v-if="this.yarnWeight?.length">
                     <div class="text-label">Yarn Weight:</div>
                     <div class="text-content" v-if="this.yarnWeight == 'lace'">
                         Lace Weight
@@ -230,9 +226,11 @@
                     >
                         Super Bulky Weight
                     </div>
-                    <div class="text-content" v-else>—</div>
                 </div>
-                <div class="detail-text">
+                <div
+                    class="detail-text"
+                    v-if="this.lengthPerSkein || this.weightPerSkein"
+                >
                     <div class="text-label">Skein Details:</div>
                     <div
                         class="text-content"
@@ -247,7 +245,6 @@
                     <div class="text-content" v-else-if="this.weightPerSkein">
                         {{ this.weightPerSkein }} {{ this.weightUnit }}
                     </div>
-                    <div class="text-content" v-else>—</div>
                 </div>
                 <div class="detail-text">
                     <div class="text-label">Amount Stashed:</div>
