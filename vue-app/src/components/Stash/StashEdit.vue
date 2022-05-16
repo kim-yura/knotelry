@@ -71,6 +71,7 @@
                     <option value="yarn">Yarn</option>
                     <option value="fabric">Fabric</option>
                     <option value="thread">Thread</option>
+                    <option value="aida">Aida Fabric</option>
                 </select>
             </div>
             <div class="form-element" v-if="this.imageURL.length > 0">
@@ -638,7 +639,15 @@
                 </div>
             </span>
             <!-- COLOR SELECTOR -->
-            <span v-if="type == 'fiber' || type == 'yarn' || type == 'fabric'">
+            <span
+                v-if="
+                    type == 'fiber' ||
+                    type == 'yarn' ||
+                    type == 'fabric' ||
+                    type == 'thread' ||
+                    type == 'aida'
+                "
+            >
                 <div class="spacer" />
                 <div class="form-element">
                     <label for="colors">Colors:</label>
@@ -1450,7 +1459,7 @@ button:active {
 }
 
 .spacer {
-    height: 48px;
+    height: 28px;
 }
 
 .stashed-converter {

@@ -192,7 +192,7 @@
             </div>
             <!-- SPINNING -->
             <span v-if="this.spinning">
-                <div class="divider" />
+                <div class="spacer" />
                 <div class="form-element">
                     <label for="yarnWeight">Finished Yarn:</label>
                     <select v-model="this.yarnWeight">
@@ -329,7 +329,7 @@
 
             <!-- WEAVING -->
             <span v-if="this.weaving">
-                <div class="divider" />
+                <div class="spacer" />
                 <div class="form-element">
                     <label for="warpYarn">Warp Yarn:</label>
                     <input
@@ -484,7 +484,7 @@
 
             <!-- KNITTING -->
             <span v-if="this.knitting">
-                <div class="divider" />
+                <div class="spacer" />
                 <div class="form-element">
                     <label for="sizeMade">Size Made:</label>
                     <input
@@ -741,7 +741,7 @@
 
             <!-- CROCHETING -->
             <span v-if="this.crocheting">
-                <div class="divider" />
+                <div class="spacer" />
                 <div class="form-element" v-if="!this.knitting">
                     <label for="sizeMade">Size Made:</label>
                     <input
@@ -952,7 +952,7 @@
 
             <!-- SEWING -->
             <span v-if="this.sewing && !this.knitting && !this.crocheting">
-                <div class="divider" />
+                <div class="spacer" />
                 <div class="form-element">
                     <label for="sizeMade">Size Made:</label>
                     <input
@@ -965,10 +965,10 @@
 
             <!-- EMBROIDERY -->
             <span v-if="this.embroidery">
-                <div class="divider" />
+                <div class="spacer" />
             </span>
 
-            <div class="divider" />
+            <div class="spacer" />
             <div class="form-element">
                 <label for="tools">Linked Tools:</label>
                 <div class="linked-div">
@@ -2684,11 +2684,8 @@ button:active {
     text-align: left;
 }
 
-.divider {
-    border-top: 1px solid var(--color-shadow);
-    margin-top: 32px;
-    margin-bottom: 32px;
-    padding: 0px;
+.spacer {
+    height: 28px;
 }
 
 .link:hover {
