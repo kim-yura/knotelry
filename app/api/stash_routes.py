@@ -103,6 +103,10 @@ def post_stash_item():
         bobbins_stashed = request.json['bobbins_stashed'],
         plies = request.json['plies'],
 
+        fabric_height = request.json['fabric_height'],
+        fabric_height_unit = request.json['fabric_height_unit'],
+        aida_count = request.json['aida_count'],
+
         notes = request.json['notes'],
         created_at = datetime.now(),
         updated_at = datetime.now(),
@@ -175,6 +179,10 @@ def put_stash_item():
         'length_per_bobbin': request.json['length_per_bobbin'],
         'bobbins_stashed': request.json['bobbins_stashed'],
         'plies': request.json['plies'],
+
+        'fabric_height': request.json['fabric_height'],
+        'fabric_height_unit': request.json['fabric_height_unit'],
+        'aida_count': request.json['aida_count'],
 
         'notes': request.json['notes'],
         'updated_at': datetime.now(),
