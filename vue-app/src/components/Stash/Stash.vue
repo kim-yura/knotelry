@@ -813,13 +813,14 @@ const loadUsersStash = async (userId) => {
 
 .stash-search-container > div {
     margin-top: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 2px;
     display: flex;
     flex-direction: column;
 }
 
 .stash-search-container > div > label {
     font-size: 15px;
+    margin-top: 4px;
 }
 
 .input-select {
@@ -933,7 +934,7 @@ button:active {
     margin-right: 20px;
     margin-left: 20px;
     margin-top: 4px;
-    margin-bottom: 4px;
+    margin-bottom: 12px;
     font-size: 14px;
 }
 
