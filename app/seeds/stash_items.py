@@ -611,6 +611,120 @@ def seed_stash_items():
         stash_item_id=29,
         image_url="https://knotelry.s3.amazonaws.com/stash_29.jpg",
     )
+    dmc30 = Stash_Item(
+        user_id=1,
+        title="Six-Strand Embroidery Floss",
+        type="thread",
+        status="inStash",
+        colors="red",
+        fiber_content="100% Cotton",
+        length_per_bobbin=8,
+        length_unit="m",
+        bobbins_stashed=1,
+        length_stashed=8,
+        plies=6,
+        dyer_name="DMC",
+        colorway_name="117S-321",
+    )
+    dmc30_image1 = Stash_Item_Image(
+        stash_item_id=30,
+        image_url="https://knotelry.s3.amazonaws.com/stash_30.jpg",
+    )
+    dmc31 = Stash_Item(
+        user_id=1,
+        title="Six-Strand Embroidery Floss",
+        type="thread",
+        status="inStash",
+        colors="orange",
+        fiber_content="100% Cotton",
+        length_per_bobbin=8,
+        length_unit="m",
+        bobbins_stashed=1,
+        length_stashed=8,
+        plies=6,
+        dyer_name="DMC",
+        colorway_name="947",
+    )
+    dmc31_image1 = Stash_Item_Image(
+        stash_item_id=30,
+        image_url="https://knotelry.s3.amazonaws.com/stash_31.jpg",
+    )
+    dmc32 = Stash_Item(
+        user_id=1,
+        title="Six-Strand Embroidery Floss",
+        type="thread",
+        status="inStash",
+        colors="yellow",
+        fiber_content="100% Cotton",
+        length_per_bobbin=8,
+        length_unit="m",
+        bobbins_stashed=1,
+        length_stashed=8,
+        plies=6,
+        dyer_name="DMC",
+        colorway_name="973",
+    )
+    dmc32_image1 = Stash_Item_Image(
+        stash_item_id=30,
+        image_url="https://knotelry.s3.amazonaws.com/stash_32.jpg",
+    )
+    dmc33 = Stash_Item(
+        user_id=1,
+        title="Six-Strand Embroidery Floss",
+        type="thread",
+        status="inStash",
+        colors="green",
+        fiber_content="100% Cotton",
+        length_per_bobbin=8,
+        length_unit="m",
+        bobbins_stashed=1,
+        length_stashed=8,
+        plies=6,
+        dyer_name="DMC",
+        colorway_name="699",
+    )
+    dmc33_image1 = Stash_Item_Image(
+        stash_item_id=30,
+        image_url="https://knotelry.s3.amazonaws.com/stash_33.jpg",
+    )
+    dmc34 = Stash_Item(
+        user_id=1,
+        title="Six-Strand Embroidery Floss",
+        type="thread",
+        status="inStash",
+        colors="blue",
+        fiber_content="100% Cotton",
+        length_per_bobbin=8,
+        length_unit="m",
+        bobbins_stashed=1,
+        length_stashed=8,
+        plies=6,
+        dyer_name="DMC",
+        colorway_name="803",
+    )
+    dmc34_image1 = Stash_Item_Image(
+        stash_item_id=30,
+        image_url="https://knotelry.s3.amazonaws.com/stash_34.jpg",
+    )
+    dmc35 = Stash_Item(
+        user_id=1,
+        title="Six-Strand Embroidery Floss",
+        type="thread",
+        status="inStash",
+        colors="purple",
+        fiber_content="100% Cotton",
+        length_per_bobbin=8,
+        length_unit="m",
+        bobbins_stashed=1,
+        length_stashed=8,
+        plies=6,
+        dyer_name="DMC",
+        colorway_name="3837",
+    )
+    dmc35_image1 = Stash_Item_Image(
+        stash_item_id=30,
+        image_url="https://knotelry.s3.amazonaws.com/stash_35.jpg",
+    )
 
     test1 = Stash_Item(
         user_id=2,
@@ -681,6 +795,19 @@ def seed_stash_items():
     db.session.add(aida28_image1)
     db.session.add(aida29)
     db.session.add(aida29_image1)
+
+    db.session.add(dmc30)
+    db.session.add(dmc30_image1)
+    db.session.add(dmc31)
+    db.session.add(dmc31_image1)
+    db.session.add(dmc32)
+    db.session.add(dmc32_image1)
+    db.session.add(dmc33)
+    db.session.add(dmc33_image1)
+    db.session.add(dmc34)
+    db.session.add(dmc34_image1)
+    db.session.add(dmc35)
+    db.session.add(dmc35_image1)
 
     db.session.add(test1)
 
