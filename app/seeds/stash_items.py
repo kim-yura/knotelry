@@ -646,7 +646,7 @@ def seed_stash_items():
         colorway_name="947",
     )
     dmc31_image1 = Stash_Item_Image(
-        stash_item_id=30,
+        stash_item_id=31,
         image_url="https://knotelry.s3.amazonaws.com/stash_31.jpg",
     )
     dmc32 = Stash_Item(
@@ -665,7 +665,7 @@ def seed_stash_items():
         colorway_name="973",
     )
     dmc32_image1 = Stash_Item_Image(
-        stash_item_id=30,
+        stash_item_id=32,
         image_url="https://knotelry.s3.amazonaws.com/stash_32.jpg",
     )
     dmc33 = Stash_Item(
@@ -684,7 +684,7 @@ def seed_stash_items():
         colorway_name="699",
     )
     dmc33_image1 = Stash_Item_Image(
-        stash_item_id=30,
+        stash_item_id=33,
         image_url="https://knotelry.s3.amazonaws.com/stash_33.jpg",
     )
     dmc34 = Stash_Item(
@@ -703,7 +703,7 @@ def seed_stash_items():
         colorway_name="803",
     )
     dmc34_image1 = Stash_Item_Image(
-        stash_item_id=30,
+        stash_item_id=34,
         image_url="https://knotelry.s3.amazonaws.com/stash_34.jpg",
     )
     dmc35 = Stash_Item(
@@ -722,7 +722,7 @@ def seed_stash_items():
         colorway_name="3837",
     )
     dmc35_image1 = Stash_Item_Image(
-        stash_item_id=30,
+        stash_item_id=35,
         image_url="https://knotelry.s3.amazonaws.com/stash_35.jpg",
     )
 
