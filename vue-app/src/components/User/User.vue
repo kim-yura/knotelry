@@ -457,7 +457,7 @@ export default {
             if (data) {
                 this.user = data;
             } else {
-                this.$router.push("/login");
+                this.$router.push("/404");
             }
         });
         const galleryData = loadUsersPhotos(this.$route.params.id).then(
