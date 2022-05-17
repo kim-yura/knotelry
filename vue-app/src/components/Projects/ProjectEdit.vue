@@ -1299,6 +1299,36 @@
                                         </p>
                                     </div>
                                 </span>
+                                <span
+                                    v-else-if="
+                                        materialLink?.stashItem?.type == 'aida'
+                                    "
+                                >
+                                    <div
+                                        class="material-edit-form"
+                                        :id="`material-edit-form-${materialLink.id}`"
+                                    >
+                                        <div>
+                                            <input
+                                                type="number"
+                                                v-model="materialLink.unitsUsed"
+                                                :id="`unitsUsed-${materialLink.id}`"
+                                            />
+                                            <p>unit(s) used</p>
+                                        </div>
+                                        <p
+                                            class="unlink-item"
+                                            :key="materialLink.id"
+                                            @click="
+                                                submitMaterialEdit(
+                                                    materialLink.id
+                                                )
+                                            "
+                                        >
+                                            Submit Edit
+                                        </p>
+                                    </div>
+                                </span>
                             </div>
                         </div>
                     </span>
@@ -2079,6 +2109,7 @@ export default {
                 weight_used: null,
                 weight_unit: null,
                 skeins_used: null,
+                units_used: null,
             };
             if (
                 document.getElementById(`fiberQuantityUsed-${id}`) &&
@@ -2134,6 +2165,14 @@ export default {
             ) {
                 updatedMaterial.skeins_used = document.getElementById(
                     `skeinsUsed-${id}`
+                ).value;
+            }
+            if (
+                document.getElementById(`unitsUsed-${id}`) &&
+                document.getElementById(`unitsUsed-${id}`).value
+            ) {
+                updatedMaterial.units_used = document.getElementById(
+                    `unitsUsed-${id}`
                 ).value;
             }
 
