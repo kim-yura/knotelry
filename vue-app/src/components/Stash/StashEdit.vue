@@ -954,14 +954,14 @@ export default {
                 this.fabricPatternRepeatHeight = data.fabricPatternRepeatHeight;
                 this.fabricPatternRepeatUnit = data.fabricPatternRepeatUnit;
 
-                this.lengthPerBobbin = data.lengthPerBobbin;
-                this.bobbinsStashed = data.bobbinsStashed;
-                this.plies = data.plies;
-
                 this.fabricHeight = data.fabricHeight;
                 this.fabricHeightUnit = data.fabricHeightUnit;
                 this.aidaCount = data.aidaCount;
                 this.unitsStashed = data.unitsStashed;
+
+                this.lengthPerBobbin = data.lengthPerBobbin;
+                this.bobbinsStashed = data.bobbinsStashed;
+                this.plies = data.plies;
 
                 this.notes = data.notes;
 
@@ -1036,14 +1036,14 @@ export default {
             fabricPatternRepeatHeight: null,
             fabricPatternRepeatUnit: null,
 
-            lengthPerBobbin: null,
-            bobbinsStashed: null,
-            plies: null,
-
             fabricHeight: null,
             fabricHeightUnit: null,
             aidaCount: null,
             unitsStashed: null,
+
+            lengthPerBobbin: null,
+            bobbinsStashed: null,
+            plies: null,
 
             notes: null,
 
@@ -1133,14 +1133,14 @@ export default {
                         this.fabricPatternRepeatHeight,
                     fabric_pattern_repeat_unit: this.fabricPatternRepeatUnit,
 
-                    length_per_bobbin: this.lengthPerBobbin,
-                    bobbins_stashed: this.bobbinsStashed,
-                    plies: this.plies,
-
                     fabric_height: this.fabricHeight,
                     fabric_height_unit: this.fabricHeightUnit,
                     aida_count: this.aidaCount,
                     units_stashed: this.unitsStashed,
+
+                    length_per_bobbin: this.lengthPerBobbin,
+                    bobbins_stashed: this.bobbinsStashed,
+                    plies: this.plies,
 
                     notes: this.notes,
                 };

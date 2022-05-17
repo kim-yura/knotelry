@@ -105,14 +105,14 @@ export default {
                     fabric_pattern_repeat_height: null,
                     fabric_pattern_repeat_unit: null,
 
-                    length_per_bobbin: null,
-                    bobbins_stashed: null,
-                    plies: null,
-
                     fabric_height: null,
                     fabric_height_unit: null,
                     aida_count: null,
                     units_stashed: null,
+
+                    length_per_bobbin: null,
+                    bobbins_stashed: null,
+                    plies: null,
 
                     notes: null,
                 };

@@ -49,7 +49,7 @@ class Stash_Item(db.Model):
     # Broader attributes
     colors = db.Column(db.Text)
 
-    # FIBER, YARN, FABRIC, THREAD, AIDA
+    # FIBER, YARN, FABRIC, AIDA, THREAD
     dyer_name = db.Column(db.Text)
     # For Aida, refer as manufacturer, not dyer
     colorway_name = db.Column(db.Text)
@@ -82,13 +82,6 @@ class Stash_Item(db.Model):
     # length_stashed
     # length_unit
 
-    # THREAD
-    length_per_bobbin = db.Column(db.Float)
-    # length_unit
-    bobbins_stashed = db.Column(db.Float)
-    # length_stashed
-    plies = db.Column(db.Integer)
-
     # AIDA FABRIC
     # fabric_width
     # fabric_width_unit
@@ -97,6 +90,13 @@ class Stash_Item(db.Model):
     aida_count = db.Column(db.Integer)
     units_stashed = db.Column(db.Float)
     # length_stashed
+
+    # THREAD
+    length_per_bobbin = db.Column(db.Float)
+    # length_unit
+    bobbins_stashed = db.Column(db.Float)
+    # length_stashed
+    plies = db.Column(db.Integer)
 
     notes = db.Column(db.Text)
 
@@ -127,7 +127,7 @@ class Stash_Item(db.Model):
 
             'colors': self.colors,
 
-            # FIBER, YARN, FABRIC,THREAD
+            # FIBER, YARN, FABRIC, AIDA FABRIC, THREAD
             'dyer_name': self.dyer_name,
             'colorway_name': self.colorway_name,
             'fiber_content': self.fiber_content,
@@ -159,13 +159,6 @@ class Stash_Item(db.Model):
             # length_stashed
             # length_unit
 
-            # THREAD
-            'length_per_bobbin': self.length_per_bobbin,
-            # length_unit
-            'bobbins_stashed': self.bobbins_stashed,
-            # length_stashed
-            'plies': self.plies,
-
             # AIDA
             # fabric_width
             # fabric_width_unit
@@ -174,6 +167,13 @@ class Stash_Item(db.Model):
             'aida_count': self.aida_count,
             'units_stashed': self.units_stashed,
             # length_stashed
+
+            # THREAD
+            'length_per_bobbin': self.length_per_bobbin,
+            # length_unit
+            'bobbins_stashed': self.bobbins_stashed,
+            # length_stashed
+            'plies': self.plies,
 
             'notes': self.notes,
             'created_at': self.created_at,
@@ -236,13 +236,6 @@ class Stash_Item(db.Model):
             # lengthStashed
             # lengthUnit
 
-            # THREAD
-            'lengthPerBobbin': self.length_per_bobbin,
-            # lengthUnit
-            'bobbinsStashed': self.bobbins_stashed,
-            # lengthStashed
-            'plies': self.plies,
-
             # AIDA
             # fabricWidth
             # fabricWidthUnit
@@ -251,6 +244,13 @@ class Stash_Item(db.Model):
             'aidaCount': self.aida_count,
             'unitsStashed': self.units_stashed,
             # lengthStashed
+
+            # THREAD
+            'lengthPerBobbin': self.length_per_bobbin,
+            # lengthUnit
+            'bobbinsStashed': self.bobbins_stashed,
+            # lengthStashed
+            'plies': self.plies,
 
             'notes': self.notes,
             'createdAt': self.created_at,
