@@ -1116,7 +1116,8 @@
                                         <p
                                             v-if="
                                                 materialLink.stashItem.type ==
-                                                'fiber'
+                                                    'fiber' &&
+                                                materialLink.fiberQuantityUsed
                                             "
                                         >
                                             {{ materialLink.fiberQuantityUsed }}
@@ -1126,7 +1127,8 @@
                                         <p
                                             v-else-if="
                                                 materialLink.stashItem.type ==
-                                                'yarn'
+                                                    'yarn' &&
+                                                materialLink.lengthUsed
                                             "
                                         >
                                             {{ materialLink.lengthUsed }}
@@ -1135,7 +1137,8 @@
                                         <p
                                             v-else-if="
                                                 materialLink.stashItem.type ==
-                                                'fabric'
+                                                    'fabric' &&
+                                                materialLink.lengthUsed
                                             "
                                         >
                                             {{ materialLink.lengthUsed }}
@@ -1144,7 +1147,8 @@
                                         <p
                                             v-else-if="
                                                 materialLink.stashItem.type ==
-                                                'thread'
+                                                    'thread' &&
+                                                materialLink.lengthUsed
                                             "
                                         >
                                             {{ materialLink.lengthUsed }}
@@ -1163,7 +1167,8 @@
                                         <p
                                             v-else-if="
                                                 materialLink.stashItem.type ==
-                                                'aida'
+                                                    'aida' &&
+                                                materialLink.unitsUsed
                                             "
                                         >
                                             {{ materialLink.unitsUsed }} units
