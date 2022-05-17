@@ -16,6 +16,7 @@ class Project_Material(db.Model):
     weight_used = db.Column(db.Float)
     weight_unit = db.Column(db.String(5))
     skeins_used = db.Column(db.Float)
+    units_used = db.Column(db.Float)
 
     project = db.relationship('Project', back_populates='project_material')
     stash_item = db.relationship('Stash_Item', back_populates='project_material')
@@ -32,6 +33,7 @@ class Project_Material(db.Model):
             'weight_used': self.weight_used,
             'weight_unit': self.weight_unit,
             'skeins_used': self.skeins_used,
+            'units_used': self.units_used,
             'stash_item': self.stash_item.to_dict(),
         }
 
@@ -47,6 +49,7 @@ class Project_Material(db.Model):
             'weightUsed': self.weight_used,
             'weightUnit': self.weight_unit,
             'skeinsUsed': self.skeins_used,
+            'unitsUsed': self.units_used,
             'stashItem': self.stash_item.to_JSON(),
         }
 

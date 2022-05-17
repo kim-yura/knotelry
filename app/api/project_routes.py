@@ -142,6 +142,7 @@ def post_project_material():
         weight_used = request.json['weight_used'],
         weight_unit = request.json['weight_unit'],
         skeins_used = request.json['skeins_used'],
+        units_used = request.json['units_used'],
     )
     try:
         db.session.add(project_material)
@@ -262,6 +263,7 @@ def put_project_material():
         'weight_used': request.json['weight_used'],
         'weight_unit': request.json['weight_unit'],
         'skeins_used': request.json['skeins_used'],
+        'units_used': request.json['units_used'],
     }, synchronize_session='fetch')
     db.session.commit()
     project_material = Project_Material.query.get(request.json['id'])

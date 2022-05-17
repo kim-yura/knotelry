@@ -481,6 +481,35 @@ def seed_projects():
         image_url="https://knotelry.s3.amazonaws.com/project_32.jpg"
     )
 
+    project13 = Project(
+        user_id=1,
+        title="Beauty Embroidery",
+        craft_types="embroidery",
+
+        status="finished",
+        start_date=datetime.strptime('Jan 1 2022', '%b %d %Y'),
+        end_date=datetime.strptime('Feb 2 2022', '%b %d %Y'),
+    )
+    project13_material1 = Project_Material(
+        project_id=13,
+        stash_id=27,
+        units_used=1,
+    )
+    project13_material2 = Project_Material(
+        project_id=13,
+        stash_id=34,
+        length_used=4,
+        length_unit="m",
+    )
+    project13_tool1 = Project_Tool(
+        project_id=13,
+        tool_id=6,
+    )
+    project13_image1 = Project_Image(
+        project_id=13,
+        image_url="https://knotelry.s3.amazonaws.com/project_33.jpg"
+    )
+
     # Knitting
     db.session.add(project1)
     db.session.add(project1_material1)
@@ -561,6 +590,13 @@ def seed_projects():
     db.session.add(project12)
     db.session.add(project12_tool1)
     db.session.add(project12_image1)
+
+    # Embroidery
+    db.session.add(project13)
+    db.session.add(project13_material1)
+    db.session.add(project13_material2)
+    db.session.add(project13_tool1)
+    db.session.add(project13_image1)
 
     db.session.commit()
 
