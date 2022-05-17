@@ -251,7 +251,11 @@
                             alt="User-uploaded project image"
                             @click="redirectToProject(project.id)"
                         />
-                        <img v-else src="" alt="No image found" />
+                        <img
+                            v-else
+                            src="https://knotelry.s3.amazonaws.com/image-placeholder.png"
+                            alt="No image found"
+                        />
                     </span>
                 </div>
             </div>
@@ -275,7 +279,11 @@
                             alt="User-uploaded project image"
                             @click="redirectToProject(project.id)"
                         />
-                        <img v-else src="" alt="No image found" />
+                        <img
+                            v-else
+                            src="https://knotelry.s3.amazonaws.com/image-placeholder.png"
+                            alt="No image found"
+                        />
                     </span>
                 </div>
             </div>
@@ -298,7 +306,11 @@
                             :key="project.id"
                             alt="User-uploaded project image"
                         />
-                        <img v-else src="" alt="No image found" />
+                        <img
+                            v-else
+                            src="https://knotelry.s3.amazonaws.com/image-placeholder.png"
+                            alt="No image found"
+                        />
                     </span>
                 </div>
             </div>
@@ -321,7 +333,11 @@
                             :key="project.id"
                             alt="User-uploaded project image"
                         />
-                        <img v-else src="" alt="No image found" />
+                        <img
+                            v-else
+                            src="https://knotelry.s3.amazonaws.com/image-placeholder.png"
+                            alt="No image found"
+                        />
                     </span>
                 </div>
             </div>
@@ -345,7 +361,11 @@
                             alt="User-uploaded project image"
                             @click="redirectToProject(project.id)"
                         />
-                        <img v-else src="" alt="No image found" />
+                        <img
+                            v-else
+                            src="https://knotelry.s3.amazonaws.com/image-placeholder.png"
+                            alt="No image found"
+                        />
                     </span>
                 </div>
             </div>
@@ -369,7 +389,11 @@
                             alt="User-uploaded project image"
                             @click="redirectToProject(project.id)"
                         />
-                        <img v-else src="" alt="No image found" />
+                        <img
+                            v-else
+                            src="https://knotelry.s3.amazonaws.com/image-placeholder.png"
+                            alt="No image found"
+                        />
                     </span>
                 </div>
             </div>
