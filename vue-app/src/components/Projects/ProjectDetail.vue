@@ -575,6 +575,12 @@
                         <p class="linked-p" v-else-if="material.skeinsUsed">
                             {{ material.skeinsUsed }} skeins used
                         </p>
+                        <p class="linked-p" v-else-if="material.unitsUsed == 1">
+                            {{ material.unitsUsed }} unit used
+                        </p>
+                        <p class="linked-p" v-else-if="material.unitsUsed">
+                            {{ material.unitsUsed }} units used
+                        </p>
                     </div>
                 </div>
                 <div class="text-content" v-else>—</div>
