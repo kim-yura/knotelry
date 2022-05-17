@@ -638,6 +638,87 @@
                     </div>
                 </div>
             </span>
+            <!-- AIDA FABRIC -->
+            <span v-if="type == 'aida'">
+                <div class="spacer" />
+                <div class="form-element">
+                    <label for="dyerName">Manufacturer Name:</label>
+                    <input
+                        type="text"
+                        placeholder="Enter manufacturer information"
+                        v-model="dyerName"
+                    />
+                </div>
+                <div class="form-element">
+                    <label for="colorwayName">Color Name:</label>
+                    <input
+                        type="text"
+                        placeholder="Enter color information"
+                        v-model="colorwayName"
+                    />
+                </div>
+                <div class="form-element">
+                    <label for="fiberContent">Fiber Content:</label>
+                    <input
+                        type="text"
+                        placeholder="Enter fiber content information"
+                        v-model="fiberContent"
+                    />
+                </div>
+                <div class="form-element">
+                    <label for="fabricWidth">Fabric Width:</label>
+                    <div class="input-select">
+                        <input
+                            type="number"
+                            placeholder="0"
+                            v-model="fabricWidth"
+                        />
+                        <select v-model="fabricWidthUnit">
+                            <option value="null" selected disabled hidden>
+                                unit
+                            </option>
+                            <option value="in">inches</option>
+                            <option value="cm">centimeters</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-element">
+                    <label for="fabricHeight">Fabric Height:</label>
+                    <div class="input-select">
+                        <input
+                            type="number"
+                            placeholder="0"
+                            v-model="fabricHeight"
+                        />
+                        <select v-model="fabricHeightUnit">
+                            <option value="null" selected disabled hidden>
+                                unit
+                            </option>
+                            <option value="in">inches</option>
+                            <option value="cm">centimeters</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-element">
+                    <label for="aidaCount">Aida Count:</label>
+                    <input
+                        type="text"
+                        placeholder="Enter Aida count"
+                        v-model="aidaCount"
+                    />
+                </div>
+                <div class="form-element">
+                    <label for="amountStashed">Amount Stashed:</label>
+                    <div class="input-select">
+                        <input
+                            type="number"
+                            placeholder="0"
+                            v-model="unitsStashed"
+                        />
+                        <p>Units</p>
+                    </div>
+                </div>
+            </span>
             <!-- COLOR SELECTOR -->
             <span
                 v-if="
@@ -876,6 +957,11 @@ export default {
                 this.lengthPerBobbin = data.lengthPerBobbin;
                 this.bobbinsStashed = data.bobbinsStashed;
                 this.plies = data.plies;
+
+                this.fabricHeight = data.fabricHeight;
+                this.fabricHeightUnit = data.fabricHeightUnit;
+                this.aidaCount = data.aidaCount;
+                this.unitsStashed = data.unitsStashed;
 
                 this.notes = data.notes;
 
@@ -1296,6 +1382,7 @@ const formatDate = (date) => {
 label {
     text-align: justify;
     font-size: 14px;
+    margin-top: 4px;
 }
 
 input {
@@ -1450,7 +1537,6 @@ button:active {
     margin-bottom: 0px;
     align-self: center;
     font-size: 14px;
-    justify-self: left;
 }
 
 .input-select-input {
