@@ -791,7 +791,7 @@ a:hover {
 .user-left > img {
     height: 120px;
     width: 120px;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 4px;
     border: 1px solid var(--color-shadow);
 }
