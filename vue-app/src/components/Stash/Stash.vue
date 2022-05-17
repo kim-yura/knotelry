@@ -29,8 +29,8 @@
                         <option value="fiber">Fiber</option>
                         <option value="yarn">Yarn</option>
                         <option value="fabric">Fabric</option>
-                        <option value="thread">Thread</option>
                         <option value="aida">Aida Fabric</option>
+                        <option value="thread">Thread</option>
                     </select>
                 </div>
                 <!-- IF FIBER, YARN, FABRIC, THREAD, OR AIDA -->
