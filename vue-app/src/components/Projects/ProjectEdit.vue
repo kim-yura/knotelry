@@ -963,11 +963,6 @@
                 </div>
             </span>
 
-            <!-- EMBROIDERY -->
-            <span v-if="this.embroidery">
-                <div class="spacer" />
-            </span>
-
             <div class="spacer" />
             <div class="form-element">
                 <label for="tools">Linked Tools:</label>
@@ -1129,13 +1124,50 @@
                                             used
                                         </p>
                                         <p
-                                            v-if="
+                                            v-else-if="
                                                 materialLink.stashItem.type ==
                                                 'yarn'
                                             "
                                         >
                                             {{ materialLink.lengthUsed }}
                                             {{ materialLink.lengthUnit }} used
+                                        </p>
+                                        <p
+                                            v-else-if="
+                                                materialLink.stashItem.type ==
+                                                'fabric'
+                                            "
+                                        >
+                                            {{ materialLink.lengthUsed }}
+                                            {{ materialLink.lengthUnit }} used
+                                        </p>
+                                        <p
+                                            v-else-if="
+                                                materialLink.stashItem.type ==
+                                                'thread'
+                                            "
+                                        >
+                                            {{ materialLink.lengthUsed }}
+                                            {{ materialLink.lengthUnit }} used
+                                        </p>
+                                        <p
+                                            v-else-if="
+                                                materialLink.stashItem.type ==
+                                                    'aida' &&
+                                                materialLink.unitsUsed == 1
+                                            "
+                                        >
+                                            {{ materialLink.unitsUsed }} unit
+                                            used
+                                        </p>
+                                        <p
+                                            v-else-if="
+                                                materialLink.stashItem.type ==
+                                                'aida'
+                                            "
+                                        >
+                                            {{ materialLink.unitsUsed }} units
+                                            used
                                         </p>
                                     </div>
                                 </div>
@@ -1713,7 +1745,7 @@ export default {
                     knittingNeedles = knittingNeedles.slice(0, -1);
                 } else {
                     knittingNeedles = null;
-                };
+                }
 
                 let hooks = "";
 
@@ -2271,7 +2303,8 @@ const formatDate = (date) => {
 
 label {
     text-align: justify;
-    align-self: center;
+    align-self: flex-start;
+    margin-top: 4px;
 }
 
 .label-top-align {
