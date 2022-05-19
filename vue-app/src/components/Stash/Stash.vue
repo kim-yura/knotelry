@@ -344,11 +344,14 @@
             </div>
             <div class="stash-gallery-no-results" v-else>
                 <h4>No results!</h4>
-                <p>
+                <p v-if="$store.state.sessionUser?.id == $route.params.id">
                     Maybe try broadening your search or
                     <span id="create-link" @click="createStash"
                         >adding to your stash?</span
                     >
+                </p>
+                <p v-else>
+                    {{ this.user?.username }} has no relevant Stash results!
                 </p>
             </div>
         </div>
@@ -359,7 +362,7 @@
 export default {
     name: "Stash",
     mounted() {
-        if (!(this.$store.state.sessionUser?.id)) {
+        if (!this.$store.state.sessionUser?.id) {
             this.$router.push("/login");
         }
         const data = loadUser(this.$route.params.id).then((data) => {
