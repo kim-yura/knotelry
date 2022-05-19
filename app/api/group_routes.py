@@ -13,6 +13,13 @@ def get_group(id):
 
 @group_routes.route('/users/<int:id>')
 def get_users_groups(id):
-    groups = Group.query.all()
+    group_memberships = Group_Membership.query.all()
+    users_memberships = []
+    for membership in group_memberships:
+        if membership.user_id == id:
+            users_memberships.append(membership)
+    users_groups = []
+    for membership in users_memberships:
+        users_groups.append(Group.query.get(membership.group_id))
 
-    return {'groups': [group for group in groups]}
+    return {'usersGroups': [group.to_JSON() for group in users_groups]}
