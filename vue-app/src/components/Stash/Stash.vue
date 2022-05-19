@@ -306,7 +306,7 @@
         </div>
         <div class="stash-body">
             <div class="stash-header">
-                <h2>{{ $store.state.selectedUser?.username }}'s Stash</h2>
+                <h2>{{ this.user?.username }}'s Stash</h2>
                 <h4
                     @click="createStash"
                     v-if="$store.state.sessionUser?.id == $route.params.id"
