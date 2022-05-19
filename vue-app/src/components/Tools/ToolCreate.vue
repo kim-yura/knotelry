@@ -64,9 +64,7 @@
             <div class="form-element">
                 <label for="status">Status:</label>
                 <select v-model="status">
-                    <option value=null selected disabled hidden>
-                        —
-                    </option>
+                    <option value="null" selected disabled hidden>—</option>
                     <option value="inStash">In stash</option>
                     <option value="inUse">In use</option>
                     <option value="loaned">Loaned</option>
@@ -130,7 +128,11 @@ import { mapMutations } from "vuex";
 
 export default {
     name: "ToolCreate",
-    mounted() {},
+    mounted() {
+        if (!this.$store.state.sessionUser?.id) {
+            this.$router.push("/login");
+        }
+    },
     data() {
         return {
             validationErrors: [],

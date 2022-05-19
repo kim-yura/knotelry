@@ -132,6 +132,9 @@
 export default {
     name: "ToolEdit",
     mounted() {
+        if (!this.$store.state.sessionUser?.id) {
+            this.$router.push("/login");
+        }
         const data = loadTool(this.$route.params.toolId).then((data) => {
             if (data && data?.userId == this.$store.state.sessionUser?.id) {
                 this.id = data.id;

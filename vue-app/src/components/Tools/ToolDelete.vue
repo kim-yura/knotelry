@@ -30,6 +30,9 @@ import { mapMutations } from "vuex";
 export default {
     name: "ToolDelete",
     mounted() {
+        if (!this.$store.state.sessionUser?.id) {
+            this.$router.push("/login");
+        }
         const data = loadTool(this.$route.params.toolId).then((data) => {
             if (data && data?.userId == this.$store.state.sessionUser?.id) {
                 this.title = data.title;

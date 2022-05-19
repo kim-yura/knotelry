@@ -116,6 +116,9 @@
 export default {
     name: "ToolDetail",
     mounted() {
+        if (!this.$store.state.sessionUser?.id) {
+            this.$router.push("/login");
+        }
         const data = loadTool(this.$route.params.toolId).then((data) => {
             if (data) {
                 this.acquired = data.acquired;
