@@ -79,3 +79,24 @@ def put_group():
         return jsonify(group.to_JSON())
     else:
         return make_response({'errors': ['Edit on non-existent group']}, 404)
+
+@group_routes.route('/', methods=['DELETE'])
+def delete_group():
+    group = Group.query.get(request.json['id'])
+    if group:
+        db.session.delete(group)
+        db.session.commit()
+        return jsonify({'errors': False})
+    else:
+        return make_response({'errors': ['Delete on non-existent group']}, 404)
+
+@group_routes.route('/<int:id>/leave', methods=['DELETE'])
+def leave_group(id):
+    group_memberships = Group_Membership.query.order_by((Group_Membership.id).asc()).all()
+    for membership in group_memberships:
+        if membership.group_id == id and membership.user_id == request.json['user_id']:
+            db.session.delete(membership)
+            db.session.commit()
+            return jsonify({'errors': False})
+        else:
+            return make_response({'errors': ['Delete on non-existent membership']}, 404)
