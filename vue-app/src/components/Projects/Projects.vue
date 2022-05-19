@@ -538,6 +538,9 @@
 export default {
     name: "Projects",
     mounted() {
+        if (!this.$store.state.sessionUser?.id) {
+            this.$router.push("/login");
+        }
         const data = loadUser(this.$route.params.id).then((data) => {
             if (data) {
                 this.user = data;

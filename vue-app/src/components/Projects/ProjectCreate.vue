@@ -41,6 +41,11 @@ import { mapMutations } from "vuex";
 
 export default {
     name: "ProjectCreate",
+    mounted() {
+        if (!this.$store.state.sessionUser?.id) {
+            this.$router.push("/login");
+        }
+    },
     data() {
         return {
             validationErrors: [],
@@ -51,8 +56,10 @@ export default {
         async submit() {
             this.validationErrors = [];
             const errorsArr = [];
-            if (!this.title || this.title?.length == 0) errorsArr.push("Title cannot be empty.");
-            if (this.title?.length > 100) errorsArr.push("Title cannot be longer than 100 characters.");
+            if (!this.title || this.title?.length == 0)
+                errorsArr.push("Title cannot be empty.");
+            if (this.title?.length > 100)
+                errorsArr.push("Title cannot be longer than 100 characters.");
 
             if (errorsArr.length > 0) {
                 this.validationErrors = errorsArr;
