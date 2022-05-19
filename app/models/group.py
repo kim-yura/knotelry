@@ -28,7 +28,6 @@ class Group_Membership(db.Model):
             'groupId': self.group_id,
             'userId': self.user_id,
 
-            'group': self.group.to_JSON(),
             'user': self.user.to_JSON(),
         }
 
@@ -57,7 +56,7 @@ class Group(db.Model):
             'owner_id': self.owner_id,
             'moderator_ids': self.moderator_ids,
 
-            'group_membership': self.group_membership.to_dict(),
+            'groupMembership': [membership.to_dict() for membership in self.group_membership],
             'owner': self.owner.to_dict(),
         }
 
@@ -71,6 +70,6 @@ class Group(db.Model):
             'ownerId': self.owner_id,
             'moderatorIds': self.moderator_ids,
 
-            'groupMembership': self.group_membership.to_JSON(),
+            'groupMembership': [membership.to_JSON() for membership in self.group_membership],
             'owner': self.owner.to_JSON(),
         }

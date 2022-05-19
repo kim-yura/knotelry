@@ -16,7 +16,7 @@ def get_users_projects(id):
     return {'projects': [project.to_JSON() for project in users_projects]}
 
 @project_routes.route('/<int:id>')
-def project(id):
+def get_project(id):
     project = Project.query.get(id)
     return project.to_JSON()
 

@@ -12,6 +12,7 @@ from .api.tool_routes import tool_routes
 from .api.gallery_routes import gallery_routes
 from .api.stash_routes import stash_routes
 from .api.project_routes import project_routes
+from .api.group_routes import group_routes
 
 from .api.image_routes import image_routes
 
@@ -41,6 +42,7 @@ app.register_blueprint(tool_routes, url_prefix='/api/tools')
 app.register_blueprint(gallery_routes, url_prefix='/api/gallery')
 app.register_blueprint(stash_routes, url_prefix='/api/stash')
 app.register_blueprint(project_routes, url_prefix='/api/projects')
+app.register_blueprint(group_routes, url_prefix='/api/groups')
 
 app.register_blueprint(image_routes, url_prefix='/api/images')
 db.init_app(app)

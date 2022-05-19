@@ -710,7 +710,6 @@ const loadUser = async (userId) => {
         const data = await response.json();
         return data;
     } else {
-        const data = false;
         return false;
     }
 };
@@ -721,7 +720,6 @@ const loadUsersPhotos = async (userId) => {
         const galleryData = await response.json();
         return galleryData;
     } else {
-        const galleryData = false;
         return false;
     }
 };
@@ -732,7 +730,6 @@ const loadUsersStash = async (userId) => {
         const stashData = await response.json();
         return stashData;
     } else {
-        const stashData = false;
         return false;
     }
 };
@@ -743,7 +740,6 @@ const loadUsersTools = async (userId) => {
         const toolsData = await response.json();
         return toolsData;
     } else {
-        const toolsData = false;
         return false;
     }
 };
@@ -754,7 +750,7 @@ const loadUsersProjects = async (userId) => {
         const projectsData = await response.json();
         return projectsData;
     } else {
-        return projectsData;
+        return false;
     }
 };
 </script>
