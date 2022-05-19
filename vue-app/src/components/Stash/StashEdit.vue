@@ -883,6 +883,9 @@
 export default {
     name: "StashEdit",
     mounted() {
+        if (!this.$store.state.sessionUser?.id) {
+            this.$router.push("/login");
+        }
         const data = loadStash(this.$route.params.stashId).then((data) => {
             if (data && data?.userId == this.$store.state.sessionUser?.id) {
                 this.id = data.id;

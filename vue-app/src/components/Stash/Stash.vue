@@ -359,11 +359,14 @@
 export default {
     name: "Stash",
     mounted() {
+        if (!(this.$store.state.sessionUser?.id)) {
+            this.$router.push("/login");
+        }
         const data = loadUser(this.$route.params.id).then((data) => {
             if (data) {
                 this.user = data;
             } else {
-                this.$router.push("/login");
+                this.$router.push("/404");
             }
         });
         const stashData = loadUsersStash(this.$route.params.id).then(

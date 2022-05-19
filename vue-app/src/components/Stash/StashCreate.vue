@@ -42,6 +42,11 @@ import { mapMutations } from "vuex";
 
 export default {
     name: "StashCreate",
+    mounted() {
+        if (!this.$store.state.sessionUser?.id) {
+            this.$router.push("/login");
+        }
+    },
     data() {
         return {
             validationErrors: [],

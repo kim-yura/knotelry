@@ -775,6 +775,9 @@
 export default {
     name: "StashDetail",
     mounted() {
+        if (!this.$store.state.sessionUser?.id) {
+            this.$router.push("/login");
+        }
         const data = loadStashItem(parseInt(this.$route.params.stashId)).then(
             (data) => {
                 if (data) {
