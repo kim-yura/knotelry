@@ -4,6 +4,7 @@ from .tools import seed_tools, undo_tools
 from .gallery_photos import seed_gallery_photos, undo_gallery_photos
 from .stash_items import seed_stash_items, undo_stash_items
 from .projects import seed_projects, undo_projects
+from .groups import seed_groups, undo_groups
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -18,6 +19,7 @@ def seed():
     seed_gallery_photos()
     seed_stash_items()
     seed_projects()
+    seed_groups()
     # Add other seed functions here
 
 
@@ -29,4 +31,5 @@ def undo():
     undo_gallery_photos()
     undo_stash_items()
     undo_projects()
+    undo_groups()
     # Add other undo functions here

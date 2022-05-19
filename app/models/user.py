@@ -36,7 +36,7 @@ class User(db.Model, UserMixin):
     stash_item = db.relationship('Stash_Item', back_populates='user')
     project = db.relationship('Project', back_populates='user')
 
-    group_membership = db.relationship('Group', back_populates='user')
+    group_membership = db.relationship('Group_Membership', back_populates='user')
     group_owner = db.relationship('Group', back_populates='owner')
 
     @property
