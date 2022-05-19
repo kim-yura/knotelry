@@ -154,11 +154,14 @@
             </table>
             <div class="no-results" v-else>
                 <h4>No results!</h4>
-                <p>
+                <p v-if="$store.state.sessionUser?.id == $route.params.id">
                     Maybe try broadening your search or
                     <span id="create-link" @click="createTool"
                         >adding a new tool?</span
                     >
+                </p>
+                <p v-else>
+                    {{ this.user?.username }} has no relevant Toolbox results!
                 </p>
             </div>
         </div>
