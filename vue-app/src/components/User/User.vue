@@ -477,6 +477,9 @@
 export default {
     name: "User",
     mounted() {
+        if (!this.$store.state.sessionUser?.id) {
+            this.$router.push("/login");
+        }
         const userData = loadUser(this.$route.params.id).then((data) => {
             if (data) {
                 this.user = data;
