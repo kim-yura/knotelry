@@ -112,7 +112,7 @@ export default {
     background-position: bottom;
     margin: 0;
     padding: 0;
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 68px) ;
     height: 100%;
     display: grid;
     grid-template-columns: 40% 60%;
@@ -120,7 +120,7 @@ export default {
 
 .auth-form {
     background-color: rgba(245, 242, 240, 0.7);
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 68px) ;
     height: 100%;
     display: flex;
     flex-direction: column;

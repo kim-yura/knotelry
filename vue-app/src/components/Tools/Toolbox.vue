@@ -433,7 +433,7 @@ const loadUsersTools = async (userId) => {
 }
 
 .toolbox-left {
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 68px) ;
     height: 100%;
     margin-bottom: 40px;
 }
