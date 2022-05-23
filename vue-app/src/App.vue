@@ -3,6 +3,7 @@
         <nav>
             <div class="nav-section">
                 <router-link to="/" id="home-link">knotelry</router-link>
+                <router-link to="/groups">groups</router-link>
                 <!-- <router-link to="/patterns">patterns</router-link>
                 <router-link to="/yarns">yarns</router-link>
                 <router-link to="/community">community</router-link>

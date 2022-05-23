@@ -25,6 +25,8 @@ import ProjectCreate from '../views/Projects/ProjectCreateView.vue'
 import ProjectEdit from '../views/Projects/ProjectEditView.vue'
 import ProjectDelete from '../views/Projects/ProjectDeleteView.vue'
 
+import Groups from '../views/Groups/GroupsView.vue'
+
 import PNF from '../views/PNFView.vue'
 
 const routes = [
@@ -135,6 +137,12 @@ const routes = [
 		path: '/projects/:projectId/delete',
 		name: 'projectDelete',
 		component: ProjectDelete
+	},
+	// -------------------- GROUPS -------------------- //
+	{
+		path: '/groups',
+		name: 'Groups',
+		component: Groups
 	},
 	{
 		path: '/404',
