@@ -63,7 +63,8 @@ def seed_groups():
 
     group4 = Group(
         id=4,
-        title="Test Group 1",
+        title="Test Group for Spinners",
+        craft_types="spinning",
         owner_id=1,
     )
     group4_member1 = Group_Membership(
@@ -73,7 +74,8 @@ def seed_groups():
 
     group5 = Group(
         id=5,
-        title="Test Group 2",
+        title="Test Group for Weavers",
+        craft_types="weaving",
         owner_id=1,
     )
     group5_member1 = Group_Membership(
@@ -83,7 +85,8 @@ def seed_groups():
 
     group6 = Group(
         id=6,
-        title="Test Group 3",
+        title="Test Group for Knitters",
+        craft_types="knitting",
         owner_id=1,
     )
     group6_member1 = Group_Membership(
@@ -93,7 +96,8 @@ def seed_groups():
 
     group7 = Group(
         id=7,
-        title="Test Group 4",
+        title="Test Group for Crocheters",
+        craft_types="crocheting",
         owner_id=1,
     )
     group7_member1 = Group_Membership(
@@ -103,7 +107,8 @@ def seed_groups():
 
     group8 = Group(
         id=8,
-        title="Test Group 5",
+        title="Test Group for Sewists",
+        craft_types="sewing",
         owner_id=1,
     )
     group8_member1 = Group_Membership(
