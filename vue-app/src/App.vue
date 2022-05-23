@@ -3,7 +3,7 @@
         <nav>
             <div class="nav-section">
                 <router-link to="/" id="home-link">knotelry</router-link>
-                <router-link to="/groups">groups</router-link>
+                <router-link to="/groups" class="nav-link">groups</router-link>
                 <!-- <router-link to="/patterns">patterns</router-link>
                 <router-link to="/yarns">yarns</router-link>
                 <router-link to="/community">community</router-link>
@@ -96,8 +96,8 @@ nav {
     background-color: var(--color-nav);
     display: flex;
     justify-content: space-between;
-    padding-top: 6px;
-    padding-bottom: 8px;
+    padding-top: 4px;
+    padding-bottom: 6px;
     padding-left: 24px;
     padding-right: 24px;
     margin: 0;
@@ -109,6 +109,7 @@ nav a {
     color: var(--color-shadow);
     z-index: 10;
 }
+
 
 nav p {
     z-index: 10;
@@ -123,8 +124,12 @@ nav p {
 #home-link {
     color: var(--color-primary-contrast);
     font-family: "Pacifico", serif;
-    font-size: 32px;
-    margin-right: 12px;
+    font-size: 26px;
+    margin-right: 32px;
+}
+
+.nav-link:hover {
+    font-weight: bold;
 }
 
 #signout-button:hover {
